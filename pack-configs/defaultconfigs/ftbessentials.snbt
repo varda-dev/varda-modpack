@@ -1,0 +1,50 @@
+{
+	misc: {
+		anvil: {
+			enabled: false
+		}
+		crafting: {
+			enabled: false
+		}
+		enderchest: {
+			enabled: false
+		}
+		smithing: {
+			enabled: false
+		}
+		stonecutter: {
+			enabled: false
+		}
+		trashcan: {
+			enabled: true
+		}
+	}
+	teleportation: {
+		back: {
+			cooldown: 300
+			enabled: true
+			only_on_death: true
+			warmup: 5
+		}		
+		home: {
+			enabled: true
+			max: 1
+			warmup: 5
+		}
+		rtp: {
+			dimension_blacklist: ["minecraft:the_end"]
+			enabled: true
+			warmup: 5
+		}
+		spawn: {
+			cooldown: 10
+			enabled: true
+			warmup: 5
+		}
+		tpa: {
+			cooldown: 10
+			enabled: true
+			warmup: 5
+		}
+	}
+}

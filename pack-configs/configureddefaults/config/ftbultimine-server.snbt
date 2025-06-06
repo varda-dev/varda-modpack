@@ -1,0 +1,10 @@
+{
+	costs_limits: {
+		exhaustion_per_block: 15.0d
+		require_tool: true
+		ultimine_cooldown: 0L
+	}
+	misc: {
+		cancel_on_block_break_fail: false
+	}
+}

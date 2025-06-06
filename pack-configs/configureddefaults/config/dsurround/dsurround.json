@@ -1,0 +1,12 @@
+{
+  "entityEffects": {
+    "enableBreathEffect": true,
+  },
+  "compassAndClockOptions": {
+    "enableClock": false,
+    "enableCompass": false,
+  },
+  "fogOptions": {
+    "enableBiomeFog": false,
+  },
+}
