@@ -3,3 +3,4 @@
 		24h_format = false
 [general]
 	no_amendments_screen = true
+	config_button = false
