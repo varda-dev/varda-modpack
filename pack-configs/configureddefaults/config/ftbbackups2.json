@@ -1,0 +1,10 @@
+{
+	"enabled": true,
+	"max_backups": 10,
+	"backup_cron": "0 */30 * * * ?",
+	"only_if_players_been_online": false,
+	"display_file_size": true,
+	"backup_location": ".",
+	"minimum_free_space": 500,
+	"free_space_if_needed": true,
+}

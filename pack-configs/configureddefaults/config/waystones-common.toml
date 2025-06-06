@@ -1,0 +1,13 @@
+[inventoryButton]
+	inventoryButton = "NONE"
+	
+[teleports]
+	enableCosts = false
+	transportPets = "SAME_DIMENSION"
+	transportLeashed = "SAME_DIMENSION"
+
+[compatibility]
+	journeyMap = false
+	preferJourneyMapIntegrationMod = false
+	blueMap = false
+	dynmap = false

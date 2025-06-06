@@ -1,0 +1,24 @@
+{
+	disable_protection: true
+	location_mode_override: true
+	pvp_mode: "per_team"
+
+	claiming: {
+		hard_team_claim_limit: 1000
+	}
+	fake_players: {
+		fake_players: "allow"
+		max_prevented_log_age: 1
+	}
+	force_loading: {
+		force_load_mode: "always"
+		hard_team_force_limit: 500
+		max_force_loaded_chunks: 100
+	}
+	team_prop_defaults: {
+		def_allow_explosions: true
+		def_fake_players: true
+		def_mob_griefing: true
+		def_pvp: false
+	}
+}

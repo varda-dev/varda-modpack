@@ -1,0 +1,18 @@
+{
+	appearance: {
+		biome_blend: "blend_3x3"
+	}
+	minimap: {
+		info_hidden: [
+			#"ftbchunks:fps"
+			#"ftbchunks:game_time"
+			"ftbchunks:real_time"
+			"ftbchunks:debug"
+		]
+		square: true
+		waypoints: true
+	}
+	waypoints: {
+		death_waypoint_autoremove_distance: 1
+	}
+}
