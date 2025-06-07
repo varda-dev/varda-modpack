@@ -5,7 +5,7 @@
 - http://127.0.0.1:61423/ will show a mod list. 
 ### Scripts
 - Run `set_pack_dir.bat` to configure your modpack directory. It'll create a file that other scripts reference. Or just create `PACK_DIR.txt` in the root of this project with the full path to your modpack directory - e.g. `C:\Users\varda-dev\curseforge\minecraft\Instances\Varda`.
-- run `reset_sync.bat` to clean-up the modpack folder and copy over this repo's changes.
+- Run `reset_sync.bat` to clean-up the modpack folder and copy over this repo's changes. Use `reset_sync.bat -h` for help. 
 ### Exporting to Curseforge
 - Share Profile -> Export as .zip -> 
   - Select everything in configureddefaults/config
