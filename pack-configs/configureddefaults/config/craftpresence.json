@@ -1,0 +1,18 @@
+{
+  "generalSettings": {
+    "detectATLauncherInstance": false,
+    "detectCurseManifest": true,
+    "detectMultiMCManifest": false,
+    "detectMCUpdaterInstance": false,
+    "detectTechnicPack": false,
+    "detectModrinthPack": false,
+    "enableJoinRequests": true,
+    "autoRegister": true
+  },
+  "serverSettings": {
+    "fallbackServerName": "Varda Modpack Server",
+  },
+  "accessibilitySettings": {
+    "configKeyCode": -1
+  },
+}

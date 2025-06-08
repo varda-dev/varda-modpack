@@ -10,6 +10,7 @@
 			"ftbchunks:debug"
 		]
 		square: true
+		reticle: false
 		waypoints: true
 	}
 	waypoints: {
