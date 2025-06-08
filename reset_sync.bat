@@ -62,9 +62,9 @@ echo ======================================
 echo.
 
 REM --- FOLDERS TO DELETE ---
-if "%FULL_WIPE%"=="1" (
+if %FULL_WIPE% EQU 1 (
     echo Performing FULL wipe...
-    set "FOLDERS=.mixin.out .mtsession backups config configureddefaults crash-reports defaultconfigs downloads ESM kubejs local logs patchouli_books profileimage resourcepacks saves"
+    set "FOLDERS=.mixin.out .mtsession backups config configureddefaults crash-reports datapacks defaultconfigs downloads ESM kubejs local logs patchouli_books profileimage resourcepacks saves screenshots shaderpacks"
     set "FILES=command_history.txt options.txt patchouli_data.json usercache.json usernamecache.json"
 ) else (
     echo Performing MINIMAL wipe...
