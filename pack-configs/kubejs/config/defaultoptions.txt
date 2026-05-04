@@ -12,6 +12,7 @@ bobView:false
 darkMojangStudiosBackground:true
 hideSplashTexts:true
 mouseSensitivity:0.5
+onboardAccessibility:false
 narratorHotkey:false
 hideServerAddress:false
 skipMultiplayerWarning:true
@@ -119,6 +120,10 @@ key_key.jade.narrate:key.keyboard.unknown
 key_key.jade.show_details:key.keyboard.unknown
 key_keybind.reliquary.fortune_coin:key.keyboard.unknown
 key_key.craftpresence.config_keycode.name:key.keyboard.unknown
+key_iris.keybind.reload:key.keyboard.unknown
+key_iris.keybind.toggleShaders:key.keyboard.unknown
+key_iris.keybind.shaderPackSelection:key.keyboard.unknown
+key_iris.keybind.wireframe:key.keyboard.unknown
 soundCategory_master:0.5
 soundCategory_music:0.5
 soundCategory_record:1.0

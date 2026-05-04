@@ -1,0 +1,4 @@
+# Shell scripts must stay LF-only for Linux servers.
+*.sh text eol=lf
+*.bash text eol=lf
+*.zsh text eol=lf

@@ -3,8 +3,7 @@
 
 ServerEvents.recipes(event => {
 	const disabledRecipes = [
-		'gag:no_solicitors',
-		'gag:time_sand_pouch'
+		'gag:no_solicitors'
 	]
 	disabledRecipes.forEach(id => event.remove({ output: id }))
 })
