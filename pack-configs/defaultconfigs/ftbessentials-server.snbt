@@ -1,0 +1,154 @@
+{
+	register_alias_as_well_as_namespace: false
+	register_to_namespace: false
+
+	admin: {
+		extinguish: {
+			enabled: true
+		}
+		feed: {
+			enabled: true
+		}
+		fly: {
+			enabled: true
+		}
+		god: {
+			enabled: true
+		}
+		heal: {
+			enabled: true
+		}
+		invsee: {
+			enabled: true
+		}
+		kit: {
+			enabled: true
+		}
+		mute: {
+			enabled: true
+		}
+		speed: {
+			enabled: true
+		}
+		tp_offline: {
+			enabled: true
+		}
+	}
+
+	integration: {
+		team_bases_spawn_override: false
+	}
+
+	misc: {
+		anvil: {
+			enabled: false
+		}
+		crafting: {
+			enabled: false
+		}
+		enderchest: {
+			enabled: false
+		}
+		hat: {
+			enabled: false
+		}
+		kickme: {
+			enabled: false
+		}
+		leaderboard: {
+			enabled: false
+		}
+		near: {
+			enabled: false
+		}
+		nick: {
+			enabled: false
+		}
+		rec: {
+			enabled: false
+		}
+		smithing: {
+			enabled: false
+		}
+		stonecutter: {
+			enabled: false
+		}
+		trashcan: {
+			enabled: false
+		}
+	}
+
+	teleportation: {
+		admins_exempt_dimension_blacklists: true
+
+		back: {
+			cooldown: 300
+			enabled: false
+			max: 10
+			only_on_death: true
+			warmup: 5
+		}
+
+		blacklists: {
+			from: [ ]
+			to: [ ]
+		}
+
+		home: {
+			cooldown: 10
+			enabled: false
+			home_min_y: -2147483648
+			max: 1
+			warmup: 5
+		}
+
+		jump: {
+			enabled: true
+		}
+
+		playerspawn: {
+			cooldown: 10
+			enabled: false
+			warmup: 5
+		}
+
+		rtp: {
+			allow_custom_max_distance: false
+			allow_custom_min_max_distance: false
+			cooldown: 600
+			dimension_blacklist: ["minecraft:the_end"]
+			dimension_whitelist: [ ]
+			enabled: false
+			max_distance: 25000
+			max_tries: 100
+			min_distance: 500
+			warmup: 5
+		}
+
+		spawn: {
+			cooldown: 10
+			enabled: false
+			warmup: 5
+		}
+
+		tpa: {
+			cooldown: 10
+			enabled: false
+			warmup: 5
+		}
+
+		tpl: {
+			enabled: true
+		}
+
+		tpx: {
+			enabled: true
+		}
+
+		warp: {
+			cooldown: 10
+			enabled: false
+			warmup: 5
+		}
+	}
+}

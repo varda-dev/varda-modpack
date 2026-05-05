@@ -1,10 +1,12 @@
 {
 	costs_limits: {
 		exhaustion_per_block: 15.0d
+		max_blocks: 64
 		require_tool: true
+		require_valid_tool_for_block: true
 		ultimine_cooldown: 0L
 	}
 	misc: {
-		cancel_on_block_break_fail: false
+		cancel_on_block_break_fail: true
 	}
 }

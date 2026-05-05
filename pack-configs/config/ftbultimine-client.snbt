@@ -1,0 +1,5 @@
+{
+	rendering: {
+		render_outline: 64
+	}
+}
