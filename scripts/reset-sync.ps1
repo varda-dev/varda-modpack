@@ -15,7 +15,7 @@ $ErrorActionPreference = 'Stop'
 $RepoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $PackDirFile = Join-Path $RepoRoot 'PACK_DIR.txt'
 $PackConfigsDir = Join-Path $RepoRoot 'pack-configs'
-$ExcludePatternsFile = Join-Path $RepoRoot 'exclude_patterns.txt'
+$ExcludePatterns = @('*.disabled')
 
 function Test-ExcludedPath {
     param(
@@ -90,10 +90,10 @@ if (-not (Test-Path -LiteralPath $PackDir -PathType Container)) {
     throw "PACK_DIR does not exist: $PackDir"
 }
 
-$ExcludePatterns = @()
-if (Test-Path -LiteralPath $ExcludePatternsFile) {
-    $ExcludePatterns = Get-Content -LiteralPath $ExcludePatternsFile |
-        Where-Object { -not [string]::IsNullOrWhiteSpace($_) }
+$Separators = @([System.IO.Path]::DirectorySeparatorChar, [System.IO.Path]::AltDirectorySeparatorChar)
+$PackRoot = [System.IO.Path]::GetPathRoot($PackDir)
+if ([string]::Equals($PackDir.TrimEnd($Separators), $PackRoot.TrimEnd($Separators), [System.StringComparison]::OrdinalIgnoreCase)) {
+    throw "Refusing to use filesystem root as PACK_DIR: $PackDir"
 }
 
 Write-Host '======================================'
@@ -110,7 +110,6 @@ if ($FullWipe) {
         '.mtsession',
         'backups',
         'config',
-        'configureddefaults',
         'crash-reports',
         'defaultconfigs',
         'downloads',
@@ -122,13 +121,14 @@ if ($FullWipe) {
         'logs',
         'moonlight-global-datapacks',
         'patchouli_books',
+        'profileImage',
         'saves',
         'screenshots'
     )
     $Files = @('command_history.txt', 'options.txt', 'optionsshaders.txt', 'patchouli_data.json', 'usercache.json', 'usernamecache.json')
 } else {
     Write-Host 'Performing MINIMAL wipe...'
-    $Folders = @('config', 'configureddefaults', 'defaultconfigs', 'kubejs')
+    $Folders = @('config', 'defaultconfigs', 'kubejs')
     $Files = @('options.txt', 'optionsshaders.txt')
 }
 
@@ -147,7 +147,7 @@ foreach ($File in $Files) {
 Write-Host ''
 Write-Host 'Copying configs and assets to instance folder...'
 
-foreach ($Folder in @('configureddefaults', 'defaultconfigs', 'kubejs', 'profileImage')) {
+foreach ($Folder in @('config', 'defaultconfigs', 'kubejs', 'profileImage')) {
     $Source = Join-Path $PackConfigsDir $Folder
     $Destination = Join-Path $PackDir $Folder
 

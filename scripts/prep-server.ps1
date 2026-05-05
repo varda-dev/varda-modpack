@@ -11,6 +11,7 @@ $ErrorActionPreference = 'Stop'
 
 $RepoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $PackDirFile = Join-Path $RepoRoot 'PACK_DIR.txt'
+$PackConfigsDir = Join-Path $RepoRoot 'pack-configs'
 
 if ([string]::IsNullOrWhiteSpace($PackDir)) {
     if (-not (Test-Path -LiteralPath $PackDirFile)) {
@@ -42,7 +43,9 @@ New-Item -ItemType Directory -Path $ServerDir -Force | Out-Null
 
 Copy-Item -LiteralPath (Join-Path $PackDir 'mods') -Destination (Join-Path $ServerDir 'mods') -Recurse -Force
 Copy-Item -LiteralPath $MinecraftInstanceJson -Destination $ServerDir -Force
-Copy-Item -LiteralPath (Join-Path $RepoRoot 'pack-configs') -Destination (Join-Path $ServerDir 'config') -Recurse -Force
+Copy-Item -LiteralPath (Join-Path $PackConfigsDir 'config') -Destination (Join-Path $ServerDir 'config') -Recurse -Force
+Copy-Item -LiteralPath (Join-Path $PackConfigsDir 'defaultconfigs') -Destination (Join-Path $ServerDir 'defaultconfigs') -Recurse -Force
+Copy-Item -LiteralPath (Join-Path $PackConfigsDir 'kubejs') -Destination (Join-Path $ServerDir 'kubejs') -Recurse -Force
 
 $ClientOnlyPatterns = @(
     'appleskin-neoforge-mc1.21-*.jar',
@@ -80,7 +83,11 @@ $ClientOnlyPatterns = @(
 
 $ServerModsDir = Join-Path $ServerDir 'mods'
 foreach ($Pattern in $ClientOnlyPatterns) {
-    Remove-Item -Path (Join-Path $ServerModsDir $Pattern) -Force -ErrorAction SilentlyContinue
+    Get-ChildItem -Path (Join-Path $ServerModsDir $Pattern) -File -ErrorAction SilentlyContinue |
+        ForEach-Object {
+            Write-Host "Removing client-only mod $($_.Name) ..."
+            Remove-Item -LiteralPath $_.FullName -Force
+        }
 }
 
 $Instance = Get-Content -LiteralPath $MinecraftInstanceJson -Raw | ConvertFrom-Json
