@@ -1,13 +1,19 @@
 {
   "files.associations": {
-    "*.bash": "shellscript",
     "*.sh": "shellscript",
-    "*.zsh": "shellscript"
+    "*.ps1": "powershell"
   },
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
   "[shellscript]": {
+    "files.eol": "\n"
+  },
+  "[markdown]": {
     "files.eol": "\n",
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true
+    "files.trimTrailingWhitespace": false
+  },
+  "[powershell]": {
+    "files.eol": "\r\n"
   }
 }

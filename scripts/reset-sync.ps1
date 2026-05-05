@@ -112,7 +112,6 @@ if ($FullWipe) {
         'config',
         'configureddefaults',
         'crash-reports',
-        'datapacks',
         'defaultconfigs',
         'downloads',
         'dynamic-data-pack-cache',
