@@ -2,7 +2,21 @@
 //requires: waystones
 
 ServerEvents.recipes(event => {
-  event.remove({ output: /^waystones:.*/ })
-  event.remove({ mod: 'waystones' })
-})
+  const disabledRecipeFilters = [
+    {
+      label: 'output /^waystones:.*/',
+      filter: { output: /^waystones:.*/ }
+    },
+    {
+      label: 'mod waystones',
+      filter: { mod: 'waystones' }
+    }
+  ]
 
+  console.info(`[KubeJS] Removing ${disabledRecipeFilters.length} Waystones recipes`)
+
+  disabledRecipeFilters.forEach(entry => {
+    console.info(`[KubeJS] Removing recipe filter: ${entry.label}`)
+    event.remove(entry.filter)
+  })
+})
