@@ -188,12 +188,12 @@ printf '\n'
 
 if [ "$full_wipe" -eq 1 ]; then
     printf '%s\n' 'Performing FULL wipe...'
-    folders='.mixin.out .mtsession backups config configureddefaults crash-reports defaultconfigs downloads dynamic-data-pack-cache dynamic-resource-pack-cache ESM kubejs local logs moonlight-global-datapacks patchouli_books profileimage profileImage saves screenshots'
-    files='command_history.txt options.txt patchouli_data.json usercache.json usernamecache.json'
+    folders='.mixin.out .mtsession backups config configureddefaults crash-reports defaultconfigs downloads dynamic-data-pack-cache dynamic-resource-pack-cache ESM kubejs local logs moonlight-global-datapacks patchouli_books profileImage saves screenshots'
+    files='command_history.txt options.txt optionsshaders.txt patchouli_data.json usercache.json usernamecache.json'
 else
     printf '%s\n' 'Performing MINIMAL wipe...'
     folders='config configureddefaults defaultconfigs kubejs'
-    files='options.txt'
+    files='options.txt optionsshaders.txt'
 fi
 
 for folder in $folders; do
@@ -220,6 +220,31 @@ for folder in configureddefaults defaultconfigs kubejs profileImage; do
 
     printf 'Copying folder %s ...\n' "$folder"
     copy_directory_filtered "$source" "$destination"
+done
+
+for folder in shaderpacks; do
+    source=$pack_configs_dir/$folder
+    destination=$pack_dir/$folder
+
+    if [ ! -d "$source" ]; then
+        continue
+    fi
+
+    printf 'Copying folder %s ...\n' "$folder"
+    copy_directory_filtered "$source" "$destination"
+done
+
+for file in optionsshaders.txt; do
+    source=$pack_configs_dir/$file
+    destination=$pack_dir/$file
+
+    if [ ! -f "$source" ]; then
+        printf 'Warning: Skipping missing source file: %s\n' "$source" >&2
+        continue
+    fi
+
+    printf 'Copying file %s ...\n' "$file"
+    cp -f "$source" "$destination"
 done
 
 printf '\n'

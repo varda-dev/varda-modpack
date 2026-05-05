@@ -122,15 +122,14 @@ if ($FullWipe) {
         'logs',
         'moonlight-global-datapacks',
         'patchouli_books',
-        'profileimage',
         'saves',
         'screenshots'
     )
-    $Files = @('command_history.txt', 'options.txt', 'patchouli_data.json', 'usercache.json', 'usernamecache.json')
+    $Files = @('command_history.txt', 'options.txt', 'optionsshaders.txt', 'patchouli_data.json', 'usercache.json', 'usernamecache.json')
 } else {
     Write-Host 'Performing MINIMAL wipe...'
     $Folders = @('config', 'configureddefaults', 'defaultconfigs', 'kubejs')
-    $Files = @('options.txt')
+    $Files = @('options.txt', 'optionsshaders.txt')
 }
 
 foreach ($Folder in $Folders) {
@@ -159,6 +158,31 @@ foreach ($Folder in @('configureddefaults', 'defaultconfigs', 'kubejs', 'profile
 
     Write-Host "Copying folder $Folder ..."
     Copy-DirectoryFiltered -Source $Source -Destination $Destination -ExcludePatterns $ExcludePatterns
+}
+
+foreach ($Folder in @('shaderpacks')) {
+    $Source = Join-Path $PackConfigsDir $Folder
+    $Destination = Join-Path $PackDir $Folder
+
+    if (-not (Test-Path -LiteralPath $Source -PathType Container)) {
+        continue
+    }
+
+    Write-Host "Copying folder $Folder ..."
+    Copy-DirectoryFiltered -Source $Source -Destination $Destination -ExcludePatterns $ExcludePatterns
+}
+
+foreach ($File in @('optionsshaders.txt')) {
+    $Source = Join-Path $PackConfigsDir $File
+    $Destination = Join-Path $PackDir $File
+
+    if (-not (Test-Path -LiteralPath $Source -PathType Leaf)) {
+        Write-Warning "Skipping missing source file: $Source"
+        continue
+    }
+
+    Write-Host "Copying file $File ..."
+    Copy-Item -LiteralPath $Source -Destination $Destination -Force
 }
 
 Write-Host ''

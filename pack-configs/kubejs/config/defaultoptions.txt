@@ -1,10 +1,13 @@
 version:3955
 graphicsMode:0
+guiScale:4
 narrator:0
 particles:0
 renderClouds:"fast"
 renderDistance:10
 simulationDistance:10
+enableVsync:false
+maxFps:260
 autoJump:false
 realmsNotifications:false
 showSubtitles:false
