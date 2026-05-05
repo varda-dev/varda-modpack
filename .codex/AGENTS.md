@@ -14,24 +14,28 @@ These notes apply to the whole repository. Varda is a Minecraft modpack centered
 ## Repository Layout
 
 - `pack-configs/` contains the files copied into a local CurseForge instance.
-- `pack-configs/kubejs/` is the main place for recipe edits, disabled recipes, and future quest-related KubeJS logic.
-- `pack-configs/configureddefaults/` and `pack-configs/defaultconfigs/` contain shipped config defaults.
+- `pack-configs/config/` is the main Minecraft `config` directory.
+- `pack-configs/defaultconfigs/` is copied into the instance `defaultconfigs` directory. Keep only files that truly need default config loading there.
+- `pack-configs/kubejs/` is the main place for recipe edits, disabled recipes, hidden recipe-viewer entries, and future quest-related KubeJS logic.
 - `pack-configs/profileImage/` contains pack branding assets.
+- `pack-configs/shaderpacks/` and `pack-configs/optionsshaders.txt` are synced when present.
+- `configureddefaults` is not used.
 - `docs/MODS.md` tracks important mod dependency notes.
-- `server-scripts/` contains Linux server setup scripts.
-- `scripts/` contains PowerShell helper scripts for local Windows development.
+- `scripts/` contains PowerShell and shell helper scripts for local development.
 - `PACK_DIR.txt`, `varda-server/`, and `varda-server.zip` are local/generated and intentionally ignored.
 
 ## Local Workflow
 
 1. Run `.\scripts\set-pack-dir.ps1` once, or create `PACK_DIR.txt` manually with the full path to the local CurseForge instance.
-2. Use `.\scripts\reset-sync.ps1` to wipe and copy this repo's configs into the instance.
-3. Use `.\scripts\reset-sync.ps1 -NoPause` when automation needs a non-interactive sync.
-4. Use `.\scripts\reset-sync.ps1 -FullWipe` only when a full local instance wipe is intended.
-5. Use `.\scripts\prep-server.ps1` to build `varda-server.zip` from the local CurseForge project.
+2. Linux/macOS equivalent: `./scripts/set-pack-dir.sh`.
+3. Use `.\scripts\reset-sync.ps1` to wipe and copy this repo's configs into the instance.
+4. Linux/macOS equivalent: `./scripts/reset-sync.sh`.
+5. Use `.\scripts\reset-sync.ps1 -NoPause` when automation needs a non-interactive sync.
+6. Use `.\scripts\reset-sync.ps1 -FullWipe` only when a full local instance wipe is intended.
 
-Be careful with sync/package scripts. They delete files in the configured instance directory and produce generated output in the repo root. Do not run full wipes or server packaging unless that is part of the task.
+Be careful with sync scripts. They delete files in the configured instance directory. Do not run full wipes unless that is part of the task.
 `reset-sync.ps1 -FullWipe` should not delete `resourcepacks` or `shaderpacks`; CurseForge may not restore those automatically. It may delete generated cache folders such as `dynamic-data-pack-cache`, `dynamic-resource-pack-cache`, and `moonlight-global-datapacks`.
+Reset sync copies `pack-configs/config`, `pack-configs/defaultconfigs`, `pack-configs/kubejs`, `pack-configs/profileImage`, `pack-configs/shaderpacks`, and `pack-configs/optionsshaders.txt` when present. Files matching the hardcoded `*.disabled` exclude pattern are skipped during directory syncs.
 
 ## Mod And Config Policy
 
@@ -41,6 +45,8 @@ Be careful with sync/package scripts. They delete files in the configured instan
 - Use `//requires: modid` on mod-specific KubeJS files so missing optional mods do not break script loading.
 - Keep disabled recipe lists explicit and grouped by mod.
 - Do not hide unrelated gameplay behind broad recipe removals. Disable the exact item, block, or upgrade that violates the pack direction.
+- When hiding recipe-viewer entries, mirror the existing `pack-configs/kubejs/client_scripts/hide/` logging style: log the summary count and each removed entry.
+- When disabling server recipes, mirror the existing `pack-configs/kubejs/server_scripts/disable/` logging style unless the script is marked `//ignored: true`.
 - When adding mods, check client/server side requirements and update `docs/MODS.md` when dependency relationships matter.
 - Watch for configs or scripts that still refer to older Forge/1.20.1 assumptions. The public pack is now 1.21.1 NeoForge, but some server scripts may lag behind.
 
@@ -64,13 +70,13 @@ There is no conventional unit test suite for this repo. Verify changes with the 
 - Launch the CurseForge instance and create/load a test world after recipe/config changes.
 - Check `latest.log` for KubeJS script errors.
 - Use JEI to confirm disabled RF/FE recipes are gone and intended magical alternatives still exist.
-- For server package changes, verify `.\scripts\prep-server.ps1` output and inspect the generated zip contents before deploying.
 
 ## Editing Guidelines
 
 - Keep changes small and directly tied to the requested pack behavior.
 - Preserve user-generated configs, local instance files, and ignored generated outputs.
 - Do not commit or depend on `PACK_DIR.txt`, `varda-server/`, `varda-server.zip`, crash reports, logs, saves, or downloaded mod jars unless the repo intentionally changes policy.
+- If temporary verification files are needed, create them under the ignored repo-local `.codex-tmp/` scratch directory and clean up task-specific contents when they are no longer useful.
 - Keep shell scripts (`*.sh`, `*.bash`, `*.zsh`) LF-only with a final newline. `.gitattributes`, `.editorconfig`, and `.vscode/settings.json` enforce this for Git and editors.
 - Prefer ASCII in text files unless editing existing non-ASCII content.
 - When uncertain about current mod versions, CurseForge metadata, NeoForge behavior, or KubeJS syntax for the active Minecraft version, verify against current primary sources before changing configs.

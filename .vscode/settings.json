@@ -1,6 +1,11 @@
 {
   "files.associations": {
+    "*.ini": "ini",
+    "*.json5": "jsonc",
+    "*.properties": "properties",
     "*.sh": "shellscript",
+    "*.snbt": "snbt",
+    "*.toml": "toml",
     "*.ps1": "powershell"
   },
   "files.insertFinalNewline": true,
@@ -12,6 +17,27 @@
   "[markdown]": {
     "files.eol": "\n",
     "files.trimTrailingWhitespace": false
+  },
+  "[ini]": {
+    "files.eol": "\n"
+  },
+  "[javascript]": {
+    "files.eol": "\n"
+  },
+  "[json]": {
+    "files.eol": "\n"
+  },
+  "[jsonc]": {
+    "files.eol": "\n"
+  },
+  "[properties]": {
+    "files.eol": "\n"
+  },
+  "[snbt]": {
+    "files.eol": "\n"
+  },
+  "[toml]": {
+    "files.eol": "\n"
   },
   "[powershell]": {
     "files.eol": "\r\n"

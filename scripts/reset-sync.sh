@@ -30,17 +30,11 @@ resolve_directory() {
 is_excluded_name() {
     name=$1
 
-    [ -f "$exclude_patterns_file" ] || return 1
-
-    while IFS= read -r pattern || [ -n "$pattern" ]; do
-        if is_blank "$pattern"; then
-            continue
-        fi
-
+    for pattern in $exclude_patterns; do
         case $name in
             $pattern) return 0 ;;
         esac
-    done < "$exclude_patterns_file"
+    done
 
     return 1
 }
@@ -85,7 +79,7 @@ script_dir=$(CDPATH= cd "$(dirname "$script_path")" && pwd -P)
 repo_root=$(CDPATH= cd "$script_dir/.." && pwd -P)
 pack_dir_file=$repo_root/PACK_DIR.txt
 pack_configs_dir=$repo_root/pack-configs
-exclude_patterns_file=$repo_root/exclude_patterns.txt
+exclude_patterns='*.disabled'
 
 target_directory=
 full_wipe=0
@@ -188,11 +182,11 @@ printf '\n'
 
 if [ "$full_wipe" -eq 1 ]; then
     printf '%s\n' 'Performing FULL wipe...'
-    folders='.mixin.out .mtsession backups config configureddefaults crash-reports defaultconfigs downloads dynamic-data-pack-cache dynamic-resource-pack-cache ESM kubejs local logs moonlight-global-datapacks patchouli_books profileImage saves screenshots'
+    folders='.mixin.out .mtsession backups config crash-reports defaultconfigs downloads dynamic-data-pack-cache dynamic-resource-pack-cache ESM kubejs local logs moonlight-global-datapacks patchouli_books profileImage saves screenshots'
     files='command_history.txt options.txt optionsshaders.txt patchouli_data.json usercache.json usernamecache.json'
 else
     printf '%s\n' 'Performing MINIMAL wipe...'
-    folders='config configureddefaults defaultconfigs kubejs'
+    folders='config defaultconfigs kubejs'
     files='options.txt optionsshaders.txt'
 fi
 
@@ -209,7 +203,7 @@ done
 printf '\n'
 printf '%s\n' 'Copying configs and assets to instance folder...'
 
-for folder in configureddefaults defaultconfigs kubejs profileImage; do
+for folder in config defaultconfigs kubejs profileImage; do
     source=$pack_configs_dir/$folder
     destination=$pack_dir/$folder
 
