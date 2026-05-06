@@ -10,6 +10,7 @@
 - Run `.\scripts\reset-sync.ps1` to clean up the modpack folder and copy over this repo's changes.
   - Linux/macOS equivalent: `./scripts/reset-sync.sh`.
   - Use `-TargetDirectory` / `-t` to override `PACK_DIR.txt`.
+  - Use `-Inline` / `-i` / `--inline` to copy only `pack-configs/kubejs` into the instance without wiping folders, useful before in-game `/kubejs reload`.
   - Use `-FullWipe` / `-f` to delete additional generated instance folders like logs, saves, backups, screenshots, and caches.
   - The sync copies `pack-configs/config`, `pack-configs/defaultconfigs`, `pack-configs/kubejs`, `pack-configs/profileImage`, `pack-configs/shaderpacks`, and `pack-configs/optionsshaders.txt` into the CurseForge instance.
   - Files matching `*.disabled` are skipped during directory syncs.

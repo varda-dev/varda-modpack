@@ -4,7 +4,10 @@ param(
     [string]$TargetDirectory,
 
     [Alias('f')]
-    [switch]$FullWipe
+    [switch]$FullWipe,
+
+    [Alias('i')]
+    [switch]$Inline
 )
 
 Set-StrictMode -Version Latest
@@ -82,6 +85,10 @@ if ([string]::IsNullOrWhiteSpace($TargetDirectory)) {
     throw 'PACK_DIR cannot be empty.'
 }
 
+if ($Inline -and $FullWipe) {
+    throw '-Inline cannot be combined with -FullWipe.'
+}
+
 $PackDir = [System.IO.Path]::GetFullPath($TargetDirectory)
 
 if (-not (Test-Path -LiteralPath $PackDir -PathType Container)) {
@@ -99,7 +106,24 @@ Write-Host 'Reset Modpack and Sync Project'
 Write-Host '======================================'
 Write-Host "PACK_DIR: $PackDir"
 Write-Host "FULL_WIPE: $($FullWipe.IsPresent)"
+Write-Host "INLINE: $($Inline.IsPresent)"
 Write-Host ''
+
+if ($Inline) {
+    $Source = Join-Path $PackConfigsDir 'kubejs'
+    $Destination = Join-Path $PackDir 'kubejs'
+
+    if (-not (Test-Path -LiteralPath $Source -PathType Container)) {
+        throw "Source folder not found: $Source"
+    }
+
+    Write-Host 'Performing INLINE sync...'
+    Write-Host 'Copying folder kubejs ...'
+    Copy-DirectoryFiltered -Source $Source -Destination $Destination -ExcludePatterns $ExcludePatterns
+    Write-Host ''
+    Write-Host 'Inline sync complete!'
+    exit 0
+}
 
 if ($FullWipe) {
     Write-Host 'Performing FULL wipe...'

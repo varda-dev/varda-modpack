@@ -3,13 +3,15 @@ set -eu
 
 usage() {
     cat <<'EOF'
-Usage: reset-sync.sh [-t TARGET_DIRECTORY] [-f]
+Usage: reset-sync.sh [-t TARGET_DIRECTORY] [-f] [-i]
 
 Options:
   -t, --target-directory DIR, -TargetDirectory DIR
       Modpack instance folder. If omitted, PACK_DIR.txt is used.
   -f, --full-wipe, -FullWipe
       Delete additional generated Minecraft instance folders and files.
+  -i, --inline
+      Copy only KubeJS files into the instance without wiping folders.
   -h, --help
       Show this help.
 EOF
@@ -83,6 +85,7 @@ exclude_patterns='*.disabled'
 
 target_directory=
 full_wipe=0
+inline=0
 
 while [ "$#" -gt 0 ]; do
     case $1 in
@@ -99,6 +102,9 @@ while [ "$#" -gt 0 ]; do
             ;;
         -f|--full-wipe|-FullWipe)
             full_wipe=1
+            ;;
+        -i|--inline)
+            inline=1
             ;;
         -h|--help)
             usage
@@ -153,6 +159,11 @@ if is_blank "$target_directory"; then
     exit 1
 fi
 
+if [ "$inline" -eq 1 ] && [ "$full_wipe" -eq 1 ]; then
+    printf '%s\n' '-i/--inline cannot be combined with -f/--full-wipe.' >&2
+    exit 1
+fi
+
 if [ ! -d "$target_directory" ]; then
     printf 'PACK_DIR does not exist: %s\n' "$target_directory" >&2
     exit 1
@@ -173,12 +184,36 @@ else
     full_wipe_label=False
 fi
 
+if [ "$inline" -eq 1 ]; then
+    inline_label=True
+else
+    inline_label=False
+fi
+
 printf '%s\n' '======================================'
 printf '%s\n' 'Reset Modpack and Sync Project'
 printf '%s\n' '======================================'
 printf 'PACK_DIR: %s\n' "$pack_dir"
 printf 'FULL_WIPE: %s\n' "$full_wipe_label"
+printf 'INLINE: %s\n' "$inline_label"
 printf '\n'
+
+if [ "$inline" -eq 1 ]; then
+    source=$pack_configs_dir/kubejs
+    destination=$pack_dir/kubejs
+
+    if [ ! -d "$source" ]; then
+        printf 'Source folder not found: %s\n' "$source" >&2
+        exit 1
+    fi
+
+    printf '%s\n' 'Performing INLINE sync...'
+    printf '%s\n' 'Copying folder kubejs ...'
+    copy_directory_filtered "$source" "$destination"
+    printf '\n'
+    printf '%s\n' 'Inline sync complete!'
+    exit 0
+fi
 
 if [ "$full_wipe" -eq 1 ]; then
     printf '%s\n' 'Performing FULL wipe...'
