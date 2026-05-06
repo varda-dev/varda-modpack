@@ -78,5 +78,6 @@ There is no conventional unit test suite for this repo. Verify changes with the 
 - Do not commit or depend on `PACK_DIR.txt`, `varda-server/`, `varda-server.zip`, crash reports, logs, saves, or downloaded mod jars unless the repo intentionally changes policy.
 - If temporary verification files are needed, create them under the ignored repo-local `.codex-tmp/` scratch directory and clean up task-specific contents when they are no longer useful.
 - Keep shell scripts (`*.sh`, `*.bash`, `*.zsh`) LF-only with a final newline. `.gitattributes`, `.editorconfig`, and `.vscode/settings.json` enforce this for Git and editors.
+- Keep PowerShell scripts (`*.ps1`) CRLF-only with a final newline. After editing a PowerShell script with automation, verify `git ls-files --eol -- scripts/*.ps1` reports `w/crlf`.
 - Prefer ASCII in text files unless editing existing non-ASCII content.
 - When uncertain about current mod versions, CurseForge metadata, NeoForge behavior, or KubeJS syntax for the active Minecraft version, verify against current primary sources before changing configs.

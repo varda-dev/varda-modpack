@@ -4,9 +4,7 @@ param(
     [string]$TargetDirectory,
 
     [Alias('f')]
-    [switch]$FullWipe,
-
-    [switch]$NoPause
+    [switch]$FullWipe
 )
 
 Set-StrictMode -Version Latest
@@ -116,6 +114,7 @@ if ($FullWipe) {
         'dynamic-data-pack-cache',
         'dynamic-resource-pack-cache',
         'ESM',
+        'ftbbackups3',
         'kubejs',
         'local',
         'logs',
@@ -125,11 +124,11 @@ if ($FullWipe) {
         'saves',
         'screenshots'
     )
-    $Files = @('command_history.txt', 'options.txt', 'optionsshaders.txt', 'patchouli_data.json', 'usercache.json', 'usernamecache.json')
+    $Files = @('command_history.txt', 'options.txt', 'patchouli_data.json', 'usercache.json', 'usernamecache.json')
 } else {
     Write-Host 'Performing MINIMAL wipe...'
     $Folders = @('config', 'defaultconfigs', 'kubejs')
-    $Files = @('options.txt', 'optionsshaders.txt')
+    $Files = @('options.txt')
 }
 
 foreach ($Folder in $Folders) {
@@ -142,6 +141,16 @@ foreach ($File in $Files) {
     $Path = Join-Path $PackDir $File
     Write-Host "Deleting file $File ..."
     Remove-Item -LiteralPath $Path -Force -ErrorAction SilentlyContinue
+}
+
+if ($FullWipe) {
+    $ShaderpacksPath = Join-Path $PackDir 'shaderpacks'
+
+    if (Test-Path -LiteralPath $ShaderpacksPath -PathType Container) {
+        Write-Host 'Deleting shaderpacks/*.txt files ...'
+        Get-ChildItem -LiteralPath $ShaderpacksPath -Filter '*.txt' -File -Force |
+            Remove-Item -Force -ErrorAction SilentlyContinue
+    }
 }
 
 Write-Host ''
@@ -172,22 +181,5 @@ foreach ($Folder in @('shaderpacks')) {
     Copy-DirectoryFiltered -Source $Source -Destination $Destination -ExcludePatterns $ExcludePatterns
 }
 
-foreach ($File in @('optionsshaders.txt')) {
-    $Source = Join-Path $PackConfigsDir $File
-    $Destination = Join-Path $PackDir $File
-
-    if (-not (Test-Path -LiteralPath $Source -PathType Leaf)) {
-        Write-Warning "Skipping missing source file: $Source"
-        continue
-    }
-
-    Write-Host "Copying file $File ..."
-    Copy-Item -LiteralPath $Source -Destination $Destination -Force
-}
-
 Write-Host ''
 Write-Host 'Modpack reset and synced!'
-
-if (-not $NoPause) {
-    Read-Host 'Press Enter to continue' | Out-Null
-}

@@ -1,0 +1,19 @@
+//requires: mcwdoors
+
+ServerEvents.recipes(event => {
+	const disabledRecipes = [
+    'mcwdoors:metal_door',
+    'mcwdoors:metal_warning_door',
+    'mcwdoors:metal_hospital_door',
+    'mcwdoors:metal_reinforced_door',
+    'mcwdoors:metal_windowed_door',
+    'mcwdoors:jail_door'
+  ]
+
+	console.info(`[KubeJS] Removing ${disabledRecipes.length} Macaw's Doors recipes`)
+
+  disabledRecipes.forEach(id => {
+    console.info(`[KubeJS] Removing recipe output: ${id}`)
+    event.remove({ output: id })
+  })
+})

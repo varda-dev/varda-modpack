@@ -1,4 +1,4 @@
-//priority: 0
+//ignored: true
 //requires: reliquary
 
 RecipeViewerEvents.removeEntriesCompletely('item', event => {
@@ -6,10 +6,10 @@ RecipeViewerEvents.removeEntriesCompletely('item', event => {
     /^reliquary:(handgun|.*_assembly|magazines\/.*|bullets\/.*)$/.test(id)
   )
 
-  console.info(`[KubeJS] Removing ${items.length} Reliquary entries from recipe viewer`)
+  console.info(`[KubeJS] Removing ${items.length} Reliquary recipe entries`)
 
   items.forEach(id => {
-    console.info(`[KubeJS] Removing recipe viewer entry: ${id}`)
+    console.info(`[KubeJS] Removing entry: ${id}`)
     event.remove(id)
   })
 })

@@ -1,9 +1,7 @@
 [CmdletBinding()]
 param(
     [Alias('t')]
-    [string]$PackDir,
-
-    [switch]$NoPause
+    [string]$PackDir
 )
 
 Set-StrictMode -Version Latest
@@ -115,7 +113,3 @@ $ServerItems = Get-ChildItem -LiteralPath $ServerDir -Force
 Compress-Archive -Path $ServerItems.FullName -DestinationPath $ZipFile -Force
 
 Write-Host "Created $ZipFile"
-
-if (-not $NoPause) {
-    Read-Host 'Press Enter to continue' | Out-Null
-}

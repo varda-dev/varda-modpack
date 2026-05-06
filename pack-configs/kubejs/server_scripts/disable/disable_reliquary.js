@@ -1,4 +1,4 @@
-//priority: 0
+//ignored: true
 //requires: reliquary
 
 ServerEvents.recipes(event => {

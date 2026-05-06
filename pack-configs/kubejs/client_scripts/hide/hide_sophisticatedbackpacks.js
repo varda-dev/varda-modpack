@@ -1,4 +1,4 @@
-//priority: 0
+//ignored: true
 //requires: sophisticatedbackpacks
 
 RecipeViewerEvents.removeEntriesCompletely('item', event => {
@@ -8,10 +8,10 @@ RecipeViewerEvents.removeEntriesCompletely('item', event => {
     'sophisticatedbackpacks:survival_infinity_upgrade'
   ]
 
-  console.info(`[KubeJS] Removing ${items.length} Sophisticated Backpacks entries from recipe viewer`)
+  console.info(`[KubeJS] Removing ${items.length} Sophisticated Backpacks recipe entries`)
 
   items.forEach(id => {
-    console.info(`[KubeJS] Removing recipe viewer entry: ${id}`)
+    console.info(`[KubeJS] Removing entry: ${id}`)
     event.remove(id)
   })
 })

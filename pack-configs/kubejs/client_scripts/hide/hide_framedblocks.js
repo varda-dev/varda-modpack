@@ -1,4 +1,4 @@
-//priority: 0
+//ignored: true
 //requires: framedblocks
 
 RecipeViewerEvents.removeEntriesCompletely('item', event => {
@@ -6,10 +6,10 @@ RecipeViewerEvents.removeEntriesCompletely('item', event => {
     'framedblocks:powered_framing_saw'
   ]
 
-  console.info(`[KubeJS] Removing ${items.length} FramedBlocks entries from recipe viewer`)
+  console.info(`[KubeJS] Removing ${items.length} FramedBlocks recipe entries`)
 
   items.forEach(id => {
-    console.info(`[KubeJS] Removing recipe viewer entry: ${id}`)
+    console.info(`[KubeJS] Removing entry: ${id}`)
     event.remove(id)
   })
 })

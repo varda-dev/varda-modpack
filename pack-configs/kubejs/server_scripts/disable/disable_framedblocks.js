@@ -1,4 +1,4 @@
-//priority: 0
+//ignored: true
 //requires: framedblocks
 
 ServerEvents.recipes(event => {

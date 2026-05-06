@@ -1,4 +1,3 @@
-//priority: 0
 //requires: starbunclemania
 
 ServerEvents.recipes(event => {

@@ -182,12 +182,12 @@ printf '\n'
 
 if [ "$full_wipe" -eq 1 ]; then
     printf '%s\n' 'Performing FULL wipe...'
-    folders='.mixin.out .mtsession backups config crash-reports defaultconfigs downloads dynamic-data-pack-cache dynamic-resource-pack-cache ESM kubejs local logs moonlight-global-datapacks patchouli_books profileImage saves screenshots'
-    files='command_history.txt options.txt optionsshaders.txt patchouli_data.json usercache.json usernamecache.json'
+    folders='.mixin.out .mtsession backups config crash-reports defaultconfigs downloads dynamic-data-pack-cache dynamic-resource-pack-cache ESM ftbbackups3 kubejs local logs moonlight-global-datapacks patchouli_books profileImage saves screenshots'
+    files='command_history.txt options.txt patchouli_data.json usercache.json usernamecache.json'
 else
     printf '%s\n' 'Performing MINIMAL wipe...'
     folders='config defaultconfigs kubejs'
-    files='options.txt optionsshaders.txt'
+    files='options.txt'
 fi
 
 for folder in $folders; do
@@ -199,6 +199,11 @@ for file in $files; do
     printf 'Deleting file %s ...\n' "$file"
     rm -f "$pack_dir/$file"
 done
+
+if [ "$full_wipe" -eq 1 ] && [ -d "$pack_dir/shaderpacks" ]; then
+    printf '%s\n' 'Deleting shaderpacks/*.txt files ...'
+    find "$pack_dir/shaderpacks" -maxdepth 1 -type f -name '*.txt' -exec rm -f {} +
+fi
 
 printf '\n'
 printf '%s\n' 'Copying configs and assets to instance folder...'
@@ -226,19 +231,6 @@ for folder in shaderpacks; do
 
     printf 'Copying folder %s ...\n' "$folder"
     copy_directory_filtered "$source" "$destination"
-done
-
-for file in optionsshaders.txt; do
-    source=$pack_configs_dir/$file
-    destination=$pack_dir/$file
-
-    if [ ! -f "$source" ]; then
-        printf 'Warning: Skipping missing source file: %s\n' "$source" >&2
-        continue
-    fi
-
-    printf 'Copying file %s ...\n' "$file"
-    cp -f "$source" "$destination"
 done
 
 printf '\n'

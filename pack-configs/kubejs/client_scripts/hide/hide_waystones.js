@@ -1,13 +1,13 @@
-//priority: 0
+//ignored: true
 //requires: waystones
 
 RecipeViewerEvents.removeEntriesCompletely('item', event => {
   const items = Ingredient.of('@waystones').itemIds
 
-  console.info(`[KubeJS] Removing ${items.length} Waystones entries from recipe viewer`)
+  console.info(`[KubeJS] Removing ${items.length} Waystones recipe entries`)
 
   items.forEach(id => {
-    console.info(`[KubeJS] Removing recipe viewer entry: ${id}`)
+    console.info(`[KubeJS] Removing entry: ${id}`)
     event.remove(id)
   })
 })

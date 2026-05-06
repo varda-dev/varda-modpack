@@ -1,5 +1,4 @@
 //ignored: true
-//priority: 0
 //requires: mysticalagriculture
 
 ServerEvents.recipes(event => {

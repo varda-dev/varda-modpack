@@ -1,4 +1,3 @@
-//priority: 0
 //requires: ars_nouveau
 
 PlayerEvents.loggedIn(event => {
