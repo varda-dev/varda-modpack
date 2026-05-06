@@ -2,8 +2,8 @@
 	costs_limits: {
 		exhaustion_per_block: 15.0d
 		max_blocks: 64
-		require_tool: true
-		require_valid_tool_for_block: true
+		require_tool: false
+		require_valid_tool_for_block: false
 		ultimine_cooldown: 0L
 	}
 	misc: {

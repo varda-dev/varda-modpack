@@ -1,0 +1,10 @@
+[mana]
+	baseRegen = 12
+	baseMax = 400
+	updateInterval = 4
+	glyphmax = 15
+	tierMax = 125
+	tierRegen = 4
+	manaBoost = 35
+	manaRegenEnchantment = 4
+	glyphRegen = 0.55
