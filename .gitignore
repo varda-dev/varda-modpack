@@ -2,3 +2,6 @@ PACK_DIR.txt
 varda-server/
 varda-server.zip
 .codex-tmp/
+tmp/
+tmp/*
+__pycache__

@@ -12,9 +12,6 @@
     - Ars Controle
     - StarbuncleMania
 
-- Sophisticated Storage / Backpacks
-  - *Required Libraries*
-    - Sophisticated Core
 - Relics
   - *Required Libraries*
     - Architectury API
@@ -26,8 +23,6 @@
 - KubeJS
   - Required Libraries
     - Rhino
-  - *Additions*
-    - KubeJS Ars Nouveau
 - FTB Chunks
   - FTB Teams
   - FTB Library
@@ -36,16 +31,18 @@
 
 ## Client-Only Mods
 - Jade
-  - *Additions*
-    - Jade Addons
 - Just Enough Items
-  - *Additions*
-    - Jade Addons
-      - May not be needed / only if Lootr, Supplementaries, and/or Artifacts are included
 ### Shaders
 - Sodium
 - Iris Shaders
 - Complementary Shaders -Reimagined
 
 ## Server-Only Mods
-- Clumps - maybe
+- 
+
+## Potential Mods
+- https://www.curseforge.com/minecraft/mc-mods/structureoverlapless
+- https://www.curseforge.com/minecraft/mc-mods/towns-and-towers
+- https://www.curseforge.com/minecraft/mc-mods/when-dungeons-arise
+- https://www.curseforge.com/minecraft/mc-mods/castle-in-the-sky-the-fairytale-of-laputa
+  - If it ever gets updated for 1.21.1
