@@ -13,6 +13,11 @@
   - Use `-Inline` / `-i` / `--inline` to copy only `pack-configs/kubejs` into the instance without wiping folders, useful before in-game `/kubejs reload`.
   - Use `-FullWipe` / `-f` to delete additional generated instance folders like logs, saves, backups, screenshots, and caches.
   - The sync copies every top-level file and folder in `pack-configs` into the CurseForge instance.
+- Run `python ./scripts/locate.py X Z` to inspect the save chunk containing those block coordinates across every save in the instance from `PACK_DIR.txt`.
+  - `X` and `Z` are block coordinates, not chunk coordinates. The script converts them to the matching chunk and region file.
+  - It reads each save's `.mca` region data directly and reports structure IDs recorded in the chunk's `structures.starts` and `structures.References` NBT.
+  - Results are actual structure data for that chunk, not broad text matches from unrelated chunk data like block entities, attachments, or mod state.
+  - `(none)` means that save has chunk data at those coordinates, but no structure IDs are recorded for that chunk.
 ### Config Layout
 - `pack-configs/config` is the main Minecraft `config` directory.
 - `pack-configs/defaultconfigs` is copied to the instance/server `defaultconfigs` directory. Keep only files that truly need to load as default configs there.
