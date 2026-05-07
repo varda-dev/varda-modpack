@@ -1,6 +1,104 @@
 {
-	chapter.00E5F595560D304D.title: "The First Page"
-	file.0000000000000001.title: "The Tattered Path"
+	chapter.00E5F595560D304D.title: "The Hidden Thread"
+	file.0000000000000001.title: "The Varda Codex"
 	quest.7D555AC90E8BC38E.quest_desc: ["Crafting a Crafting Table on a Stick"]
 	quest.7D555AC90E8BC38E.title: "Mobile Crafting"
+	chapter.01DE47A54FB130A3.title: "The Familiar Trail"
+	chapter_group.73A29692284919C6.title: "The Tattered Path"
+	quest.3E841EEC942599CB.quest_desc: ["Complete the vanilla advancement: Make a Crafting Table."]
+	quest.3E841EEC942599CB.title: "Minecraft"
+	quest.4F9EDFE7884FF6E1.quest_desc: ["Complete the vanilla advancement: Get Cobblestone."]
+	quest.4F9EDFE7884FF6E1.title: "Stone Age"
+	quest.11E00F66EB9B5DE6.quest_desc: ["Complete the vanilla advancement: Make a Stone Pickaxe."]
+	quest.11E00F66EB9B5DE6.title: "Getting an Upgrade"
+	quest.476D5F97DEFD5467.quest_desc: ["Complete the vanilla advancement: Get an Iron Ingot."]
+	quest.476D5F97DEFD5467.title: "Acquire Hardware"
+	quest.6B81F5A609C4CF92.quest_desc: ["Complete the vanilla advancement: Get Iron Armor."]
+	quest.6B81F5A609C4CF92.title: "Suit Up"
+	quest.7FEF06D3035F1215.quest_desc: ["Complete the vanilla advancement: Get a Lava Bucket."]
+	quest.7FEF06D3035F1215.title: "Hot Stuff"
+	quest.5C6E2558594CE034.quest_desc: ["Complete the vanilla advancement: Make an Iron Pickaxe."]
+	quest.5C6E2558594CE034.title: "Isn't It Iron Pick"
+	quest.4D0462481B998BFD.quest_desc: ["Complete the vanilla advancement: Block a Projectile With a Shield."]
+	quest.4D0462481B998BFD.title: "Not Today, Thank You"
+	quest.2D2F937841BF4C81.quest_desc: ["Complete the vanilla advancement: Get Obsidian."]
+	quest.2D2F937841BF4C81.title: "Ice Bucket Challenge"
+	quest.13E9A9EEAEBCFB38.quest_desc: ["Complete the vanilla advancement: Get a Diamond."]
+	quest.13E9A9EEAEBCFB38.title: "Diamonds!"
+	quest.722438F93B19A764.quest_desc: ["Complete the vanilla advancement: Enter the Nether."]
+	quest.722438F93B19A764.title: "We Need to Go Deeper"
+	quest.66B9CBAE7DFD6FDF.quest_desc: ["Complete the vanilla advancement: Make Diamond Armor."]
+	quest.66B9CBAE7DFD6FDF.title: "Cover Me With Diamonds"
+	quest.109C1B0B216A269E.quest_desc: ["Complete the vanilla advancement: Enchant an Item."]
+	quest.109C1B0B216A269E.title: "Enchanter"
+	quest.6FF4EC25055ECE34.quest_desc: ["Complete the vanilla advancement: Cure a Zombie Villager."]
+	quest.6FF4EC25055ECE34.title: "Zombie Doctor"
+	quest.4A298B79BF4E11A4.quest_desc: ["Complete the vanilla advancement: Enter a Stronghold."]
+	quest.4A298B79BF4E11A4.title: "Eye Spy"
+	quest.3B18F062DACC8164.quest_desc: ["Complete the vanilla advancement: Enter the End."]
+	quest.3B18F062DACC8164.title: "The End?"
+	quest.554A3721C9B9631F.quest_desc: ["Complete the vanilla advancement: Kill a Ghast by Deflecting its Fireball."]
+	quest.554A3721C9B9631F.title: "Return to Sender"
+	quest.3FF3C6D986908D43.quest_desc: ["Complete the vanilla advancement: Enter a Bastion."]
+	quest.3FF3C6D986908D43.title: "Those Were the Days"
+	quest.364D791A338C0EBA.quest_desc: ["Complete the vanilla advancement: Obtain Ancient Debris."]
+	quest.364D791A338C0EBA.title: "Hidden in the Depths"
+	quest.775C6BF51D212F9A.quest_desc: ["Complete the vanilla advancement: Travel 7 km in the Overworld using the Nether."]
+	quest.775C6BF51D212F9A.title: "Subspace Bubble"
+	quest.15A452CD917DDE1F.quest_desc: ["Complete the vanilla advancement: Enter a Nether Fortress."]
+	quest.15A452CD917DDE1F.title: "A Terrible Fortress"
+	quest.6DF9369CEAF435B8.quest_desc: ["Complete the vanilla advancement: Obtain Crying Obsidian."]
+	quest.6DF9369CEAF435B8.title: "Who is Cutting Onions?"
+	quest.3F370B1B31A90B1E.quest_desc: ["Complete the vanilla advancement: Distract an aggravated Piglin with Gold."]
+	quest.3F370B1B31A90B1E.title: "Oh Shiny"
+	quest.750CB4301E16A6CB.quest_desc: ["Complete the vanilla advancement: Ride a Strider with a Warped Fungus on a Stick."]
+	quest.750CB4301E16A6CB.title: "This Boat Has Legs"
+	quest.259D33F90B3E101E.quest_desc: ["Complete the vanilla advancement: Kill a Ghast in the Overworld."]
+	quest.259D33F90B3E101E.title: "Uneasy Alliance"
+	quest.7A599556CF231D61.quest_desc: ["Complete the vanilla advancement: Loot a Chest in a Bastion."]
+	quest.7A599556CF231D61.title: "War Pigs"
+	quest.2FD30747D1655F2C.quest_desc: ["Complete the vanilla advancement: Use a Compass on a Lodestone."]
+	quest.2FD30747D1655F2C.title: "Country Lode, Take Me Home"
+	quest.3DEE5EA031204570.quest_desc: ["Complete the vanilla advancement: Get a Full Suit of Netherite Armor."]
+	quest.3DEE5EA031204570.title: "Cover Me in Debris"
+	quest.6C5D2AE13AE04884.quest_desc: ["Complete the vanilla advancement: Obtain a Wither Skeleton Skull."]
+	quest.6C5D2AE13AE04884.title: "Spooky Scary Skeleton"
+	quest.530E43D192AF985E.quest_desc: ["Complete the vanilla advancement: Obtain a Blaze Rod."]
+	quest.530E43D192AF985E.title: "Into Fire"
+	quest.6016C02B230B6533.quest_desc: ["Complete the vanilla advancement: Charge a Respawn Anchor to Max using Glowstone."]
+	quest.6016C02B230B6533.title: "Not Quite Nine Lives"
+	quest.78B5BCE9683215DD.quest_desc: ["Complete the vanilla advancement: Ride a Strider 50 Blocks in the Overworld on Lava."]
+	quest.78B5BCE9683215DD.title: "Feels Like Home"
+	quest.2615B1810C4F9AF6.quest_desc: ["Complete the vanilla advancement: Visit all Nether Biomes."]
+	quest.2615B1810C4F9AF6.title: "Hot Tourist Destinations"
+	quest.61DD2B8185C96580.quest_desc: ["Complete the vanilla advancement: Summon the Wither."]
+	quest.61DD2B8185C96580.title: "Withering Heights"
+	quest.6DF3D5FEB4C5F905.quest_desc: ["Complete the vanilla advancement: Brew a Potion."]
+	quest.6DF3D5FEB4C5F905.title: "Local Brewery"
+	quest.4A12F09B96D0A937.quest_desc: ["Complete the vanilla advancement: Construct and Activate a Beacon."]
+	quest.4A12F09B96D0A937.title: "Bring Home the Beacon"
+	quest.1C020B77236EE079.quest_desc: ["Complete the vanilla advancement: Have all Potion Status Effects at Once."]
+	quest.1C020B77236EE079.title: "A Furious Cocktail"
+	quest.4CDE77681B9AC9A8.quest_desc: ["Complete the vanilla advancement: Construct a Full Power Beacon."]
+	quest.4CDE77681B9AC9A8.title: "Beaconator"
+	quest.5A741CB770974803.quest_desc: ["Complete the vanilla advancement: Have every effect applied at the same time."]
+	quest.5A741CB770974803.title: "How Did We Get Here?"
+	quest.6925C5A695902E24.quest_desc: ["Complete the vanilla advancement: Enter the End."]
+	quest.6925C5A695902E24.title: "The End"
+	quest.34771E43722DF562.quest_desc: ["Complete the vanilla advancement: Get the Last Hit on the Ender Dragon."]
+	quest.34771E43722DF562.title: "Free the End"
+	quest.52E1019C2E43C8FA.quest_desc: ["Complete the vanilla advancement: Obtain the Dragon Egg."]
+	quest.52E1019C2E43C8FA.title: "The Next Generation"
+	quest.3DBAAE073A592802.quest_desc: ["Complete the vanilla advancement: Travel Through an End Gateway."]
+	quest.3DBAAE073A592802.title: "Remote Gateway"
+	quest.7804611D64F164DF.quest_desc: ["Complete the vanilla advancement: Respawn the Ender Dragon."]
+	quest.7804611D64F164DF.title: "The End Again"
+	quest.2522354359476544.quest_desc: ["Complete the vanilla advancement: Collect Dragon's Breath in a Glass Bottle."]
+	quest.2522354359476544.title: "You Need a Mint"
+	quest.5038D921238C0A4F.quest_desc: ["Complete the vanilla advancement: Enter an End City."]
+	quest.5038D921238C0A4F.title: "The City at the End of the Game"
+	quest.69514AEFE2171498.quest_desc: ["Complete the vanilla advancement: Obtain an Elytra."]
+	quest.69514AEFE2171498.title: "Sky's the Limit"
+	quest.565F234F7D717E4C.quest_desc: ["Complete the vanilla advancement: Move 50 Blocks Vertically from Shulker Levitation."]
+	quest.565F234F7D717E4C.title: "Great View From Up Here"
 }

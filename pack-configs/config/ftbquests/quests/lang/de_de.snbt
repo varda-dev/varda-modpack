@@ -1,0 +1,104 @@
+{
+	chapter.00E5F595560D304D.title: "Der Verborgene Faden"
+	file.0000000000000001.title: "Der Kodex von Varda"
+	quest.7D555AC90E8BC38E.quest_desc: ["Stelle einen Werkbank-am-Stiel her"]
+	quest.7D555AC90E8BC38E.title: "Mobiles Handwerk"
+	chapter.01DE47A54FB130A3.title: "Der Vertrautenpfad"
+	chapter_group.73A29692284919C6.title: "Der Zerrissene Pfad"
+	quest.3E841EEC942599CB.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Stelle eine Werkbank her."]
+	quest.3E841EEC942599CB.title: "Minecraft"
+	quest.4F9EDFE7884FF6E1.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Erhalte Bruchstein."]
+	quest.4F9EDFE7884FF6E1.title: "Steinzeit"
+	quest.11E00F66EB9B5DE6.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Stelle eine Steinspitzhacke her."]
+	quest.11E00F66EB9B5DE6.title: "Verbesserung erhalten"
+	quest.476D5F97DEFD5467.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Erhalte einen Eisenbarren."]
+	quest.476D5F97DEFD5467.title: "Eisen beschaffen"
+	quest.6B81F5A609C4CF92.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Erhalte Eisenrüstung."]
+	quest.6B81F5A609C4CF92.title: "Rüste dich aus"
+	quest.7FEF06D3035F1215.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Erhalte einen Lavaeimer."]
+	quest.7FEF06D3035F1215.title: "Heißes Zeug"
+	quest.5C6E2558594CE034.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Stelle eine Eisenspitzhacke her."]
+	quest.5C6E2558594CE034.title: "Eisenspitzhacke"
+	quest.4D0462481B998BFD.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Blocke ein Projektil mit einem Schild."]
+	quest.4D0462481B998BFD.title: "Heute nicht, danke"
+	quest.2D2F937841BF4C81.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Erhalte Obsidian."]
+	quest.2D2F937841BF4C81.title: "Eiskübel-Herausforderung"
+	quest.13E9A9EEAEBCFB38.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Erhalte einen Diamanten."]
+	quest.13E9A9EEAEBCFB38.title: "Diamanten!"
+	quest.722438F93B19A764.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Betritt den Nether."]
+	quest.722438F93B19A764.title: "Wir müssen tiefer"
+	quest.66B9CBAE7DFD6FDF.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Stelle Diamantrüstung her."]
+	quest.66B9CBAE7DFD6FDF.title: "Mit Diamanten bedeckt"
+	quest.109C1B0B216A269E.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Verzaubere einen Gegenstand."]
+	quest.109C1B0B216A269E.title: "Verzauberer"
+	quest.6FF4EC25055ECE34.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Heile einen Zombiedorfbewohner."]
+	quest.6FF4EC25055ECE34.title: "Zombiedoktor"
+	quest.4A298B79BF4E11A4.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Betritt eine Festung."]
+	quest.4A298B79BF4E11A4.title: "Späherauge"
+	quest.3B18F062DACC8164.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Betritt das Ende."]
+	quest.3B18F062DACC8164.title: "Das Ende?"
+	quest.554A3721C9B9631F.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Töte einen Ghast, indem du seinen Feuerball zurückschlägst."]
+	quest.554A3721C9B9631F.title: "Zurück an den Absender"
+	quest.3FF3C6D986908D43.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Betritt eine Bastion."]
+	quest.3FF3C6D986908D43.title: "Das waren noch Zeiten"
+	quest.364D791A338C0EBA.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Erhalte Antiken Schrott."]
+	quest.364D791A338C0EBA.title: "Verborgen in der Tiefe"
+	quest.775C6BF51D212F9A.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Reise 7 km in der Oberwelt mithilfe des Nethers."]
+	quest.775C6BF51D212F9A.title: "Subraumblase"
+	quest.15A452CD917DDE1F.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Betritt eine Netherfestung."]
+	quest.15A452CD917DDE1F.title: "Eine schreckliche Festung"
+	quest.6DF9369CEAF435B8.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Erhalte Weinenden Obsidian."]
+	quest.6DF9369CEAF435B8.title: "Wer schneidet Zwiebeln?"
+	quest.3F370B1B31A90B1E.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Lenke einen aggressiven Piglin mit Gold ab."]
+	quest.3F370B1B31A90B1E.title: "Oh, glänzend"
+	quest.750CB4301E16A6CB.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Reite einen Schreiter mit einer Wirrpilzrute."]
+	quest.750CB4301E16A6CB.title: "Dieses Boot hat Beine"
+	quest.259D33F90B3E101E.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Töte einen Ghast in der Oberwelt."]
+	quest.259D33F90B3E101E.title: "Unbehagliche Allianz"
+	quest.7A599556CF231D61.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Plündere eine Truhe in einer Bastion."]
+	quest.7A599556CF231D61.title: "Kriegsschweine"
+	quest.2FD30747D1655F2C.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Benutze einen Kompass an einem Leitstein."]
+	quest.2FD30747D1655F2C.title: "Leitstein, bring mich heim"
+	quest.3DEE5EA031204570.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Erhalte eine vollständige Netheritrüstung."]
+	quest.3DEE5EA031204570.title: "Mit Schrott bedeckt"
+	quest.6C5D2AE13AE04884.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Erhalte einen Witherskelettschädel."]
+	quest.6C5D2AE13AE04884.title: "Gruseliges Skelett"
+	quest.530E43D192AF985E.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Erhalte eine Lohenrute."]
+	quest.530E43D192AF985E.title: "Ins Feuer"
+	quest.6016C02B230B6533.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Lade einen Respawn-Anker mit Glowstone vollständig auf."]
+	quest.6016C02B230B6533.title: "Nicht ganz neun Leben"
+	quest.78B5BCE9683215DD.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Reite einen Schreiter 50 Blöcke auf Lava in der Oberwelt."]
+	quest.78B5BCE9683215DD.title: "Wie zu Hause"
+	quest.2615B1810C4F9AF6.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Besuche alle Netherbiome."]
+	quest.2615B1810C4F9AF6.title: "Heiße Reiseziele"
+	quest.61DD2B8185C96580.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Beschwöre den Wither."]
+	quest.61DD2B8185C96580.title: "Withernde Höhen"
+	quest.6DF3D5FEB4C5F905.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Braue einen Trank."]
+	quest.6DF3D5FEB4C5F905.title: "Lokale Brauerei"
+	quest.4A12F09B96D0A937.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Baue und aktiviere ein Leuchtfeuer."]
+	quest.4A12F09B96D0A937.title: "Bring das Leuchtfeuer heim"
+	quest.1C020B77236EE079.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Habe alle Trankeffekte gleichzeitig."]
+	quest.1C020B77236EE079.title: "Ein wütender Cocktail"
+	quest.4CDE77681B9AC9A8.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Baue ein Leuchtfeuer mit voller Kraft."]
+	quest.4CDE77681B9AC9A8.title: "Leuchtfeuermeister"
+	quest.5A741CB770974803.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Habe alle Effekte gleichzeitig."]
+	quest.5A741CB770974803.title: "Wie sind wir hier gelandet?"
+	quest.6925C5A695902E24.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Betritt das Ende."]
+	quest.6925C5A695902E24.title: "Das Ende"
+	quest.34771E43722DF562.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Führe den letzten Schlag gegen den Enderdrachen aus."]
+	quest.34771E43722DF562.title: "Befreie das Ende"
+	quest.52E1019C2E43C8FA.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Erhalte das Drachenei."]
+	quest.52E1019C2E43C8FA.title: "Die nächste Generation"
+	quest.3DBAAE073A592802.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Reise durch ein Endtransitportal."]
+	quest.3DBAAE073A592802.title: "Fernes Portal"
+	quest.7804611D64F164DF.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Lasse den Enderdrachen erneut erscheinen."]
+	quest.7804611D64F164DF.title: "Das Ende erneut"
+	quest.2522354359476544.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Sammle Drachenatem in einer Glasflasche."]
+	quest.2522354359476544.title: "Du brauchst eine Minze"
+	quest.5038D921238C0A4F.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Betritt eine Endsiedlung."]
+	quest.5038D921238C0A4F.title: "Die Stadt am Ende des Spiels"
+	quest.69514AEFE2171498.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Erhalte Elytren."]
+	quest.69514AEFE2171498.title: "Der Himmel ist die Grenze"
+	quest.565F234F7D717E4C.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Bewege dich durch Shulker-Levitation 50 Blöcke vertikal."]
+	quest.565F234F7D717E4C.title: "Schöne Aussicht von hier oben"
+}

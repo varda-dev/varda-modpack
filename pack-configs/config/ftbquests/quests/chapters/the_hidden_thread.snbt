@@ -2,13 +2,13 @@
 	autofocus_id: "7D555AC90E8BC38E"
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
-	filename: "the_tattered_path"
-	group: ""
+	filename: "the_hidden_thread"
+	group: "73A29692284919C6"
 	icon: {
 		id: "ars_nouveau:worn_notebook"
 	}
 	id: "00E5F595560D304D"
-	order_index: 0
+	order_index: 1
 	quest_links: [ ]
 	quests: [{
 		icon: {

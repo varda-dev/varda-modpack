@@ -1,0 +1,104 @@
+{
+	chapter.00E5F595560D304D.title: "Le Fil Caché"
+	file.0000000000000001.title: "Le Codex de Varda"
+	quest.7D555AC90E8BC38E.quest_desc: ["Fabrique une table de fabrication sur un bâton"]
+	quest.7D555AC90E8BC38E.title: "Fabrication mobile"
+	chapter.01DE47A54FB130A3.title: "Le Sentier Familier"
+	chapter_group.73A29692284919C6.title: "Le Sentier en Lambeaux"
+	quest.3E841EEC942599CB.quest_desc: ["Termine le progrès Minecraft : Fabrique une table de fabrication."]
+	quest.3E841EEC942599CB.title: "Minecraft"
+	quest.4F9EDFE7884FF6E1.quest_desc: ["Termine le progrès Minecraft : Obtiens de la pierre taillée."]
+	quest.4F9EDFE7884FF6E1.title: "Âge de pierre"
+	quest.11E00F66EB9B5DE6.quest_desc: ["Termine le progrès Minecraft : Fabrique une pioche en pierre."]
+	quest.11E00F66EB9B5DE6.title: "Amélioration obtenue"
+	quest.476D5F97DEFD5467.quest_desc: ["Termine le progrès Minecraft : Obtiens un lingot de fer."]
+	quest.476D5F97DEFD5467.title: "Acquérir du métal"
+	quest.6B81F5A609C4CF92.quest_desc: ["Termine le progrès Minecraft : Obtiens une armure en fer."]
+	quest.6B81F5A609C4CF92.title: "Équipe-toi"
+	quest.7FEF06D3035F1215.quest_desc: ["Termine le progrès Minecraft : Obtiens un seau de lave."]
+	quest.7FEF06D3035F1215.title: "Ça chauffe"
+	quest.5C6E2558594CE034.quest_desc: ["Termine le progrès Minecraft : Fabrique une pioche en fer."]
+	quest.5C6E2558594CE034.title: "Pioche de fer"
+	quest.4D0462481B998BFD.quest_desc: ["Termine le progrès Minecraft : Bloque un projectile avec un bouclier."]
+	quest.4D0462481B998BFD.title: "Pas aujourd'hui, merci"
+	quest.2D2F937841BF4C81.quest_desc: ["Termine le progrès Minecraft : Obtiens de l'obsidienne."]
+	quest.2D2F937841BF4C81.title: "Défi du seau glacé"
+	quest.13E9A9EEAEBCFB38.quest_desc: ["Termine le progrès Minecraft : Obtiens un diamant."]
+	quest.13E9A9EEAEBCFB38.title: "Diamants !"
+	quest.722438F93B19A764.quest_desc: ["Termine le progrès Minecraft : Entre dans le Nether."]
+	quest.722438F93B19A764.title: "Allons plus profond"
+	quest.66B9CBAE7DFD6FDF.quest_desc: ["Termine le progrès Minecraft : Fabrique une armure en diamant."]
+	quest.66B9CBAE7DFD6FDF.title: "Couvert de diamants"
+	quest.109C1B0B216A269E.quest_desc: ["Termine le progrès Minecraft : Enchante un objet."]
+	quest.109C1B0B216A269E.title: "Enchanteur"
+	quest.6FF4EC25055ECE34.quest_desc: ["Termine le progrès Minecraft : Guéris un villageois zombie."]
+	quest.6FF4EC25055ECE34.title: "Docteur zombie"
+	quest.4A298B79BF4E11A4.quest_desc: ["Termine le progrès Minecraft : Entre dans une forteresse."]
+	quest.4A298B79BF4E11A4.title: "Oeil d'espion"
+	quest.3B18F062DACC8164.quest_desc: ["Termine le progrès Minecraft : Entre dans l'End."]
+	quest.3B18F062DACC8164.title: "L'End ?"
+	quest.554A3721C9B9631F.quest_desc: ["Termine le progrès Minecraft : Tue un ghast en renvoyant sa boule de feu."]
+	quest.554A3721C9B9631F.title: "Retour à l'envoyeur"
+	quest.3FF3C6D986908D43.quest_desc: ["Termine le progrès Minecraft : Entre dans un bastion."]
+	quest.3FF3C6D986908D43.title: "Le bon vieux temps"
+	quest.364D791A338C0EBA.quest_desc: ["Termine le progrès Minecraft : Obtiens des débris antiques."]
+	quest.364D791A338C0EBA.title: "Caché dans les profondeurs"
+	quest.775C6BF51D212F9A.quest_desc: ["Termine le progrès Minecraft : Parcours 7 km dans l'Overworld en utilisant le Nether."]
+	quest.775C6BF51D212F9A.title: "Bulle subspatiale"
+	quest.15A452CD917DDE1F.quest_desc: ["Termine le progrès Minecraft : Entre dans une forteresse du Nether."]
+	quest.15A452CD917DDE1F.title: "Une terrible forteresse"
+	quest.6DF9369CEAF435B8.quest_desc: ["Termine le progrès Minecraft : Obtiens de l'obsidienne pleureuse."]
+	quest.6DF9369CEAF435B8.title: "Qui coupe des oignons ?"
+	quest.3F370B1B31A90B1E.quest_desc: ["Termine le progrès Minecraft : Distraits un piglin agressif avec de l'or."]
+	quest.3F370B1B31A90B1E.title: "Ça brille"
+	quest.750CB4301E16A6CB.quest_desc: ["Termine le progrès Minecraft : Monte un arpenteur avec un champignon biscornu sur un bâton."]
+	quest.750CB4301E16A6CB.title: "Ce bateau a des jambes"
+	quest.259D33F90B3E101E.quest_desc: ["Termine le progrès Minecraft : Tue un ghast dans l'Overworld."]
+	quest.259D33F90B3E101E.title: "Alliance difficile"
+	quest.7A599556CF231D61.quest_desc: ["Termine le progrès Minecraft : Pille un coffre dans un bastion."]
+	quest.7A599556CF231D61.title: "Cochons de guerre"
+	quest.2FD30747D1655F2C.quest_desc: ["Termine le progrès Minecraft : Utilise une boussole sur une magnétite."]
+	quest.2FD30747D1655F2C.title: "Magnétite, ramène-moi"
+	quest.3DEE5EA031204570.quest_desc: ["Termine le progrès Minecraft : Obtiens une armure complète en netherite."]
+	quest.3DEE5EA031204570.title: "Couvert de débris"
+	quest.6C5D2AE13AE04884.quest_desc: ["Termine le progrès Minecraft : Obtiens un crâne de Wither squelette."]
+	quest.6C5D2AE13AE04884.title: "Squelette effrayant"
+	quest.530E43D192AF985E.quest_desc: ["Termine le progrès Minecraft : Obtiens un bâton de blaze."]
+	quest.530E43D192AF985E.title: "Dans le feu"
+	quest.6016C02B230B6533.quest_desc: ["Termine le progrès Minecraft : Charge une ancre de réapparition au maximum avec de la pierre lumineuse."]
+	quest.6016C02B230B6533.title: "Pas tout à fait neuf vies"
+	quest.78B5BCE9683215DD.quest_desc: ["Termine le progrès Minecraft : Monte un arpenteur sur 50 blocs de lave dans l'Overworld."]
+	quest.78B5BCE9683215DD.title: "Comme à la maison"
+	quest.2615B1810C4F9AF6.quest_desc: ["Termine le progrès Minecraft : Visite tous les biomes du Nether."]
+	quest.2615B1810C4F9AF6.title: "Destinations brûlantes"
+	quest.61DD2B8185C96580.quest_desc: ["Termine le progrès Minecraft : Invoque le Wither."]
+	quest.61DD2B8185C96580.title: "Hauteurs desséchées"
+	quest.6DF3D5FEB4C5F905.quest_desc: ["Termine le progrès Minecraft : Prépare une potion."]
+	quest.6DF3D5FEB4C5F905.title: "Brasserie locale"
+	quest.4A12F09B96D0A937.quest_desc: ["Termine le progrès Minecraft : Construis et active une balise."]
+	quest.4A12F09B96D0A937.title: "Ramène la balise"
+	quest.1C020B77236EE079.quest_desc: ["Termine le progrès Minecraft : Aie tous les effets de potion à la fois."]
+	quest.1C020B77236EE079.title: "Un cocktail furieux"
+	quest.4CDE77681B9AC9A8.quest_desc: ["Termine le progrès Minecraft : Construis une balise à pleine puissance."]
+	quest.4CDE77681B9AC9A8.title: "Maître des balises"
+	quest.5A741CB770974803.quest_desc: ["Termine le progrès Minecraft : Aie tous les effets appliqués en même temps."]
+	quest.5A741CB770974803.title: "Comment en est-on arrivé là ?"
+	quest.6925C5A695902E24.quest_desc: ["Termine le progrès Minecraft : Entre dans l'End."]
+	quest.6925C5A695902E24.title: "L'End"
+	quest.34771E43722DF562.quest_desc: ["Termine le progrès Minecraft : Porte le dernier coup à l'Ender Dragon."]
+	quest.34771E43722DF562.title: "Libère l'End"
+	quest.52E1019C2E43C8FA.quest_desc: ["Termine le progrès Minecraft : Obtiens l'oeuf de dragon."]
+	quest.52E1019C2E43C8FA.title: "La prochaine génération"
+	quest.3DBAAE073A592802.quest_desc: ["Termine le progrès Minecraft : Traverse une passerelle de l'End."]
+	quest.3DBAAE073A592802.title: "Passerelle lointaine"
+	quest.7804611D64F164DF.quest_desc: ["Termine le progrès Minecraft : Fais réapparaître l'Ender Dragon."]
+	quest.7804611D64F164DF.title: "Encore l'End"
+	quest.2522354359476544.quest_desc: ["Termine le progrès Minecraft : Recueille du souffle de dragon dans une fiole."]
+	quest.2522354359476544.title: "Tu as besoin d'une menthe"
+	quest.5038D921238C0A4F.quest_desc: ["Termine le progrès Minecraft : Entre dans une cité de l'End."]
+	quest.5038D921238C0A4F.title: "La cité au bout du jeu"
+	quest.69514AEFE2171498.quest_desc: ["Termine le progrès Minecraft : Obtiens des élytres."]
+	quest.69514AEFE2171498.title: "Le ciel est la limite"
+	quest.565F234F7D717E4C.quest_desc: ["Termine le progrès Minecraft : Déplace-toi de 50 blocs verticalement grâce à la lévitation d'un shulker."]
+	quest.565F234F7D717E4C.title: "Belle vue de là-haut"
+}
