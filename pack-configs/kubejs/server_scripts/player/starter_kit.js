@@ -6,8 +6,6 @@ PlayerEvents.loggedIn(event => {
   if (!pData.getBoolean('vardaStarterKit')) {
     pData.putBoolean('vardaStarterKit', true)
 
-    event.player.give('ars_nouveau:novice_spell_book')
-    event.player.give('ars_nouveau:arcanist_hood')
-    event.player.give('10x minecraft:apple')
+    event.player.give('ftbquests:book')
   }
 })

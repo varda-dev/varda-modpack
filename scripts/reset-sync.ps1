@@ -16,34 +16,14 @@ $ErrorActionPreference = 'Stop'
 $RepoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $PackDirFile = Join-Path $RepoRoot 'PACK_DIR.txt'
 $PackConfigsDir = Join-Path $RepoRoot 'pack-configs'
-$ExcludePatterns = @('*.disabled')
 
-function Test-ExcludedPath {
-    param(
-        [Parameter(Mandatory)]
-        [System.IO.FileSystemInfo]$Item,
-
-        [string[]]$ExcludePatterns
-    )
-
-    foreach ($Pattern in $ExcludePatterns) {
-        if ($Item.Name -like $Pattern) {
-            return $true
-        }
-    }
-
-    return $false
-}
-
-function Copy-DirectoryFiltered {
+function Copy-Directory {
     param(
         [Parameter(Mandatory)]
         [string]$Source,
 
         [Parameter(Mandatory)]
-        [string]$Destination,
-
-        [string[]]$ExcludePatterns = @()
+        [string]$Destination
     )
 
     $Separators = @([System.IO.Path]::DirectorySeparatorChar, [System.IO.Path]::AltDirectorySeparatorChar)
@@ -52,10 +32,6 @@ function Copy-DirectoryFiltered {
     New-Item -ItemType Directory -Path $Destination -Force | Out-Null
 
     Get-ChildItem -LiteralPath $SourcePath -Recurse -Force | ForEach-Object {
-        if (Test-ExcludedPath -Item $_ -ExcludePatterns $ExcludePatterns) {
-            return
-        }
-
         $RelativePath = $_.FullName.Substring($SourcePath.Length).TrimStart($Separators)
         $TargetPath = Join-Path $Destination $RelativePath
 
@@ -68,6 +44,29 @@ function Copy-DirectoryFiltered {
         New-Item -ItemType Directory -Path $TargetParent -Force | Out-Null
         Copy-Item -LiteralPath $_.FullName -Destination $TargetPath -Force
     }
+}
+
+function Copy-PathToInstance {
+    param(
+        [Parameter(Mandatory)]
+        [System.IO.FileSystemInfo]$Source,
+
+        [Parameter(Mandatory)]
+        [string]$Destination
+    )
+
+    Remove-Item -LiteralPath $Destination -Recurse -Force -ErrorAction SilentlyContinue
+
+    if ($Source.PSIsContainer) {
+        Write-Host "Copying folder $($Source.Name) ..."
+        Copy-Directory -Source $Source.FullName -Destination $Destination
+        return
+    }
+
+    Write-Host "Copying file $($Source.Name) ..."
+    $DestinationParent = Split-Path -Parent $Destination
+    New-Item -ItemType Directory -Path $DestinationParent -Force | Out-Null
+    Copy-Item -LiteralPath $Source.FullName -Destination $Destination -Force
 }
 
 if ([string]::IsNullOrWhiteSpace($TargetDirectory)) {
@@ -119,7 +118,7 @@ if ($Inline) {
 
     Write-Host 'Performing INLINE sync...'
     Write-Host 'Copying folder kubejs ...'
-    Copy-DirectoryFiltered -Source $Source -Destination $Destination -ExcludePatterns $ExcludePatterns
+    Copy-Directory -Source $Source -Destination $Destination
     Write-Host ''
     Write-Host 'Inline sync complete!'
     exit 0
@@ -178,31 +177,11 @@ if ($FullWipe) {
 }
 
 Write-Host ''
-Write-Host 'Copying configs and assets to instance folder...'
+Write-Host 'Copying pack-configs to instance folder...'
 
-foreach ($Folder in @('config', 'defaultconfigs', 'kubejs', 'profileImage')) {
-    $Source = Join-Path $PackConfigsDir $Folder
-    $Destination = Join-Path $PackDir $Folder
-
-    if (-not (Test-Path -LiteralPath $Source -PathType Container)) {
-        Write-Warning "Skipping missing source folder: $Source"
-        continue
-    }
-
-    Write-Host "Copying folder $Folder ..."
-    Copy-DirectoryFiltered -Source $Source -Destination $Destination -ExcludePatterns $ExcludePatterns
-}
-
-foreach ($Folder in @('shaderpacks')) {
-    $Source = Join-Path $PackConfigsDir $Folder
-    $Destination = Join-Path $PackDir $Folder
-
-    if (-not (Test-Path -LiteralPath $Source -PathType Container)) {
-        continue
-    }
-
-    Write-Host "Copying folder $Folder ..."
-    Copy-DirectoryFiltered -Source $Source -Destination $Destination -ExcludePatterns $ExcludePatterns
+foreach ($Source in Get-ChildItem -LiteralPath $PackConfigsDir -Force) {
+    $Destination = Join-Path $PackDir $Source.Name
+    Copy-PathToInstance -Source $Source -Destination $Destination
 }
 
 Write-Host ''
