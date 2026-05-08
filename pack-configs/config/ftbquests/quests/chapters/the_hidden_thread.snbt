@@ -15,6 +15,7 @@
 			id: "crafting_on_a_stick:crafting_table"
 		}
 		id: "7D555AC90E8BC38E"
+		description: ["Crafting a Crafting Table on a Stick"]
 		rewards: [{
 			count: 4
 			id: "00BFD2C232B73F36"

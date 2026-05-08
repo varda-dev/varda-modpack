@@ -5,143 +5,291 @@
 	quest.7D555AC90E8BC38E.title: "Fabrication mobile"
 	chapter.01DE47A54FB130A3.title: "Le Sentier Familier"
 	chapter_group.73A29692284919C6.title: "Le Sentier en Lambeaux"
-	quest.3E841EEC942599CB.quest_desc: ["Termine le progrès Minecraft : Fabrique une table de fabrication."]
+	quest.3E841EEC942599CB.quest_desc: ["Le cœur et l'histoire du jeu"]
 	quest.3E841EEC942599CB.title: "Minecraft"
-	quest.4F9EDFE7884FF6E1.quest_desc: ["Termine le progrès Minecraft : Obtiens de la pierre taillée."]
-	quest.4F9EDFE7884FF6E1.title: "Âge de pierre"
-	quest.11E00F66EB9B5DE6.quest_desc: ["Termine le progrès Minecraft : Fabrique une pioche en pierre."]
-	quest.11E00F66EB9B5DE6.title: "Amélioration obtenue"
-	quest.476D5F97DEFD5467.quest_desc: ["Termine le progrès Minecraft : Obtiens un lingot de fer."]
-	quest.476D5F97DEFD5467.title: "Acquérir du métal"
-	quest.6B81F5A609C4CF92.quest_desc: ["Termine le progrès Minecraft : Obtiens une armure en fer."]
-	quest.6B81F5A609C4CF92.title: "Équipe-toi"
-	quest.7FEF06D3035F1215.quest_desc: ["Termine le progrès Minecraft : Obtiens un seau de lave."]
-	quest.7FEF06D3035F1215.title: "Ça chauffe"
-	quest.5C6E2558594CE034.quest_desc: ["Termine le progrès Minecraft : Fabrique une pioche en fer."]
-	quest.5C6E2558594CE034.title: "Pioche de fer"
-	quest.4D0462481B998BFD.quest_desc: ["Termine le progrès Minecraft : Bloque un projectile avec un bouclier."]
+	quest.4F9EDFE7884FF6E1.quest_desc: ["Minez de la roche avec votre nouvelle pioche."]
+	quest.4F9EDFE7884FF6E1.title: "L'âge de pierre"
+	quest.11E00F66EB9B5DE6.quest_desc: ["Fabriquez une meilleure pioche."]
+	quest.11E00F66EB9B5DE6.title: "Qualité supérieure"
+	quest.476D5F97DEFD5467.quest_desc: ["Faites fondre du fer."]
+	quest.476D5F97DEFD5467.title: "L'âge du fer"
+	quest.6B81F5A609C4CF92.quest_desc: ["Fabriquez une pièce d'armure en fer."]
+	quest.6B81F5A609C4CF92.title: "Un corps d'acier"
+	quest.7FEF06D3035F1215.quest_desc: ["Remplissez un seau de lave."]
+	quest.7FEF06D3035F1215.title: "Chaud devant !"
+	quest.5C6E2558594CE034.quest_desc: ["Fabriquez une pioche en fer."]
+	quest.5C6E2558594CE034.title: "Bonne pioche !"
+	quest.4D0462481B998BFD.quest_desc: ["Parez un projectile avec un bouclier."]
 	quest.4D0462481B998BFD.title: "Pas aujourd'hui, merci"
-	quest.2D2F937841BF4C81.quest_desc: ["Termine le progrès Minecraft : Obtiens de l'obsidienne."]
-	quest.2D2F937841BF4C81.title: "Défi du seau glacé"
-	quest.13E9A9EEAEBCFB38.quest_desc: ["Termine le progrès Minecraft : Obtiens un diamant."]
-	quest.13E9A9EEAEBCFB38.title: "Diamants !"
-	quest.722438F93B19A764.quest_desc: ["Termine le progrès Minecraft : Entre dans le Nether."]
-	quest.722438F93B19A764.title: "Allons plus profond"
-	quest.66B9CBAE7DFD6FDF.quest_desc: ["Termine le progrès Minecraft : Fabrique une armure en diamant."]
-	quest.66B9CBAE7DFD6FDF.title: "Couvert de diamants"
-	quest.109C1B0B216A269E.quest_desc: ["Termine le progrès Minecraft : Enchante un objet."]
-	quest.109C1B0B216A269E.title: "Enchanteur"
-	quest.6FF4EC25055ECE34.quest_desc: ["Termine le progrès Minecraft : Guéris un villageois zombie."]
-	quest.6FF4EC25055ECE34.title: "Docteur zombie"
-	quest.4A298B79BF4E11A4.quest_desc: ["Termine le progrès Minecraft : Entre dans une forteresse."]
-	quest.4A298B79BF4E11A4.title: "Oeil d'espion"
-	quest.3B18F062DACC8164.quest_desc: ["Termine le progrès Minecraft : Entre dans l'End."]
-	quest.3B18F062DACC8164.title: "L'End ?"
-	quest.554A3721C9B9631F.quest_desc: ["Termine le progrès Minecraft : Tue un ghast en renvoyant sa boule de feu."]
+	quest.2D2F937841BF4C81.quest_desc: ["Obtenez un bloc d'obsidienne."]
+	quest.2D2F937841BF4C81.title: "Ice Bucket Challenge"
+	quest.13E9A9EEAEBCFB38.quest_desc: ["Obtenez des diamants."]
+	quest.13E9A9EEAEBCFB38.title: "Des diamants !"
+	quest.722438F93B19A764.quest_desc: ["Construisez, allumez et entrez dans un portail du Nether."]
+	quest.722438F93B19A764.title: "Aller au fond des choses"
+	quest.66B9CBAE7DFD6FDF.quest_desc: ["Une armure en diamant peut sauver la vie."]
+	quest.66B9CBAE7DFD6FDF.title: "Couvrez-moi de diamants"
+	quest.109C1B0B216A269E.quest_desc: ["Enchantez un objet dans la table d'enchantement."]
+	quest.109C1B0B216A269E.title: "Enchanté !"
+	quest.6FF4EC25055ECE34.quest_desc: ["Affaiblissez et soignez un zombie-villageois."]
+	quest.6FF4EC25055ECE34.title: "Zombiologue"
+	quest.4A298B79BF4E11A4.quest_desc: ["Suivez un œil de l'Ender."]
+	quest.4A298B79BF4E11A4.title: "À suivre…"
+	quest.3B18F062DACC8164.quest_desc: ["Entrez dans le portail de l'End."]
+	quest.3B18F062DACC8164.title: "Fin ?"
+	quest.554A3721C9B9631F.quest_desc: ["Détruisez un Ghast avec une boule de feu."]
 	quest.554A3721C9B9631F.title: "Retour à l'envoyeur"
-	quest.3FF3C6D986908D43.quest_desc: ["Termine le progrès Minecraft : Entre dans un bastion."]
+	quest.3FF3C6D986908D43.quest_desc: ["Entrez dans les vestiges d'un bastion."]
 	quest.3FF3C6D986908D43.title: "Le bon vieux temps"
-	quest.364D791A338C0EBA.quest_desc: ["Termine le progrès Minecraft : Obtiens des débris antiques."]
+	quest.364D791A338C0EBA.quest_desc: ["Obtenez des débris antiques."]
 	quest.364D791A338C0EBA.title: "Caché dans les profondeurs"
-	quest.775C6BF51D212F9A.quest_desc: ["Termine le progrès Minecraft : Parcours 7 km dans l'Overworld en utilisant le Nether."]
-	quest.775C6BF51D212F9A.title: "Bulle subspatiale"
-	quest.15A452CD917DDE1F.quest_desc: ["Termine le progrès Minecraft : Entre dans une forteresse du Nether."]
+	quest.775C6BF51D212F9A.quest_desc: ["Utilisez le Nether pour parcourir 7 kilomètres à la Surface."]
+	quest.775C6BF51D212F9A.title: "Bulle du sous-espace"
+	quest.15A452CD917DDE1F.quest_desc: ["Découvrez une forteresse du Nether."]
 	quest.15A452CD917DDE1F.title: "Une terrible forteresse"
-	quest.6DF9369CEAF435B8.quest_desc: ["Termine le progrès Minecraft : Obtiens de l'obsidienne pleureuse."]
-	quest.6DF9369CEAF435B8.title: "Qui coupe des oignons ?"
-	quest.3F370B1B31A90B1E.quest_desc: ["Termine le progrès Minecraft : Distraits un piglin agressif avec de l'or."]
-	quest.3F370B1B31A90B1E.title: "Ça brille"
-	quest.750CB4301E16A6CB.quest_desc: ["Termine le progrès Minecraft : Monte un arpenteur avec un champignon biscornu sur un bâton."]
-	quest.750CB4301E16A6CB.title: "Ce bateau a des jambes"
-	quest.259D33F90B3E101E.quest_desc: ["Termine le progrès Minecraft : Tue un ghast dans l'Overworld."]
-	quest.259D33F90B3E101E.title: "Alliance difficile"
-	quest.7A599556CF231D61.quest_desc: ["Termine le progrès Minecraft : Pille un coffre dans un bastion."]
-	quest.7A599556CF231D61.title: "Cochons de guerre"
-	quest.2FD30747D1655F2C.quest_desc: ["Termine le progrès Minecraft : Utilise une boussole sur une magnétite."]
-	quest.2FD30747D1655F2C.title: "Magnétite, ramène-moi"
-	quest.3DEE5EA031204570.quest_desc: ["Termine le progrès Minecraft : Obtiens une armure complète en netherite."]
-	quest.3DEE5EA031204570.title: "Couvert de débris"
-	quest.6C5D2AE13AE04884.quest_desc: ["Termine le progrès Minecraft : Obtiens un crâne de Wither squelette."]
-	quest.6C5D2AE13AE04884.title: "Squelette effrayant"
-	quest.530E43D192AF985E.quest_desc: ["Termine le progrès Minecraft : Obtiens un bâton de blaze."]
-	quest.530E43D192AF985E.title: "Dans le feu"
-	quest.6016C02B230B6533.quest_desc: ["Termine le progrès Minecraft : Charge une ancre de réapparition au maximum avec de la pierre lumineuse."]
+	quest.6DF9369CEAF435B8.quest_desc: ["Obtenez un bloc d'obsidienne pleureuse."]
+	quest.6DF9369CEAF435B8.title: "Qui a coupé un oignon ?"
+	quest.3F370B1B31A90B1E.quest_desc: ["Distrayez un Piglin avec de l'or."]
+	quest.3F370B1B31A90B1E.title: "Bling-bling"
+	quest.750CB4301E16A6CB.quest_desc: ["Chevauchez et dirigez un arpenteur avec un champignon biscornu sur un bâton."]
+	quest.750CB4301E16A6CB.title: "Bateau sur pattes"
+	quest.259D33F90B3E101E.quest_desc: ["Sauvez un Ghast du Nether, amenez-le en toute sécurité à la Surface... puis tuez-le."]
+	quest.259D33F90B3E101E.title: "Alliance instable"
+	quest.7A599556CF231D61.quest_desc: ["Pillez un coffre dans les vestiges d'un bastion."]
+	quest.7A599556CF231D61.title: "De vraies têtes de cochon"
+	quest.2FD30747D1655F2C.quest_desc: ["Utilisez une boussole sur un bloc de magnétite."]
+	quest.2FD30747D1655F2C.title: "Le Petit Poucet"
+	quest.3DEE5EA031204570.quest_desc: ["Obtenez une armure complète en Netherite."]
+	quest.3DEE5EA031204570.title: "Couvrez-moi de débris"
+	quest.6C5D2AE13AE04884.quest_desc: ["Obtenez un crâne de Wither squelette."]
+	quest.6C5D2AE13AE04884.title: "Qu'on lui coupe la tête !"
+	quest.530E43D192AF985E.quest_desc: ["Récupérez un bâton de Blaze."]
+	quest.530E43D192AF985E.title: "Dans le feu de l'action"
+	quest.6016C02B230B6533.quest_desc: ["Chargez une ancre de réapparition à son maximum."]
 	quest.6016C02B230B6533.title: "Pas tout à fait \"neuf\" vies"
-	quest.78B5BCE9683215DD.quest_desc: ["Termine le progrès Minecraft : Monte un arpenteur sur 50 blocs de lave dans l'Overworld."]
-	quest.78B5BCE9683215DD.title: "Comme à la maison"
-	quest.2615B1810C4F9AF6.quest_desc: ["Termine le progrès Minecraft : Visite tous les biomes du Nether."]
-	quest.2615B1810C4F9AF6.title: "Destinations brûlantes"
-	quest.61DD2B8185C96580.quest_desc: ["Termine le progrès Minecraft : Invoque le Wither."]
-	quest.61DD2B8185C96580.title: "Hauteurs desséchées"
-	quest.6DF3D5FEB4C5F905.quest_desc: ["Termine le progrès Minecraft : Prépare une potion."]
-	quest.6DF3D5FEB4C5F905.title: "Brasserie locale"
-	quest.4A12F09B96D0A937.quest_desc: ["Termine le progrès Minecraft : Construis et active une balise."]
-	quest.4A12F09B96D0A937.title: "Ramène la balise"
-	quest.1C020B77236EE079.quest_desc: ["Termine le progrès Minecraft : Aie tous les effets de potion à la fois."]
-	quest.1C020B77236EE079.title: "Un cocktail furieux"
-	quest.4CDE77681B9AC9A8.quest_desc: ["Termine le progrès Minecraft : Construis une balise à pleine puissance."]
-	quest.4CDE77681B9AC9A8.title: "Maître des balises"
-	quest.5A741CB770974803.quest_desc: ["Termine le progrès Minecraft : Aie tous les effets appliqués en même temps."]
+	quest.78B5BCE9683215DD.quest_desc: ["Emmenez un arpenteur faire une loooongue balade sur un lac de lave de la Surface."]
+	quest.78B5BCE9683215DD.title: "Comme chez soi"
+	quest.2615B1810C4F9AF6.quest_desc: ["Explorez tous les biomes du Nether."]
+	quest.2615B1810C4F9AF6.title: "Voyage au bout de l'enfer"
+	quest.61DD2B8185C96580.quest_desc: ["Invoquez le Wither."]
+	quest.61DD2B8185C96580.title: "Les Witherables"
+	quest.6DF3D5FEB4C5F905.quest_desc: ["Concoctez une potion."]
+	quest.6DF3D5FEB4C5F905.title: "Apprenti chimiste"
+	quest.4A12F09B96D0A937.quest_desc: ["Construisez et placez une balise."]
+	quest.4A12F09B96D0A937.title: "Fais ta balise"
+	quest.1C020B77236EE079.quest_desc: ["Appliquez sur vous-même tous les effets de potions en même temps."]
+	quest.1C020B77236EE079.title: "Mélanges dangereux"
+	quest.4CDE77681B9AC9A8.quest_desc: ["Portez une balise à sa pleine puissance."]
+	quest.4CDE77681B9AC9A8.title: "Phare à On"
+	quest.5A741CB770974803.quest_desc: ["Appliquez sur vous-même tous les effets en même temps."]
 	quest.5A741CB770974803.title: "Comment en est-on arrivé là ?"
-	quest.6925C5A695902E24.quest_desc: ["Termine le progrès Minecraft : Entre dans l'End."]
+	quest.6925C5A695902E24.quest_desc: ["Est-ce vraiment la fin ?"]
 	quest.6925C5A695902E24.title: "L'End"
-	quest.34771E43722DF562.quest_desc: ["Termine le progrès Minecraft : Porte le dernier coup à l'Ender Dragon."]
-	quest.34771E43722DF562.title: "Libère l'End"
-	quest.52E1019C2E43C8FA.quest_desc: ["Termine le progrès Minecraft : Obtiens l'oeuf de dragon."]
-	quest.52E1019C2E43C8FA.title: "La prochaine génération"
-	quest.3DBAAE073A592802.quest_desc: ["Termine le progrès Minecraft : Traverse une passerelle de l'End."]
-	quest.3DBAAE073A592802.title: "Escapade lointaine"
-	quest.7804611D64F164DF.quest_desc: ["Termine le progrès Minecraft : Fais réapparaître l'Ender Dragon."]
-	quest.7804611D64F164DF.title: "Encore l'End..."
-	quest.2522354359476544.quest_desc: ["Termine le progrès Minecraft : Recueille du souffle de dragon dans une fiole."]
-	quest.2522354359476544.title: "Tu as besoin d'une menthe"
-	quest.5038D921238C0A4F.quest_desc: ["Termine le progrès Minecraft : Entre dans une cité de l'End."]
-	quest.5038D921238C0A4F.title: "La cité au bout du jeu"
-	quest.69514AEFE2171498.quest_desc: ["Termine le progrès Minecraft : Obtiens des élytres."]
-	quest.69514AEFE2171498.title: "Le ciel est la limite"
-	quest.565F234F7D717E4C.quest_desc: ["Termine le progrès Minecraft : Déplace-toi de 50 blocs verticalement grâce à la lévitation d'un shulker."]
-	quest.565F234F7D717E4C.title: "Belle vue de là-haut"
+	quest.34771E43722DF562.quest_desc: ["Tuez le dragon. Bonne chance !"]
+	quest.34771E43722DF562.title: "Libérez l'End !"
+	quest.52E1019C2E43C8FA.quest_desc: ["Tenez l'œuf de dragon."]
+	quest.52E1019C2E43C8FA.title: "La nouvelle génération"
+	quest.3DBAAE073A592802.quest_desc: ["Échappez-vous de l'île."]
+	quest.3DBAAE073A592802.title: "Escapade à distance"
+	quest.7804611D64F164DF.quest_desc: ["Faites réapparaître l'Ender Dragon."]
+	quest.7804611D64F164DF.title: "Un air de déjà vu..."
+	quest.2522354359476544.quest_desc: ["Récupérez du souffle de dragon dans une fiole."]
+	quest.2522354359476544.title: "À bout de souffle"
+	quest.5038D921238C0A4F.quest_desc: ["Allez-y, que pourrait-il vous arriver ?"]
+	quest.5038D921238C0A4F.title: "Les mystérieuses cités de l'End"
+	quest.69514AEFE2171498.quest_desc: ["Trouvez des élytres."]
+	quest.69514AEFE2171498.title: "Vers l'infini et au-delà"
+	quest.565F234F7D717E4C.quest_desc: ["Lévitez à 50 blocs de hauteur après l'attaque d'un Shulker."]
+	quest.565F234F7D717E4C.title: "Superbe panorama"
 	chapter.FF55743774F036A4.title: "Le Souper Semé"
 	quest.43EED84AD9B1FF97.quest_desc: ["Commence le sentier Farmer's Delight."]
 	quest.43EED84AD9B1FF97.title: "Le Souper Semé"
-	quest.B03730C6D592CC2D.quest_desc: ["Termine le progrès Farmer's Delight : Fabrique un couteau pour récupérer des ressources supplémentaires sur les plantes et les animaux."]
+	quest.B03730C6D592CC2D.quest_desc: ["Fabriquez un couteau pour récolter plus de ressources des plantes et animaux"]
 	quest.B03730C6D592CC2D.title: "Chasse et cueillette"
-	quest.3C754E5F2196E7A8.quest_desc: ["Termine le progrès Farmer's Delight : Trouve des cultures sauvages pour ton potager."]
+	quest.3C754E5F2196E7A8.quest_desc: ["Quatre nouvelles cultures peuvent être trouvées dans la nature, dans de nombreux climats... ou peut-être dans un coffre quelque part."]
 	quest.3C754E5F2196E7A8.title: "Cultures sauvages"
-	quest.D1809B943A512A8E.quest_desc: ["Termine le progrès Farmer's Delight : Place un feu de camp pour cuisiner."]
-	quest.D1809B943A512A8E.title: "Feu de camp allumé"
-	quest.278F8EFEBFE7E144.quest_desc: ["Termine le progrès Farmer's Delight : Récolte de l'herbe, du blé ou du riz avec un couteau pour obtenir de la paille."]
-	quest.278F8EFEBFE7E144.title: "À court de paille"
-	quest.EFB5100A570B6285.quest_desc: ["Termine le progrès Farmer's Delight : Utilise une planche à découper pour décomposer un objet."]
+	quest.D1809B943A512A8E.quest_desc: ["Placez un feu de camp pour rester au chaud la nuit"]
+	quest.D1809B943A512A8E.title: "Feu allumé"
+	quest.278F8EFEBFE7E144.quest_desc: ["Récoltez de l'herbe pour avoir de la paille"]
+	quest.278F8EFEBFE7E144.title: "Courte paille"
+	quest.EFB5100A570B6285.quest_desc: ["Avec un outil en main, utilisez une planche à découper pour couper quelque chose"]
 	quest.EFB5100A570B6285.title: "Attention aux doigts"
-	quest.A729117CF501AB2F.quest_desc: ["Termine le progrès Farmer's Delight : Utilise un couteau pour récupérer du jambon sur des cochons ou des hoglins."]
+	quest.A729117CF501AB2F.quest_desc: ["Utilisez un couteau pour prélever du jambon sur des cochons ou des Hoglins."]
 	quest.A729117CF501AB2F.title: "Boucher sauvage"
-	quest.F9D91BDB2CD7A600.quest_desc: ["Termine le progrès Farmer's Delight : Place du compost organique."]
-	quest.F9D91BDB2CD7A600.title: "Compostage avancé"
-	quest.88EE54C1DBDE99D6.quest_desc: ["Termine le progrès Farmer's Delight : Laisse le compost organique devenir de la terre riche."]
-	quest.88EE54C1DBDE99D6.title: "Nourriture végétale"
-	quest.5F81EC14E645EEB0.quest_desc: ["Termine le progrès Farmer's Delight : Améliore ton couteau jusqu'à la netherite."]
-	quest.5F81EC14E645EEB0.title: "Si tu ne supportes pas la chaleur..."
-	quest.2221742E8E61D9D4.quest_desc: ["Termine le progrès Farmer's Delight : Plante des grains de riz dans de l'eau peu profonde."]
-	quest.2221742E8E61D9D4.title: "Racines trempées"
-	quest.69C5338C1A92E16B.quest_desc: ["Termine le progrès Farmer's Delight : Suspends de la corde au-dessus d'un plant de tomates pour le faire pousser plus haut."]
-	quest.69C5338C1A92E16B.title: "Tomate en hauteur"
-	quest.408EB2DF0A2F43BE.quest_desc: ["Termine le progrès Farmer's Delight : Tonds une colonie de champignons arrivée à maturité."]
-	quest.408EB2DF0A2F43BE.title: "Champignons parmi nous"
-	quest.CA9E3C125FFC4CFA.quest_desc: ["Termine le progrès Farmer's Delight : Lance une tomate pourrie sur un pillard."]
-	quest.CA9E3C125FFC4CFA.title: "Bouh ! Huées !"
-	quest.22D7847C3DF91978.quest_desc: ["Termine le progrès Farmer's Delight : Cultive toutes les plantes alimentaires que tu peux trouver."]
+	quest.F9D91BDB2CD7A600.quest_desc: ["Déposez un peu de compost organique. Il se décomposera mieux avec le soleil, de l'eau et des champignons !"]
+	quest.F9D91BDB2CD7A600.title: "Compostage de pointe"
+	quest.88EE54C1DBDE99D6.quest_desc: ["Laissez un peu de compost organique se décomposer jusqu’à ce qu’il devienne de la terre fertile"]
+	quest.88EE54C1DBDE99D6.title: "Engrais"
+	quest.5F81EC14E645EEB0.quest_desc: ["Dépensez un lingot de Netherite entier pour améliorer votre couteau ! Ou sortez de la cuisine."]
+	quest.5F81EC14E645EEB0.title: "Qui craint le danger..."
+	quest.2221742E8E61D9D4.quest_desc: ["Plantez du riz dans de l'eau peu profonde"]
+	quest.2221742E8E61D9D4.title: "Les pieds dans l'eau"
+	quest.69C5338C1A92E16B.quest_desc: ["Suspendez une corde au-dessus d'une culture de tomates pour la faire pousser plus haut."]
+	quest.69C5338C1A92E16B.title: "T'haut-mate"
+	quest.408EB2DF0A2F43BE.quest_desc: ["Plantez des champignons sur un sol riche à l'obscurité, observez la formation d'une colonie, puis tondez-la !"]
+	quest.408EB2DF0A2F43BE.title: "Champignon parmi nous"
+	quest.CA9E3C125FFC4CFA.quest_desc: ["Lancez une tomate pourrie sur l'un de ces méchants pillards !"]
+	quest.CA9E3C125FFC4CFA.title: "Houuu ! Bouuu !"
+	quest.22D7847C3DF91978.quest_desc: ["Cultivez tous les fruits, légumes, champignons ou racines que vous pouvez trouver !"]
 	quest.22D7847C3DF91978.title: "Rotation des cultures"
-	quest.2F404FE4036D4CC2.quest_desc: ["Termine le progrès Farmer's Delight : Cuisine en déplacement avec une poêle."]
-	quest.2F404FE4036D4CC2.title: "Cuisine portable"
-	quest.C382389E2F2206BA.quest_desc: ["Termine le progrès Farmer's Delight : Accroupis-toi pour placer ta poêle comme bloc."]
-	quest.C382389E2F2206BA.title: "Ça crépite !"
-	quest.CDCCE3097A2DC469.quest_desc: ["Termine le progrès Farmer's Delight : Place une marmite et commence à préparer des repas."]
+	quest.2F404FE4036D4CC2.quest_desc: ["Les poêles à frire vous permettent de cuisiner sur le pouce. Tenez-vous près de la source de chaleur et tenez les aliments dans l'autre main !"]
+	quest.2F404FE4036D4CC2.title: "Cuisson portative"
+	quest.C382389E2F2206BA.quest_desc: ["Accroupissez-vous pour placer votre poêle à frire au sol"]
+	quest.C382389E2F2206BA.title: "Une chaleur éclatante !"
+	quest.CDCCE3097A2DC469.quest_desc: ["Placez une marmite et commencez à cuisiner"]
 	quest.CDCCE3097A2DC469.title: "Le dîner est servi !"
-	quest.586095F515D40DD5.quest_desc: ["Termine le progrès Farmer's Delight : Mange un repas nourrissant."]
-	quest.586095F515D40DD5.title: "Nourrissant !"
-	quest.A794B64467806D1B.quest_desc: ["Termine le progrès Farmer's Delight : Place un festin à partager."]
-	quest.A794B64467806D1B.title: "Un festin glorieux"
-	quest.A98FE412AB8A966B.quest_desc: ["Termine le progrès Farmer's Delight : Mange un plat de chaque repas disponible."]
-	quest.A98FE412AB8A966B.title: "Maître chef"
+	quest.586095F515D40DD5.quest_desc: ["Une bonne assiette vous tiendra au ventre plus longtemps!"]
+	quest.586095F515D40DD5.title: "Bien servi"
+	quest.A794B64467806D1B.quest_desc: ["Certains repas sont suffisamment copieux pour être servis et partagés avec des amis !"]
+	quest.A794B64467806D1B.title: "Une fête glorieuse"
+	quest.A98FE412AB8A966B.quest_desc: ["Mangez tous les plats différents possibles!"]
+	quest.A98FE412AB8A966B.title: "Master Chef"
+	quest.2BE0D746E253D7EA.quest_desc: ["Découvrez tous les biomes."]
+	quest.2BE0D746E253D7EA.title: "Partons à l'aventure !"
+	quest.034C1EE1891C690A.quest_desc: ["Tuez cinq créatures de types différents d'un seul tir d'arbalète."]
+	quest.034C1EE1891C690A.title: "Arbalistique"
+	quest.7C171281BBB3535D.quest_desc: ["Faufilez-vous près d'un capteur sculk ou d'un Warden pour éviter qu'il ne vous détecte."]
+	quest.7C171281BBB3535D.title: "Sans un bruit"
+	quest.56A430E7BF7DE924.quest_desc: ["Tuez un Breeze en lui renvoyant une charge de vent."]
+	quest.56A430E7BF7DE924.title: "Œil pour œil, vent pour vent"
+	quest.241A09758C97C226.quest_desc: ["Obtenez des écailles d'un tatou en le brossant."]
+	quest.241A09758C97C226.title: "Tatou compris !"
+	quest.BAC1EFF593E177E5.quest_desc: ["Touchez le centre d'une cible à au moins 30 mètres de distance."]
+	quest.BAC1EFF593E177E5.title: "Dans le mille !"
+	quest.6DB46A36B0496E7F.quest_desc: ["Fabriquez un vase décoré à partir de quatre tessons de poterie."]
+	quest.6DB46A36B0496E7F.title: "Le passé recomposé"
+	quest.0EA3AE1358051008.quest_desc: ["Assistez à la fabrication d'un fabricateur par un fabricateur."]
+	quest.0EA3AE1358051008.title: "Méta-fabrication"
+	quest.CEC711BD61DA8897.quest_desc: ["Survivez à une chute du point le plus haut du monde (à la limite de construction) au point le plus bas."]
+	quest.CEC711BD61DA8897.title: "Tombé du ciel"
+	quest.F33B7FB829194BB2.quest_desc: ["Protégez un village d'une invasion."]
+	quest.F33B7FB829194BB2.title: "Héros du village"
+	quest.E3A29F2FB374756D.quest_desc: ["Sautez contre un bloc de miel pour ralentir votre chute."]
+	quest.E3A29F2FB374756D.title: "Atterrissage en douceur"
+	quest.85618AA88DA7F842.quest_desc: ["Tuez n'importe quelle créature hostile."]
+	quest.85618AA88DA7F842.title: "Chasseur de monstres"
+	quest.B7F983BA0FDA080D.quest_desc: ["Tuez au moins une fois chaque créature hostile."]
+	quest.B7F983BA0FDA080D.title: "Monstres chassés"
+	quest.14CF89540585F3F9.quest_desc: ["Tuez une créature à proximité d'un catalyseur de sculk."]
+	quest.14CF89540585F3F9.title: "Propagation"
+	quest.E375321DA2A95962.quest_desc: ["Décapez une ampoule en cuivre avec une hache pour la rendre plus lumineuse."]
+	quest.E375321DA2A95962.title: "Éclaircir sa lanterne"
+	quest.882A2E57920937F5.quest_desc: ["Protégez un villageois d'une décharge électrique indésirable sans déclencher d'incendie."]
+	quest.882A2E57920937F5.title: "Sous haute tension"
+	quest.BE91EC9F0E1A1C06.quest_desc: ["Mettez les pieds dans une chambre des épreuves."]
+	quest.BE91EC9F0E1A1C06.title: "Mise à l'épreuve"
+	quest.A4D34C1913E6E484.quest_desc: ["Tirez à l'arbalète."]
+	quest.A4D34C1913E6E484.title: "La vieille Bertha"
+	quest.D1C9B58B9450CABA.quest_desc: ["Infligez 50 cœurs de dégâts avec un seul coup de masse."]
+	quest.D1C9B58B9450CABA.title: "Masse-âcre"
+	quest.E0262B7A3B3BA609.quest_desc: ["Donnez vie aux prairies avec la mélodie d'un jukebox."]
+	quest.E0262B7A3B3BA609.title: "La mélodie du bonheur"
+	quest.F9C16ED1CC4987F3.quest_desc: ["Captez le signal de puissance d'une bibliothèque sculptée en utilisant un comparateur."]
+	quest.F9C16ED1CC4987F3.title: "Le savoir, c'est le pouvoir"
+	quest.2FAC98EA33A76F01.quest_desc: ["Déverrouillez un coffre-fort funeste avec une clé des épreuves funeste."]
+	quest.2FAC98EA33A76F01.title: "Coffre-très-fort"
+	quest.BFDF7C94CAAA1E88.quest_desc: ["Aventure, exploration et combat"]
+	quest.BFDF7C94CAAA1E88.title: "Aventure"
+	quest.D1AC9E8599530820.quest_desc: ["Brossez un bloc suspect pour obtenir un tesson de poterie."]
+	quest.D1AC9E8599530820.title: "Sa place est dans un musée"
+	quest.5E274D840F73672C.quest_desc: ["Tirez sur quelque chose avec une flèche."]
+	quest.5E274D840F73672C.title: "Dans la ligne de mire"
+	quest.A926B7486FA82FB8.quest_desc: ["Dormez dans un lit pour changer votre point de réapparition."]
+	quest.A926B7486FA82FB8.title: "Bonne nuit les petits"
+	quest.56C6C7FAE44AD414.quest_desc: ["Tuez un squelette à au moins 50 mètres de distance."]
+	quest.56C6C7FAE44AD414.title: "Duel de snipers"
+	quest.08855814942F18F9.quest_desc: ["Regardez l'Ender Dragon à travers une longue-vue."]
+	quest.08855814942F18F9.title: "Est-ce un avion ?"
+	quest.234E9DD74F43563B.quest_desc: ["Regardez un Ghast à travers une longue-vue."]
+	quest.234E9DD74F43563B.title: "Est-ce une montgolfière ?"
+	quest.23B429223765D64C.quest_desc: ["Regardez un perroquet à travers une longue-vue."]
+	quest.23B429223765D64C.title: "Est-ce un oiseau ?"
+	quest.C6AFCE4CBCA3853B.quest_desc: ["Invoquez un golem de fer pour défendre un village."]
+	quest.C6AFCE4CBCA3853B.title: "Agent de sécurité"
+	quest.AF5402C6C04CDB24.quest_desc: ["Lancez un trident sur quelque chose.\nRemarque : lancer votre seule arme n'est pas une bonne idée."]
+	quest.AF5402C6C04CDB24.title: "Une blague tombée à l'eau"
+	quest.F8545DC1295B5BD2.quest_desc: ["Utilisez un totem d'immortalité pour tromper la mort."]
+	quest.F8545DC1295B5BD2.title: "Aux frontières de la mort"
+	quest.3F50B39A8AC79809.quest_desc: ["Commercez avec un villageois."]
+	quest.3F50B39A8AC79809.title: "Adjugé, vendu !"
+	quest.A06AE1C6DF4AC4B1.quest_desc: ["Commercez avec un villageois à la hauteur maximale de construction."]
+	quest.A06AE1C6DF4AC4B1.title: "Un commerce à la hauteur"
+	quest.80B789FC266C3951.quest_desc: ["Appliquez ces modèles de forge au moins une fois : des tours, des groins, des côtes, des abîmes, du silence, des Vex, des marées et des éclaireurs."]
+	quest.80B789FC266C3951.title: "La classe de la cuirasse"
+	quest.525A691252A4559B.quest_desc: ["Fabriquez une pièce d'armure ornée en utilisant une table de forge."]
+	quest.525A691252A4559B.title: "Motif de jalousie"
+	quest.893BEB5AAE5C3C98.quest_desc: ["Tuez deux Phantoms avec une flèche perforante."]
+	quest.893BEB5AAE5C3C98.title: "D'une flèche deux coups"
+	quest.39E88F016DB8EFD9.quest_desc: ["Déverrouillez un coffre-fort avec une clé des épreuves."]
+	quest.39E88F016DB8EFD9.title: "La clé du succès"
+	quest.7F182292F5444FA5.quest_desc: ["Frappez un villageois avec la foudre."]
+	quest.7F182292F5444FA5.title: "Coup de foudre"
+	quest.28319C24A61D7DC4.quest_desc: ["Tuez un capitaine de pillards.\nSongez peut-être à rester à l'écart des villages pour le moment..."]
+	quest.28319C24A61D7DC4.title: "Exil volontaire"
+	quest.A6FFAA93C95C7F2C.quest_desc: ["Marchez sur de la neige poudreuse... sans vous y enfoncer."]
+	quest.A6FFAA93C95C7F2C.title: "Léger comme un lapin"
+	quest.D9966BE9CBB16704.quest_desc: ["Utilisez une charge de vent pour vous propulser de 8 blocs vers le haut."]
+	quest.D9966BE9CBB16704.title: "Salto à vent"
+	quest.C6E44B6049CE27FC.quest_desc: ["Rendez à un pillard la monnaie de sa pièce."]
+	quest.C6E44B6049CE27FC.title: "C'est qui le pillard maintenant ?"
+	quest.CB5BCCB429CF9266.quest_desc: ["Faites en sorte qu'un Allay jette un gâteau vers un bloc musical."]
+	quest.CB5BCCB429CF9266.title: "Chanson d'anniversaire"
+	quest.77D1251217904862.quest_desc: ["Recevez un objet apporté par un Allay."]
+	quest.77D1251217904862.title: "Je suis ton ami"
+	quest.512F3C730F451A77.quest_desc: ["Capturez un axolotl avec un seau."]
+	quest.512F3C730F451A77.title: "Le plus mignon des prédateurs"
+	quest.CFEB25B369D18EC2.quest_desc: ["Mangez tout ce qui est comestible, même si ce n'est pas bon pour vous."]
+	quest.CFEB25B369D18EC2.title: "Une alimentation équilibrée"
+	quest.361BD3F9CEDCD516.quest_desc: ["Faites se reproduire au moins une fois chaque animal."]
+	quest.361BD3F9CEDCD516.title: "Deux par deux"
+	quest.15F2541356012790.quest_desc: ["Faites se reproduire deux animaux ensemble."]
+	quest.15F2541356012790.title: "Il y a de l'amour dans l'air"
+	quest.707FC63D52ECA571.quest_desc: ["Apprivoisez toutes les variantes de chat !"]
+	quest.707FC63D52ECA571.title: "Un chatalogue complet"
+	quest.EF4E7B2A0F8C5474.quest_desc: ["Nourrissez un reniflet."]
+	quest.EF4E7B2A0F8C5474.title: "Petit casse-graine"
+	quest.E86AC1C5DAC1B2CF.quest_desc: ["Pêchez un poisson."]
+	quest.E86AC1C5DAC1B2CF.title: "Merci pour le poisson"
+	quest.56A082C08A684B02.quest_desc: ["Obtenez tous les types de grelampe dans votre inventaire."]
+	quest.56A082C08A684B02.title: "Par nos pouvoirs combinés !"
+	quest.BB17EEF9A88664CB.quest_desc: ["Faites équipe avec un axolotl et gagnez un combat."]
+	quest.BB17EEF9A88664CB.title: "L'union fait la force !"
+	quest.DF150356FA8C1889.quest_desc: ["Tenez chaque variante de grenouille en laisse."]
+	quest.DF150356FA8C1889.title: "Les trois moustiquaires"
+	quest.F3EC649372CC9EA9.quest_desc: ["Faites briller le texte de n'importe quel type de pancarte."]
+	quest.F3EC649372CC9EA9.title: "Une idée brillante !"
+	quest.33F9319384CE3114.quest_desc: ["Utilisez un lingot de Netherite pour améliorer une houe, puis réévaluez vos choix de vie."]
+	quest.33F9319384CE3114.title: "Sérieux dévouement"
+	quest.1096ED01786CB4AB.quest_desc: ["Obtenez un œuf de renifleur."]
+	quest.1096ED01786CB4AB.title: "Découverte olfactive"
+	quest.4EDA388C67A31AA7.quest_desc: ["Plantez une graine déterrée par un renifleur."]
+	quest.4EDA388C67A31AA7.title: "Paléobotaniste"
+	quest.BF381BFA32B5E9F6.quest_desc: ["Plantez une graine et regardez-la pousser."]
+	quest.BF381BFA32B5E9F6.title: "Prends-en de la graine !"
+	quest.1F87838AA700F9EC.quest_desc: ["Retirez l'armure d'un loup en utilisant des cisailles."]
+	quest.1F87838AA700F9EC.title: "Une coupe au poil"
+	quest.128B72240DB3E820.quest_desc: ["Réparez complètement une armure pour loup endommagée avec des écailles de tatou."]
+	quest.128B72240DB3E820.title: "Comme neuf"
+	quest.C0D39F29B848F96A.quest_desc: ["Montez dans un bateau avec une chèvre."]
+	quest.C0D39F29B848F96A.title: "Flottage de chèvre"
+	quest.F52A8CF59A6E7D91.quest_desc: ["Le monde est plein d'amis et de nourriture"]
+	quest.F52A8CF59A6E7D91.title: "Agriculture"
+	quest.B622A948AA25AFE2.quest_desc: ["Utilisez un feu de camp et une fiole pour récolter le miel d'une ruche sans provoquer les abeilles."]
+	quest.B622A948AA25AFE2.title: "J'irai butiner chez vous"
+	quest.A8638745D69952A9.quest_desc: ["Déplacez un nid d'abeilles ou une ruche avec trois abeilles à l'intérieur en utilisant Toucher de soie."]
+	quest.A8638745D69952A9.title: "Dé-miel-nagement"
+	quest.0D97219A3836CA5B.quest_desc: ["Pêchez un poisson... sans canne à pêche !"]
+	quest.0D97219A3836CA5B.title: "Pêche tactique"
+	quest.BAA6B46D18A5A02C.quest_desc: ["Attrapez un têtard avec un seau."]
+	quest.BAA6B46D18A5A02C.title: "Adopte un têtard"
+	quest.1D3C000470E328C0.quest_desc: ["Apprivoisez un animal."]
+	quest.1D3C000470E328C0.title: "Meilleurs amis pour la vie"
+	quest.A4A7944AC0FBD7B4.quest_desc: ["Retirez la cire d'un bloc de cuivre."]
+	quest.A4A7944AC0FBD7B4.title: "Frotter"
+	quest.8BBBE43AFF17FC84.quest_desc: ["Cirez un bloc de cuivre avec un rayon de miel."]
+	quest.8BBBE43AFF17FC84.title: "Lustrer"
+	quest.D8AF1CCC379F3B52.quest_desc: ["Apprivoisez toutes les variantes de loup."]
+	quest.D8AF1CCC379F3B52.title: "Chef de meute"
+	quest.262398D405EC06FA.quest_desc: ["Bienvenue en enfer"]
+	quest.262398D405EC06FA.title: "Nether"
 }

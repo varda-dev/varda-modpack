@@ -11,19 +11,30 @@ REPO_ROOT = SCRIPT_DIR.parent
 PACK_DIR_FILE = REPO_ROOT / "PACK_DIR.txt"
 OUTPUT_DIR = REPO_ROOT / "advancements"
 DEFAULT_MOD_PATTERNS = ("FarmersDelight-*.jar",)
+DEFAULT_LOCALES = (
+    "en_us",
+    "de_de",
+    "es_es",
+    "fr_fr",
+    "pt_br",
+    "ru_ru",
+    "es_mx",
+    "ja_jp",
+    "ko_kr",
+)
 
 
 ADVANCEMENT_RE = re.compile(
     r"^data/(?P<namespace>[^/]+)/advancements?/(?P<path>.+)\.json$"
 )
-LANG_RE = re.compile(r"^assets/[^/]+/lang/en_us\.json$")
+LANG_RE = re.compile(r"^assets/[^/]+/lang/(?P<locale>[a-z_]+)\.json$")
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
-            "Extract advancement metadata from the vanilla Minecraft jar and "
-            "selected mod jars for the instance configured in PACK_DIR.txt."
+            "Extract displayed advancement metadata from the vanilla Minecraft "
+            "jar and default mod jars for the instance configured in PACK_DIR.txt."
         )
     )
     parser.add_argument(
@@ -35,34 +46,19 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--jar",
         type=Path,
-        help="Explicit Minecraft jar path. Defaults to the manifest version jar.",
+        help=(
+            "Extract only this jar. Defaults to the vanilla Minecraft jar and "
+            "default mod jars."
+        ),
     )
     parser.add_argument(
-        "--mod-jar",
+        "--locale",
         action="append",
-        type=Path,
-        default=[],
-        help="Additional mod jar to extract. Can be passed multiple times.",
-    )
-    parser.add_argument(
-        "--mod-pattern",
-        action="append",
-        default=[],
-        help="Glob under the instance mods directory. Can be passed multiple times.",
-    )
-    parser.add_argument(
-        "--minecraft-only",
-        action="store_true",
-        help="Only extract the vanilla Minecraft jar.",
-    )
-    parser.add_argument(
-        "--version",
-        help="Minecraft version to extract. Defaults to the instance manifest version.",
-    )
-    parser.add_argument(
-        "--include-recipes",
-        action="store_true",
-        help="Include recipe advancements under */recipes/*. Defaults to false.",
+        dest="locales",
+        help=(
+            "Locale to include in generated metadata. Can be passed multiple "
+            "times. Defaults to the pack-supported locales."
+        ),
     )
     return parser.parse_args()
 
@@ -102,10 +98,7 @@ def find_manifest(pack_dir: Path) -> Path:
     )
 
 
-def get_minecraft_version(pack_dir: Path, requested_version: str | None) -> str:
-    if requested_version:
-        return requested_version
-
+def get_minecraft_version(pack_dir: Path) -> str:
     manifest = read_json(find_manifest(pack_dir))
     try:
         version = manifest["minecraft"]["version"]
@@ -118,13 +111,7 @@ def get_minecraft_version(pack_dir: Path, requested_version: str | None) -> str:
     return version
 
 
-def find_minecraft_jar(pack_dir: Path, version: str, requested_jar: Path | None) -> Path:
-    if requested_jar:
-        jar_path = requested_jar.expanduser()
-        if not jar_path.exists():
-            raise FileNotFoundError(f"Minecraft jar does not exist: {jar_path}")
-        return jar_path
-
+def find_minecraft_jar(pack_dir: Path, version: str) -> Path:
     minecraft_root = find_minecraft_root(pack_dir)
     jar_path = minecraft_root / "Install" / "versions" / version / f"{version}.jar"
     if not jar_path.exists():
@@ -133,31 +120,70 @@ def find_minecraft_jar(pack_dir: Path, version: str, requested_jar: Path | None)
     return jar_path
 
 
-def find_mod_jars(
-    pack_dir: Path, patterns: list[str], requested_jars: list[Path]
-) -> list[Path]:
+def find_minecraft_install(path: Path) -> Path | None:
+    for candidate in (path, *path.parents):
+        if (candidate / "assets" / "indexes").exists() and (
+            candidate / "assets" / "objects"
+        ).exists():
+            return candidate
+        install_dir = candidate / "Install"
+        if (install_dir / "assets" / "indexes").exists() and (
+            install_dir / "assets" / "objects"
+        ).exists():
+            return install_dir
+
+    return None
+
+
+def find_asset_index_path(jar_path: Path, minecraft_install: Path | None) -> Path | None:
+    if minecraft_install is None:
+        return None
+
+    version_json = jar_path.with_suffix(".json")
+    if version_json.exists():
+        version = read_json(version_json)
+        asset_index = version.get("assetIndex")
+        if isinstance(asset_index, dict):
+            asset_index_id = asset_index.get("id")
+            if isinstance(asset_index_id, str) and asset_index_id:
+                index_path = minecraft_install / "assets" / "indexes" / f"{asset_index_id}.json"
+                if index_path.exists():
+                    return index_path
+
+    indexes_dir = minecraft_install / "assets" / "indexes"
+    indexes = sorted(
+        indexes_dir.glob("*.json"),
+        key=lambda item: item.stat().st_mtime,
+        reverse=True,
+    )
+    return indexes[0] if indexes else None
+
+
+def find_default_mod_jars(pack_dir: Path) -> list[Path]:
     jars = []
     mods_dir = pack_dir / "mods"
 
-    for requested_jar in requested_jars:
-        jar_path = requested_jar.expanduser()
-        if not jar_path.exists():
-            raise FileNotFoundError(f"Mod jar does not exist: {jar_path}")
-        jars.append(jar_path)
+    if not mods_dir.exists():
+        raise FileNotFoundError(f"Mods directory does not exist: {mods_dir}")
 
-    if patterns:
-        if not mods_dir.exists():
-            raise FileNotFoundError(f"Mods directory does not exist: {mods_dir}")
-
-        for pattern in patterns:
-            matches = sorted(mods_dir.glob(pattern))
-            if not matches:
-                raise FileNotFoundError(
-                    f"No mod jars matched pattern {pattern!r} in {mods_dir}"
-                )
-            jars.extend(matches)
+    for pattern in DEFAULT_MOD_PATTERNS:
+        matches = sorted(mods_dir.glob(pattern))
+        if not matches:
+            raise FileNotFoundError(
+                f"No mod jars matched pattern {pattern!r} in {mods_dir}"
+            )
+        jars.extend(matches)
 
     return sorted(set(jars))
+
+
+def validate_jar(path: Path) -> Path:
+    jar_path = path.expanduser()
+    if not jar_path.exists():
+        raise FileNotFoundError(f"Jar does not exist: {jar_path}")
+    if not jar_path.is_file():
+        raise FileNotFoundError(f"Jar path is not a file: {jar_path}")
+    return jar_path
 
 
 def read_zip_json(zip_file: ZipFile, name: str) -> Any:
@@ -165,16 +191,96 @@ def read_zip_json(zip_file: ZipFile, name: str) -> Any:
         return json.load(file)
 
 
-def load_translations(zip_file: ZipFile) -> dict[str, str]:
-    merged = {}
+def normalize_locales(locales: list[str] | None) -> tuple[str, ...]:
+    selected = locales or list(DEFAULT_LOCALES)
+    normalized = []
+    seen = set()
+    for locale in selected:
+        value = locale.strip().lower()
+        if not value or value in seen:
+            continue
+        seen.add(value)
+        normalized.append(value)
+
+    if "en_us" not in seen:
+        normalized.insert(0, "en_us")
+
+    return tuple(normalized)
+
+
+def load_zip_translations(
+    zip_file: ZipFile,
+    locales: tuple[str, ...],
+) -> dict[str, dict[str, str]]:
+    translations_by_locale = {locale: {} for locale in locales}
+    locale_set = set(locales)
 
     for name in sorted(zip_file.namelist()):
-        if not LANG_RE.match(name):
+        match = LANG_RE.match(name)
+        if not match:
+            continue
+
+        locale = match.group("locale")
+        if locale not in locale_set:
             continue
 
         translations = read_zip_json(zip_file, name)
         if isinstance(translations, dict):
-            merged.update({str(key): str(value) for key, value in translations.items()})
+            translations_by_locale[locale].update(
+                {str(key): str(value) for key, value in translations.items()}
+            )
+
+    return translations_by_locale
+
+
+def asset_object_path(minecraft_install: Path, asset_hash: str) -> Path:
+    return minecraft_install / "assets" / "objects" / asset_hash[:2] / asset_hash
+
+
+def load_minecraft_asset_translations(
+    minecraft_install: Path | None,
+    jar_path: Path,
+    locales: tuple[str, ...],
+) -> dict[str, dict[str, str]]:
+    if minecraft_install is None:
+        return {locale: {} for locale in locales}
+
+    index_path = find_asset_index_path(jar_path, minecraft_install)
+    if index_path is None:
+        return {locale: {} for locale in locales}
+
+    index = read_json(index_path)
+    objects = index.get("objects")
+    if not isinstance(objects, dict):
+        return {locale: {} for locale in locales}
+
+    translations_by_locale = {locale: {} for locale in locales}
+    for locale in locales:
+        entry = objects.get(f"minecraft/lang/{locale}.json")
+        if not isinstance(entry, dict):
+            continue
+        asset_hash = entry.get("hash")
+        if not isinstance(asset_hash, str):
+            continue
+        lang_path = asset_object_path(minecraft_install, asset_hash)
+        if not lang_path.exists():
+            continue
+        translations = read_json(lang_path)
+        if isinstance(translations, dict):
+            translations_by_locale[locale].update(
+                {str(key): str(value) for key, value in translations.items()}
+            )
+
+    return translations_by_locale
+
+
+def merge_translations(
+    base: dict[str, dict[str, str]],
+    overlay: dict[str, dict[str, str]],
+) -> dict[str, dict[str, str]]:
+    merged = {}
+    for locale in sorted(set(base) | set(overlay)):
+        merged[locale] = {**base.get(locale, {}), **overlay.get(locale, {})}
 
     return merged
 
@@ -223,14 +329,6 @@ def category_from_id(identifier: str) -> str:
     return path.split("/", 1)[0] if "/" in path else ""
 
 
-def should_include(path: str, include_recipes: bool) -> bool:
-    if include_recipes:
-        return True
-
-    match = ADVANCEMENT_RE.match(path)
-    return bool(match and not match.group("path").startswith("recipes/"))
-
-
 def icon_id(display: dict[str, Any]) -> str | None:
     icon = display.get("icon")
     if isinstance(icon, dict):
@@ -243,21 +341,37 @@ def make_record(
     jar_path: Path,
     zip_path: str,
     data: dict[str, Any],
-    translations: dict[str, str],
+    translations_by_locale: dict[str, dict[str, str]],
 ) -> dict[str, Any]:
     identifier = advancement_id(zip_path)
     display = data.get("display")
     display = display if isinstance(display, dict) else {}
     criteria = data.get("criteria")
     criteria = criteria if isinstance(criteria, dict) else {}
+    en_us_translations = translations_by_locale.get("en_us", {})
+    localized = {}
+
+    for locale, translations in translations_by_locale.items():
+        fallback_translations = {**en_us_translations, **translations}
+        localized[locale] = {
+            "title": format_text(display.get("title"), fallback_translations),
+            "description": format_text(
+                display.get("description"),
+                fallback_translations,
+            ),
+        }
+
+    title = localized.get("en_us", {}).get("title")
+    description = localized.get("en_us", {}).get("description")
 
     return {
         "id": identifier,
         "namespace": identifier.split(":", 1)[0],
         "path": identifier.split(":", 1)[1],
         "category": category_from_id(identifier),
-        "title": format_text(display.get("title"), translations),
-        "description": format_text(display.get("description"), translations),
+        "title": title,
+        "description": description,
+        "localized": localized,
         "parent": data.get("parent"),
         "display": {
             "icon": icon_id(display),
@@ -282,33 +396,39 @@ def make_record(
 
 
 def collect_advancements(
-    jar_path: Path, include_recipes: bool
+    jar_path: Path,
+    locales: tuple[str, ...],
+    minecraft_install: Path | None,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     records = []
     skipped = 0
 
     with ZipFile(jar_path) as zip_file:
         names = zip_file.namelist()
-        translations = load_translations(zip_file)
+        translations_by_locale = merge_translations(
+            load_minecraft_asset_translations(minecraft_install, jar_path, locales),
+            load_zip_translations(zip_file, locales),
+        )
 
         for name in sorted(names):
             if not ADVANCEMENT_RE.match(name):
-                continue
-            if not should_include(name, include_recipes):
-                skipped += 1
                 continue
 
             data = read_zip_json(zip_file, name)
             if not isinstance(data, dict):
                 raise ValueError(f"Expected advancement JSON object in {name}")
 
-            records.append(make_record(jar_path, name, data, translations))
+            if not isinstance(data.get("display"), dict):
+                skipped += 1
+                continue
+
+            records.append(make_record(jar_path, name, data, translations_by_locale))
 
     meta = {
         "source_archive": str(jar_path),
         "advancement_count": len(records),
-        "skipped_recipe_advancement_count": skipped,
-        "include_recipes": include_recipes,
+        "skipped_without_display_count": skipped,
+        "locales": list(locales),
     }
     return records, meta
 
@@ -357,7 +477,6 @@ def criteria_summary(record: dict[str, Any]) -> str:
 def write_markdown(
     path: Path,
     title: str,
-    version: str,
     meta: dict[str, Any],
     records: list[dict[str, Any]],
 ) -> None:
@@ -365,9 +484,10 @@ def write_markdown(
     lines = [
         f"# {title} Advancements",
         "",
-        f"Minecraft version: `{version}`",
         f"Source: `{meta['source_archive']}`",
         f"Count: {meta['advancement_count']}",
+        f"Skipped without display: {meta['skipped_without_display_count']}",
+        f"Locales: `{', '.join(meta['locales'])}`",
         "",
     ]
 
@@ -400,13 +520,12 @@ def write_markdown(
 
 def write_outputs(
     output_dir: Path,
-    version: str,
     source_slug: str,
     title: str,
     records: list[dict[str, Any]],
     meta: dict[str, Any],
 ) -> list[Path]:
-    base_dir = output_dir / source_slug / version
+    base_dir = output_dir / source_slug
     payload = {"meta": meta, "advancements": records}
     by_id = {record["id"]: record for record in records}
     counts_by_category: dict[str, int] = {}
@@ -417,7 +536,6 @@ def write_outputs(
 
     index = {
         **meta,
-        "minecraft_version": version,
         "source_slug": source_slug,
         "counts_by_category": dict(sorted(counts_by_category.items())),
         "advancement_ids": [record["id"] for record in records],
@@ -432,54 +550,64 @@ def write_outputs(
     write_json(files[0], payload)
     write_json(files[1], by_id)
     write_json(files[2], index)
-    write_markdown(files[3], title, version, meta, records)
+    write_markdown(files[3], title, meta, records)
     return files
+
+
+def output_path_for_print(path: Path) -> Path:
+    try:
+        return path.resolve().relative_to(REPO_ROOT)
+    except ValueError:
+        return path
 
 
 def extract_archive(
     output_dir: Path,
-    version: str,
     jar_path: Path,
     source_slug: str | None,
     title: str | None,
-    include_recipes: bool,
+    locales: tuple[str, ...],
+    minecraft_install: Path | None,
 ) -> tuple[list[dict[str, Any]], list[Path]]:
-    records, meta = collect_advancements(jar_path, include_recipes)
+    records, meta = collect_advancements(jar_path, locales, minecraft_install)
     resolved_slug = source_slug or output_slug(records, jar_path.stem)
     resolved_title = title or output_title(resolved_slug)
-    files = write_outputs(
-        output_dir, version, resolved_slug, resolved_title, records, meta
-    )
+    files = write_outputs(output_dir, resolved_slug, resolved_title, records, meta)
     return records, files
 
 
 def main() -> int:
     args = parse_args()
-    pack_dir = read_pack_dir()
-    version = get_minecraft_version(pack_dir, args.version)
-    minecraft_jar = find_minecraft_jar(pack_dir, version, args.jar)
-    archives: list[tuple[Path, str | None, str | None]] = [
-        (minecraft_jar, "minecraft", f"Minecraft {version}"),
-    ]
+    locales = normalize_locales(args.locales)
+    if args.jar:
+        jar_path = validate_jar(args.jar)
+        minecraft_install = find_minecraft_install(jar_path)
+        archives: list[tuple[Path, str | None, str | None]] = [
+            (jar_path, None, None),
+        ]
+    else:
+        pack_dir = read_pack_dir()
+        version = get_minecraft_version(pack_dir)
+        minecraft_jar = find_minecraft_jar(pack_dir, version)
+        minecraft_install = find_minecraft_install(minecraft_jar)
+        archives = [(minecraft_jar, "minecraft", "Minecraft")]
 
-    if not args.minecraft_only:
-        mod_patterns = args.mod_pattern or list(DEFAULT_MOD_PATTERNS)
-        for mod_jar in find_mod_jars(pack_dir, mod_patterns, args.mod_jar):
+        for mod_jar in find_default_mod_jars(pack_dir):
             archives.append((mod_jar, None, None))
 
     for jar_path, source_slug, title in archives:
         records, files = extract_archive(
             args.output_dir,
-            version,
             jar_path,
             source_slug,
             title,
-            args.include_recipes,
+            locales,
+            minecraft_install,
         )
 
         print(f"Extracted {len(records)} advancements from {jar_path}")
         for path in files:
-            print(path.relative_to(REPO_ROOT))
+            print(output_path_for_print(path))
 
     return 0
 
