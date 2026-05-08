@@ -7,7 +7,7 @@ import shutil
 import sys
 from pathlib import Path
 
-from lib import get_curseforge_instance_dir
+from lib.env import get_curseforge_instance_dir
 
 
 FULL_WIPE_FOLDERS = [

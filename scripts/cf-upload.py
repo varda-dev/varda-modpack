@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Any, Iterator
 from urllib.parse import urlsplit
 
-from lib import REPO_ROOT, get_curseforge_api_token
+from lib.env import REPO_ROOT, get_curseforge_api_token
 
 
 DEFAULT_BASE_URL = "https://minecraft.curseforge.com"

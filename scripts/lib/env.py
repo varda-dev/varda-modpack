@@ -5,7 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 
 
-SCRIPT_DIR = Path(__file__).resolve().parent
+SCRIPT_DIR = Path(__file__).resolve().parents[1]
 REPO_ROOT = SCRIPT_DIR.parent
 DEFAULT_ENV_PATH = REPO_ROOT / ".env"
 CURSEFORGE_INSTANCE_DIR = "CURSEFORGE_INSTANCE_DIR"

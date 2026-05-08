@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import argparse
 import json
 import re
@@ -5,13 +7,17 @@ from pathlib import Path
 from typing import Any
 from zipfile import ZipFile
 
-from lib import get_curseforge_instance_dir
+from lib.env import get_curseforge_instance_dir
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent
 OUTPUT_DIR = REPO_ROOT / "tmp/advancements"
-DEFAULT_MOD_PATTERNS = ("FarmersDelight-*.jar",)
+LOCALES_PATH = SCRIPT_DIR / "lib" / "locales.json"
+DEFAULT_MOD_PATTERNS = (
+    "FarmersDelight-*.jar",
+    "ars_nouveau-*.jar",
+)
 DEFAULT_LOCALES = (
     "en_us",
     "de_de",
@@ -28,7 +34,44 @@ DEFAULT_LOCALES = (
 ADVANCEMENT_RE = re.compile(
     r"^data/(?P<namespace>[^/]+)/advancements?/(?P<path>.+)\.json$"
 )
-LANG_RE = re.compile(r"^assets/[^/]+/lang/(?P<locale>[a-z_]+)\.json$")
+LANG_RE = re.compile(r"^assets/[^/]+/lang/(?P<locale>[a-z0-9_-]+)\.json$")
+
+VALID_LOCALES: frozenset[str] | None = None
+
+
+def normalize_locale_code(locale: str) -> str:
+    return locale.strip().lower().replace("-", "_")
+
+
+def get_valid_locales() -> frozenset[str]:
+    global VALID_LOCALES
+    if VALID_LOCALES is not None:
+        return VALID_LOCALES
+
+    data = json.loads(LOCALES_PATH.read_text(encoding="utf-8"))
+    if not isinstance(data, list):
+        raise ValueError(f"Expected locale list in {LOCALES_PATH}")
+
+    valid = set(DEFAULT_LOCALES)
+    for entry in data:
+        if not isinstance(entry, dict):
+            continue
+        locale = entry.get("locale")
+        if isinstance(locale, str) and locale.strip():
+            valid.add(normalize_locale_code(locale))
+
+    VALID_LOCALES = frozenset(valid)
+    return VALID_LOCALES
+
+
+def parse_locale_arg(locale: str) -> str:
+    normalized = normalize_locale_code(locale)
+    if normalized in get_valid_locales():
+        return normalized
+
+    raise argparse.ArgumentTypeError(
+        f"invalid locale {locale!r}; expected a locale from {LOCALES_PATH}"
+    )
 
 
 def parse_args() -> argparse.Namespace:
@@ -39,12 +82,15 @@ def parse_args() -> argparse.Namespace:
         )
     )
     parser.add_argument(
-        "--output-dir",
+        "-o",
+        "--out",
         type=Path,
         default=OUTPUT_DIR,
+        dest="output_dir",
         help="Directory for generated advancement files.",
     )
     parser.add_argument(
+        "-j",
         "--jar",
         type=Path,
         help=(
@@ -53,15 +99,31 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "-t",
+        "--test",
+        action="store_true",
+        help=(
+            "With --jar, check whether the jar has displayed advancements "
+            "that can be extracted without writing output files."
+        ),
+    )
+    parser.add_argument(
+        "-l",
         "--locale",
         action="append",
         dest="locales",
+        metavar="LOCALE",
+        type=parse_locale_arg,
         help=(
             "Locale to include in generated metadata. Can be passed multiple "
-            "times. Defaults to the pack-supported locales."
+            "times. Accepts locales from scripts/lib/locales.json. Defaults "
+            "to the pack-supported locales."
         ),
     )
-    return parser.parse_args()
+    args = parser.parse_args()
+    if args.test and not args.jar:
+        parser.error("--test requires --jar")
+    return args
 
 
 def read_json(path: Path) -> Any:
@@ -186,7 +248,7 @@ def normalize_locales(locales: list[str] | None) -> tuple[str, ...]:
     normalized = []
     seen = set()
     for locale in selected:
-        value = locale.strip().lower()
+        value = normalize_locale_code(locale)
         if not value or value in seen:
             continue
         seen.add(value)
@@ -210,11 +272,15 @@ def load_zip_translations(
         if not match:
             continue
 
-        locale = match.group("locale")
+        locale = normalize_locale_code(match.group("locale"))
         if locale not in locale_set:
             continue
 
-        translations = read_zip_json(zip_file, name)
+        try:
+            translations = read_zip_json(zip_file, name)
+        except json.JSONDecodeError:
+            continue
+
         if isinstance(translations, dict):
             translations_by_locale[locale].update(
                 {str(key): str(value) for key, value in translations.items()}
@@ -435,6 +501,7 @@ def output_slug(records: list[dict[str, Any]], fallback: str) -> str:
 def output_title(source_slug: str) -> str:
     titles = {
         "farmersdelight": "Farmer's Delight",
+        "ars_nouveau": "Ars Nouveau",
         "minecraft": "Minecraft",
     }
     return titles.get(source_slug, source_slug)
@@ -566,9 +633,28 @@ def extract_archive(
     return records, files
 
 
+def test_archive(
+    jar_path: Path,
+    locales: tuple[str, ...],
+    minecraft_install: Path | None,
+) -> int:
+    records, _ = collect_advancements(jar_path, locales, minecraft_install)
+    if records:
+        print(f"Mod has advancements: {jar_path} ({len(records)} extractable)")
+        return 0
+
+    print(f"Mod has no extractable advancements: {jar_path}")
+    return 1
+
+
 def main() -> int:
     args = parse_args()
     locales = normalize_locales(args.locales)
+    if args.test:
+        jar_path = validate_jar(args.jar)
+        minecraft_install = find_minecraft_install(jar_path)
+        return test_archive(jar_path, locales, minecraft_install)
+
     if args.jar:
         jar_path = validate_jar(args.jar)
         minecraft_install = find_minecraft_install(jar_path)

@@ -6,7 +6,7 @@ import zlib
 from pathlib import Path
 from typing import Any
 
-from lib import get_curseforge_instance_dir
+from lib.env import get_curseforge_instance_dir
 
 
 def parse_args() -> argparse.Namespace:
