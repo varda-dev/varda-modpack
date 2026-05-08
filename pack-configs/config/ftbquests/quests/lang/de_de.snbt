@@ -101,4 +101,47 @@
 	quest.69514AEFE2171498.title: "Der Himmel ist die Grenze"
 	quest.565F234F7D717E4C.quest_desc: ["Schließe den Minecraft-Fortschritt ab: Bewege dich durch Shulker-Levitation 50 Blöcke vertikal."]
 	quest.565F234F7D717E4C.title: "Schöne Aussicht von hier oben"
+	chapter.FF55743774F036A4.title: "Das Gesäte Mahl"
+	quest.43EED84AD9B1FF97.quest_desc: ["Beginne den Farmer's-Delight-Pfad."]
+	quest.43EED84AD9B1FF97.title: "Das Gesäte Mahl"
+	quest.B03730C6D592CC2D.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Stelle ein Messer her, um zusätzliche Waren von Pflanzen und Tieren zu gewinnen."]
+	quest.B03730C6D592CC2D.title: "Jagen und Sammeln"
+	quest.3C754E5F2196E7A8.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Finde wilde Nutzpflanzen für deinen Küchengarten."]
+	quest.3C754E5F2196E7A8.title: "Wilde Feldfrüchte"
+	quest.D1809B943A512A8E.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Platziere ein Lagerfeuer, um Essen zu kochen."]
+	quest.D1809B943A512A8E.title: "Lagerfeuer entzündet"
+	quest.278F8EFEBFE7E144.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Ernte Gras, Weizen oder Reis mit einem Messer, um Stroh zu sammeln."]
+	quest.278F8EFEBFE7E144.title: "Nach Stroh greifen"
+	quest.EFB5100A570B6285.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Nutze ein Schneidebrett, um einen Gegenstand zu zerlegen."]
+	quest.EFB5100A570B6285.title: "Pass auf deine Finger auf"
+	quest.A729117CF501AB2F.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Nutze ein Messer, um Schinken von Schweinen oder Hoglins zu gewinnen."]
+	quest.A729117CF501AB2F.title: "Wilder Metzger"
+	quest.F9D91BDB2CD7A600.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Platziere organischen Kompost."]
+	quest.F9D91BDB2CD7A600.title: "Fortgeschrittenes Kompostieren"
+	quest.88EE54C1DBDE99D6.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Lasse organischen Kompost zu fruchtbarer Erde zerfallen."]
+	quest.88EE54C1DBDE99D6.title: "Pflanzennahrung"
+	quest.5F81EC14E645EEB0.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Verbessere dein Messer bis zu Netherite."]
+	quest.5F81EC14E645EEB0.title: "Wenn du die Hitze nicht erträgst..."
+	quest.2221742E8E61D9D4.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Pflanze Reiskörner in flaches Wasser."]
+	quest.2221742E8E61D9D4.title: "Wurzeln eintauchen"
+	quest.69C5338C1A92E16B.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Hänge Seil über eine Tomatenpflanze, damit sie höher wächst."]
+	quest.69C5338C1A92E16B.title: "Hochmatate"
+	quest.408EB2DF0A2F43BE.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Schere eine ausgewachsene Pilzkolonie."]
+	quest.408EB2DF0A2F43BE.title: "Pilz unter uns"
+	quest.CA9E3C125FFC4CFA.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Wirf eine verfaulte Tomate auf einen Plünderer."]
+	quest.CA9E3C125FFC4CFA.title: "Buh! Zisch!"
+	quest.22D7847C3DF91978.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Kultiviere jede essbare Pflanze, die du finden kannst."]
+	quest.22D7847C3DF91978.title: "Fruchtfolge"
+	quest.2F404FE4036D4CC2.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Koche unterwegs mit einer Pfanne."]
+	quest.2F404FE4036D4CC2.title: "Mobiles Kochen"
+	quest.C382389E2F2206BA.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Schleiche, um deine Pfanne als Block zu platzieren."]
+	quest.C382389E2F2206BA.title: "Brutzelheiß!"
+	quest.CDCCE3097A2DC469.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Platziere einen Kochtopf und bereite Mahlzeiten zu."]
+	quest.CDCCE3097A2DC469.title: "Das Essen ist serviert!"
+	quest.586095F515D40DD5.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Iss eine nahrhafte Mahlzeit."]
+	quest.586095F515D40DD5.title: "Nahrhaft!"
+	quest.A794B64467806D1B.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Platziere ein Festmahl zum Teilen."]
+	quest.A794B64467806D1B.title: "Ein prächtiges Festmahl"
+	quest.A98FE412AB8A966B.quest_desc: ["Schließe den Farmer's-Delight-Fortschritt ab: Iss von jeder verfügbaren Mahlzeit."]
+	quest.A98FE412AB8A966B.title: "Meisterkoch"
 }

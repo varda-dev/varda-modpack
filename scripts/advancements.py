@@ -10,19 +10,20 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent
 PACK_DIR_FILE = REPO_ROOT / "PACK_DIR.txt"
 OUTPUT_DIR = REPO_ROOT / "advancements"
+DEFAULT_MOD_PATTERNS = ("FarmersDelight-*.jar",)
 
 
 ADVANCEMENT_RE = re.compile(
     r"^data/(?P<namespace>[^/]+)/advancements?/(?P<path>.+)\.json$"
 )
-LANG_PATH = "assets/minecraft/lang/en_us.json"
+LANG_RE = re.compile(r"^assets/[^/]+/lang/en_us\.json$")
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
-            "Extract advancement metadata from the vanilla Minecraft jar for the "
-            "instance configured in PACK_DIR.txt."
+            "Extract advancement metadata from the vanilla Minecraft jar and "
+            "selected mod jars for the instance configured in PACK_DIR.txt."
         )
     )
     parser.add_argument(
@@ -35,6 +36,24 @@ def parse_args() -> argparse.Namespace:
         "--jar",
         type=Path,
         help="Explicit Minecraft jar path. Defaults to the manifest version jar.",
+    )
+    parser.add_argument(
+        "--mod-jar",
+        action="append",
+        type=Path,
+        default=[],
+        help="Additional mod jar to extract. Can be passed multiple times.",
+    )
+    parser.add_argument(
+        "--mod-pattern",
+        action="append",
+        default=[],
+        help="Glob under the instance mods directory. Can be passed multiple times.",
+    )
+    parser.add_argument(
+        "--minecraft-only",
+        action="store_true",
+        help="Only extract the vanilla Minecraft jar.",
     )
     parser.add_argument(
         "--version",
@@ -114,20 +133,50 @@ def find_minecraft_jar(pack_dir: Path, version: str, requested_jar: Path | None)
     return jar_path
 
 
+def find_mod_jars(
+    pack_dir: Path, patterns: list[str], requested_jars: list[Path]
+) -> list[Path]:
+    jars = []
+    mods_dir = pack_dir / "mods"
+
+    for requested_jar in requested_jars:
+        jar_path = requested_jar.expanduser()
+        if not jar_path.exists():
+            raise FileNotFoundError(f"Mod jar does not exist: {jar_path}")
+        jars.append(jar_path)
+
+    if patterns:
+        if not mods_dir.exists():
+            raise FileNotFoundError(f"Mods directory does not exist: {mods_dir}")
+
+        for pattern in patterns:
+            matches = sorted(mods_dir.glob(pattern))
+            if not matches:
+                raise FileNotFoundError(
+                    f"No mod jars matched pattern {pattern!r} in {mods_dir}"
+                )
+            jars.extend(matches)
+
+    return sorted(set(jars))
+
+
 def read_zip_json(zip_file: ZipFile, name: str) -> Any:
     with zip_file.open(name) as file:
         return json.load(file)
 
 
 def load_translations(zip_file: ZipFile) -> dict[str, str]:
-    if LANG_PATH not in zip_file.namelist():
-        return {}
+    merged = {}
 
-    translations = read_zip_json(zip_file, LANG_PATH)
-    if not isinstance(translations, dict):
-        return {}
+    for name in sorted(zip_file.namelist()):
+        if not LANG_RE.match(name):
+            continue
 
-    return {str(key): str(value) for key, value in translations.items()}
+        translations = read_zip_json(zip_file, name)
+        if isinstance(translations, dict):
+            merged.update({str(key): str(value) for key, value in translations.items()})
+
+    return merged
 
 
 def format_text(value: Any, translations: dict[str, str]) -> str | None:
@@ -264,6 +313,23 @@ def collect_advancements(
     return records, meta
 
 
+def output_slug(records: list[dict[str, Any]], fallback: str) -> str:
+    namespaces = sorted({record["namespace"] for record in records})
+    if len(namespaces) == 1:
+        return namespaces[0]
+
+    slug = re.sub(r"[^a-zA-Z0-9_.-]+", "_", fallback.lower()).strip("_")
+    return slug or "unknown"
+
+
+def output_title(source_slug: str) -> str:
+    titles = {
+        "farmersdelight": "Farmer's Delight",
+        "minecraft": "Minecraft",
+    }
+    return titles.get(source_slug, source_slug)
+
+
 def write_json(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
@@ -288,11 +354,18 @@ def criteria_summary(record: dict[str, Any]) -> str:
     return f"{len(criteria)} criteria"
 
 
-def write_markdown(path: Path, version: str, meta: dict[str, Any], records: list[dict[str, Any]]) -> None:
+def write_markdown(
+    path: Path,
+    title: str,
+    version: str,
+    meta: dict[str, Any],
+    records: list[dict[str, Any]],
+) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     lines = [
-        f"# Minecraft {version} Advancements",
+        f"# {title} Advancements",
         "",
+        f"Minecraft version: `{version}`",
         f"Source: `{meta['source_archive']}`",
         f"Count: {meta['advancement_count']}",
         "",
@@ -328,10 +401,12 @@ def write_markdown(path: Path, version: str, meta: dict[str, Any], records: list
 def write_outputs(
     output_dir: Path,
     version: str,
+    source_slug: str,
+    title: str,
     records: list[dict[str, Any]],
     meta: dict[str, Any],
 ) -> list[Path]:
-    base_dir = output_dir / "minecraft" / version
+    base_dir = output_dir / source_slug / version
     payload = {"meta": meta, "advancements": records}
     by_id = {record["id"]: record for record in records}
     counts_by_category: dict[str, int] = {}
@@ -343,6 +418,7 @@ def write_outputs(
     index = {
         **meta,
         "minecraft_version": version,
+        "source_slug": source_slug,
         "counts_by_category": dict(sorted(counts_by_category.items())),
         "advancement_ids": [record["id"] for record in records],
     }
@@ -356,21 +432,54 @@ def write_outputs(
     write_json(files[0], payload)
     write_json(files[1], by_id)
     write_json(files[2], index)
-    write_markdown(files[3], version, meta, records)
+    write_markdown(files[3], title, version, meta, records)
     return files
+
+
+def extract_archive(
+    output_dir: Path,
+    version: str,
+    jar_path: Path,
+    source_slug: str | None,
+    title: str | None,
+    include_recipes: bool,
+) -> tuple[list[dict[str, Any]], list[Path]]:
+    records, meta = collect_advancements(jar_path, include_recipes)
+    resolved_slug = source_slug or output_slug(records, jar_path.stem)
+    resolved_title = title or output_title(resolved_slug)
+    files = write_outputs(
+        output_dir, version, resolved_slug, resolved_title, records, meta
+    )
+    return records, files
 
 
 def main() -> int:
     args = parse_args()
     pack_dir = read_pack_dir()
     version = get_minecraft_version(pack_dir, args.version)
-    jar_path = find_minecraft_jar(pack_dir, version, args.jar)
-    records, meta = collect_advancements(jar_path, args.include_recipes)
-    files = write_outputs(args.output_dir, version, records, meta)
+    minecraft_jar = find_minecraft_jar(pack_dir, version, args.jar)
+    archives: list[tuple[Path, str | None, str | None]] = [
+        (minecraft_jar, "minecraft", f"Minecraft {version}"),
+    ]
 
-    print(f"Extracted {len(records)} advancements from {jar_path}")
-    for path in files:
-        print(path.relative_to(REPO_ROOT))
+    if not args.minecraft_only:
+        mod_patterns = args.mod_pattern or list(DEFAULT_MOD_PATTERNS)
+        for mod_jar in find_mod_jars(pack_dir, mod_patterns, args.mod_jar):
+            archives.append((mod_jar, None, None))
+
+    for jar_path, source_slug, title in archives:
+        records, files = extract_archive(
+            args.output_dir,
+            version,
+            jar_path,
+            source_slug,
+            title,
+            args.include_recipes,
+        )
+
+        print(f"Extracted {len(records)} advancements from {jar_path}")
+        for path in files:
+            print(path.relative_to(REPO_ROOT))
 
     return 0
 

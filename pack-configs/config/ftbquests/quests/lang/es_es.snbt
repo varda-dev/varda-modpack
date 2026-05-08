@@ -101,4 +101,47 @@
 	quest.69514AEFE2171498.title: "El cielo es el límite"
 	quest.565F234F7D717E4C.quest_desc: ["Completa el avance de Minecraft: Muévete 50 bloques verticalmente por levitación de shulker."]
 	quest.565F234F7D717E4C.title: "Gran vista desde aquí arriba"
+	chapter.FF55743774F036A4.title: "La Cena Sembrada"
+	quest.43EED84AD9B1FF97.quest_desc: ["Comienza el sendero de Farmer's Delight."]
+	quest.43EED84AD9B1FF97.title: "La Cena Sembrada"
+	quest.B03730C6D592CC2D.quest_desc: ["Completa el avance de Farmer's Delight: Fabrica un cuchillo para obtener recursos extra de plantas y animales."]
+	quest.B03730C6D592CC2D.title: "Caza y recolección"
+	quest.3C754E5F2196E7A8.quest_desc: ["Completa el avance de Farmer's Delight: Encuentra cultivos silvestres para tu huerto de cocina."]
+	quest.3C754E5F2196E7A8.title: "Cultivos silvestres"
+	quest.D1809B943A512A8E.quest_desc: ["Completa el avance de Farmer's Delight: Coloca una hoguera para cocinar comida."]
+	quest.D1809B943A512A8E.title: "Hoguera encendida"
+	quest.278F8EFEBFE7E144.quest_desc: ["Completa el avance de Farmer's Delight: Cosecha hierba, trigo o arroz con un cuchillo para conseguir paja."]
+	quest.278F8EFEBFE7E144.title: "Aferrado a la paja"
+	quest.EFB5100A570B6285.quest_desc: ["Completa el avance de Farmer's Delight: Usa una tabla de cortar para descomponer un objeto."]
+	quest.EFB5100A570B6285.title: "Cuidado con los dedos"
+	quest.A729117CF501AB2F.quest_desc: ["Completa el avance de Farmer's Delight: Usa un cuchillo para extraer jamón de cerdos u hoglins."]
+	quest.A729117CF501AB2F.title: "Carnicero salvaje"
+	quest.F9D91BDB2CD7A600.quest_desc: ["Completa el avance de Farmer's Delight: Coloca compost orgánico."]
+	quest.F9D91BDB2CD7A600.title: "Compostaje avanzado"
+	quest.88EE54C1DBDE99D6.quest_desc: ["Completa el avance de Farmer's Delight: Deja que el compost orgánico se convierta en tierra fértil."]
+	quest.88EE54C1DBDE99D6.title: "Comida para plantas"
+	quest.5F81EC14E645EEB0.quest_desc: ["Completa el avance de Farmer's Delight: Mejora tu cuchillo hasta netherita."]
+	quest.5F81EC14E645EEB0.title: "Si no soportas el calor..."
+	quest.2221742E8E61D9D4.quest_desc: ["Completa el avance de Farmer's Delight: Planta granos de arroz en agua poco profunda."]
+	quest.2221742E8E61D9D4.title: "Echando raíces"
+	quest.69C5338C1A92E16B.quest_desc: ["Completa el avance de Farmer's Delight: Cuelga cuerda sobre un cultivo de tomate para que crezca más alto."]
+	quest.69C5338C1A92E16B.title: "Tomate alto"
+	quest.408EB2DF0A2F43BE.quest_desc: ["Completa el avance de Farmer's Delight: Esquila una colonia de hongos madura."]
+	quest.408EB2DF0A2F43BE.title: "Hongos entre nosotros"
+	quest.CA9E3C125FFC4CFA.quest_desc: ["Completa el avance de Farmer's Delight: Lanza un tomate podrido a un saqueador."]
+	quest.CA9E3C125FFC4CFA.title: "¡Buu! ¡Fuera!"
+	quest.22D7847C3DF91978.quest_desc: ["Completa el avance de Farmer's Delight: Cultiva todas las plantas comestibles que encuentres."]
+	quest.22D7847C3DF91978.title: "Rotación de cultivos"
+	quest.2F404FE4036D4CC2.quest_desc: ["Completa el avance de Farmer's Delight: Cocina en movimiento con una sartén."]
+	quest.2F404FE4036D4CC2.title: "Cocina portátil"
+	quest.C382389E2F2206BA.quest_desc: ["Completa el avance de Farmer's Delight: Agáchate para colocar tu sartén como bloque."]
+	quest.C382389E2F2206BA.title: "¡Muy caliente!"
+	quest.CDCCE3097A2DC469.quest_desc: ["Completa el avance de Farmer's Delight: Coloca una olla y empieza a preparar comidas."]
+	quest.CDCCE3097A2DC469.title: "¡La cena está servida!"
+	quest.586095F515D40DD5.quest_desc: ["Completa el avance de Farmer's Delight: Come una comida nutritiva."]
+	quest.586095F515D40DD5.title: "¡Nutritivo!"
+	quest.A794B64467806D1B.quest_desc: ["Completa el avance de Farmer's Delight: Coloca un banquete para compartir."]
+	quest.A794B64467806D1B.title: "Un banquete glorioso"
+	quest.A98FE412AB8A966B.quest_desc: ["Completa el avance de Farmer's Delight: Come un plato de cada comida disponible."]
+	quest.A98FE412AB8A966B.title: "Chef maestro"
 }

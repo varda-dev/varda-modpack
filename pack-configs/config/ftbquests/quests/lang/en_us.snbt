@@ -101,4 +101,47 @@
 	quest.69514AEFE2171498.title: "Sky's the Limit"
 	quest.565F234F7D717E4C.quest_desc: ["Complete the vanilla advancement: Move 50 Blocks Vertically from Shulker Levitation."]
 	quest.565F234F7D717E4C.title: "Great View From Up Here"
+	chapter.FF55743774F036A4.title: "The Sown Supper"
+	quest.43EED84AD9B1FF97.quest_desc: ["Begin the Farmer's Delight trail."]
+	quest.43EED84AD9B1FF97.title: "The Sown Supper"
+	quest.B03730C6D592CC2D.quest_desc: ["Complete the Farmer's Delight advancement: Craft a Knife to scavenge extra goods from plants and animals."]
+	quest.B03730C6D592CC2D.title: "Hunt and Gather"
+	quest.3C754E5F2196E7A8.quest_desc: ["Complete the Farmer's Delight advancement: Find the wild crops that start a proper kitchen garden."]
+	quest.3C754E5F2196E7A8.title: "Crops of the Wild"
+	quest.D1809B943A512A8E.quest_desc: ["Complete the Farmer's Delight advancement: Place down a Campfire to cook some food."]
+	quest.D1809B943A512A8E.title: "Bonfire Lit"
+	quest.278F8EFEBFE7E144.quest_desc: ["Complete the Farmer's Delight advancement: Harvest grass, wheat or rice with a Knife to collect Straw."]
+	quest.278F8EFEBFE7E144.title: "Grasping at Straws"
+	quest.EFB5100A570B6285.quest_desc: ["Complete the Farmer's Delight advancement: Use a Cutting Board to break down an item."]
+	quest.EFB5100A570B6285.title: "Watch Your Fingers"
+	quest.A729117CF501AB2F.quest_desc: ["Complete the Farmer's Delight advancement: Use a Knife to extract Ham from Pigs or Hoglins."]
+	quest.A729117CF501AB2F.title: "Wild Butcher"
+	quest.F9D91BDB2CD7A600.quest_desc: ["Complete the Farmer's Delight advancement: Place down Organic Compost."]
+	quest.F9D91BDB2CD7A600.title: "Advanced Composting"
+	quest.88EE54C1DBDE99D6.quest_desc: ["Complete the Farmer's Delight advancement: Let Organic Compost decay into Rich Soil."]
+	quest.88EE54C1DBDE99D6.title: "Plant Food"
+	quest.5F81EC14E645EEB0.quest_desc: ["Complete the Farmer's Delight advancement: Upgrade all the way to a Netherite Knife."]
+	quest.5F81EC14E645EEB0.title: "If You Can't Take the Heat..."
+	quest.2221742E8E61D9D4.quest_desc: ["Complete the Farmer's Delight advancement: Plant grains of Rice in shallow water."]
+	quest.2221742E8E61D9D4.title: "Dipping Your Roots"
+	quest.69C5338C1A92E16B.quest_desc: ["Complete the Farmer's Delight advancement: Hang rope above a tomato crop to make it grow taller."]
+	quest.69C5338C1A92E16B.title: "Tall-mato"
+	quest.408EB2DF0A2F43BE.quest_desc: ["Complete the Farmer's Delight advancement: Shear a fully mature Mushroom Colony."]
+	quest.408EB2DF0A2F43BE.title: "Fungus Among Us"
+	quest.CA9E3C125FFC4CFA.quest_desc: ["Complete the Farmer's Delight advancement: Throw a Rotten Tomato at a raider."]
+	quest.CA9E3C125FFC4CFA.title: "Boo! Hiss!"
+	quest.22D7847C3DF91978.quest_desc: ["Complete the Farmer's Delight advancement: Cultivate every food-related plant you can find."]
+	quest.22D7847C3DF91978.title: "Crop Rotation"
+	quest.2F404FE4036D4CC2.quest_desc: ["Complete the Farmer's Delight advancement: Cook on the go with a Skillet."]
+	quest.2F404FE4036D4CC2.title: "Portable Cooking"
+	quest.C382389E2F2206BA.quest_desc: ["Complete the Farmer's Delight advancement: Sneak to place your Skillet down as a block."]
+	quest.C382389E2F2206BA.title: "Sizzling Hot!"
+	quest.CDCCE3097A2DC469.quest_desc: ["Complete the Farmer's Delight advancement: Place a Cooking Pot and start preparing meals."]
+	quest.CDCCE3097A2DC469.title: "Dinner's Served!"
+	quest.586095F515D40DD5.quest_desc: ["Complete the Farmer's Delight advancement: Eat a nourishing meal."]
+	quest.586095F515D40DD5.title: "Nourishing!"
+	quest.A794B64467806D1B.quest_desc: ["Complete the Farmer's Delight advancement: Place down a feast to share."]
+	quest.A794B64467806D1B.title: "A Glorious Feast"
+	quest.A98FE412AB8A966B.quest_desc: ["Complete the Farmer's Delight advancement: Eat a course of every meal available."]
+	quest.A98FE412AB8A966B.title: "Master Chef"
 }

@@ -101,4 +101,47 @@
 	quest.69514AEFE2171498.title: "Le ciel est la limite"
 	quest.565F234F7D717E4C.quest_desc: ["Termine le progrès Minecraft : Déplace-toi de 50 blocs verticalement grâce à la lévitation d'un shulker."]
 	quest.565F234F7D717E4C.title: "Belle vue de là-haut"
+	chapter.FF55743774F036A4.title: "Le Souper Semé"
+	quest.43EED84AD9B1FF97.quest_desc: ["Commence le sentier Farmer's Delight."]
+	quest.43EED84AD9B1FF97.title: "Le Souper Semé"
+	quest.B03730C6D592CC2D.quest_desc: ["Termine le progrès Farmer's Delight : Fabrique un couteau pour récupérer des ressources supplémentaires sur les plantes et les animaux."]
+	quest.B03730C6D592CC2D.title: "Chasse et cueillette"
+	quest.3C754E5F2196E7A8.quest_desc: ["Termine le progrès Farmer's Delight : Trouve des cultures sauvages pour ton potager."]
+	quest.3C754E5F2196E7A8.title: "Cultures sauvages"
+	quest.D1809B943A512A8E.quest_desc: ["Termine le progrès Farmer's Delight : Place un feu de camp pour cuisiner."]
+	quest.D1809B943A512A8E.title: "Feu de camp allumé"
+	quest.278F8EFEBFE7E144.quest_desc: ["Termine le progrès Farmer's Delight : Récolte de l'herbe, du blé ou du riz avec un couteau pour obtenir de la paille."]
+	quest.278F8EFEBFE7E144.title: "À court de paille"
+	quest.EFB5100A570B6285.quest_desc: ["Termine le progrès Farmer's Delight : Utilise une planche à découper pour décomposer un objet."]
+	quest.EFB5100A570B6285.title: "Attention aux doigts"
+	quest.A729117CF501AB2F.quest_desc: ["Termine le progrès Farmer's Delight : Utilise un couteau pour récupérer du jambon sur des cochons ou des hoglins."]
+	quest.A729117CF501AB2F.title: "Boucher sauvage"
+	quest.F9D91BDB2CD7A600.quest_desc: ["Termine le progrès Farmer's Delight : Place du compost organique."]
+	quest.F9D91BDB2CD7A600.title: "Compostage avancé"
+	quest.88EE54C1DBDE99D6.quest_desc: ["Termine le progrès Farmer's Delight : Laisse le compost organique devenir de la terre riche."]
+	quest.88EE54C1DBDE99D6.title: "Nourriture végétale"
+	quest.5F81EC14E645EEB0.quest_desc: ["Termine le progrès Farmer's Delight : Améliore ton couteau jusqu'à la netherite."]
+	quest.5F81EC14E645EEB0.title: "Si tu ne supportes pas la chaleur..."
+	quest.2221742E8E61D9D4.quest_desc: ["Termine le progrès Farmer's Delight : Plante des grains de riz dans de l'eau peu profonde."]
+	quest.2221742E8E61D9D4.title: "Racines trempées"
+	quest.69C5338C1A92E16B.quest_desc: ["Termine le progrès Farmer's Delight : Suspends de la corde au-dessus d'un plant de tomates pour le faire pousser plus haut."]
+	quest.69C5338C1A92E16B.title: "Tomate en hauteur"
+	quest.408EB2DF0A2F43BE.quest_desc: ["Termine le progrès Farmer's Delight : Tonds une colonie de champignons arrivée à maturité."]
+	quest.408EB2DF0A2F43BE.title: "Champignons parmi nous"
+	quest.CA9E3C125FFC4CFA.quest_desc: ["Termine le progrès Farmer's Delight : Lance une tomate pourrie sur un pillard."]
+	quest.CA9E3C125FFC4CFA.title: "Bouh ! Huées !"
+	quest.22D7847C3DF91978.quest_desc: ["Termine le progrès Farmer's Delight : Cultive toutes les plantes alimentaires que tu peux trouver."]
+	quest.22D7847C3DF91978.title: "Rotation des cultures"
+	quest.2F404FE4036D4CC2.quest_desc: ["Termine le progrès Farmer's Delight : Cuisine en déplacement avec une poêle."]
+	quest.2F404FE4036D4CC2.title: "Cuisine portable"
+	quest.C382389E2F2206BA.quest_desc: ["Termine le progrès Farmer's Delight : Accroupis-toi pour placer ta poêle comme bloc."]
+	quest.C382389E2F2206BA.title: "Ça crépite !"
+	quest.CDCCE3097A2DC469.quest_desc: ["Termine le progrès Farmer's Delight : Place une marmite et commence à préparer des repas."]
+	quest.CDCCE3097A2DC469.title: "Le dîner est servi !"
+	quest.586095F515D40DD5.quest_desc: ["Termine le progrès Farmer's Delight : Mange un repas nourrissant."]
+	quest.586095F515D40DD5.title: "Nourrissant !"
+	quest.A794B64467806D1B.quest_desc: ["Termine le progrès Farmer's Delight : Place un festin à partager."]
+	quest.A794B64467806D1B.title: "Un festin glorieux"
+	quest.A98FE412AB8A966B.quest_desc: ["Termine le progrès Farmer's Delight : Mange un plat de chaque repas disponible."]
+	quest.A98FE412AB8A966B.title: "Maître chef"
 }
