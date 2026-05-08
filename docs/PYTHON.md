@@ -31,3 +31,10 @@ if ($userPathExt -notmatch '(^|;)\.PY($|;)') {
 Then close and relaunch pwsh.  
 
 And lastly, associate .py files with Python. Launch "Default apps", search for .py, and select Python for it.  
+
+## Linux
+### Installation
+```bash
+sudo pacman -Syu
+sudo pacman -S python python-pip
+```
