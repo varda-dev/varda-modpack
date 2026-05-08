@@ -28,7 +28,7 @@
 	quest.722438F93B19A764.quest_desc: ["Complete the vanilla advancement: Enter the Nether."]
 	quest.722438F93B19A764.title: "We Need to Go Deeper"
 	quest.66B9CBAE7DFD6FDF.quest_desc: ["Complete the vanilla advancement: Make Diamond Armor."]
-	quest.66B9CBAE7DFD6FDF.title: "Cover Me With Diamonds"
+	quest.66B9CBAE7DFD6FDF.title: "Cover Me with Diamonds"
 	quest.109C1B0B216A269E.quest_desc: ["Complete the vanilla advancement: Enchant an Item."]
 	quest.109C1B0B216A269E.title: "Enchanter"
 	quest.6FF4EC25055ECE34.quest_desc: ["Complete the vanilla advancement: Cure a Zombie Villager."]
@@ -66,7 +66,7 @@
 	quest.530E43D192AF985E.quest_desc: ["Complete the vanilla advancement: Obtain a Blaze Rod."]
 	quest.530E43D192AF985E.title: "Into Fire"
 	quest.6016C02B230B6533.quest_desc: ["Complete the vanilla advancement: Charge a Respawn Anchor to Max using Glowstone."]
-	quest.6016C02B230B6533.title: "Not Quite Nine Lives"
+	quest.6016C02B230B6533.title: "Not Quite \"Nine\" Lives"
 	quest.78B5BCE9683215DD.quest_desc: ["Complete the vanilla advancement: Ride a Strider 50 Blocks in the Overworld on Lava."]
 	quest.78B5BCE9683215DD.title: "Feels Like Home"
 	quest.2615B1810C4F9AF6.quest_desc: ["Complete the vanilla advancement: Visit all Nether Biomes."]
@@ -90,9 +90,9 @@
 	quest.52E1019C2E43C8FA.quest_desc: ["Complete the vanilla advancement: Obtain the Dragon Egg."]
 	quest.52E1019C2E43C8FA.title: "The Next Generation"
 	quest.3DBAAE073A592802.quest_desc: ["Complete the vanilla advancement: Travel Through an End Gateway."]
-	quest.3DBAAE073A592802.title: "Remote Gateway"
+	quest.3DBAAE073A592802.title: "Remote Getaway"
 	quest.7804611D64F164DF.quest_desc: ["Complete the vanilla advancement: Respawn the Ender Dragon."]
-	quest.7804611D64F164DF.title: "The End Again"
+	quest.7804611D64F164DF.title: "The End... Again..."
 	quest.2522354359476544.quest_desc: ["Complete the vanilla advancement: Collect Dragon's Breath in a Glass Bottle."]
 	quest.2522354359476544.title: "You Need a Mint"
 	quest.5038D921238C0A4F.quest_desc: ["Complete the vanilla advancement: Enter an End City."]

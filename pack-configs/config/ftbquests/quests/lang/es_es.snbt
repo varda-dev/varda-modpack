@@ -66,7 +66,7 @@
 	quest.530E43D192AF985E.quest_desc: ["Completa el avance de Minecraft: Obtén una vara de blaze."]
 	quest.530E43D192AF985E.title: "Al fuego"
 	quest.6016C02B230B6533.quest_desc: ["Completa el avance de Minecraft: Carga un ancla de reaparición al máximo con piedra luminosa."]
-	quest.6016C02B230B6533.title: "No son nueve vidas"
+	quest.6016C02B230B6533.title: "No son \"nueve\" vidas"
 	quest.78B5BCE9683215DD.quest_desc: ["Completa el avance de Minecraft: Monta un strider 50 bloques sobre lava en el Overworld."]
 	quest.78B5BCE9683215DD.title: "Como en casa"
 	quest.2615B1810C4F9AF6.quest_desc: ["Completa el avance de Minecraft: Visita todos los biomas del Nether."]
@@ -90,9 +90,9 @@
 	quest.52E1019C2E43C8FA.quest_desc: ["Completa el avance de Minecraft: Obtén el huevo de dragón."]
 	quest.52E1019C2E43C8FA.title: "La siguiente generación"
 	quest.3DBAAE073A592802.quest_desc: ["Completa el avance de Minecraft: Viaja por una pasarela del End."]
-	quest.3DBAAE073A592802.title: "Pasarela remota"
+	quest.3DBAAE073A592802.title: "Escapada remota"
 	quest.7804611D64F164DF.quest_desc: ["Completa el avance de Minecraft: Reaparece al Ender Dragon."]
-	quest.7804611D64F164DF.title: "El End otra vez"
+	quest.7804611D64F164DF.title: "El End... otra vez..."
 	quest.2522354359476544.quest_desc: ["Completa el avance de Minecraft: Recoge aliento de dragón en una botella de cristal."]
 	quest.2522354359476544.title: "Necesitas una menta"
 	quest.5038D921238C0A4F.quest_desc: ["Completa el avance de Minecraft: Entra en una ciudad del End."]

@@ -66,7 +66,7 @@
 	quest.530E43D192AF985E.quest_desc: ["Termine le progrès Minecraft : Obtiens un bâton de blaze."]
 	quest.530E43D192AF985E.title: "Dans le feu"
 	quest.6016C02B230B6533.quest_desc: ["Termine le progrès Minecraft : Charge une ancre de réapparition au maximum avec de la pierre lumineuse."]
-	quest.6016C02B230B6533.title: "Pas tout à fait neuf vies"
+	quest.6016C02B230B6533.title: "Pas tout à fait \"neuf\" vies"
 	quest.78B5BCE9683215DD.quest_desc: ["Termine le progrès Minecraft : Monte un arpenteur sur 50 blocs de lave dans l'Overworld."]
 	quest.78B5BCE9683215DD.title: "Comme à la maison"
 	quest.2615B1810C4F9AF6.quest_desc: ["Termine le progrès Minecraft : Visite tous les biomes du Nether."]
@@ -90,9 +90,9 @@
 	quest.52E1019C2E43C8FA.quest_desc: ["Termine le progrès Minecraft : Obtiens l'oeuf de dragon."]
 	quest.52E1019C2E43C8FA.title: "La prochaine génération"
 	quest.3DBAAE073A592802.quest_desc: ["Termine le progrès Minecraft : Traverse une passerelle de l'End."]
-	quest.3DBAAE073A592802.title: "Passerelle lointaine"
+	quest.3DBAAE073A592802.title: "Escapade lointaine"
 	quest.7804611D64F164DF.quest_desc: ["Termine le progrès Minecraft : Fais réapparaître l'Ender Dragon."]
-	quest.7804611D64F164DF.title: "Encore l'End"
+	quest.7804611D64F164DF.title: "Encore l'End..."
 	quest.2522354359476544.quest_desc: ["Termine le progrès Minecraft : Recueille du souffle de dragon dans une fiole."]
 	quest.2522354359476544.title: "Tu as besoin d'une menthe"
 	quest.5038D921238C0A4F.quest_desc: ["Termine le progrès Minecraft : Entre dans une cité de l'End."]
