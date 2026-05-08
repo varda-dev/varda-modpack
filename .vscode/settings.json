@@ -9,7 +9,8 @@
     "*.sh": "shellscript",
     "*.snbt": "snbt",
     "*.toml": "toml",
-    "*.ps1": "powershell"
+    "*.ps1": "powershell",
+    "*.py": "python"
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -46,5 +47,8 @@
   },
   "[powershell]": {
     "files.eol": "\r\n"
+  },
+  "[python]": {
+    "files.eol": "\n"
   }
 }

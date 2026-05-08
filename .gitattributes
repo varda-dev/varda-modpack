@@ -16,5 +16,6 @@
 *.snbt text eol=lf
 *.txt text eol=lf
 *.toml text eol=lf
+*.py text eol=lf
 
 *.png binary
