@@ -6,6 +6,8 @@ import shutil
 import sys
 from pathlib import Path
 
+from lib import get_curseforge_instance_dir
+
 
 CONFIG_COPIES = [
   {
@@ -24,10 +26,6 @@ CONFIG_COPIES = [
 def fail(message: str) -> None:
   print(message, file=sys.stderr)
   raise SystemExit(1)
-
-
-def is_blank(value: str) -> bool:
-  return value.strip() == ""
 
 
 def refuse_unsafe_destination(path: Path) -> None:
@@ -52,10 +50,10 @@ def copy_config(
   name: str,
   relative_path: Path,
   path_type: str,
-  pack_dir: Path,
+  instance_dir: Path,
   destination_parent: Path,
 ) -> None:
-  source = pack_dir / "config" / relative_path
+  source = instance_dir / "config" / relative_path
   destination = destination_parent / relative_path
 
   if path_type == "directory":
@@ -88,26 +86,8 @@ def main() -> int:
     script_dir = Path(__file__).resolve().parent
     repo_root = script_dir.parent
 
-    pack_dir_file = repo_root / "PACK_DIR.txt"
     destination_parent = repo_root / "pack-configs" / "config"
-
-    if not pack_dir_file.is_file():
-      fail("PACK_DIR.txt not found. Run scripts/set-pack-dir.py first.")
-
-    pack_dir_raw = pack_dir_file.read_text(encoding="utf-8").strip()
-
-    if is_blank(pack_dir_raw):
-      fail("PACK_DIR cannot be empty.")
-
-    try:
-      pack_dir = Path(pack_dir_raw).expanduser().resolve(strict=False)
-    except RuntimeError:
-      fail(f"Could not expand home directory in PACK_DIR: {pack_dir_raw}")
-
-    if not pack_dir.is_dir():
-      fail(f"PACK_DIR does not exist: {pack_dir}")
-
-    pack_dir = pack_dir.resolve()
+    instance_dir = get_curseforge_instance_dir()
 
     print("======================================")
     print("Copy Configs Into Repo")
@@ -120,12 +100,12 @@ def main() -> int:
         name=config_copy["name"],
         relative_path=config_copy["relative_path"],
         path_type=config_copy["path_type"],
-        pack_dir=pack_dir,
+        instance_dir=instance_dir,
         destination_parent=destination_parent,
       )
 
     print("Configs copied into pack-configs/config.")
-  except OSError as exc:
+  except (OSError, ValueError) as exc:
     print(exc, file=sys.stderr)
     return 1
 

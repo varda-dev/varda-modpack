@@ -1,8 +1,5 @@
-PACK_DIR.txt
-varda-server/
-varda-server.zip
+.env
 .codex-tmp/
 tmp/
 tmp/*
 __pycache__
-advancements/

@@ -7,6 +7,8 @@ import shutil
 import sys
 from pathlib import Path
 
+from lib import get_curseforge_instance_dir
+
 
 FULL_WIPE_FOLDERS = [
   ".mixin.out",
@@ -99,7 +101,7 @@ def refuse_filesystem_root(path: Path) -> None:
   resolved = path.resolve(strict=False)
 
   if resolved.parent == resolved:
-    fail(f"Refusing to use filesystem root as PACK_DIR: {resolved}")
+    fail(f"Refusing to use filesystem root as CURSEFORGE_INSTANCE_DIR: {resolved}")
 
 
 def delete_folder(path: Path) -> None:
@@ -135,16 +137,16 @@ def main() -> int:
   parser.add_argument(
     "target_directory_arg",
     nargs="?",
-    metavar="PACK_DIR",
-    help="Modpack instance directory. If omitted, PACK_DIR.txt is used.",
+    metavar="INSTANCE_DIR",
+    help="Modpack instance directory. If omitted, CURSEFORGE_INSTANCE_DIR from .env is used.",
   )
 
   parser.add_argument(
     "-t",
     "--target",
     dest="target_directory",
-    metavar="PACK_DIR",
-    help="Modpack instance directory. If omitted, PACK_DIR.txt is used.",
+    metavar="INSTANCE_DIR",
+    help="Modpack instance directory. If omitted, CURSEFORGE_INSTANCE_DIR from .env is used.",
   )
 
   parser.add_argument(
@@ -171,50 +173,43 @@ def main() -> int:
   script_dir = Path(__file__).resolve().parent
   repo_root = script_dir.parent
 
-  pack_dir_file = repo_root / "PACK_DIR.txt"
   pack_configs_dir = repo_root / "pack-configs"
 
   if is_blank(target_directory):
-    if not pack_dir_file.is_file():
-      fail("PACK_DIR.txt not found. Run scripts/set-pack-dir.py first or pass -t.")
-
-    target_directory = pack_dir_file.read_text(encoding="utf-8").strip()
-    print(f"Using {target_directory} from PACK_DIR.txt")
+    instance_dir = get_curseforge_instance_dir()
+    print(f"Using {instance_dir} from CURSEFORGE_INSTANCE_DIR")
   else:
     print(f"Using {target_directory} from passed argument")
+    try:
+      instance_dir = Path(target_directory).expanduser().resolve(strict=False)
+    except RuntimeError:
+      fail(f"Could not expand home directory in target directory: {target_directory}")
 
-  if is_blank(target_directory):
-    fail("Target directory cannot be empty.")
+    if not instance_dir.is_dir():
+      fail(f"Target Directory does not exist: {instance_dir}")
+
+    instance_dir = instance_dir.resolve()
 
   if args.inline and args.full_wipe:
     fail("-i/--inline cannot be combined with -f/--full-wipe.")
 
-  try:
-    pack_dir = Path(target_directory).expanduser().resolve(strict=False)
-  except RuntimeError:
-    fail(f"Could not expand home directory in PACK_DIR: {target_directory}")
-
-  if not pack_dir.is_dir():
-    fail(f"Target Directory does not exist: {pack_dir}")
-
-  pack_dir = pack_dir.resolve()
-  refuse_filesystem_root(pack_dir)
+  refuse_filesystem_root(instance_dir)
 
   print("======================================")
   print("Reset Modpack and Sync Project")
   print("======================================")
-  print(f"Target: {pack_dir}")
+  print(f"Target: {instance_dir}")
   print(f"Full Wipe?: {args.full_wipe}")
   print(f"Inline Update?: {args.inline}")
   print()
 
   if args.inline:
     inline_copies = [
-      ("kubejs", pack_configs_dir / "kubejs", pack_dir / "kubejs"),
+      ("kubejs", pack_configs_dir / "kubejs", instance_dir / "kubejs"),
       (
         "ftbquests",
         pack_configs_dir / "config" / "ftbquests",
-        pack_dir / "config" / "ftbquests",
+        instance_dir / "config" / "ftbquests",
       ),
     ]
 
@@ -241,13 +236,13 @@ def main() -> int:
 
   for folder in folders:
     print(f"Deleting folder {folder} ...")
-    delete_folder(pack_dir / folder)
+    delete_folder(instance_dir / folder)
 
   for file in files:
     print(f"Deleting file {file} ...")
-    delete_file(pack_dir / file)
+    delete_file(instance_dir / file)
 
-  shaderpacks_path = pack_dir / "shaderpacks"
+  shaderpacks_path = instance_dir / "shaderpacks"
 
   if args.full_wipe and shaderpacks_path.is_dir():
     print("Deleting shaderpacks/*.txt files ...")
@@ -259,7 +254,7 @@ def main() -> int:
   print("Copying pack-configs to instance folder...")
 
   for source in iter_pack_config_sources(pack_configs_dir):
-    destination = pack_dir / source.name
+    destination = instance_dir / source.name
     copy_path_to_instance(source, destination)
 
   print()
@@ -271,6 +266,6 @@ def main() -> int:
 if __name__ == "__main__":
   try:
     raise SystemExit(main())
-  except OSError as exc:
+  except (OSError, ValueError) as exc:
     print(exc, file=sys.stderr)
     raise SystemExit(1)

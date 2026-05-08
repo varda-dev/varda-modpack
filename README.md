@@ -1,19 +1,17 @@
 # Varda Modpack
-## Tools
-- Lettering
-  - https://textcraft.net/
-  - https://www.minecraftplot.com/minecraft-logo-generator
-  - https://www.textstudio.com/logo/minecraft-logo-generator-697
+## ENV Setup
+Create a .env file in the repo root with:  
+```
+CURSEFORGE_INSTANCE_DIR=""
+CURSEFORGE_API_TOKEN=""
+```
 ## Scripts
-- Run `.\scripts\set-pack-dir.ps1` to configure your modpack directory. It'll create a file that other scripts reference. Or just create `PACK_DIR.txt` in the root of this project with the full path to your modpack directory - e.g. `C:\Users\varda-dev\curseforge\minecraft\Instances\Varda`.
-  - Linux/macOS equivalent: `./scripts/set-pack-dir.sh`.
-- Run `.\scripts\reset-sync.ps1` to clean up the modpack folder and copy over this repo's changes.
-  - Linux/macOS equivalent: `./scripts/reset-sync.sh`.
-  - Use `-TargetDirectory` / `-t` to override `PACK_DIR.txt`.
-  - Use `-Inline` / `-i` / `--inline` to copy only `pack-configs/kubejs` into the instance without wiping folders, useful before in-game `/kubejs reload`.
-  - Use `-FullWipe` / `-f` to delete additional generated instance folders like logs, saves, backups, screenshots, and caches.
-  - The sync copies every top-level file and folder in `pack-configs` into the CurseForge instance.
-- Run `python ./scripts/locate.py X Z` to inspect the save chunk containing those block coordinates across every save in the instance from `PACK_DIR.txt`.
+Change to `/` slashes if on Linux.  
+Scripts require Python. See [docs/PYTHON.md](docs/PYTHON.md) for help.  
+- Set `CURSEFORGE_INSTANCE_DIR` in `.env` to the full path to your modpack directory - e.g. `C:\Users\varda-dev\curseforge\minecraft\Instances\Varda`.
+- Run `.\scripts\reset-sync.py` to clean up the modpack folder and copy over this repo's changes.
+  - Use `.\scripts\reset-sync.py -h` for help.
+- Run `.\scripts\locate.py X Z` to inspect the save chunk containing those block coordinates across every save in the instance from `CURSEFORGE_INSTANCE_DIR`.
   - `X` and `Z` are block coordinates, not chunk coordinates. The script converts them to the matching chunk and region file.
   - It reads each save's `.mca` region data directly and reports structure IDs recorded in the chunk's `structures.starts` and `structures.References` NBT.
   - Results are actual structure data for that chunk, not broad text matches from unrelated chunk data like block entities, attachments, or mod state.
@@ -24,11 +22,10 @@
 - `pack-configs/kubejs` contains the KubeJS config, client scripts, and server scripts.
 - `pack-configs/profileImage`, `pack-configs/shaderpacks`, and `pack-configs/optionsshaders.txt` are synced directly into the instance when present.
 ## Exporting to CurseForge
+I eventually want to automate this with the Curseforge API.  
 - Share Profile -> Export as .zip -> 
   - Everything in config
-  - Everything in defaultconfigs
-  - Everything in kubejs
+  - From kubejs, client_scripts, config, data, and server_scripts
   - profileImage
   - shaderpacks
-  - optionsshaders.txt
   - Everything in mods

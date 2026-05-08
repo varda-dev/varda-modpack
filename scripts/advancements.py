@@ -5,11 +5,12 @@ from pathlib import Path
 from typing import Any
 from zipfile import ZipFile
 
+from lib import get_curseforge_instance_dir
+
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent
-PACK_DIR_FILE = REPO_ROOT / "PACK_DIR.txt"
-OUTPUT_DIR = REPO_ROOT / "advancements"
+OUTPUT_DIR = REPO_ROOT / "tmp/advancements"
 DEFAULT_MOD_PATTERNS = ("FarmersDelight-*.jar",)
 DEFAULT_LOCALES = (
     "en_us",
@@ -34,7 +35,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
             "Extract displayed advancement metadata from the vanilla Minecraft "
-            "jar and default mod jars for the instance configured in PACK_DIR.txt."
+            "jar and default mod jars for the instance configured in .env."
         )
     )
     parser.add_argument(
@@ -67,39 +68,28 @@ def read_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def read_pack_dir() -> Path:
-    if not PACK_DIR_FILE.exists():
-        raise FileNotFoundError(f"Pack directory file not found: {PACK_DIR_FILE}")
-
-    pack_dir = Path(PACK_DIR_FILE.read_text(encoding="utf-8").strip()).expanduser()
-    if not pack_dir.exists():
-        raise FileNotFoundError(f"Pack directory does not exist: {pack_dir}")
-
-    return pack_dir
-
-
-def find_minecraft_root(pack_dir: Path) -> Path:
-    for path in (pack_dir, *pack_dir.parents):
+def find_minecraft_root(instance_dir: Path) -> Path:
+    for path in (instance_dir, *instance_dir.parents):
         if path.name == "minecraft" and (path / "Install").exists():
             return path
 
     raise FileNotFoundError(
-        f"Could not find CurseForge minecraft root above pack directory: {pack_dir}"
+        f"Could not find CurseForge minecraft root above instance directory: {instance_dir}"
     )
 
 
-def find_manifest(pack_dir: Path) -> Path:
-    for path in (pack_dir / "manifest.json", REPO_ROOT / "manifest.json"):
+def find_manifest(instance_dir: Path) -> Path:
+    for path in (instance_dir / "manifest.json", REPO_ROOT / "manifest.json"):
         if path.exists():
             return path
 
     raise FileNotFoundError(
-        f"No manifest.json found in pack directory or repo root: {pack_dir}"
+        f"No manifest.json found in instance directory or repo root: {instance_dir}"
     )
 
 
-def get_minecraft_version(pack_dir: Path) -> str:
-    manifest = read_json(find_manifest(pack_dir))
+def get_minecraft_version(instance_dir: Path) -> str:
+    manifest = read_json(find_manifest(instance_dir))
     try:
         version = manifest["minecraft"]["version"]
     except KeyError as error:
@@ -111,8 +101,8 @@ def get_minecraft_version(pack_dir: Path) -> str:
     return version
 
 
-def find_minecraft_jar(pack_dir: Path, version: str) -> Path:
-    minecraft_root = find_minecraft_root(pack_dir)
+def find_minecraft_jar(instance_dir: Path, version: str) -> Path:
+    minecraft_root = find_minecraft_root(instance_dir)
     jar_path = minecraft_root / "Install" / "versions" / version / f"{version}.jar"
     if not jar_path.exists():
         raise FileNotFoundError(f"Minecraft jar does not exist: {jar_path}")
@@ -159,9 +149,9 @@ def find_asset_index_path(jar_path: Path, minecraft_install: Path | None) -> Pat
     return indexes[0] if indexes else None
 
 
-def find_default_mod_jars(pack_dir: Path) -> list[Path]:
+def find_default_mod_jars(instance_dir: Path) -> list[Path]:
     jars = []
-    mods_dir = pack_dir / "mods"
+    mods_dir = instance_dir / "mods"
 
     if not mods_dir.exists():
         raise FileNotFoundError(f"Mods directory does not exist: {mods_dir}")
@@ -586,13 +576,13 @@ def main() -> int:
             (jar_path, None, None),
         ]
     else:
-        pack_dir = read_pack_dir()
-        version = get_minecraft_version(pack_dir)
-        minecraft_jar = find_minecraft_jar(pack_dir, version)
+        instance_dir = get_curseforge_instance_dir()
+        version = get_minecraft_version(instance_dir)
+        minecraft_jar = find_minecraft_jar(instance_dir, version)
         minecraft_install = find_minecraft_install(minecraft_jar)
         archives = [(minecraft_jar, "minecraft", "Minecraft")]
 
-        for mod_jar in find_default_mod_jars(pack_dir):
+        for mod_jar in find_default_mod_jars(instance_dir):
             archives.append((mod_jar, None, None))
 
     for jar_path, source_slug, title in archives:

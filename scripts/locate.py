@@ -6,17 +6,14 @@ import zlib
 from pathlib import Path
 from typing import Any
 
-
-SCRIPT_DIR = Path(__file__).resolve().parent
-REPO_ROOT = SCRIPT_DIR.parent
-PACK_DIR_FILE = REPO_ROOT / "PACK_DIR.txt"
+from lib import get_curseforge_instance_dir
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
             "List structure identifiers in the chunk containing block X/Z "
-            "coordinates across every save in the instance from PACK_DIR.txt."
+            "coordinates across every save in CURSEFORGE_INSTANCE_DIR."
         )
     )
     parser.add_argument("x", type=int, help="Block X coordinate.")
@@ -24,19 +21,8 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def read_pack_dir() -> Path:
-    if not PACK_DIR_FILE.exists():
-        raise FileNotFoundError(f"Pack directory file not found: {PACK_DIR_FILE}")
-
-    pack_dir = Path(PACK_DIR_FILE.read_text(encoding="utf-8").strip()).expanduser()
-    if not pack_dir.exists():
-        raise FileNotFoundError(f"Pack directory does not exist: {pack_dir}")
-
-    return pack_dir
-
-
-def list_save_dirs(pack_dir: Path) -> list[Path]:
-    saves_dir = pack_dir / "saves"
+def list_save_dirs(instance_dir: Path) -> list[Path]:
+    saves_dir = instance_dir / "saves"
     if not saves_dir.exists():
         raise FileNotFoundError(f"Saves directory does not exist: {saves_dir}")
 
@@ -229,8 +215,8 @@ def print_save_structures(save_name: str, structures: list[str]) -> None:
 
 
 def scan_saves(block_x: int, block_z: int) -> int:
-    pack_dir = read_pack_dir()
-    targets = validate_region_files(list_save_dirs(pack_dir), block_x, block_z)
+    instance_dir = get_curseforge_instance_dir()
+    targets = validate_region_files(list_save_dirs(instance_dir), block_x, block_z)
 
     for index, (save_dir, region_file, local_x, local_z, chunk_x, chunk_z) in enumerate(
         targets
