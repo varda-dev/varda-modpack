@@ -1,6 +1,6 @@
 # Varda Modpack
 
-## ENV Setup
+## Environment Setup
 Create a .env file in the repo root with:  
 ```
 CURSEFORGE_INSTANCE_DIR=""
@@ -8,6 +8,8 @@ CURSEFORGE_API_TOKEN=""
 ```
 - Instance directory example: `C:\Users\varda-dev\curseforge\minecraft\Instances\Varda`  
 - Curseforge API token can be found/generated at [https://legacy.curseforge.com/account/api-tokens](https://legacy.curseforge.com/account/api-tokens)  
+
+These don't actually get injected into the environment, just read by the scripts.  
 
 ## Scripts
 Change to `/` slashes if on Linux.  
