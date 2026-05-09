@@ -15,6 +15,7 @@
 		icon: {
 			id: "minecraft:crafting_table"
 		}
+		disable_toast: true
 		id: "3E841EEC942599CB"
 		description: ["The heart and story of the game"]
 		rewards: [{
@@ -41,6 +42,7 @@
 		icon: {
 			id: "minecraft:cobblestone"
 		}
+		disable_toast: true
 		id: "4F9EDFE7884FF6E1"
 		description: ["Mine Stone with your new Pickaxe"]
 		rewards: [{
@@ -67,6 +69,7 @@
 		icon: {
 			id: "minecraft:stone_pickaxe"
 		}
+		disable_toast: true
 		id: "11E00F66EB9B5DE6"
 		description: ["Construct a better Pickaxe"]
 		rewards: [{
@@ -93,6 +96,7 @@
 		icon: {
 			id: "minecraft:iron_ingot"
 		}
+		disable_toast: true
 		id: "476D5F97DEFD5467"
 		description: ["Smelt an Iron Ingot"]
 		rewards: [{
@@ -119,6 +123,7 @@
 		icon: {
 			id: "minecraft:iron_chestplate"
 		}
+		disable_toast: true
 		id: "6B81F5A609C4CF92"
 		description: ["Protect yourself with a piece of iron armor"]
 		rewards: [{
@@ -145,6 +150,7 @@
 		icon: {
 			id: "minecraft:lava_bucket"
 		}
+		disable_toast: true
 		id: "7FEF06D3035F1215"
 		description: ["Fill a Bucket with lava"]
 		rewards: [{
@@ -171,6 +177,7 @@
 		icon: {
 			id: "minecraft:iron_pickaxe"
 		}
+		disable_toast: true
 		id: "5C6E2558594CE034"
 		description: ["Upgrade your Pickaxe"]
 		rewards: [{
@@ -197,6 +204,7 @@
 		icon: {
 			id: "minecraft:shield"
 		}
+		disable_toast: true
 		id: "4D0462481B998BFD"
 		description: ["Deflect a projectile with a Shield"]
 		rewards: [{
@@ -223,6 +231,7 @@
 		icon: {
 			id: "minecraft:obsidian"
 		}
+		disable_toast: true
 		id: "2D2F937841BF4C81"
 		description: ["Obtain a block of Obsidian"]
 		rewards: [{
@@ -249,6 +258,7 @@
 		icon: {
 			id: "minecraft:diamond"
 		}
+		disable_toast: true
 		id: "13E9A9EEAEBCFB38"
 		description: ["Acquire diamonds"]
 		rewards: [{
@@ -275,6 +285,7 @@
 		icon: {
 			id: "minecraft:flint_and_steel"
 		}
+		disable_toast: true
 		id: "722438F93B19A764"
 		description: ["Build, light and enter a Nether Portal"]
 		rewards: [{
@@ -301,6 +312,7 @@
 		icon: {
 			id: "minecraft:diamond_chestplate"
 		}
+		disable_toast: true
 		id: "66B9CBAE7DFD6FDF"
 		description: ["Diamond armor saves lives"]
 		rewards: [{
@@ -327,6 +339,7 @@
 		icon: {
 			id: "minecraft:enchanting_table"
 		}
+		disable_toast: true
 		id: "109C1B0B216A269E"
 		description: ["Enchant an item at an Enchanting Table"]
 		rewards: [{
@@ -353,6 +366,7 @@
 		icon: {
 			id: "minecraft:golden_apple"
 		}
+		disable_toast: true
 		id: "6FF4EC25055ECE34"
 		description: ["Weaken and then cure a Zombie Villager"]
 		rewards: [{
@@ -379,6 +393,7 @@
 		icon: {
 			id: "minecraft:ender_eye"
 		}
+		disable_toast: true
 		id: "4A298B79BF4E11A4"
 		description: ["Follow an Eye of Ender"]
 		rewards: [{
@@ -405,6 +420,7 @@
 		icon: {
 			id: "minecraft:end_stone"
 		}
+		disable_toast: true
 		id: "3B18F062DACC8164"
 		description: ["Enter the End Portal"]
 		rewards: [{
@@ -431,6 +447,7 @@
 		icon: {
 			id: "minecraft:ghast_tear"
 		}
+		disable_toast: true
 		id: "554A3721C9B9631F"
 		description: ["Destroy a Ghast with a fireball"]
 		rewards: [{
@@ -457,6 +474,7 @@
 		icon: {
 			id: "minecraft:chest"
 		}
+		disable_toast: true
 		id: "3FF3C6D986908D43"
 		description: ["Enter a Bastion Remnant"]
 		rewards: [{
@@ -483,6 +501,7 @@
 		icon: {
 			id: "minecraft:ancient_debris"
 		}
+		disable_toast: true
 		id: "364D791A338C0EBA"
 		description: ["Obtain Ancient Debris"]
 		rewards: [{
@@ -509,6 +528,7 @@
 		icon: {
 			id: "minecraft:lodestone"
 		}
+		disable_toast: true
 		id: "775C6BF51D212F9A"
 		description: ["Use the Nether to travel 7 km in the Overworld"]
 		rewards: [{
@@ -535,6 +555,7 @@
 		icon: {
 			id: "minecraft:nether_bricks"
 		}
+		disable_toast: true
 		id: "15A452CD917DDE1F"
 		description: ["Break your way into a Nether Fortress"]
 		rewards: [{
@@ -561,6 +582,7 @@
 		icon: {
 			id: "minecraft:crying_obsidian"
 		}
+		disable_toast: true
 		id: "6DF9369CEAF435B8"
 		description: ["Obtain Crying Obsidian"]
 		rewards: [{
@@ -587,6 +609,7 @@
 		icon: {
 			id: "minecraft:gold_ingot"
 		}
+		disable_toast: true
 		id: "3F370B1B31A90B1E"
 		description: ["Distract Piglins with gold"]
 		rewards: [{
@@ -613,6 +636,7 @@
 		icon: {
 			id: "minecraft:warped_fungus_on_a_stick"
 		}
+		disable_toast: true
 		id: "750CB4301E16A6CB"
 		description: ["Ride a Strider with a Warped Fungus on a Stick"]
 		rewards: [{
@@ -639,6 +663,7 @@
 		icon: {
 			id: "minecraft:ghast_tear"
 		}
+		disable_toast: true
 		id: "259D33F90B3E101E"
 		description: ["Rescue a Ghast from the Nether, bring it safely home to the Overworld... and then kill it"]
 		rewards: [{
@@ -665,6 +690,7 @@
 		icon: {
 			id: "minecraft:gilded_blackstone"
 		}
+		disable_toast: true
 		id: "7A599556CF231D61"
 		description: ["Loot a Chest in a Bastion Remnant"]
 		rewards: [{
@@ -691,6 +717,7 @@
 		icon: {
 			id: "minecraft:compass"
 		}
+		disable_toast: true
 		id: "2FD30747D1655F2C"
 		description: ["Use a Compass on a Lodestone"]
 		rewards: [{
@@ -717,6 +744,7 @@
 		icon: {
 			id: "minecraft:netherite_chestplate"
 		}
+		disable_toast: true
 		id: "3DEE5EA031204570"
 		description: ["Get a full suit of Netherite armor"]
 		rewards: [{
@@ -743,6 +771,7 @@
 		icon: {
 			id: "minecraft:wither_skeleton_skull"
 		}
+		disable_toast: true
 		id: "6C5D2AE13AE04884"
 		description: ["Obtain a Wither Skeleton's skull"]
 		rewards: [{
@@ -769,6 +798,7 @@
 		icon: {
 			id: "minecraft:blaze_rod"
 		}
+		disable_toast: true
 		id: "530E43D192AF985E"
 		description: ["Relieve a Blaze of its rod"]
 		rewards: [{
@@ -795,6 +825,7 @@
 		icon: {
 			id: "minecraft:respawn_anchor"
 		}
+		disable_toast: true
 		id: "6016C02B230B6533"
 		description: ["Charge a Respawn Anchor to the maximum"]
 		rewards: [{
@@ -821,6 +852,7 @@
 		icon: {
 			id: "minecraft:warped_fungus_on_a_stick"
 		}
+		disable_toast: true
 		id: "78B5BCE9683215DD"
 		description: ["Take a Strider for a loooong ride on a lava lake in the Overworld"]
 		rewards: [{
@@ -847,6 +879,7 @@
 		icon: {
 			id: "minecraft:quartz"
 		}
+		disable_toast: true
 		id: "2615B1810C4F9AF6"
 		description: ["Explore all Nether biomes"]
 		rewards: [{
@@ -873,6 +906,7 @@
 		icon: {
 			id: "minecraft:wither_skeleton_skull"
 		}
+		disable_toast: true
 		id: "61DD2B8185C96580"
 		description: ["Summon the Wither"]
 		rewards: [{
@@ -899,6 +933,7 @@
 		icon: {
 			id: "minecraft:potion"
 		}
+		disable_toast: true
 		id: "6DF3D5FEB4C5F905"
 		description: ["Brew a Potion"]
 		rewards: [{
@@ -925,6 +960,7 @@
 		icon: {
 			id: "minecraft:beacon"
 		}
+		disable_toast: true
 		id: "4A12F09B96D0A937"
 		description: ["Construct and place a Beacon"]
 		rewards: [{
@@ -951,6 +987,7 @@
 		icon: {
 			id: "minecraft:potion"
 		}
+		disable_toast: true
 		id: "1C020B77236EE079"
 		description: ["Have every potion effect applied at the same time"]
 		rewards: [{
@@ -977,6 +1014,7 @@
 		icon: {
 			id: "minecraft:beacon"
 		}
+		disable_toast: true
 		id: "4CDE77681B9AC9A8"
 		description: ["Bring a Beacon to full power"]
 		rewards: [{
@@ -1003,6 +1041,7 @@
 		icon: {
 			id: "minecraft:nether_star"
 		}
+		disable_toast: true
 		id: "5A741CB770974803"
 		description: ["Have every effect applied at the same time"]
 		rewards: [{
@@ -1029,6 +1068,7 @@
 		icon: {
 			id: "minecraft:end_stone"
 		}
+		disable_toast: true
 		id: "6925C5A695902E24"
 		description: ["Or the beginning?"]
 		rewards: [{
@@ -1055,6 +1095,7 @@
 		icon: {
 			id: "minecraft:dragon_head"
 		}
+		disable_toast: true
 		id: "34771E43722DF562"
 		description: ["Good luck"]
 		rewards: [{
@@ -1081,6 +1122,7 @@
 		icon: {
 			id: "minecraft:dragon_egg"
 		}
+		disable_toast: true
 		id: "52E1019C2E43C8FA"
 		description: ["Hold the Dragon Egg"]
 		rewards: [{
@@ -1107,6 +1149,7 @@
 		icon: {
 			id: "minecraft:ender_pearl"
 		}
+		disable_toast: true
 		id: "3DBAAE073A592802"
 		description: ["Escape the island"]
 		rewards: [{
@@ -1133,6 +1176,7 @@
 		icon: {
 			id: "minecraft:end_crystal"
 		}
+		disable_toast: true
 		id: "7804611D64F164DF"
 		description: ["Respawn the Ender Dragon"]
 		rewards: [{
@@ -1159,6 +1203,7 @@
 		icon: {
 			id: "minecraft:dragon_breath"
 		}
+		disable_toast: true
 		id: "2522354359476544"
 		description: ["Collect Dragon's Breath in a Glass Bottle"]
 		rewards: [{
@@ -1185,6 +1230,7 @@
 		icon: {
 			id: "minecraft:purpur_block"
 		}
+		disable_toast: true
 		id: "5038D921238C0A4F"
 		description: ["Go on in, what could happen?"]
 		rewards: [{
@@ -1211,6 +1257,7 @@
 		icon: {
 			id: "minecraft:elytra"
 		}
+		disable_toast: true
 		id: "69514AEFE2171498"
 		description: ["Find Elytra"]
 		rewards: [{
@@ -1237,6 +1284,7 @@
 		icon: {
 			id: "minecraft:shulker_shell"
 		}
+		disable_toast: true
 		id: "565F234F7D717E4C"
 		description: ["Levitate up 50 blocks from the attacks of a Shulker"]
 		rewards: [{
@@ -1263,6 +1311,7 @@
 		icon: {
 			id: "minecraft:diamond_boots"
 		}
+		disable_toast: true
 		id: "2BE0D746E253D7EA"
 		description: ["Discover every biome"]
 		rewards: [{
@@ -1289,6 +1338,7 @@
 		icon: {
 			id: "minecraft:crossbow"
 		}
+		disable_toast: true
 		id: "034C1EE1891C690A"
 		description: ["Kill five unique mobs with one crossbow shot"]
 		rewards: [{
@@ -1315,6 +1365,7 @@
 		icon: {
 			id: "minecraft:sculk_sensor"
 		}
+		disable_toast: true
 		id: "7C171281BBB3535D"
 		description: ["Sneak near a Sculk Sensor or Warden to prevent it from detecting you"]
 		rewards: [{
@@ -1341,6 +1392,7 @@
 		icon: {
 			id: "minecraft:wind_charge"
 		}
+		disable_toast: true
 		id: "56A430E7BF7DE924"
 		description: ["Kill a Breeze with a deflected Breeze-shot Wind Charge"]
 		rewards: [{
@@ -1367,6 +1419,7 @@
 		icon: {
 			id: "minecraft:armadillo_scute"
 		}
+		disable_toast: true
 		id: "241A09758C97C226"
 		description: ["Get Armadillo Scutes from an Armadillo using a Brush"]
 		rewards: [{
@@ -1393,6 +1446,7 @@
 		icon: {
 			id: "minecraft:target"
 		}
+		disable_toast: true
 		id: "BAC1EFF593E177E5"
 		description: ["Hit the bullseye of a Target block from at least 30 meters away"]
 		rewards: [{
@@ -1419,6 +1473,7 @@
 		icon: {
 			id: "minecraft:decorated_pot"
 		}
+		disable_toast: true
 		id: "6DB46A36B0496E7F"
 		description: ["Make a Decorated Pot out of 4 Pottery Sherds"]
 		rewards: [{
@@ -1445,6 +1500,7 @@
 		icon: {
 			id: "minecraft:crafter"
 		}
+		disable_toast: true
 		id: "0EA3AE1358051008"
 		description: ["Be near a Crafter when it crafts a Crafter"]
 		rewards: [{
@@ -1471,6 +1527,7 @@
 		icon: {
 			id: "minecraft:water_bucket"
 		}
+		disable_toast: true
 		id: "CEC711BD61DA8897"
 		description: ["Free fall from the top of the world (build limit) to the bottom of the world and survive"]
 		rewards: [{
@@ -1497,6 +1554,7 @@
 		icon: {
 			id: "minecraft:white_banner"
 		}
+		disable_toast: true
 		id: "F33B7FB829194BB2"
 		description: ["Successfully defend a village from a raid"]
 		rewards: [{
@@ -1523,6 +1581,7 @@
 		icon: {
 			id: "minecraft:honey_block"
 		}
+		disable_toast: true
 		id: "E3A29F2FB374756D"
 		description: ["Jump into a Honey Block to break your fall"]
 		rewards: [{
@@ -1549,6 +1608,7 @@
 		icon: {
 			id: "minecraft:iron_sword"
 		}
+		disable_toast: true
 		id: "85618AA88DA7F842"
 		description: ["Kill any hostile monster"]
 		rewards: [{
@@ -1575,6 +1635,7 @@
 		icon: {
 			id: "minecraft:diamond_sword"
 		}
+		disable_toast: true
 		id: "B7F983BA0FDA080D"
 		description: ["Kill one of every hostile monster"]
 		rewards: [{
@@ -1601,6 +1662,7 @@
 		icon: {
 			id: "minecraft:sculk_catalyst"
 		}
+		disable_toast: true
 		id: "14CF89540585F3F9"
 		description: ["Kill a mob near a Sculk Catalyst"]
 		rewards: [{
@@ -1627,6 +1689,7 @@
 		icon: {
 			id: "minecraft:copper_bulb"
 		}
+		disable_toast: true
 		id: "E375321DA2A95962"
 		description: ["Scrape a Copper Bulb with an Axe to make it brighter"]
 		rewards: [{
@@ -1653,6 +1716,7 @@
 		icon: {
 			id: "minecraft:lightning_rod"
 		}
+		disable_toast: true
 		id: "882A2E57920937F5"
 		description: ["Protect a Villager from an undesired shock without starting a fire"]
 		rewards: [{
@@ -1679,6 +1743,7 @@
 		icon: {
 			id: "minecraft:chiseled_tuff"
 		}
+		disable_toast: true
 		id: "BE91EC9F0E1A1C06"
 		description: ["Step foot in a Trial Chamber"]
 		rewards: [{
@@ -1705,6 +1770,7 @@
 		icon: {
 			id: "minecraft:crossbow"
 		}
+		disable_toast: true
 		id: "A4D34C1913E6E484"
 		description: ["Shoot a Crossbow"]
 		rewards: [{
@@ -1731,6 +1797,7 @@
 		icon: {
 			id: "minecraft:mace"
 		}
+		disable_toast: true
 		id: "D1C9B58B9450CABA"
 		description: ["Deal 50 hearts of damage in a single hit using the Mace"]
 		rewards: [{
@@ -1757,6 +1824,7 @@
 		icon: {
 			id: "minecraft:jukebox"
 		}
+		disable_toast: true
 		id: "E0262B7A3B3BA609"
 		description: ["Make the Meadows come alive with the sound of music from a Jukebox"]
 		rewards: [{
@@ -1783,6 +1851,7 @@
 		icon: {
 			id: "minecraft:chiseled_bookshelf"
 		}
+		disable_toast: true
 		id: "F9C16ED1CC4987F3"
 		description: ["Read the power signal of a Chiseled Bookshelf using a Comparator"]
 		rewards: [{
@@ -1809,6 +1878,7 @@
 		icon: {
 			id: "minecraft:ominous_trial_key"
 		}
+		disable_toast: true
 		id: "2FAC98EA33A76F01"
 		description: ["Unlock an Ominous Vault with an Ominous Trial Key"]
 		rewards: [{
@@ -1835,6 +1905,7 @@
 		icon: {
 			id: "minecraft:map"
 		}
+		disable_toast: true
 		id: "BFDF7C94CAAA1E88"
 		description: ["Adventure, exploration and combat"]
 		rewards: [{
@@ -1861,6 +1932,7 @@
 		icon: {
 			id: "minecraft:brush"
 		}
+		disable_toast: true
 		id: "D1AC9E8599530820"
 		description: ["Brush a Suspicious block to obtain a Pottery Sherd"]
 		rewards: [{
@@ -1887,6 +1959,7 @@
 		icon: {
 			id: "minecraft:bow"
 		}
+		disable_toast: true
 		id: "5E274D840F73672C"
 		description: ["Shoot something with an Arrow"]
 		rewards: [{
@@ -1913,6 +1986,7 @@
 		icon: {
 			id: "minecraft:red_bed"
 		}
+		disable_toast: true
 		id: "A926B7486FA82FB8"
 		description: ["Sleep in a Bed to change your respawn point"]
 		rewards: [{
@@ -1939,6 +2013,7 @@
 		icon: {
 			id: "minecraft:arrow"
 		}
+		disable_toast: true
 		id: "56C6C7FAE44AD414"
 		description: ["Kill a Skeleton from at least 50 meters away"]
 		rewards: [{
@@ -1965,6 +2040,7 @@
 		icon: {
 			id: "minecraft:spyglass"
 		}
+		disable_toast: true
 		id: "08855814942F18F9"
 		description: ["Look at the Ender Dragon through a Spyglass"]
 		rewards: [{
@@ -1991,6 +2067,7 @@
 		icon: {
 			id: "minecraft:spyglass"
 		}
+		disable_toast: true
 		id: "234E9DD74F43563B"
 		description: ["Look at a Ghast through a Spyglass"]
 		rewards: [{
@@ -2017,6 +2094,7 @@
 		icon: {
 			id: "minecraft:spyglass"
 		}
+		disable_toast: true
 		id: "23B429223765D64C"
 		description: ["Look at a Parrot through a Spyglass"]
 		rewards: [{
@@ -2043,6 +2121,7 @@
 		icon: {
 			id: "minecraft:carved_pumpkin"
 		}
+		disable_toast: true
 		id: "C6AFCE4CBCA3853B"
 		description: ["Summon an Iron Golem to help defend a village"]
 		rewards: [{
@@ -2069,6 +2148,7 @@
 		icon: {
 			id: "minecraft:trident"
 		}
+		disable_toast: true
 		id: "AF5402C6C04CDB24"
 		description: ["Throw a Trident at something.\nNote: Throwing away your only weapon is not a good idea."]
 		rewards: [{
@@ -2095,6 +2175,7 @@
 		icon: {
 			id: "minecraft:totem_of_undying"
 		}
+		disable_toast: true
 		id: "F8545DC1295B5BD2"
 		description: ["Use a Totem of Undying to cheat death"]
 		rewards: [{
@@ -2121,6 +2202,7 @@
 		icon: {
 			id: "minecraft:emerald"
 		}
+		disable_toast: true
 		id: "3F50B39A8AC79809"
 		description: ["Successfully trade with a Villager"]
 		rewards: [{
@@ -2147,6 +2229,7 @@
 		icon: {
 			id: "minecraft:emerald"
 		}
+		disable_toast: true
 		id: "A06AE1C6DF4AC4B1"
 		description: ["Trade with a Villager at the build height limit"]
 		rewards: [{
@@ -2173,6 +2256,7 @@
 		icon: {
 			id: "minecraft:silence_armor_trim_smithing_template"
 		}
+		disable_toast: true
 		id: "80B789FC266C3951"
 		description: ["Apply these smithing templates at least once: Spire, Snout, Rib, Ward, Silence, Vex, Tide, Wayfinder"]
 		rewards: [{
@@ -2199,6 +2283,7 @@
 		icon: {
 			id: "minecraft:dune_armor_trim_smithing_template"
 		}
+		disable_toast: true
 		id: "525A691252A4559B"
 		description: ["Craft a trimmed armor at a Smithing Table"]
 		rewards: [{
@@ -2225,6 +2310,7 @@
 		icon: {
 			id: "minecraft:crossbow"
 		}
+		disable_toast: true
 		id: "893BEB5AAE5C3C98"
 		description: ["Kill two Phantoms with a piercing Arrow"]
 		rewards: [{
@@ -2251,6 +2337,7 @@
 		icon: {
 			id: "minecraft:trial_key"
 		}
+		disable_toast: true
 		id: "39E88F016DB8EFD9"
 		description: ["Unlock a Vault with a Trial Key"]
 		rewards: [{
@@ -2277,6 +2364,7 @@
 		icon: {
 			id: "minecraft:trident"
 		}
+		disable_toast: true
 		id: "7F182292F5444FA5"
 		description: ["Strike a Villager with lightning"]
 		rewards: [{
@@ -2303,6 +2391,7 @@
 		icon: {
 			id: "minecraft:white_banner"
 		}
+		disable_toast: true
 		id: "28319C24A61D7DC4"
 		description: ["Kill a raid captain.\nMaybe consider staying away from villages for the time being..."]
 		rewards: [{
@@ -2329,6 +2418,7 @@
 		icon: {
 			id: "minecraft:leather_boots"
 		}
+		disable_toast: true
 		id: "A6FFAA93C95C7F2C"
 		description: ["Walk on Powder Snow... without sinking in it"]
 		rewards: [{
@@ -2355,6 +2445,7 @@
 		icon: {
 			id: "minecraft:wind_charge"
 		}
+		disable_toast: true
 		id: "D9966BE9CBB16704"
 		description: ["Use a Wind Charge to launch yourself upward 8 blocks"]
 		rewards: [{
@@ -2381,6 +2472,7 @@
 		icon: {
 			id: "minecraft:crossbow"
 		}
+		disable_toast: true
 		id: "C6E44B6049CE27FC"
 		description: ["Give a Pillager a taste of their own medicine"]
 		rewards: [{
@@ -2407,6 +2499,7 @@
 		icon: {
 			id: "minecraft:note_block"
 		}
+		disable_toast: true
 		id: "CB5BCCB429CF9266"
 		description: ["Have an Allay drop a Cake at a Note Block"]
 		rewards: [{
@@ -2433,6 +2526,7 @@
 		icon: {
 			id: "minecraft:cookie"
 		}
+		disable_toast: true
 		id: "77D1251217904862"
 		description: ["Have an Allay deliver items to you"]
 		rewards: [{
@@ -2459,6 +2553,7 @@
 		icon: {
 			id: "minecraft:axolotl_bucket"
 		}
+		disable_toast: true
 		id: "512F3C730F451A77"
 		description: ["Catch an Axolotl in a Bucket"]
 		rewards: [{
@@ -2485,6 +2580,7 @@
 		icon: {
 			id: "minecraft:apple"
 		}
+		disable_toast: true
 		id: "CFEB25B369D18EC2"
 		description: ["Eat everything that is edible, even if it's not good for you"]
 		rewards: [{
@@ -2511,6 +2607,7 @@
 		icon: {
 			id: "minecraft:golden_carrot"
 		}
+		disable_toast: true
 		id: "361BD3F9CEDCD516"
 		description: ["Breed all the animals!"]
 		rewards: [{
@@ -2537,6 +2634,7 @@
 		icon: {
 			id: "minecraft:wheat"
 		}
+		disable_toast: true
 		id: "15F2541356012790"
 		description: ["Breed two animals together"]
 		rewards: [{
@@ -2563,6 +2661,7 @@
 		icon: {
 			id: "minecraft:cod"
 		}
+		disable_toast: true
 		id: "707FC63D52ECA571"
 		description: ["Tame all Cat variants!"]
 		rewards: [{
@@ -2589,6 +2688,7 @@
 		icon: {
 			id: "minecraft:torchflower_seeds"
 		}
+		disable_toast: true
 		id: "EF4E7B2A0F8C5474"
 		description: ["Feed a Snifflet"]
 		rewards: [{
@@ -2615,6 +2715,7 @@
 		icon: {
 			id: "minecraft:fishing_rod"
 		}
+		disable_toast: true
 		id: "E86AC1C5DAC1B2CF"
 		description: ["Catch a fish"]
 		rewards: [{
@@ -2641,6 +2742,7 @@
 		icon: {
 			id: "minecraft:verdant_froglight"
 		}
+		disable_toast: true
 		id: "56A082C08A684B02"
 		description: ["Have all Froglights in your inventory"]
 		rewards: [{
@@ -2667,6 +2769,7 @@
 		icon: {
 			id: "minecraft:tropical_fish_bucket"
 		}
+		disable_toast: true
 		id: "BB17EEF9A88664CB"
 		description: ["Team up with an Axolotl and win a fight"]
 		rewards: [{
@@ -2693,6 +2796,7 @@
 		icon: {
 			id: "minecraft:lead"
 		}
+		disable_toast: true
 		id: "DF150356FA8C1889"
 		description: ["Get each Frog variant on a Lead"]
 		rewards: [{
@@ -2719,6 +2823,7 @@
 		icon: {
 			id: "minecraft:glow_ink_sac"
 		}
+		disable_toast: true
 		id: "F3EC649372CC9EA9"
 		description: ["Make the text of any kind of sign glow"]
 		rewards: [{
@@ -2745,6 +2850,7 @@
 		icon: {
 			id: "minecraft:netherite_hoe"
 		}
+		disable_toast: true
 		id: "33F9319384CE3114"
 		description: ["Use a Netherite Ingot to upgrade a Hoe, and then reevaluate your life choices"]
 		rewards: [{
@@ -2771,6 +2877,7 @@
 		icon: {
 			id: "minecraft:sniffer_egg"
 		}
+		disable_toast: true
 		id: "1096ED01786CB4AB"
 		description: ["Obtain a Sniffer Egg"]
 		rewards: [{
@@ -2797,6 +2904,7 @@
 		icon: {
 			id: "minecraft:pitcher_pod"
 		}
+		disable_toast: true
 		id: "4EDA388C67A31AA7"
 		description: ["Plant any Sniffer seed"]
 		rewards: [{
@@ -2823,6 +2931,7 @@
 		icon: {
 			id: "minecraft:wheat"
 		}
+		disable_toast: true
 		id: "BF381BFA32B5E9F6"
 		description: ["Plant a seed and watch it grow"]
 		rewards: [{
@@ -2849,6 +2958,7 @@
 		icon: {
 			id: "minecraft:shears"
 		}
+		disable_toast: true
 		id: "1F87838AA700F9EC"
 		description: ["Remove Wolf Armor from a Wolf using Shears"]
 		rewards: [{
@@ -2875,6 +2985,7 @@
 		icon: {
 			id: "minecraft:wolf_armor"
 		}
+		disable_toast: true
 		id: "128B72240DB3E820"
 		description: ["Repair a damaged Wolf Armor using Armadillo Scutes"]
 		rewards: [{
@@ -2901,6 +3012,7 @@
 		icon: {
 			id: "minecraft:oak_boat"
 		}
+		disable_toast: true
 		id: "C0D39F29B848F96A"
 		description: ["Get in a Boat and float with a Goat"]
 		rewards: [{
@@ -2927,6 +3039,7 @@
 		icon: {
 			id: "minecraft:hay_block"
 		}
+		disable_toast: true
 		id: "F52A8CF59A6E7D91"
 		description: ["The world is full of friends and food"]
 		rewards: [{
@@ -2953,6 +3066,7 @@
 		icon: {
 			id: "minecraft:honey_bottle"
 		}
+		disable_toast: true
 		id: "B622A948AA25AFE2"
 		description: ["Use a Campfire to collect Honey from a Beehive using a Glass Bottle without aggravating the Bees"]
 		rewards: [{
@@ -2979,6 +3093,7 @@
 		icon: {
 			id: "minecraft:bee_nest"
 		}
+		disable_toast: true
 		id: "A8638745D69952A9"
 		description: ["Move a Bee Nest, with 3 Bees inside, using Silk Touch"]
 		rewards: [{
@@ -3005,6 +3120,7 @@
 		icon: {
 			id: "minecraft:pufferfish_bucket"
 		}
+		disable_toast: true
 		id: "0D97219A3836CA5B"
 		description: ["Catch a Fish... without a Fishing Rod!"]
 		rewards: [{
@@ -3031,6 +3147,7 @@
 		icon: {
 			id: "minecraft:tadpole_bucket"
 		}
+		disable_toast: true
 		id: "BAA6B46D18A5A02C"
 		description: ["Catch a Tadpole in a Bucket"]
 		rewards: [{
@@ -3057,6 +3174,7 @@
 		icon: {
 			id: "minecraft:lead"
 		}
+		disable_toast: true
 		id: "1D3C000470E328C0"
 		description: ["Tame an animal"]
 		rewards: [{
@@ -3083,6 +3201,7 @@
 		icon: {
 			id: "minecraft:stone_axe"
 		}
+		disable_toast: true
 		id: "A4A7944AC0FBD7B4"
 		description: ["Scrape Wax off of a Copper block!"]
 		rewards: [{
@@ -3109,6 +3228,7 @@
 		icon: {
 			id: "minecraft:honeycomb"
 		}
+		disable_toast: true
 		id: "8BBBE43AFF17FC84"
 		description: ["Apply Honeycomb to a Copper block!"]
 		rewards: [{
@@ -3135,6 +3255,7 @@
 		icon: {
 			id: "minecraft:bone"
 		}
+		disable_toast: true
 		id: "D8AF1CCC379F3B52"
 		description: ["Tame one of each Wolf variant"]
 		rewards: [{
@@ -3161,6 +3282,7 @@
 		icon: {
 			id: "minecraft:red_nether_bricks"
 		}
+		disable_toast: true
 		id: "262398D405EC06FA"
 		description: ["Bring summer clothes"]
 		rewards: [{

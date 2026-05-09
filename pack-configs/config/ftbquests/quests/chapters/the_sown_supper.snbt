@@ -32,6 +32,7 @@
 		icon: {
 			id: "farmersdelight:flint_knife"
 		}
+		disable_toast: true
 		id: "B03730C6D592CC2D"
 		description: ["Craft a Knife to scavenge extra goods from plants and animals"]
 		rewards: [{
@@ -58,6 +59,7 @@
 		icon: {
 			id: "farmersdelight:wild_onions"
 		}
+		disable_toast: true
 		id: "3C754E5F2196E7A8"
 		description: ["Four new crops may be found in the wild, across many climates... or maybe in a chest somewhere."]
 		rewards: [{
@@ -84,6 +86,7 @@
 		icon: {
 			id: "minecraft:campfire"
 		}
+		disable_toast: true
 		id: "D1809B943A512A8E"
 		description: ["Place down a Campfire to cook some food"]
 		rewards: [{
@@ -110,6 +113,7 @@
 		icon: {
 			id: "farmersdelight:straw"
 		}
+		disable_toast: true
 		id: "278F8EFEBFE7E144"
 		description: ["Harvest grass, wheat or rice with a Knife to collect Straw"]
 		rewards: [{
@@ -136,6 +140,7 @@
 		icon: {
 			id: "farmersdelight:cutting_board"
 		}
+		disable_toast: true
 		id: "EFB5100A570B6285"
 		description: ["With a tool in hand, use a Cutting Board to break down an item"]
 		rewards: [{
@@ -162,6 +167,7 @@
 		icon: {
 			id: "farmersdelight:ham"
 		}
+		disable_toast: true
 		id: "A729117CF501AB2F"
 		description: ["Use a Knife to extract Ham from Pigs or Hoglins"]
 		rewards: [{
@@ -188,6 +194,7 @@
 		icon: {
 			id: "farmersdelight:organic_compost"
 		}
+		disable_toast: true
 		id: "F9D91BDB2CD7A600"
 		description: ["Place down some Organic Compost. It composts better with sun, water and mushrooms!"]
 		rewards: [{
@@ -214,6 +221,7 @@
 		icon: {
 			id: "farmersdelight:rich_soil"
 		}
+		disable_toast: true
 		id: "88EE54C1DBDE99D6"
 		description: ["Organic Compost slowly decays into Rich Soil, an upgrade for your farms!"]
 		rewards: [{
@@ -240,6 +248,7 @@
 		icon: {
 			id: "farmersdelight:netherite_knife"
 		}
+		disable_toast: true
 		id: "5F81EC14E645EEB0"
 		description: ["Spend a whole Netherite Ingot to upgrade your knife! Or get out of the kitchen."]
 		rewards: [{
@@ -266,6 +275,7 @@
 		icon: {
 			id: "farmersdelight:rice"
 		}
+		disable_toast: true
 		id: "2221742E8E61D9D4"
 		description: ["Plant grains of Rice in a shallow water puddle"]
 		rewards: [{
@@ -292,6 +302,7 @@
 		icon: {
 			id: "farmersdelight:tomato"
 		}
+		disable_toast: true
 		id: "69C5338C1A92E16B"
 		description: ["Hang some rope above a tomato crop to make it grow taller"]
 		rewards: [{
@@ -318,6 +329,7 @@
 		icon: {
 			id: "farmersdelight:red_mushroom_colony"
 		}
+		disable_toast: true
 		id: "408EB2DF0A2F43BE"
 		description: ["Shear a fully mature Mushroom Colony. To grow them like this, you'll need a very rich soil..."]
 		rewards: [{
@@ -344,6 +356,7 @@
 		icon: {
 			id: "farmersdelight:rotten_tomato"
 		}
+		disable_toast: true
 		id: "CA9E3C125FFC4CFA"
 		description: ["Throw a Rotten Tomato at one of these pesky raiders!"]
 		rewards: [{
@@ -370,6 +383,7 @@
 		icon: {
 			id: "farmersdelight:cabbage"
 		}
+		disable_toast: true
 		id: "22D7847C3DF91978"
 		description: ["Cultivate every food-related plant you can find, such as vegetables, fruits, fungi or roots!"]
 		rewards: [{
@@ -396,6 +410,7 @@
 		icon: {
 			id: "farmersdelight:skillet"
 		}
+		disable_toast: true
 		id: "2F404FE4036D4CC2"
 		description: ["Skillets let you cook on the go. Stand near heat, then hold food in your other hand!"]
 		rewards: [{
@@ -422,6 +437,7 @@
 		icon: {
 			id: "farmersdelight:skillet"
 		}
+		disable_toast: true
 		id: "C382389E2F2206BA"
 		description: ["Sneak to place your Skillet down as a block"]
 		rewards: [{
@@ -448,6 +464,7 @@
 		icon: {
 			id: "farmersdelight:cooking_pot"
 		}
+		disable_toast: true
 		id: "CDCCE3097A2DC469"
 		description: ["Put down a Cooking Pot and start preparing meals!"]
 		rewards: [{
@@ -474,6 +491,7 @@
 		icon: {
 			id: "farmersdelight:steak_and_potatoes"
 		}
+		disable_toast: true
 		id: "586095F515D40DD5"
 		description: ["A balanced and diverse meal will keep you fed and healthy for a long time!"]
 		rewards: [{
@@ -500,6 +518,7 @@
 		icon: {
 			id: "farmersdelight:roast_chicken_block"
 		}
+		disable_toast: true
 		id: "A794B64467806D1B"
 		description: ["Some meals are big enough to be placed down and shared with friends!"]
 		rewards: [{
@@ -526,6 +545,7 @@
 		icon: {
 			id: "farmersdelight:honey_glazed_ham"
 		}
+		disable_toast: true
 		id: "A98FE412AB8A966B"
 		description: ["Eat a course of every meal available!"]
 		rewards: [{

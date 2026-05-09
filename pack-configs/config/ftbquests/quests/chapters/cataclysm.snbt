@@ -3,7 +3,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "cataclysm"
-	group: "A6F14C0E37D5B982"
+	group: "4457B18977D5384C"
 	icon: {
 		id: "cataclysm:the_incinerator"
 	}
@@ -16,6 +16,7 @@
 		icon: {
 			id: "cataclysm:the_incinerator"
 		}
+		disable_toast: true
 		id: "1F1B05C05FB24BAB"
 		description: ["Cataclysm!"]
 		rewards: [{
@@ -42,6 +43,7 @@
 		icon: {
 			id: "cataclysm:lacrima"
 		}
+		disable_toast: true
 		id: "3AFA381EB3F3E936"
 		description: ["Find the Acropolis"]
 		rewards: [{
@@ -68,6 +70,7 @@
 		icon: {
 			id: "cataclysm:chiseled_end_stone_bricks"
 		}
+		disable_toast: true
 		id: "68C8E78DB8A3A702"
 		description: ["Find the Ruined Citadel"]
 		rewards: [{
@@ -94,6 +97,7 @@
 		icon: {
 			id: "cataclysm:emp"
 		}
+		disable_toast: true
 		id: "15D09189F508E66F"
 		description: ["Find the Ancient Factory"]
 		rewards: [{
@@ -120,6 +124,7 @@
 		icon: {
 			id: "cataclysm:altar_of_fire"
 		}
+		disable_toast: true
 		id: "4DD680B79F1CC461"
 		description: ["Find the Burning Arena"]
 		rewards: [{
@@ -146,6 +151,7 @@
 		icon: {
 			id: "cataclysm:stone_tiles"
 		}
+		disable_toast: true
 		id: "43C2D9211D848256"
 		description: ["Find the Sunken City"]
 		rewards: [{
@@ -172,6 +178,7 @@
 		icon: {
 			id: "cataclysm:music_disc_the_cataclysmfarer"
 		}
+		disable_toast: true
 		id: "03ED444AD596CD63"
 		description: ["You have reached the summit of Cataclysm!"]
 		rewards: [{
@@ -198,6 +205,7 @@
 		icon: {
 			id: "cataclysm:door_of_seal"
 		}
+		disable_toast: true
 		id: "5A0A841A865AED76"
 		description: ["Find the Frosted Prison"]
 		rewards: [{
@@ -224,6 +232,7 @@
 		icon: {
 			id: "cataclysm:sandstone_poison_dart_trap"
 		}
+		disable_toast: true
 		id: "E9641E2CB1B7EEBC"
 		description: ["Find the Cursed Pyramid"]
 		rewards: [{
@@ -250,6 +259,7 @@
 		icon: {
 			id: "minecraft:blackstone"
 		}
+		disable_toast: true
 		id: "1E5ECD1A20B62776"
 		description: ["Find the Soul Forge"]
 		rewards: [{
@@ -276,6 +286,7 @@
 		icon: {
 			id: "cataclysm:chitin_claw"
 		}
+		disable_toast: true
 		id: "AAD0D64BA8020C78"
 		description: ["Kill an Clawdian"]
 		rewards: [{
@@ -302,6 +313,7 @@
 		icon: {
 			id: "cataclysm:void_core"
 		}
+		disable_toast: true
 		id: "37F42181CC4BC900"
 		description: ["Kill an Ender Golem"]
 		rewards: [{
@@ -328,6 +340,7 @@
 		icon: {
 			id: "cataclysm:witherite_ingot"
 		}
+		disable_toast: true
 		id: "718A1B7EEC676154"
 		description: ["Wake and Defeat the Harbinger"]
 		rewards: [{
@@ -354,6 +367,7 @@
 		icon: {
 			id: "cataclysm:burning_ashes"
 		}
+		disable_toast: true
 		id: "2BBBCEA81BEC54C9"
 		description: ["Kill an Ignited Revenant"]
 		rewards: [{
@@ -380,6 +394,7 @@
 		icon: {
 			id: "cataclysm:tidal_claws"
 		}
+		disable_toast: true
 		id: "D6A2F68392603F28"
 		description: ["Summon and Defeat the Leviathan"]
 		rewards: [{
@@ -406,6 +421,7 @@
 		icon: {
 			id: "cataclysm:cursed_tombstone"
 		}
+		disable_toast: true
 		id: "93CE9B003A3C2D6C"
 		description: ["Summon and Defeat Maledictus"]
 		rewards: [{
@@ -432,6 +448,7 @@
 		icon: {
 			id: "cataclysm:remnant_skull"
 		}
+		disable_toast: true
 		id: "73F3503D58997FC9"
 		description: ["Excavate from the suspicious sand within the cursed pyramid to wake up and knock down the Ancient Remnant"]
 		rewards: [{
@@ -458,6 +475,7 @@
 		icon: {
 			id: "cataclysm:infernal_forge"
 		}
+		disable_toast: true
 		id: "E51FC8674F6F3596"
 		description: ["Kill the Netherite Monstrosity"]
 		rewards: [{
@@ -484,6 +502,7 @@
 		icon: {
 			id: "cataclysm:essence_of_the_storm"
 		}
+		disable_toast: true
 		id: "DCFF5F92BA587DCA"
 		description: ["Defeat the Storm Empress, Scylla"]
 		rewards: [{
@@ -510,6 +529,7 @@
 		icon: {
 			id: "cataclysm:gauntlet_of_guard"
 		}
+		disable_toast: true
 		id: "855BDDF50A910D95"
 		description: ["Defeat the Ender Guardian"]
 		rewards: [{
@@ -536,6 +556,7 @@
 		icon: {
 			id: "cataclysm:bulwark_of_the_flame"
 		}
+		disable_toast: true
 		id: "6D38CFBDA9CDED9E"
 		description: ["Summon and Defeat the Ignis"]
 		rewards: [{

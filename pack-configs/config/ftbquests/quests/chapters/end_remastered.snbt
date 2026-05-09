@@ -3,7 +3,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "end_remastered"
-	group: "A6F14C0E37D5B982"
+	group: "4457B18977D5384C"
 	icon: {
 		id: "endrem:ancient_portal_frame"
 	}
@@ -16,6 +16,7 @@
 		icon: {
 			id: "endrem:ancient_portal_frame"
 		}
+		disable_toast: true
 		id: "20AB4A787D9DB1D5"
 		description: ["Get Your First Eye"]
 		rewards: [{
@@ -42,6 +43,7 @@
 		icon: {
 			id: "endrem:old_eye"
 		}
+		disable_toast: true
 		id: "157105543D4A21DC"
 		description: ["Get Your First Old Eye"]
 		rewards: [{
@@ -68,6 +70,7 @@
 		icon: {
 			id: "endrem:guardian_eye"
 		}
+		disable_toast: true
 		id: "AC6EA3C80C6B91A8"
 		description: ["Get Your First Guardian Eye"]
 		rewards: [{
@@ -94,6 +97,7 @@
 		icon: {
 			id: "endrem:cryptic_eye"
 		}
+		disable_toast: true
 		id: "95ABDA9E564E901A"
 		description: ["Get Your First Cryptic Eye"]
 		rewards: [{
@@ -120,6 +124,7 @@
 		icon: {
 			id: "endrem:nether_eye"
 		}
+		disable_toast: true
 		id: "9A123CEABB5B33A9"
 		description: ["Get Your First Nether Eye"]
 		rewards: [{
@@ -146,6 +151,7 @@
 		icon: {
 			id: "endrem:magical_eye"
 		}
+		disable_toast: true
 		id: "095C4F29C89CD3C1"
 		description: ["Get Your First Magical Eye"]
 		rewards: [{
@@ -172,6 +178,7 @@
 		icon: {
 			id: "endrem:lost_eye"
 		}
+		disable_toast: true
 		id: "96573A7A1F72A8C9"
 		description: ["Get Your First Lost Eye"]
 		rewards: [{
@@ -198,6 +205,7 @@
 		icon: {
 			id: "endrem:evil_eye"
 		}
+		disable_toast: true
 		id: "A1CA51D28C05FD8B"
 		description: ["Get Your First Evil Eye"]
 		rewards: [{
@@ -224,6 +232,7 @@
 		icon: {
 			id: "endrem:witch_eye"
 		}
+		disable_toast: true
 		id: "76514E4BA3E61B8F"
 		description: ["Get Your First Witch Eye"]
 		rewards: [{
@@ -250,6 +259,7 @@
 		icon: {
 			id: "endrem:rogue_eye"
 		}
+		disable_toast: true
 		id: "224694734E414CA2"
 		description: ["Get Your First Rogue Eye"]
 		rewards: [{
@@ -276,6 +286,7 @@
 		icon: {
 			id: "endrem:wither_eye"
 		}
+		disable_toast: true
 		id: "0CE3F6D22915F9BB"
 		description: ["Get Your First Wither Eye"]
 		rewards: [{
@@ -302,6 +313,7 @@
 		icon: {
 			id: "endrem:undead_eye"
 		}
+		disable_toast: true
 		id: "4C95C1011362C066"
 		description: ["Get Your First Undead Eye"]
 		rewards: [{
@@ -328,6 +340,7 @@
 		icon: {
 			id: "endrem:corrupted_eye"
 		}
+		disable_toast: true
 		id: "5CC92E676880A8FE"
 		description: ["Get Your First Corrupted Eye"]
 		rewards: [{
@@ -354,6 +367,7 @@
 		icon: {
 			id: "endrem:black_eye"
 		}
+		disable_toast: true
 		id: "18DEA3BBCB7F184B"
 		description: ["Get Your First Black Eye"]
 		rewards: [{
@@ -380,6 +394,7 @@
 		icon: {
 			id: "endrem:cursed_eye"
 		}
+		disable_toast: true
 		id: "F07898D9A74988AF"
 		description: ["Get Your First Cursed Eye"]
 		rewards: [{
@@ -406,6 +421,7 @@
 		icon: {
 			id: "endrem:cold_eye"
 		}
+		disable_toast: true
 		id: "DCEF93F0782F89EE"
 		description: ["Get Your First Cold Eye"]
 		rewards: [{
@@ -432,6 +448,7 @@
 		icon: {
 			id: "endrem:exotic_eye"
 		}
+		disable_toast: true
 		id: "892442E648550CFC"
 		description: ["Get Your First Exotic Eye"]
 		rewards: [{

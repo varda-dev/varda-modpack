@@ -16,6 +16,7 @@
 		icon: {
 			id: "ars_nouveau:worn_notebook"
 		}
+		disable_toast: true
 		id: "D059C74E9F4C4043"
 		description: ["Acquire a Tattered Tome"]
 		rewards: [{
@@ -42,6 +43,7 @@
 		icon: {
 			id: "ars_nouveau:imbuement_chamber"
 		}
+		disable_toast: true
 		id: "B80F93246F395769"
 		description: ["Acquire an Imbuement Chamber"]
 		rewards: [{
@@ -68,6 +70,7 @@
 		icon: {
 			id: "ars_nouveau:novice_spell_book"
 		}
+		disable_toast: true
 		id: "DD631368730E2692"
 		description: ["Acquire a Novice Spell Book"]
 		rewards: [{
@@ -94,6 +97,7 @@
 		icon: {
 			id: "ars_nouveau:ritual_brazier"
 		}
+		disable_toast: true
 		id: "F25C0AAAB5CA8852"
 		description: ["Acquire a Ritual Brazier"]
 		rewards: [{
@@ -120,6 +124,7 @@
 		icon: {
 			id: "minecraft:gold_nugget"
 		}
+		disable_toast: true
 		id: "7DFE9996A0FD5ABB"
 		description: ["Make a \"Trade\" with a Magical Creature"]
 		rewards: [{
@@ -146,6 +151,7 @@
 		icon: {
 			id: "ars_nouveau:bombegranate_pod"
 		}
+		disable_toast: true
 		id: "B0F8207F518C20CF"
 		description: ["Eat a Bombegranate"]
 		rewards: [{
@@ -172,6 +178,7 @@
 		icon: {
 			id: "ars_nouveau:source_jar"
 		}
+		disable_toast: true
 		id: "DA04F01298225940"
 		description: ["Acquire a Source Jar"]
 		rewards: [{
@@ -198,6 +205,7 @@
 		icon: {
 			id: "ars_nouveau:enchanting_apparatus"
 		}
+		disable_toast: true
 		id: "5E837BFF4F49E741"
 		description: ["Acquire an Enchanting Apparatus"]
 		rewards: [{
@@ -224,6 +232,7 @@
 		icon: {
 			id: "ars_nouveau:apprentice_spell_book"
 		}
+		disable_toast: true
 		id: "08E36ED3364862CA"
 		description: ["Acquire a Mage's Spell Book"]
 		rewards: [{
@@ -250,6 +259,7 @@
 		icon: {
 			id: "ars_nouveau:shapers_focus"
 		}
+		disable_toast: true
 		id: "AFA59D1F30D075A4"
 		description: ["Acquire a Shaper's Focus"]
 		rewards: [{
@@ -276,6 +286,7 @@
 		icon: {
 			id: "ars_nouveau:amethyst_golem_charm"
 		}
+		disable_toast: true
 		id: "0522D1DEA3627116"
 		description: ["Acquire an Amethyst Golem Charm"]
 		rewards: [{
@@ -302,6 +313,7 @@
 		icon: {
 			id: "ars_nouveau:ritual_binding"
 		}
+		disable_toast: true
 		id: "8651B48FA247C699"
 		description: ["Bind a magical creature into a Familiar"]
 		rewards: [{
@@ -328,6 +340,7 @@
 		icon: {
 			id: "ars_nouveau:mob_jar"
 		}
+		disable_toast: true
 		id: "925F1B0929405320"
 		description: ["Acquire a Containment Jar"]
 		rewards: [{
@@ -354,6 +367,7 @@
 		icon: {
 			id: "ars_nouveau:drygmy_charm"
 		}
+		disable_toast: true
 		id: "A1C43145B61F4C6D"
 		description: ["Acquire a Drygmy Charm"]
 		rewards: [{
@@ -380,6 +394,7 @@
 		icon: {
 			id: "ars_nouveau:ritual_gravity"
 		}
+		disable_toast: true
 		id: "F3FF1B835F0E8D3A"
 		description: ["Be affected by a Ritual of Gravity"]
 		rewards: [{
@@ -406,6 +421,7 @@
 		icon: {
 			id: "ars_nouveau:starbuncle_charm"
 		}
+		disable_toast: true
 		id: "E401D1A213D5D951"
 		description: ["Acquire a Starbuncle Charm"]
 		rewards: [{
@@ -432,6 +448,7 @@
 		icon: {
 			id: "ars_nouveau:whirlisprig_charm"
 		}
+		disable_toast: true
 		id: "47451C0A6FEB4668"
 		description: ["Acquire a Whirlisprig Charm"]
 		rewards: [{
@@ -458,6 +475,7 @@
 		icon: {
 			id: "ars_nouveau:wixie_charm"
 		}
+		disable_toast: true
 		id: "38AF0A7BF5FD545C"
 		description: ["Acquire a Wixie Charm"]
 		rewards: [{
@@ -484,6 +502,7 @@
 		icon: {
 			id: "ars_nouveau:magebloom_crop"
 		}
+		disable_toast: true
 		id: "39567ACC2F9CB92E"
 		description: ["Acquire a Magebloom Seed"]
 		rewards: [{
@@ -510,6 +529,7 @@
 		icon: {
 			id: "ars_nouveau:potion_jar"
 		}
+		disable_toast: true
 		id: "CF229492AE47B1B5"
 		description: ["Acquire a Potion Jar"]
 		rewards: [{
@@ -536,6 +556,7 @@
 		icon: {
 			id: "ars_nouveau:scryers_oculus"
 		}
+		disable_toast: true
 		id: "B70717E3264912BC"
 		description: ["Acquire a Scryer's Oculus"]
 		rewards: [{
@@ -562,6 +583,7 @@
 		icon: {
 			id: "ars_nouveau:basic_spell_turret"
 		}
+		disable_toast: true
 		id: "E854F5997C688CA7"
 		description: ["Acquire a Basic Spell Turret"]
 		rewards: [{
@@ -588,6 +610,7 @@
 		icon: {
 			id: "ars_nouveau:wilden_tribute"
 		}
+		disable_toast: true
 		id: "DE6CE4C3CFABCAB8"
 		description: ["Acquire a Wilden Tribute"]
 		rewards: [{
@@ -614,6 +637,7 @@
 		icon: {
 			id: "minecraft:lightning_rod"
 		}
+		disable_toast: true
 		id: "C9EC6605C044487F"
 		description: ["Catch a lightning bolt in a containment jar."]
 		rewards: [{
@@ -640,6 +664,7 @@
 		icon: {
 			id: "ars_nouveau:starbuncle_charm"
 		}
+		disable_toast: true
 		id: "08BBFBD75D52B06A"
 		description: ["Put a Starbuncle in a Containment Jar"]
 		rewards: [{
@@ -666,6 +691,7 @@
 		icon: {
 			id: "minecraft:clock"
 		}
+		disable_toast: true
 		id: "868A21E11CDDC556"
 		description: ["Put a clock in a containment jar"]
 		rewards: [{
@@ -692,6 +718,7 @@
 		icon: {
 			id: "ars_nouveau:starbuncle_shades"
 		}
+		disable_toast: true
 		id: "029E8FF39C90A465"
 		description: ["Acquire Starbuncle Shades"]
 		rewards: [{
@@ -718,6 +745,7 @@
 		icon: {
 			id: "ars_nouveau:wixie_hat"
 		}
+		disable_toast: true
 		id: "C4179DFF80CB93D9"
 		description: ["Acquire a Wixie Hat"]
 		rewards: [{
@@ -744,6 +772,7 @@
 		icon: {
 			id: "ars_nouveau:alteration_table"
 		}
+		disable_toast: true
 		id: "28A3A204317160C7"
 		description: ["Acquire an Alteration Table"]
 		rewards: [{
@@ -770,6 +799,7 @@
 		icon: {
 			id: "ars_nouveau:warp_scroll"
 		}
+		disable_toast: true
 		id: "FAE567598BF770AB"
 		description: ["Acquire a Warp Scroll"]
 		rewards: [{
@@ -796,6 +826,7 @@
 		icon: {
 			id: "ars_nouveau:potion_diffuser"
 		}
+		disable_toast: true
 		id: "1F521E8B1CB516FE"
 		description: ["Acquire a Potion Diffuser"]
 		rewards: [{
@@ -822,6 +853,7 @@
 		icon: {
 			id: "ars_nouveau:potion_flask"
 		}
+		disable_toast: true
 		id: "83D4F607B98BD493"
 		description: ["Acquire a Potion Flask"]
 		rewards: [{
@@ -848,6 +880,7 @@
 		icon: {
 			id: "ars_nouveau:potion_melder"
 		}
+		disable_toast: true
 		id: "9F30B77ECAABA3A8"
 		description: ["Acquire a Potion Melder"]
 		rewards: [{
@@ -874,6 +907,7 @@
 		icon: {
 			id: "ars_nouveau:spell_prism"
 		}
+		disable_toast: true
 		id: "8C7D2C65CE60678B"
 		description: ["Acquire a Spell Prism"]
 		rewards: [{
@@ -900,6 +934,7 @@
 		icon: {
 			id: "ars_nouveau:wilden_tribute"
 		}
+		disable_toast: true
 		id: "D4F7D0ECAA7E507B"
 		description: ["Witness an explosive divebomb"]
 		rewards: [{
@@ -926,6 +961,7 @@
 		icon: {
 			id: "ars_nouveau:archmage_spell_book"
 		}
+		disable_toast: true
 		id: "27FEB877C3AE2B0F"
 		description: ["Acquire an Archmage Spell Book"]
 		rewards: [{
@@ -952,6 +988,7 @@
 		icon: {
 			id: "ars_nouveau:summon_focus"
 		}
+		disable_toast: true
 		id: "A61C39B138931B23"
 		description: ["Acquire a Summoning Focus"]
 		rewards: [{
@@ -978,6 +1015,7 @@
 		icon: {
 			id: "ars_nouveau:creative_source_jar"
 		}
+		disable_toast: true
 		id: "EB114D21FCFAD63E"
 		description: ["Create a Warp Portal"]
 		rewards: [{
@@ -1004,6 +1042,7 @@
 		icon: {
 			id: "ars_nouveau:spell_prism"
 		}
+		disable_toast: true
 		id: "ADAA83B7A9BBB55A"
 		description: ["Redirect a Spell using a Prism four or more times"]
 		rewards: [{

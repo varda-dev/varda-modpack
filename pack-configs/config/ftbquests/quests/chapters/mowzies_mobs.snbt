@@ -3,7 +3,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "mowzies_mobs"
-	group: "A6F14C0E37D5B982"
+	group: "4457B18977D5384C"
 	icon: {
 		id: "mowziesmobs:logo"
 	}
@@ -16,23 +16,13 @@
 		icon: {
 			id: "mowziesmobs:logo"
 		}
+		disable_toast: true
 		id: "F8E1CA96448EA72E"
 		description: ["Welcome to Mowzie's Mobs!"]
-		rewards: [{
-			count: 8
-			id: "33F6EEF3EC785601"
-			item: {
-				count: 1
-				id: "mowziesmobs:thatch_block"
-			}
-			type: "item"
-		}]
 		shape: "rsquare"
 		tasks: [{
-			advancement: "mowziesmobs:root"
-			criterion: ""
 			id: "97D1C7CBB97DD0FC"
-			type: "advancement"
+			type: "checkmark"
 		}]
 		x: 0.0d
 		y: 0.0d
@@ -42,6 +32,7 @@
 		icon: {
 			id: "mowziesmobs:bluff_rod"
 		}
+		disable_toast: true
 		id: "48C01CD2A7C14A0C"
 		description: ["Kill a Bluff"]
 		rewards: [{
@@ -68,6 +59,7 @@
 		icon: {
 			id: "mowziesmobs:elokosa_paw_full"
 		}
+		disable_toast: true
 		id: "A2B8989E7B4FD435"
 		description: ["Kill an Elokosa Howler"]
 		rewards: [{
@@ -94,6 +86,7 @@
 		icon: {
 			id: "mowziesmobs:foliaath_seed"
 		}
+		disable_toast: true
 		id: "C9B385008D8ED0E0"
 		description: ["Kill a Foliaath"]
 		rewards: [{
@@ -120,6 +113,7 @@
 		icon: {
 			id: "minecraft:diamond"
 		}
+		disable_toast: true
 		id: "E5060DA22D3A2BBE"
 		description: ["Kill a Grottol"]
 		rewards: [{
@@ -146,6 +140,7 @@
 		icon: {
 			id: "mowziesmobs:naga_fang"
 		}
+		disable_toast: true
 		id: "4D4E825B52EA0C0C"
 		description: ["Kill a Naga"]
 		rewards: [{
@@ -172,6 +167,7 @@
 		icon: {
 			id: "mowziesmobs:wrought_helmet"
 		}
+		disable_toast: true
 		id: "70F891A93801EF58"
 		description: ["Kill a Ferrous Wroughtnaut"]
 		rewards: [{
@@ -198,6 +194,7 @@
 		icon: {
 			id: "mowziesmobs:ice_crystal"
 		}
+		disable_toast: true
 		id: "1D974321CDB0C051"
 		description: ["Kill a Frostmaw"]
 		rewards: [{
@@ -224,6 +221,7 @@
 		icon: {
 			id: "mowziesmobs:earthrend_gauntlet"
 		}
+		disable_toast: true
 		id: "45E5928C1F206205"
 		description: ["Complete the Sculptor's challenge"]
 		rewards: [{
@@ -250,6 +248,7 @@
 		icon: {
 			id: "mowziesmobs:umvuthana_mask_fury"
 		}
+		disable_toast: true
 		id: "609350065CA647B3"
 		description: ["Kill an Umvuthana Raptor"]
 		rewards: [{
@@ -276,6 +275,7 @@
 		icon: {
 			id: "mowziesmobs:sol_visage"
 		}
+		disable_toast: true
 		id: "2F41188549891F33"
 		description: ["Kill Umvuthi, the Sunbird"]
 		rewards: [{
@@ -302,6 +302,7 @@
 		icon: {
 			id: "minecraft:diamond_pickaxe"
 		}
+		disable_toast: true
 		id: "B34AB4B811ECA344"
 		description: ["Kill a Grottol with a fortune pickaxe"]
 		rewards: [{
@@ -328,6 +329,7 @@
 		icon: {
 			id: "mowziesmobs:captured_grottol"
 		}
+		disable_toast: true
 		id: "249C4E7BF625C14C"
 		description: ["Kill a Grottol with a silk touch pickaxe"]
 		rewards: [{
@@ -354,6 +356,7 @@
 		icon: {
 			id: "minecraft:potion"
 		}
+		disable_toast: true
 		id: "A3D242C07A401053"
 		description: ["Steal an ice crystal from a Frostmaw"]
 		rewards: [{
@@ -380,6 +383,7 @@
 		icon: {
 			id: "minecraft:beef"
 		}
+		disable_toast: true
 		id: "9EEE5CAC7CF3DC16"
 		description: ["Fall to your death during the Sculptor's challenge"]
 		rewards: [{
@@ -406,6 +410,7 @@
 		icon: {
 			id: "mowziesmobs:umvuthana_mask_fear"
 		}
+		disable_toast: true
 		id: "AE514006A7E4DC21"
 		description: ["Sneak into an Umvuthana grove in disguise"]
 		rewards: [{
@@ -432,6 +437,7 @@
 		icon: {
 			id: "mowziesmobs:grant_suns_blessing"
 		}
+		disable_toast: true
 		id: "28B12A233F7DC250"
 		description: ["Receive the Sun's Blessing"]
 		rewards: [{
