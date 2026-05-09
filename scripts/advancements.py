@@ -15,21 +15,24 @@ REPO_ROOT = SCRIPT_DIR.parent
 OUTPUT_DIR = REPO_ROOT / "tmp/advancements"
 LOCALES_PATH = SCRIPT_DIR / "lib" / "locales.json"
 DEFAULT_MOD_PATTERNS = (
-    "FarmersDelight-*.jar",
-    "ars_nouveau-*.jar",
+  "ars_nouveau-*.jar",
+  "endrem-neoforge-*.jar",
+  "FarmersDelight-*.jar",
+  "L_Ender's Cataclysm*.jar",
+  "mowziesmobs-*.jar",
+  "YungsBetterDesertTemples-*.jar",
 )
 DEFAULT_LOCALES = (
-    "en_us",
-    "de_de",
-    "es_es",
-    "fr_fr",
-    "pt_br",
-    "ru_ru",
-    "es_mx",
-    "ja_jp",
-    "ko_kr",
+  "en_us",
+  "de_de",
+  "es_es",
+  "fr_fr",
+  "pt_br",
+  "ru_ru",
+  "es_mx",
+  "ja_jp",
+  "ko_kr",
 )
-
 
 ADVANCEMENT_RE = re.compile(
     r"^data/(?P<namespace>[^/]+)/advancements?/(?P<path>.+)\.json$"
@@ -500,9 +503,13 @@ def output_slug(records: list[dict[str, Any]], fallback: str) -> str:
 
 def output_title(source_slug: str) -> str:
     titles = {
-        "farmersdelight": "Farmer's Delight",
-        "ars_nouveau": "Ars Nouveau",
-        "minecraft": "Minecraft",
+      "minecraft": "Minecraft",
+      "ars_nouveau": "Ars Nouveau",
+      "endrem": "End Remastered",
+      "farmersdelight": "Farmer's Delight",
+      "cataclysm": "L_Ender's Cataclysm",
+      "mowziesmobs": "Mowzie's Mobs",
+      "betterdeserttemples": "YUNG's Better Desert Temples",
     }
     return titles.get(source_slug, source_slug)
 
