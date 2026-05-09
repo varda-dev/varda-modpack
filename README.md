@@ -16,6 +16,7 @@ Change to `/` slashes if on Linux.
 
 Scripts require Python. See [docs/PYTHON.md](docs/PYTHON.md) for help.  
 
+### During Developemtn
 - Run `.\scripts\reset-sync.py` to clean up the modpack folder and copy over this repo's changes.
   - Use `.\scripts\reset-sync.py -h` for help.
 - Run `.\scripts\locate.py X Z` to inspect the save chunk containing those block coordinates across every save in the instance from `CURSEFORGE_INSTANCE_DIR`.
@@ -24,7 +25,13 @@ Scripts require Python. See [docs/PYTHON.md](docs/PYTHON.md) for help.
   - Results are actual structure data for that chunk, not broad text matches from unrelated chunk data like block entities, attachments, or mod state.
   - `(none)` means that save has chunk data at those coordinates, but no structure IDs are recorded for that chunk.
 
-### Config Layout
+### Uploading to Curseforge
+- Run `/scripts/prep-files.py -c -v 0.1.2 -r beta`
+- Then upload it `./scripts/cf-upload.py -v 0.1.2 -r beta -c "A meaningful comment."`
+
+Still need to work on server files.  
+
+## Config Layout
 - `pack-configs/config` is the main Minecraft `config` directory.
 - `pack-configs/defaultconfigs` is copied to the instance/server `defaultconfigs` directory. Keep only files that truly need to load as default configs there.
   - Currently nothing uses this directory
