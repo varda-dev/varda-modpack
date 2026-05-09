@@ -29,7 +29,7 @@ PROJECT_ID = "533644"
 # CurseForge game version IDs from /api/game/versions:
 # 12735 = Minecraft 1.21.1, gameVersionTypeID 1
 # 10150 = NeoForge, gameVersionTypeID 68441
-GAME_VERSIONS = [12735, 10150]
+GAME_VERSIONS = [11779, 10150]
 
 
 def slugify_version(value: str) -> str:

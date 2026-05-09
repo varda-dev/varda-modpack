@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import fnmatch
 import json
 import re
 import shutil
@@ -19,56 +20,28 @@ CLIENT_ONLY_PATTERNS = [
   "appleskin-neoforge-mc1.21-*.jar",
   "arsnumerichud-*.jar",
   "BetterAdvancements-NeoForge-*.jar",
-  "betterf3-*.jar",
-  "clean_tooltips-*.jar",
-  "cleanview-*.jar",
-  "configured-*.jar",
   "Controlling-neoforge-*.jar",
-  "craftingtweaks-*.jar",
-  "craftpresence-*.jar",
-  "comforts-*.jar",
-  "embeddium-*.jar",
   "enchdesc-neoforge-*.jar",
-  "ExtremeSoundMuffler-*.jar",
-  "fastipping-*.jar",
-  "ftb-chunks-modded-*.jar",
-  "inventoryessentials-*.jar",
-  "inventorysorter-*.jar",
-  "iris-neoforge-*.jar",
-  "Jade-*.jar",
-  "JadeAddons-*.jar",
-  "jearchaeology-*.jar",
-  "jeed-*.jar",
-  "jei-1.21.1-neoforge-*.jar",
-  "justenoughbreeding-neoforge-*.jar",
-  "JustEnoughProfessions-neoforge-*.jar",
-  "JustEnoughResources-NeoForge-*.jar",
+  "bookshelf-neoforge-*.jar",
+  "prickle-neoforge-*.jar",
   "moreoverlays-*.jar",
-  "MouseTweaks-*.jar",
-  "Searchables-neoforge-1.21.1-*.jar",
   "simplemenu-1.21.1-*.jar",
+  "collective-*.jar",
+  "MouseTweaks-*.jar",
+  "inventoryessentials-*.jar",
+  "craftingtweaks-*.jar",
+  "balm-neoforge-*.jar",
+  "jei-1.21.1-neoforge-*.jar",
+  "Searchables-neoforge-1.21.1-*.jar",
+  "iris-neoforge-*.jar",
   "sodium-neoforge-*.jar",
-  "tipsmod-neoforge-1.21.1-*.jar",
+  "Jade-*.jar",
   "timm-*.jar",
-  "TravelersTitles-1.21.1-NeoForge-*.jar",
-  "villagernames-1.21.1-*.jar",
-  "VoidFog-1.21.1-*.jar",
-  "yeetusexperimentus-neoforge-*.jar",
+  "cloth-config-*.jar",
 ]
 
-SERVER_ONLY_PATTERNS = [
-  "FarmersStructures-*.jar",
-  "HopoBetterRuinedPortals-*.jar",
-  "HopoBetterUnderwaterRuins-*.jar",
-  "MoogsEndStructures-*.jar",
-  "MoogsMissingVillages-*.jar",
-  "MoogsNetherStructures-*.jar",
-  "MoogsSoaringStructures-*.jar",
-  "MoogsTemplesReimagined-*.jar",
-  "MoogsVoyagerStructures-*.jar",
-  "moogs_structures-*.jar",
-  "tidal-towns-*.jar",
-]
+SERVER_ONLY_PATTERNS = []
+IGNORED_PLACEHOLDER_FILES = {".gitignore", ".gitkeep"}
 
 
 class HelpFormatter(argparse.HelpFormatter):
@@ -107,6 +80,14 @@ def copy_optional_path(source: Path, destination: Path) -> None:
     copy_required_path(source, destination)
 
 
+def copy_optional_populated_path(source: Path, destination: Path) -> None:
+  if source.is_dir() and any(
+    path.is_file() and path.name not in IGNORED_PLACEHOLDER_FILES
+    for path in source.rglob("*")
+  ):
+    copy_required_path(source, destination)
+
+
 def remove_matching_mods(mods_dir: Path, patterns: list[str], label: str) -> None:
   if not mods_dir.is_dir():
     fail(f"Mods folder not found: {mods_dir}")
@@ -118,11 +99,107 @@ def remove_matching_mods(mods_dir: Path, patterns: list[str], label: str) -> Non
         mod_file.unlink()
 
 
-def read_instance_versions(minecraft_instance_json: Path) -> tuple[str | None, str]:
+def matches_any_pattern(file_name: str, patterns: list[str]) -> bool:
+  return any(fnmatch.fnmatchcase(file_name, pattern) for pattern in patterns)
+
+
+def read_json_file(path: Path, label: str) -> object:
   try:
-    instance = json.loads(minecraft_instance_json.read_text(encoding="utf-8"))
+    return json.loads(path.read_text(encoding="utf-8"))
   except json.JSONDecodeError as error:
-    fail(f"Invalid minecraftinstance.json: {error}")
+    fail(f"Invalid {label}: {error}")
+
+
+def write_json_file(path: Path, data: object) -> None:
+  path.parent.mkdir(parents=True, exist_ok=True)
+  path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+
+
+def current_installed_manifest_files(
+  minecraft_instance_json: Path,
+  exclude_patterns: list[str],
+) -> list[dict[str, object]]:
+  instance = read_json_file(minecraft_instance_json, "minecraftinstance.json")
+  if not isinstance(instance, dict):
+    fail("minecraftinstance.json must contain a JSON object.")
+
+  installed_addons = instance.get("installedAddons")
+  if not isinstance(installed_addons, list):
+    fail("minecraftinstance.json is missing installedAddons.")
+
+  files: list[dict[str, object]] = []
+  seen: set[tuple[int, int]] = set()
+
+  for addon in installed_addons:
+    if not isinstance(addon, dict):
+      continue
+
+    if addon.get("isEnabled") is False:
+      continue
+
+    installed_file = addon.get("installedFile")
+    if not isinstance(installed_file, dict):
+      continue
+
+    file_name = addon.get("fileNameOnDisk") or installed_file.get("fileName")
+    if isinstance(file_name, str) and matches_any_pattern(file_name, exclude_patterns):
+      continue
+
+    project_id = addon.get("addonID") or addon.get("projectId") or installed_file.get("projectId")
+    file_id = installed_file.get("id")
+
+    if not isinstance(project_id, int) or not isinstance(file_id, int):
+      continue
+
+    key = (project_id, file_id)
+    if key in seen:
+      continue
+
+    seen.add(key)
+    files.append(
+      {
+        "projectID": project_id,
+        "fileID": file_id,
+        "required": True,
+      }
+    )
+
+  files.sort(key=lambda entry: (entry["projectID"], entry["fileID"]))
+  return files
+
+
+def copy_client_manifest(
+  *,
+  instance_dir: Path,
+  package_dir: Path,
+  server_only_patterns: list[str],
+) -> None:
+  source = instance_dir / "manifest.json"
+  minecraft_instance_json = instance_dir / "minecraftinstance.json"
+
+  if not source.is_file():
+    fail(f"manifest.json not found: {source}")
+
+  if not minecraft_instance_json.is_file():
+    fail(f"minecraftinstance.json not found: {minecraft_instance_json}")
+
+  manifest = read_json_file(source, "manifest.json")
+  if not isinstance(manifest, dict):
+    fail("manifest.json must contain a JSON object.")
+
+  manifest["overrides"] = "overrides"
+  manifest["files"] = current_installed_manifest_files(
+    minecraft_instance_json,
+    server_only_patterns,
+  )
+
+  write_json_file(package_dir / "manifest.json", manifest)
+
+
+def read_instance_versions(minecraft_instance_json: Path) -> tuple[str | None, str]:
+  instance = read_json_file(minecraft_instance_json, "minecraftinstance.json")
+  if not isinstance(instance, dict):
+    fail("minecraftinstance.json must contain a JSON object.")
 
   minecraft_version = instance.get("gameVersion")
 
@@ -250,13 +327,20 @@ def prepare_client_files(
   pack_configs_dir: Path,
   package_dir: Path,
 ) -> None:
-  copy_common_pack_files(
+  overrides_dir = package_dir / "overrides"
+
+  copy_client_manifest(
     instance_dir=instance_dir,
-    pack_configs_dir=pack_configs_dir,
     package_dir=package_dir,
+    server_only_patterns=SERVER_ONLY_PATTERNS,
   )
-  copy_required_path(instance_dir / "shaderpacks", package_dir / "shaderpacks")
-  remove_matching_mods(package_dir / "mods", SERVER_ONLY_PATTERNS, "server-only")
+  copy_required_path(instance_dir / "modlist.html", package_dir / "modlist.html")
+
+  copy_required_path(pack_configs_dir / "config", overrides_dir / "config")
+  copy_required_path(pack_configs_dir / "kubejs", overrides_dir / "kubejs")
+  copy_optional_populated_path(pack_configs_dir / "shaderpacks", overrides_dir / "shaderpacks")
+  copy_optional_populated_path(pack_configs_dir / "datapacks", overrides_dir / "datapacks")
+  copy_optional_populated_path(pack_configs_dir / "resourcepacks", overrides_dir / "resourcepacks")
 
 
 def prepare_server_files(
