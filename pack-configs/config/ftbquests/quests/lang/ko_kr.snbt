@@ -292,4 +292,203 @@
 	quest.D8AF1CCC379F3B52.title: "외롭지 못한 늑대"
 	quest.262398D405EC06FA.quest_desc: ["여름옷을 가져오세요"]
 	quest.262398D405EC06FA.title: "네더"
+	chapter.3CFE283B0F800A6F.title: "Ars Nouveau"
+	quest.D059C74E9F4C4043.quest_desc: ["낡은 공책을 얻으세요"]
+	quest.D059C74E9F4C4043.title: "Ars Nouveau"
+	quest.B80F93246F395769.quest_desc: ["주입 챔버를 얻으세요"]
+	quest.B80F93246F395769.title: "주입기"
+	quest.DD631368730E2692.quest_desc: ["견습생의 마도서를 얻으세요"]
+	quest.DD631368730E2692.title: "내구성 X"
+	quest.F25C0AAAB5CA8852.quest_desc: ["의식용 화로를 얻으세요"]
+	quest.F25C0AAAB5CA8852.title: "의식 준비"
+	quest.7DFE9996A0FD5ABB.quest_desc: ["마법 생물과 거래하세요"]
+	quest.7DFE9996A0FD5ABB.title: "어디로 간 거야?"
+	quest.B0F8207F518C20CF.quest_desc: ["폭탄 석류를 먹으세요"]
+	quest.B0F8207F518C20CF.title: "죽음을 위해"
+	quest.DA04F01298225940.quest_desc: ["마나 단지를 얻으세요"]
+	quest.DA04F01298225940.title: "액체가 아닙니다!"
+	quest.5E837BFF4F49E741.quest_desc: ["마법 부여 장치를 얻으세요"]
+	quest.5E837BFF4F49E741.title: "마법 모드 공학"
+	quest.08E36ED3364862CA.quest_desc: ["마법사의 마도서를 얻으세요"]
+	quest.08E36ED3364862CA.title: "마법사의 마도서"
+	quest.AFA59D1F30D075A4.quest_desc: ["블록 조형의 포커스를 얻으세요"]
+	quest.AFA59D1F30D075A4.title: "바위 집어던지기!"
+	quest.0522D1DEA3627116.quest_desc: ["자수정 골렘 부적을 얻으세요"]
+	quest.0522D1DEA3627116.title: "자수정 포식자"
+	quest.8651B48FA247C699.quest_desc: ["마법 생물을 결속하여 사역마로 만드세요"]
+	quest.8651B48FA247C699.title: "너 내 동료가 되라"
+	quest.925F1B0929405320.quest_desc: ["유리 단지를 얻으세요"]
+	quest.925F1B0929405320.title: "작고 소중한 집"
+	quest.A1C43145B61F4C6D.quest_desc: ["드리그미 부적을 얻으세요"]
+	quest.A1C43145B61F4C6D.title: "무스 댄스"
+	quest.F3FF1B835F0E8D3A.quest_desc: ["중력 의식의 영향을 받으세요"]
+	quest.F3FF1B835F0E8D3A.title: "땅으로 곤두박질치다"
+	quest.E401D1A213D5D951.quest_desc: ["별다람쥐 부적을 얻으세요"]
+	quest.E401D1A213D5D951.title: "세상에서 제일 귀여운 호퍼"
+	quest.47451C0A6FEB4668.quest_desc: ["윌스프링 부적을 얻으세요"]
+	quest.47451C0A6FEB4668.title: "윌리"
+	quest.38AF0A7BF5FD545C.quest_desc: ["윅시 부적을 얻으세요"]
+	quest.38AF0A7BF5FD545C.title: "내면의 아이에게 자유를"
+	quest.39567ACC2F9CB92E.quest_desc: ["마법꽃 씨앗을 획득하세요"]
+	quest.39567ACC2F9CB92E.title: "마법꽃"
+	quest.CF229492AE47B1B5.quest_desc: ["물약 단지를 얻으세요"]
+	quest.CF229492AE47B1B5.title: "물약 저장고"
+	quest.B70717E3264912BC.quest_desc: ["점술사의 오큘러스를 얻으세요"]
+	quest.B70717E3264912BC.title: "염탐꾼"
+	quest.E854F5997C688CA7.quest_desc: ["기본 마법 포탑을 얻으세요."]
+	quest.E854F5997C688CA7.title: "이건 마법 모드에요, 의심하지 마세요!"
+	quest.DE6CE4C3CFABCAB8.quest_desc: ["와일든 공물을 얻으세요"]
+	quest.DE6CE4C3CFABCAB8.title: "와일든 공물"
+	quest.C9EC6605C044487F.quest_desc: ["유리 단지를 이용해 번개를 잡으세요."]
+	quest.C9EC6605C044487F.title: "병 안의 번개"
+	quest.08BBFBD75D52B06A.quest_desc: ["별다람쥐를 유리 단지 안에 넣으세요"]
+	quest.08BBFBD75D52B06A.title: "별다람쥐가 줄었어요"
+	quest.868A21E11CDDC556.quest_desc: ["시계를 유리 단지 안에 넣으세요"]
+	quest.868A21E11CDDC556.title: "병 속의 시간"
+	quest.029E8FF39C90A465.quest_desc: ["별다람쥐 선글라스를 얻으세요"]
+	quest.029E8FF39C90A465.title: "멋진 별다람쥐"
+	quest.C4179DFF80CB93D9.quest_desc: ["윅시 모자를 획득하세요"]
+	quest.C4179DFF80CB93D9.title: "포션 수송"
+	quest.28A3A204317160C7.quest_desc: ["수선 작업대를 얻으세요"]
+	quest.28A3A204317160C7.title: "방어구 수선"
+	quest.FAE567598BF770AB.quest_desc: ["워프 두루마리를 얻으세요"]
+	quest.FAE567598BF770AB.title: "뒤틀림"
+	quest.1F521E8B1CB516FE.quest_desc: ["물약 디퓨저를 얻으세요"]
+	quest.1F521E8B1CB516FE.title: "냄새가 나나?"
+	quest.83D4F607B98BD493.quest_desc: ["물약 플라스크를 얻으세요"]
+	quest.83D4F607B98BD493.title: "중첩 가능 물약"
+	quest.9F30B77ECAABA3A8.quest_desc: ["물약 혼합기를 얻으세요"]
+	quest.9F30B77ECAABA3A8.title: "가마솥에 섞고 으깨고 젓고"
+	quest.8C7D2C65CE60678B.quest_desc: ["주문 프리즘을 얻으세요"]
+	quest.8C7D2C65CE60678B.title: "프리즘 리다이렉션"
+	quest.D4F7D0ECAA7E507B.quest_desc: ["급강하 폭발을 목격하세요"]
+	quest.D4F7D0ECAA7E507B.title: "잠깐, 날 수 있어?"
+	quest.27FEB877C3AE2B0F.quest_desc: ["대마법사의 마도서를 얻으세요"]
+	quest.27FEB877C3AE2B0F.title: "대마법사의 마도서"
+	quest.A61C39B138931B23.quest_desc: ["소환 포커스를 얻으세요"]
+	quest.A61C39B138931B23.title: "소환 포커스"
+	quest.EB114D21FCFAD63E.quest_desc: ["워프 차원문을 생성하세요"]
+	quest.EB114D21FCFAD63E.title: "포탈처럼...이 게임이 아닌데"
+	quest.ADAA83B7A9BBB55A.quest_desc: ["프리즘을 사용하여 주문의 방향을 4회 이상 전환시키세요"]
+	quest.ADAA83B7A9BBB55A.title: "프리즘으로 궁리하기"
+	chapter.483CCD9C163DDD24.title: "L_Ender's Cataclysm"
+	quest.1F1B05C05FB24BAB.quest_desc: ["대격변!"]
+	quest.1F1B05C05FB24BAB.title: "대격변"
+	quest.3AFA381EB3F3E936.quest_desc: ["아크로폴리스를 찾으세요"]
+	quest.3AFA381EB3F3E936.title: "아크로폴리스"
+	quest.68C8E78DB8A3A702.quest_desc: ["폐허가 된 성채를 찾으세요"]
+	quest.68C8E78DB8A3A702.title: "폐허가 된 성채"
+	quest.15D09189F508E66F.quest_desc: ["고대의 공장을 찾으세요"]
+	quest.15D09189F508E66F.title: "고대의 문명"
+	quest.4DD680B79F1CC461.quest_desc: ["불타는 투기장을 찾으세요"]
+	quest.4DD680B79F1CC461.title: "불타는 투기장"
+	quest.43C2D9211D848256.quest_desc: ["가라앉은 도시를 찾으세요"]
+	quest.43C2D9211D848256.title: "가라앉은 도시"
+	quest.03ED444AD596CD63.quest_desc: ["당신은 대격변의 정상에 도착했습니다!"]
+	quest.03ED444AD596CD63.title: "대격변을 건넌 자"
+	quest.5A0A841A865AED76.quest_desc: ["서리 감옥을 찾으세요"]
+	quest.5A0A841A865AED76.title: "서리 감옥"
+	quest.E9641E2CB1B7EEBC.quest_desc: ["저주 받은 피라미드를 찾으세요"]
+	quest.E9641E2CB1B7EEBC.title: "저주 받은 피라미드"
+	quest.1E5ECD1A20B62776.quest_desc: ["영혼 대장간을 찾으세요"]
+	quest.1E5ECD1A20B62776.title: "영혼의 대장간"
+	quest.AAD0D64BA8020C78.quest_desc: ["클로디언을 처치하세요"]
+	quest.AAD0D64BA8020C78.title: "Not so shrimple now"
+	quest.37F42181CC4BC900.quest_desc: ["엔더 골렘을 처치하세요"]
+	quest.37F42181CC4BC900.title: "팔레트 스왑"
+	quest.718A1B7EEC676154.quest_desc: ["하빈저에게 네더스타를 끼워 깨우고, 쓰러뜨리세요"]
+	quest.718A1B7EEC676154.title: "고대의 존재"
+	quest.2BBBCEA81BEC54C9.quest_desc: ["레버넌트를 처치하세요"]
+	quest.2BBBCEA81BEC54C9.title: "되다만 것"
+	quest.D6A2F68392603F28.quest_desc: ["심연의 제물을 제단에 바쳐 레비아탄을 소환한 뒤, 처치하세요"]
+	quest.D6A2F68392603F28.title: "다차원의 포식자"
+	quest.93CE9B003A3C2D6C.quest_desc: ["묘비를 눌러 말레딕투스를 소환한 뒤, 처치하세요"]
+	quest.93CE9B003A3C2D6C.title: "저주에 맞서는 성전"
+	quest.73F3503D58997FC9.quest_desc: ["고대의 잔재를 저주 받은 피라미드내에 있는 수상한 모래에서 발굴하여 깨우시고 처치하세요"]
+	quest.73F3503D58997FC9.title: "죽음은 스스로 죽을 길을 찾는다는 거죠"
+	quest.E51FC8674F6F3596.quest_desc: ["네더라이트 괴물을 처치하세요"]
+	quest.E51FC8674F6F3596.title: "망가진 네더의 전쟁병기"
+	quest.DCFF5F92BA587DCA.quest_desc: ["폭풍의 여제 스킬라를 쓰러뜨리세요"]
+	quest.DCFF5F92BA587DCA.title: "폭풍 후의 고요함"
+	quest.855BDDF50A910D95.quest_desc: ["엔더 가디언을 쓰러뜨리세요"]
+	quest.855BDDF50A910D95.title: "수호자의 비밀"
+	quest.6D38CFBDA9CDED9E.quest_desc: ["타오르는 잿더미를 제단에 바쳐 이그니스를 소환한 뒤, 쓰러뜨리세요"]
+	quest.6D38CFBDA9CDED9E.title: "꺼져버린 불꽃"
+	chapter.3F2AC06DA2106A5E.title: "Mowzie's Mobs"
+	quest.F8E1CA96448EA72E.quest_desc: ["Mowzie's Mobs에 오신 것을 환영합니다!"]
+	quest.F8E1CA96448EA72E.title: "Mowzie's Mobs"
+	quest.48C01CD2A7C14A0C.quest_desc: ["Kill a Bluff"]
+	quest.48C01CD2A7C14A0C.title: "Called Your Bluff"
+	quest.A2B8989E7B4FD435.quest_desc: ["Kill an Elokosa Howler"]
+	quest.A2B8989E7B4FD435.title: "Gibbous Gibbons"
+	quest.C9B385008D8ED0E0.quest_desc: ["폴리아를 죽이세요"]
+	quest.C9B385008D8ED0E0.title: "제니퍼가 날 차버렸어"
+	quest.E5060DA22D3A2BBE.quest_desc: ["그로톨을 죽이세요"]
+	quest.E5060DA22D3A2BBE.title: "이 괴물"
+	quest.4D4E825B52EA0C0C.quest_desc: ["나가를 죽이세요"]
+	quest.4D4E825B52EA0C0C.title: "떨어지다"
+	quest.70F891A93801EF58.quest_desc: ["강철의 기사를 죽이세요"]
+	quest.70F891A93801EF58.title: "그냥 상처일 뿐"
+	quest.1D974321CDB0C051.quest_desc: ["프로스트모를 죽이세요"]
+	quest.1D974321CDB0C051.title: "모닝콜"
+	quest.45E5928C1F206205.quest_desc: ["Complete the Sculptor's challenge"]
+	quest.45E5928C1F206205.title: "You Must Believe"
+	quest.609350065CA647B3.quest_desc: ["움부타나 맹금을 죽이세요"]
+	quest.609350065CA647B3.title: "가면무도회"
+	quest.2F41188549891F33.quest_desc: ["움부티, 태양조를 처치하세요"]
+	quest.2F41188549891F33.title: "신살자"
+	quest.B34AB4B811ECA344.quest_desc: ["행운 곡괭이로 그로톨을 죽이세요"]
+	quest.B34AB4B811ECA344.title: "묻고 더블로 가!"
+	quest.249C4E7BF625C14C.quest_desc: ["섬세한 손길 곡괭이로 그로톨을 포획하세요"]
+	quest.249C4E7BF625C14C.title: "잡았다!"
+	quest.A3D242C07A401053.quest_desc: ["프로스트모로부터 빙하수정을 훔치세요"]
+	quest.A3D242C07A401053.title: "괴도 루팡"
+	quest.9EEE5CAC7CF3DC16.quest_desc: ["Fall to your death during the Sculptor's challenge"]
+	quest.9EEE5CAC7CF3DC16.title: "No One Jumps for the Beef"
+	quest.AE514006A7E4DC21.quest_desc: ["움부타나 마을에 위장하여 잠입하세요"]
+	quest.AE514006A7E4DC21.title: "스파이"
+	quest.28B12A233F7DC250.quest_desc: ["태양의 축복을 받으세요"]
+	quest.28B12A233F7DC250.title: "태양의 힘"
+	chapter.8ECBDEC471A06B84.title: "YUNG's Better Desert Temples"
+	quest.02850C540837ACA2.quest_desc: ["Somewhere deep in the desert..."]
+	quest.02850C540837ACA2.title: "YUNG's Better Desert Temples"
+	quest.939E4BDABA897320.quest_desc: ["Discover a Better Desert Temple"]
+	quest.939E4BDABA897320.title: "An Ancient Tomb"
+	quest.AC17F5EA7D7C5E0C.quest_desc: ["Slay the Pharaoh and free the Temple from his curse"]
+	quest.AC17F5EA7D7C5E0C.title: "Eternal Slumber"
+	chapter.1052898EFFDA2A2E.title: "End Remastered"
+	quest.20AB4A787D9DB1D5.quest_desc: ["처음으로 눈을 얻으세요"]
+	quest.20AB4A787D9DB1D5.title: "모험의 시작"
+	quest.157105543D4A21DC.quest_desc: ["처음으로 오래된 눈을 얻으세요"]
+	quest.157105543D4A21DC.title: "행운을 찾는 자"
+	quest.AC6EA3C80C6B91A8.quest_desc: ["처음으로 가디언의 눈을 얻으세요"]
+	quest.AC6EA3C80C6B91A8.title: "지금 사원은 누가 지키고 있지?"
+	quest.95ABDA9E564E901A.quest_desc: ["처음으로 아리송한 눈을 얻으세요"]
+	quest.95ABDA9E564E901A.title: "인내는 지혜로 가는 길"
+	quest.9A123CEABB5B33A9.quest_desc: ["처음으로 네더의 눈을 얻으세요"]
+	quest.9A123CEABB5B33A9.title: "절망 속으로 응시"
+	quest.095C4F29C89CD3C1.quest_desc: ["처음으로 마법의 눈을 얻으세요"]
+	quest.095C4F29C89CD3C1.title: "몰락한 마법사"
+	quest.96573A7A1F72A8C9.quest_desc: ["처음으로 잃어버린 눈을 얻으세요"]
+	quest.96573A7A1F72A8C9.title: "지도가 필요하다고?"
+	quest.A1CA51D28C05FD8B.quest_desc: ["처음으로 악마의 눈을 얻으세요"]
+	quest.A1CA51D28C05FD8B.title: "진정한 축복"
+	quest.76514E4BA3E61B8F.quest_desc: ["처음으로 마녀의 눈을 얻으세요"]
+	quest.76514E4BA3E61B8F.title: "사탕을 줄래, 아니면 장난칠래?"
+	quest.224694734E414CA2.quest_desc: ["처음으로 도적의 눈을 얻으세요"]
+	quest.224694734E414CA2.title: "정글에 오신 것을 환영합니다"
+	quest.0CE3F6D22915F9BB.quest_desc: ["처음으로 위더 눈을 얻으세요"]
+	quest.0CE3F6D22915F9BB.title: "원하든 원치 않든 시들기"
+	quest.4C95C1011362C066.quest_desc: ["처음으로 언데드 눈을 얻으세요"]
+	quest.4C95C1011362C066.title: "영혼의 거울"
+	quest.5CC92E676880A8FE.quest_desc: ["처음으로 부패한 눈을 얻으세요"]
+	quest.5CC92E676880A8FE.title: "에메랄드로 나를 덮어줘"
+	quest.18DEA3BBCB7F184B.quest_desc: ["처음으로 검은색 눈을 얻으세요"]
+	quest.18DEA3BBCB7F184B.title: "Arghh, 내 배는 어디에 있나?"
+	quest.F07898D9A74988AF.quest_desc: ["처음으로 저주받은 눈을 얻으세요"]
+	quest.F07898D9A74988AF.title: "새로운 보호자 ..."
+	quest.DCEF93F0782F89EE.quest_desc: ["처음으로 차가운 눈을 얻으세요"]
+	quest.DCEF93F0782F89EE.title: "멋진 모습"
+	quest.892442E648550CFC.quest_desc: ["처음으로 이국적인 눈을 얻으세요"]
+	quest.892442E648550CFC.title: "아틀란티스는 어디에?"
 }

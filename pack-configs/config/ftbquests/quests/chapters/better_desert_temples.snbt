@@ -1,0 +1,93 @@
+{
+	autofocus_id: "02850C540837ACA2"
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "better_desert_temples"
+	group: "73A29692284919C6"
+	icon: {
+		id: "minecraft:chiseled_sandstone"
+	}
+	id: "8ECBDEC471A06B84"
+	order_index: 6
+	quest_links: [ ]
+	title: "YUNG's Better Desert Temples"
+	quests: [
+	{
+		icon: {
+			id: "minecraft:chiseled_sandstone"
+		}
+		id: "02850C540837ACA2"
+		description: ["Somewhere deep in the desert..."]
+		rewards: [{
+			count: 16
+			id: "4ED4994E3D935D5A"
+			item: {
+				count: 1
+				id: "minecraft:sandstone"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "betterdeserttemples:root"
+			criterion: ""
+			id: "8C8E996CAAABB4C6"
+			type: "advancement"
+		}]
+		x: 0.0d
+		y: 0.0d
+	},
+	{
+		dependencies: ["02850C540837ACA2"]
+		icon: {
+			id: "minecraft:golden_sword"
+		}
+		id: "939E4BDABA897320"
+		description: ["Discover a Better Desert Temple"]
+		rewards: [{
+			count: 6
+			id: "5994AFE599BC3C3B"
+			item: {
+				count: 1
+				id: "minecraft:gold_nugget"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "betterdeserttemples:temple_entry"
+			criterion: ""
+			id: "B79E8A6F71E0AD05"
+			type: "advancement"
+		}]
+		x: 0.0d
+		y: 2.0d
+	},
+	{
+		dependencies: ["939E4BDABA897320"]
+		icon: {
+			id: "minecraft:totem_of_undying"
+		}
+		id: "AC17F5EA7D7C5E0C"
+		description: ["Slay the Pharaoh and free the Temple from his curse"]
+		rewards: [{
+			count: 8
+			id: "6EE4351CA20EF0B7"
+			item: {
+				count: 1
+				id: "minecraft:chiseled_sandstone"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "betterdeserttemples:temple_clear"
+			criterion: ""
+			id: "02B93F9307C2EB0F"
+			type: "advancement"
+		}]
+		x: 0.0d
+		y: 4.0d
+	}
+	]
+}

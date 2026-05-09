@@ -292,4 +292,203 @@
 	quest.D8AF1CCC379F3B52.title: "Das ganze Rudel"
 	quest.262398D405EC06FA.quest_desc: ["Zieh dir was Kurzes an"]
 	quest.262398D405EC06FA.title: "Nether"
+	chapter.3CFE283B0F800A6F.title: "Ars Nouveau"
+	quest.D059C74E9F4C4043.quest_desc: ["Erwerben Sie ein abgenutztes Notebook"]
+	quest.D059C74E9F4C4043.title: "Ars Nouveau"
+	quest.B80F93246F395769.quest_desc: ["Erwerben Sie eine Imbuement-Kammer"]
+	quest.B80F93246F395769.title: "Durchdrungen"
+	quest.DD631368730E2692.quest_desc: ["Erwerben Sie ein Zauberbuch für Anfänger"]
+	quest.DD631368730E2692.title: "Unbreaking X"
+	quest.F25C0AAAB5CA8852.quest_desc: ["Erwerben Sie ein Ritual-Kohlenbecken"]
+	quest.F25C0AAAB5CA8852.title: "Dreist"
+	quest.7DFE9996A0FD5ABB.quest_desc: ["Machen Sie einen „Handel“ mit einer magischen Kreatur"]
+	quest.7DFE9996A0FD5ABB.title: "Wo ist es hin?"
+	quest.B0F8207F518C20CF.quest_desc: ["Iss einen Bombegranate"]
+	quest.B0F8207F518C20CF.title: "Zum Sterben"
+	quest.DA04F01298225940.quest_desc: ["Erwerben Sie ein Quellglas"]
+	quest.DA04F01298225940.title: "Keine Flüssigkeit!"
+	quest.5E837BFF4F49E741.quest_desc: ["Erwerben Sie einen Zauberapparat"]
+	quest.5E837BFF4F49E741.title: "Magic Mod-Mechaniker"
+	quest.08E36ED3364862CA.quest_desc: ["Acquire a Mage's Spell Book"]
+	quest.08E36ED3364862CA.title: "Mage's Spell Book"
+	quest.AFA59D1F30D075A4.quest_desc: ["Erwerben Sie den Fokus eines Schöpfers"]
+	quest.AFA59D1F30D075A4.title: "Wirf noch einen Stein!"
+	quest.0522D1DEA3627116.quest_desc: ["Erwerben Sie einen Amethyst-Golem-Amulett"]
+	quest.0522D1DEA3627116.title: "Lila Amethystfresser"
+	quest.8651B48FA247C699.quest_desc: ["Binde eine magische Kreatur an einen Vertrauten"]
+	quest.8651B48FA247C699.title: "Das kommt mir bekannt vor..."
+	quest.925F1B0929405320.quest_desc: ["Erwerben Sie ein Eindämmungsglas"]
+	quest.925F1B0929405320.title: "Winziges Zuhause"
+	quest.A1C43145B61F4C6D.quest_desc: ["Erwerben Sie einen Drygmäen-Amulett"]
+	quest.A1C43145B61F4C6D.title: "Elchtanz"
+	quest.F3FF1B835F0E8D3A.quest_desc: ["Be affected by a Ritual of Gravity"]
+	quest.F3FF1B835F0E8D3A.title: "You're Grounded"
+	quest.E401D1A213D5D951.quest_desc: ["Erwerben Sie einen Sternbunkel-Amulett"]
+	quest.E401D1A213D5D951.title: "Der süßeste Hopper"
+	quest.47451C0A6FEB4668.quest_desc: ["Erwerben Sie einen Wirbelzweig-Amulett"]
+	quest.47451C0A6FEB4668.title: "Whirli"
+	quest.38AF0A7BF5FD545C.quest_desc: ["Erwerben Sie einen Wixie-Amulett"]
+	quest.38AF0A7BF5FD545C.title: "Befreie das innere Kind"
+	quest.39567ACC2F9CB92E.quest_desc: ["Erwerben Sie einen Mageblütensamen"]
+	quest.39567ACC2F9CB92E.title: "Magebloom"
+	quest.CF229492AE47B1B5.quest_desc: ["Besorge dir ein Trankglas"]
+	quest.CF229492AE47B1B5.title: "Aufbewahrung von Trank"
+	quest.B70717E3264912BC.quest_desc: ["Erwerben Sie ein Seher-Oculus"]
+	quest.B70717E3264912BC.title: "Augen Spion"
+	quest.E854F5997C688CA7.quest_desc: ["Erwerben Sie einen einfachen Zauberturm"]
+	quest.E854F5997C688CA7.title: "Es ist ein Magic Mod, ich schwöre!"
+	quest.DE6CE4C3CFABCAB8.quest_desc: ["Erhalte einen Wilden-Tribut"]
+	quest.DE6CE4C3CFABCAB8.title: "Wilden-Tribut"
+	quest.C9EC6605C044487F.quest_desc: ["Fange einen Blitz in einem Sicherheitsgefäß ein."]
+	quest.C9EC6605C044487F.title: "Blitz in einer Flasche"
+	quest.08BBFBD75D52B06A.quest_desc: ["Legen Sie einen Sternbunkel in ein Eindämmungsglas"]
+	quest.08BBFBD75D52B06A.title: "Schatz, ich habe den Starbuncle geschrumpft"
+	quest.868A21E11CDDC556.quest_desc: ["Legen Sie eine Uhr in ein Sicherheitsgefäß"]
+	quest.868A21E11CDDC556.title: "Zeit in einer Flasche"
+	quest.029E8FF39C90A465.quest_desc: ["Erwerben Sie Starbuncle Shades"]
+	quest.029E8FF39C90A465.title: "Ein cooler Starbuncle"
+	quest.C4179DFF80CB93D9.quest_desc: ["Erwerben Sie einen Wixie-Hut"]
+	quest.C4179DFF80CB93D9.title: "Tranktransport"
+	quest.28A3A204317160C7.quest_desc: ["Erwerben Sie eine Änderungstabelle"]
+	quest.28A3A204317160C7.title: "Rüstungsänderung"
+	quest.FAE567598BF770AB.quest_desc: ["Erwerben Sie eine Warp-Schriftrolle"]
+	quest.FAE567598BF770AB.title: "Verzogen"
+	quest.1F521E8B1CB516FE.quest_desc: ["Erwerben Sie einen Trankdiffusor"]
+	quest.1F521E8B1CB516FE.title: "Riechst du das?"
+	quest.83D4F607B98BD493.quest_desc: ["Besorge dir ein Trankfläschchen"]
+	quest.83D4F607B98BD493.title: "Stapelbare Tränke"
+	quest.9F30B77ECAABA3A8.quest_desc: ["Erwerben Sie einen Trankmelder"]
+	quest.9F30B77ECAABA3A8.title: "Meld'em, Mash'em, Stick'em in a Cauldron"
+	quest.8C7D2C65CE60678B.quest_desc: ["Erwerben Sie ein Zauberprisma"]
+	quest.8C7D2C65CE60678B.title: "Prismatische Umleitung"
+	quest.D4F7D0ECAA7E507B.quest_desc: ["Werden Sie Zeuge einer explosiven Tauchbombe"]
+	quest.D4F7D0ECAA7E507B.title: "Moment, es kann fliegen?"
+	quest.27FEB877C3AE2B0F.quest_desc: ["Erwerben Sie ein Erzmagier-Zauberbuch"]
+	quest.27FEB877C3AE2B0F.title: "Erzmagier-Zauberbuch"
+	quest.A61C39B138931B23.quest_desc: ["Erwerben Sie einen Beschwörungsfokus"]
+	quest.A61C39B138931B23.title: "Beschwörungsfokus"
+	quest.EB114D21FCFAD63E.quest_desc: ["Erstelle ein Warp-Portal"]
+	quest.EB114D21FCFAD63E.title: "Denken mit ... falschem Spiel"
+	quest.ADAA83B7A9BBB55A.quest_desc: ["Leite einen Zauber mit einem Prisma viermal oder öfter um"]
+	quest.ADAA83B7A9BBB55A.title: "Denken mit Prismen"
+	chapter.483CCD9C163DDD24.title: "L_Ender's Cataclysm"
+	quest.1F1B05C05FB24BAB.quest_desc: ["Cataclysm!"]
+	quest.1F1B05C05FB24BAB.title: "Cataclysm"
+	quest.3AFA381EB3F3E936.quest_desc: ["Find the Acropolis"]
+	quest.3AFA381EB3F3E936.title: "Why in the Sky?"
+	quest.68C8E78DB8A3A702.quest_desc: ["Find the Ruined Citadel"]
+	quest.68C8E78DB8A3A702.title: "Another Stronghold?!"
+	quest.15D09189F508E66F.quest_desc: ["Find the Ancient Factory"]
+	quest.15D09189F508E66F.title: "Out-of-Place"
+	quest.4DD680B79F1CC461.quest_desc: ["Find the Burning Arena"]
+	quest.4DD680B79F1CC461.title: "A Massive Arena"
+	quest.43C2D9211D848256.quest_desc: ["Find the Sunken City"]
+	quest.43C2D9211D848256.title: "Sunken in the Sea"
+	quest.03ED444AD596CD63.quest_desc: ["You have reached the summit of Cataclysm!"]
+	quest.03ED444AD596CD63.title: "The Cataclysmfarer"
+	quest.5A0A841A865AED76.quest_desc: ["Find the Frosted Prison"]
+	quest.5A0A841A865AED76.title: "Jail of Cold"
+	quest.E9641E2CB1B7EEBC.quest_desc: ["Find the Cursed Pyramid"]
+	quest.E9641E2CB1B7EEBC.title: "Desert Pyramid Revamped"
+	quest.1E5ECD1A20B62776.quest_desc: ["Find the Soul Forge"]
+	quest.1E5ECD1A20B62776.title: "Where the Monstrous be Forged"
+	quest.AAD0D64BA8020C78.quest_desc: ["Kill an Clawdian"]
+	quest.AAD0D64BA8020C78.title: "Not so Shrimple Now"
+	quest.37F42181CC4BC900.quest_desc: ["Kill an Ender Golem"]
+	quest.37F42181CC4BC900.title: "Palette Swap"
+	quest.718A1B7EEC676154.quest_desc: ["Wake and Defeat the Harbinger"]
+	quest.718A1B7EEC676154.title: "The Thing of Ancient Civilization"
+	quest.2BBBCEA81BEC54C9.quest_desc: ["Kill an Ignited Revenant"]
+	quest.2BBBCEA81BEC54C9.title: "Imperfect thing"
+	quest.D6A2F68392603F28.quest_desc: ["Summon and Defeat the Leviathan"]
+	quest.D6A2F68392603F28.title: "A Multidimensional Predator"
+	quest.93CE9B003A3C2D6C.quest_desc: ["Summon and Defeat Maledictus"]
+	quest.93CE9B003A3C2D6C.title: "Crusade Against Curse"
+	quest.73F3503D58997FC9.quest_desc: ["Excavate from the suspicious sand within the cursed pyramid to wake up and knock down the Ancient Remnant"]
+	quest.73F3503D58997FC9.title: "Death Finds a Way"
+	quest.E51FC8674F6F3596.quest_desc: ["Kill the Netherite Monstrosity"]
+	quest.E51FC8674F6F3596.title: "The Broken Nether's Warmachine"
+	quest.DCFF5F92BA587DCA.quest_desc: ["Defeat the Storm Empress, Scylla"]
+	quest.DCFF5F92BA587DCA.title: "The Calm after the Storm"
+	quest.855BDDF50A910D95.quest_desc: ["Defeat the Ender Guardian"]
+	quest.855BDDF50A910D95.title: "Wasn't that a Shulker?"
+	quest.6D38CFBDA9CDED9E.quest_desc: ["Summon and Defeat the Ignis"]
+	quest.6D38CFBDA9CDED9E.title: "The Extinguished Fire"
+	chapter.3F2AC06DA2106A5E.title: "Mowzie's Mobs"
+	quest.F8E1CA96448EA72E.quest_desc: ["Willkommen Mowzie's Mobs!"]
+	quest.F8E1CA96448EA72E.title: "Mowzie's Mobs"
+	quest.48C01CD2A7C14A0C.quest_desc: ["Kill a Bluff"]
+	quest.48C01CD2A7C14A0C.title: "Called Your Bluff"
+	quest.A2B8989E7B4FD435.quest_desc: ["Kill an Elokosa Howler"]
+	quest.A2B8989E7B4FD435.title: "Gibbous Gibbons"
+	quest.C9B385008D8ED0E0.quest_desc: ["Töte einen Foliaath"]
+	quest.C9B385008D8ED0E0.title: "Jennifer hat mich abgelehnt"
+	quest.E5060DA22D3A2BBE.quest_desc: ["Töte einen Grottol"]
+	quest.E5060DA22D3A2BBE.title: "Du Monster..."
+	quest.4D4E825B52EA0C0C.quest_desc: ["Töte eine Naga"]
+	quest.4D4E825B52EA0C0C.title: "Wingin' It"
+	quest.70F891A93801EF58.quest_desc: ["Töte einen Eisernen Wroughtnaut"]
+	quest.70F891A93801EF58.title: "Je größer sie sind..."
+	quest.1D974321CDB0C051.quest_desc: ["Töte einen Frostmaw"]
+	quest.1D974321CDB0C051.title: "Unfreundliches Erwachen"
+	quest.45E5928C1F206205.quest_desc: ["Complete the Sculptor's challenge"]
+	quest.45E5928C1F206205.title: "You Must Believe"
+	quest.609350065CA647B3.quest_desc: ["Kill an Umvuthana Raptor"]
+	quest.609350065CA647B3.title: "Masquerade"
+	quest.2F41188549891F33.quest_desc: ["Kill Umvuthi, the Sunbird"]
+	quest.2F41188549891F33.title: "Praise the Sun"
+	quest.B34AB4B811ECA344.quest_desc: ["Töte einen Grottol mit einer Glücksspitzhacke"]
+	quest.B34AB4B811ECA344.title: "Doppelt oder Nichts!"
+	quest.249C4E7BF625C14C.quest_desc: ["Töte einen Grottol mit einer Behutsamkeitsspitzhacke"]
+	quest.249C4E7BF625C14C.title: "Du kommst mit mir"
+	quest.A3D242C07A401053.quest_desc: ["Stehle einem Frostmaw seinen Eis Kristall"]
+	quest.A3D242C07A401053.title: "Big Brain™ Zeit"
+	quest.9EEE5CAC7CF3DC16.quest_desc: ["Fall to your death during the Sculptor's challenge"]
+	quest.9EEE5CAC7CF3DC16.title: "No One Jumps for the Beef"
+	quest.AE514006A7E4DC21.quest_desc: ["Sneak into an Umvuthana grove in disguise"]
+	quest.AE514006A7E4DC21.title: "Birds of a Feather"
+	quest.28B12A233F7DC250.quest_desc: ["Erhalte den Segen der Sonne"]
+	quest.28B12A233F7DC250.title: "Heliomancer"
+	chapter.8ECBDEC471A06B84.title: "YUNG's Better Desert Temples"
+	quest.02850C540837ACA2.quest_desc: ["Somewhere deep in the desert..."]
+	quest.02850C540837ACA2.title: "YUNG's Better Desert Temples"
+	quest.939E4BDABA897320.quest_desc: ["Discover a Better Desert Temple"]
+	quest.939E4BDABA897320.title: "An Ancient Tomb"
+	quest.AC17F5EA7D7C5E0C.quest_desc: ["Slay the Pharaoh and free the Temple from his curse"]
+	quest.AC17F5EA7D7C5E0C.title: "Eternal Slumber"
+	chapter.1052898EFFDA2A2E.title: "End Remastered"
+	quest.20AB4A787D9DB1D5.quest_desc: ["Finde dein erstes Auge"]
+	quest.20AB4A787D9DB1D5.title: "Der Beginn eines Abenteuers"
+	quest.157105543D4A21DC.quest_desc: ["Finde ein Altes Auge"]
+	quest.157105543D4A21DC.title: "Glückssucher"
+	quest.AC6EA3C80C6B91A8.quest_desc: ["Finde ein Wächter Auge"]
+	quest.AC6EA3C80C6B91A8.title: "Wer bewacht den Tempel jetzt?"
+	quest.95ABDA9E564E901A.quest_desc: ["Get Your First Cryptic Eye"]
+	quest.95ABDA9E564E901A.title: "Patience Is The Road To Wisdom"
+	quest.9A123CEABB5B33A9.quest_desc: ["Finde ein Nether Auge"]
+	quest.9A123CEABB5B33A9.title: "Starre in die Verzweiflung"
+	quest.095C4F29C89CD3C1.quest_desc: ["Finde ein Magisches Auge"]
+	quest.095C4F29C89CD3C1.title: "Gefallener Zauberer"
+	quest.96573A7A1F72A8C9.quest_desc: ["Finde ein Verlorenes Auge"]
+	quest.96573A7A1F72A8C9.title: "Brauchste ne Karte?"
+	quest.A1CA51D28C05FD8B.quest_desc: ["Get Your First Evil Eye"]
+	quest.A1CA51D28C05FD8B.title: "A Real Blessing"
+	quest.76514E4BA3E61B8F.quest_desc: ["Finde ein Hexen Auge"]
+	quest.76514E4BA3E61B8F.title: "Süßes oder Saures?"
+	quest.224694734E414CA2.quest_desc: ["Finde ein Abtrünniges Auge"]
+	quest.224694734E414CA2.title: "Willkommen im Dschungel"
+	quest.0CE3F6D22915F9BB.quest_desc: ["Finde ein Wither Auge"]
+	quest.0CE3F6D22915F9BB.title: "Untoter Schatz"
+	quest.4C95C1011362C066.quest_desc: ["Get Your First Undead Eye"]
+	quest.4C95C1011362C066.title: "The Mirror Of The Soul"
+	quest.5CC92E676880A8FE.quest_desc: ["Finde ein Verdorbenes Auge"]
+	quest.5CC92E676880A8FE.title: "Bedeck mich mit Schätzen!"
+	quest.18DEA3BBCB7F184B.quest_desc: ["Finde ein Schwarzes Auge"]
+	quest.18DEA3BBCB7F184B.title: "Arghh, Wo ist mein Schiff?"
+	quest.F07898D9A74988AF.quest_desc: ["Get Your First Cursed Eye"]
+	quest.F07898D9A74988AF.title: "A New Protector..."
+	quest.DCEF93F0782F89EE.quest_desc: ["Finde ein Eiskaltes Auge"]
+	quest.DCEF93F0782F89EE.title: "Ein N-eis-er Anblick"
+	quest.892442E648550CFC.quest_desc: ["Get Your First Exotic Eye"]
+	quest.892442E648550CFC.title: "Where's Atlantis?"
 }

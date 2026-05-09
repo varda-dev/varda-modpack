@@ -292,4 +292,203 @@
 	quest.D8AF1CCC379F3B52.title: "Барбоскины"
 	quest.262398D405EC06FA.quest_desc: ["Захватите летнюю одежду"]
 	quest.262398D405EC06FA.title: "Незер"
+	chapter.3CFE283B0F800A6F.title: "Ars Nouveau"
+	quest.D059C74E9F4C4043.quest_desc: ["Получите Засаленный блокнот"]
+	quest.D059C74E9F4C4043.title: "Ар Нуво"
+	quest.B80F93246F395769.quest_desc: ["Получите Камеру Впитывания"]
+	quest.B80F93246F395769.title: "Впитан"
+	quest.DD631368730E2692.quest_desc: ["Получите Книгу заклинаний Посвящённого"]
+	quest.DD631368730E2692.title: "Нерушимость X"
+	quest.F25C0AAAB5CA8852.quest_desc: ["Получите Ритуальную жаровню"]
+	quest.F25C0AAAB5CA8852.title: "Наглец"
+	quest.7DFE9996A0FD5ABB.quest_desc: ["Заключите \"Сделку\" с Волшебным существом"]
+	quest.7DFE9996A0FD5ABB.title: "Куда это делось?"
+	quest.B0F8207F518C20CF.quest_desc: ["Съешьте Бомбегранат"]
+	quest.B0F8207F518C20CF.title: "Умереть за"
+	quest.DA04F01298225940.quest_desc: ["Получите Кувшин Источника"]
+	quest.DA04F01298225940.title: "Не жидкость!"
+	quest.5E837BFF4F49E741.quest_desc: ["Получите Чародейский Аппарат"]
+	quest.5E837BFF4F49E741.title: "Механика магического мода"
+	quest.08E36ED3364862CA.quest_desc: ["Приобретите Книгу Заклинаний"]
+	quest.08E36ED3364862CA.title: "Книга Заклинаний"
+	quest.AFA59D1F30D075A4.quest_desc: ["Получите Фокус Создателя"]
+	quest.AFA59D1F30D075A4.title: "Брось еще один камень!"
+	quest.0522D1DEA3627116.quest_desc: ["Получите Талисман Аметистового Голема"]
+	quest.0522D1DEA3627116.title: "Пожиратель фиолетовых аметистов"
+	quest.8651B48FA247C699.quest_desc: ["Привяжите волшебное существо к Фамильяру"]
+	quest.8651B48FA247C699.title: "Это кажется знакомым..."
+	quest.925F1B0929405320.quest_desc: ["Получите Удерживающий кувшин"]
+	quest.925F1B0929405320.title: "Крошечный дом"
+	quest.A1C43145B61F4C6D.quest_desc: ["Получите Талисман Дрыгма"]
+	quest.A1C43145B61F4C6D.title: "Танец лося"
+	quest.F3FF1B835F0E8D3A.quest_desc: ["Воздействие ритуала Гравитации"]
+	quest.F3FF1B835F0E8D3A.title: "Вы заземлены"
+	quest.E401D1A213D5D951.quest_desc: ["Получите Талисман Звездоуха"]
+	quest.E401D1A213D5D951.title: "Самая милая Воронка"
+	quest.47451C0A6FEB4668.quest_desc: ["Получите Талисман Вертявки"]
+	quest.47451C0A6FEB4668.title: "Круть-верть"
+	quest.38AF0A7BF5FD545C.quest_desc: ["Получите Талисман Викси"]
+	quest.38AF0A7BF5FD545C.title: "Освободите внутреннего ребенка"
+	quest.39567ACC2F9CB92E.quest_desc: ["Получите семя Магического цветка"]
+	quest.39567ACC2F9CB92E.title: "Чароцвет"
+	quest.CF229492AE47B1B5.quest_desc: ["Получите Кувшин для зелий"]
+	quest.CF229492AE47B1B5.title: "Хранилище зелий"
+	quest.B70717E3264912BC.quest_desc: ["Получите Око Провидца"]
+	quest.B70717E3264912BC.title: "Глаз Шпиона"
+	quest.E854F5997C688CA7.quest_desc: ["Получите Основную Заклинательную туррель"]
+	quest.E854F5997C688CA7.title: "Это магический мод, клянусь!"
+	quest.DE6CE4C3CFABCAB8.quest_desc: ["Получите Дань уважения диким"]
+	quest.DE6CE4C3CFABCAB8.title: "Дань уважения диким"
+	quest.C9EC6605C044487F.quest_desc: ["Поймать молнию в контейнере."]
+	quest.C9EC6605C044487F.title: "Молния в бутылке"
+	quest.08BBFBD75D52B06A.quest_desc: ["Посадите Звездоуха в Удерживающий кувшин"]
+	quest.08BBFBD75D52B06A.title: "Дорогая, я уменьшил Звездоуха"
+	quest.868A21E11CDDC556.quest_desc: ["Поместите часы в герметичную банку"]
+	quest.868A21E11CDDC556.title: "Время в бутылке"
+	quest.029E8FF39C90A465.quest_desc: ["Получите Оттенки Звездоуха"]
+	quest.029E8FF39C90A465.title: "Один крутой Звездоух"
+	quest.C4179DFF80CB93D9.quest_desc: ["Получите шляпу Викси"]
+	quest.C4179DFF80CB93D9.title: "Транспортировка зелья"
+	quest.28A3A204317160C7.quest_desc: ["Получите Стол для преобразования"]
+	quest.28A3A204317160C7.title: "Преобразование брони"
+	quest.FAE567598BF770AB.quest_desc: ["Получите Варп-свиток"]
+	quest.FAE567598BF770AB.title: "Искажённый"
+	quest.1F521E8B1CB516FE.quest_desc: ["Получите Распылитель для зелий"]
+	quest.1F521E8B1CB516FE.title: "Вы чувствуете запах?"
+	quest.83D4F607B98BD493.quest_desc: ["Получите Фляжку для зелий"]
+	quest.83D4F607B98BD493.title: "Стакающиеся зелья"
+	quest.9F30B77ECAABA3A8.quest_desc: ["Получите Связыватель для зелий"]
+	quest.9F30B77ECAABA3A8.title: "Сварить, размять, засунуть в котел"
+	quest.8C7D2C65CE60678B.quest_desc: ["Получите Заклинательную Призму"]
+	quest.8C7D2C65CE60678B.title: "Призматическое перенаправление"
+	quest.D4F7D0ECAA7E507B.quest_desc: ["Станьте свидетелем взрыва пикирующей бомбы"]
+	quest.D4F7D0ECAA7E507B.title: "Подождите, он может летать?"
+	quest.27FEB877C3AE2B0F.quest_desc: ["Получите Книгу заклинаний Архимага"]
+	quest.27FEB877C3AE2B0F.title: "Книга заклинаний Архимага"
+	quest.A61C39B138931B23.quest_desc: ["Получите Призывающий фокус"]
+	quest.A61C39B138931B23.title: "Призывающий фокус"
+	quest.EB114D21FCFAD63E.quest_desc: ["Создайте Варп-портал"]
+	quest.EB114D21FCFAD63E.title: "Мышление с помощью... неправильной игры"
+	quest.ADAA83B7A9BBB55A.quest_desc: ["Перенаправьте заклинание с помощью Призмы четыре или более раз"]
+	quest.ADAA83B7A9BBB55A.title: "Мышление с помощью призм"
+	chapter.483CCD9C163DDD24.title: "L_Ender's Cataclysm"
+	quest.1F1B05C05FB24BAB.quest_desc: ["Катаклизм!"]
+	quest.1F1B05C05FB24BAB.title: "Cataclysm"
+	quest.3AFA381EB3F3E936.quest_desc: ["Найдите Акрополь"]
+	quest.3AFA381EB3F3E936.title: "Акрополь"
+	quest.68C8E78DB8A3A702.quest_desc: ["Найдите разрушенную цитадель"]
+	quest.68C8E78DB8A3A702.title: "Разрушенная цитадель"
+	quest.15D09189F508E66F.quest_desc: ["Найдите древнюю фабрику"]
+	quest.15D09189F508E66F.title: "Древняя цивилизация"
+	quest.4DD680B79F1CC461.quest_desc: ["Найдите огненную арену"]
+	quest.4DD680B79F1CC461.title: "Огненная арена"
+	quest.43C2D9211D848256.quest_desc: ["Найдите затопленный город"]
+	quest.43C2D9211D848256.title: "Затопленный город"
+	quest.03ED444AD596CD63.quest_desc: ["Вы достигли конца Катаклизма"]
+	quest.03ED444AD596CD63.title: "А конец ли?"
+	quest.5A0A841A865AED76.quest_desc: ["Найдите Замороженную тюрьму"]
+	quest.5A0A841A865AED76.title: "Замороженная тюрьма"
+	quest.E9641E2CB1B7EEBC.quest_desc: ["Найдите проклятую пирамиду"]
+	quest.E9641E2CB1B7EEBC.title: "Проклятая пирамида"
+	quest.1E5ECD1A20B62776.quest_desc: ["Получите кузню душ"]
+	quest.1E5ECD1A20B62776.title: "Кузня душ"
+	quest.AAD0D64BA8020C78.quest_desc: ["Победите Клешниана"]
+	quest.AAD0D64BA8020C78.title: "Это мой морской конёк"
+	quest.37F42181CC4BC900.quest_desc: ["Убейте Эндер-голема"]
+	quest.37F42181CC4BC900.title: "Смена палитры"
+	quest.718A1B7EEC676154.quest_desc: ["Пробудите и сразите Предвестника"]
+	quest.718A1B7EEC676154.title: "Древняя цивилизация"
+	quest.2BBBCEA81BEC54C9.quest_desc: ["Убейте огненного ревенанта"]
+	quest.2BBBCEA81BEC54C9.title: "Несовершенное создание"
+	quest.D6A2F68392603F28.quest_desc: ["Пробудите и сразите Левиафана"]
+	quest.D6A2F68392603F28.title: "Межизмеренченский хищник"
+	quest.93CE9B003A3C2D6C.quest_desc: ["Призовите и убейте Маледиктуса"]
+	quest.93CE9B003A3C2D6C.title: "Крестовый поход против Проклятия"
+	quest.73F3503D58997FC9.quest_desc: ["Пробудите и сразите Древнего Ревенанта"]
+	quest.73F3503D58997FC9.title: "Смерть всегда находит способ"
+	quest.E51FC8674F6F3596.quest_desc: ["Убейте Незеритовое чудище"]
+	quest.E51FC8674F6F3596.title: "Сломанная машина войны Незера"
+	quest.DCFF5F92BA587DCA.quest_desc: ["Победите Императрицу Шторма, Сциллу"]
+	quest.DCFF5F92BA587DCA.title: "Затишье после бури"
+	quest.855BDDF50A910D95.quest_desc: ["Убейте Эндер-хранителя"]
+	quest.855BDDF50A910D95.title: "Это точно был шалкер?"
+	quest.6D38CFBDA9CDED9E.quest_desc: ["Пробудите и сразите Игниса"]
+	quest.6D38CFBDA9CDED9E.title: "Потушенный огонь"
+	chapter.3F2AC06DA2106A5E.title: "Mowzie's Mobs"
+	quest.F8E1CA96448EA72E.quest_desc: ["Welcome to Mowzie's Mobs!"]
+	quest.F8E1CA96448EA72E.title: "Mowzie's Mobs"
+	quest.48C01CD2A7C14A0C.quest_desc: ["Kill a Bluff"]
+	quest.48C01CD2A7C14A0C.title: "Called Your Bluff"
+	quest.A2B8989E7B4FD435.quest_desc: ["Kill an Elokosa Howler"]
+	quest.A2B8989E7B4FD435.title: "Gibbous Gibbons"
+	quest.C9B385008D8ED0E0.quest_desc: ["Kill a Foliaath"]
+	quest.C9B385008D8ED0E0.title: "Jennifer Dumped Me"
+	quest.E5060DA22D3A2BBE.quest_desc: ["Kill a Grottol"]
+	quest.E5060DA22D3A2BBE.title: "You Monster..."
+	quest.4D4E825B52EA0C0C.quest_desc: ["Kill a Naga"]
+	quest.4D4E825B52EA0C0C.title: "Wingin' It"
+	quest.70F891A93801EF58.quest_desc: ["Kill a Ferrous Wroughtnaut"]
+	quest.70F891A93801EF58.title: "Just a Flesh Wound"
+	quest.1D974321CDB0C051.quest_desc: ["Kill a Frostmaw"]
+	quest.1D974321CDB0C051.title: "Rude Awakening"
+	quest.45E5928C1F206205.quest_desc: ["Complete the Sculptor's challenge"]
+	quest.45E5928C1F206205.title: "You Must Believe"
+	quest.609350065CA647B3.quest_desc: ["Kill an Umvuthana Raptor"]
+	quest.609350065CA647B3.title: "Masquerade"
+	quest.2F41188549891F33.quest_desc: ["Kill Umvuthi, the Sunbird"]
+	quest.2F41188549891F33.title: "Praise the Sun"
+	quest.B34AB4B811ECA344.quest_desc: ["Kill a Grottol with a fortune pickaxe"]
+	quest.B34AB4B811ECA344.title: "Double Or Nothing!"
+	quest.249C4E7BF625C14C.quest_desc: ["Kill a Grottol with a silk touch pickaxe"]
+	quest.249C4E7BF625C14C.title: "You're Coming With Me"
+	quest.A3D242C07A401053.quest_desc: ["Steal an ice crystal from a Frostmaw"]
+	quest.A3D242C07A401053.title: "Big Brain™ Time"
+	quest.9EEE5CAC7CF3DC16.quest_desc: ["Fall to your death during the Sculptor's challenge"]
+	quest.9EEE5CAC7CF3DC16.title: "No One Jumps for the Beef"
+	quest.AE514006A7E4DC21.quest_desc: ["Sneak into an Umvuthana grove in disguise"]
+	quest.AE514006A7E4DC21.title: "Birds of a Feather"
+	quest.28B12A233F7DC250.quest_desc: ["Receive the Sun's Blessing"]
+	quest.28B12A233F7DC250.title: "Heliomancer"
+	chapter.8ECBDEC471A06B84.title: "Улучшенные пустынные храмы YUNG'a"
+	quest.02850C540837ACA2.quest_desc: ["Где-то глубоко в пустыне..."]
+	quest.02850C540837ACA2.title: "Улучшенные пустынные храмы YUNG'a"
+	quest.939E4BDABA897320.quest_desc: ["Откройте для себя улучшенный пустынный храм"]
+	quest.939E4BDABA897320.title: "Древняя гробница"
+	quest.AC17F5EA7D7C5E0C.quest_desc: ["Убейте фараона и освободите храм от его проклятия"]
+	quest.AC17F5EA7D7C5E0C.title: "Вечный сон"
+	chapter.1052898EFFDA2A2E.title: "End Remastered"
+	quest.20AB4A787D9DB1D5.quest_desc: ["Заполучите своё первое Око"]
+	quest.20AB4A787D9DB1D5.title: "Начало путешевствия"
+	quest.157105543D4A21DC.quest_desc: ["Заполучите своё первое Старинное Око"]
+	quest.157105543D4A21DC.title: "Искатель удачи"
+	quest.AC6EA3C80C6B91A8.quest_desc: ["Заполучите своё первое Око Стража"]
+	quest.AC6EA3C80C6B91A8.title: "Ну и кто теперь страж храма?"
+	quest.95ABDA9E564E901A.quest_desc: ["Заполучите своё первое Загадочное Око"]
+	quest.95ABDA9E564E901A.title: "Терпение — путь к мудрости"
+	quest.9A123CEABB5B33A9.quest_desc: ["Заполучите своё первое Око Ада"]
+	quest.9A123CEABB5B33A9.title: "Взгляни в отчаяние"
+	quest.095C4F29C89CD3C1.quest_desc: ["Заполучите своё первое Магическое Око"]
+	quest.095C4F29C89CD3C1.title: "Падший колдун"
+	quest.96573A7A1F72A8C9.quest_desc: ["Заполучите своё первое Потерянное Око"]
+	quest.96573A7A1F72A8C9.title: "Нужна карта?"
+	quest.A1CA51D28C05FD8B.quest_desc: ["Заполучите своё первое Зловещее Око"]
+	quest.A1CA51D28C05FD8B.title: "Настоящее Благословение"
+	quest.76514E4BA3E61B8F.quest_desc: ["Заполучите своё первое Око Ведьмы"]
+	quest.76514E4BA3E61B8F.title: "Сладость или гадость?"
+	quest.224694734E414CA2.quest_desc: ["Заполучите своё первое Разбойничье Око"]
+	quest.224694734E414CA2.title: "Добро пожаловать в джунгли"
+	quest.0CE3F6D22915F9BB.quest_desc: ["Заполучите своё первое Око Иссушителя"]
+	quest.0CE3F6D22915F9BB.title: "Поддавшись иссушению"
+	quest.4C95C1011362C066.quest_desc: ["Заполучите своё первое Око Нежити"]
+	quest.4C95C1011362C066.title: "Зеркало души"
+	quest.5CC92E676880A8FE.quest_desc: ["Заполучите своё первое Повреждённое Око"]
+	quest.5CC92E676880A8FE.title: "Покрой меня изумрудами"
+	quest.18DEA3BBCB7F184B.quest_desc: ["Заполучите своё первое Чёрное Око"]
+	quest.18DEA3BBCB7F184B.title: "Аргхх, ну и где же мой корабль?"
+	quest.F07898D9A74988AF.quest_desc: ["Заполучите своё первое Проклятое Око"]
+	quest.F07898D9A74988AF.title: "Новый Защитник..."
+	quest.DCEF93F0782F89EE.quest_desc: ["Заполучите своё первое Ледяное Око"]
+	quest.DCEF93F0782F89EE.title: "Улёдный вид"
+	quest.892442E648550CFC.quest_desc: ["Заполучите своё первое Экзотическое Око"]
+	quest.892442E648550CFC.title: "Где Атлантида?"
 }

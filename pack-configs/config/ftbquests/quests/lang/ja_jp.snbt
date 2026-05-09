@@ -292,4 +292,203 @@
 	quest.D8AF1CCC379F3B52.title: "ワンチーム"
 	quest.262398D405EC06FA.quest_desc: ["夏服を持って来る"]
 	quest.262398D405EC06FA.title: "ネザー"
+	chapter.3CFE283B0F800A6F.title: "Ars Nouveau"
+	quest.D059C74E9F4C4043.quest_desc: ["使い古されたノートを手に入れる"]
+	quest.D059C74E9F4C4043.title: "Ars Nouveau"
+	quest.B80F93246F395769.quest_desc: ["注入チェンバーを手に入れる"]
+	quest.B80F93246F395769.title: "注入完了"
+	quest.DD631368730E2692.quest_desc: ["初心者のスペルブックを手に入れる"]
+	quest.DD631368730E2692.title: "耐久力 X"
+	quest.F25C0AAAB5CA8852.quest_desc: ["儀式用火鉢を手に入れる"]
+	quest.F25C0AAAB5CA8852.title: "あやしい儀式"
+	quest.7DFE9996A0FD5ABB.quest_desc: ["魔法生物と\"取引\"を行う"]
+	quest.7DFE9996A0FD5ABB.title: "どこにいったの？"
+	quest.B0F8207F518C20CF.quest_desc: ["ボンバグラナーテを食べる"]
+	quest.B0F8207F518C20CF.title: "死ぬほどおいしい"
+	quest.DA04F01298225940.quest_desc: ["ソース瓶を手に入れる"]
+	quest.DA04F01298225940.title: "液体じゃないよ！"
+	quest.5E837BFF4F49E741.quest_desc: ["エンチャント装置を手に入れる"]
+	quest.5E837BFF4F49E741.title: "魔法MODメカニック"
+	quest.08E36ED3364862CA.quest_desc: ["魔道士のスペルブックを手に入れる"]
+	quest.08E36ED3364862CA.title: "魔道士のスペルブック"
+	quest.AFA59D1F30D075A4.quest_desc: ["ブロック形成のフォーカスを手に入れる"]
+	quest.AFA59D1F30D075A4.title: "もう一回ぶつけちゃえ！"
+	quest.0522D1DEA3627116.quest_desc: ["アメジストゴーレムのお守りを手に入れる"]
+	quest.0522D1DEA3627116.title: "アメジスト食主義"
+	quest.8651B48FA247C699.quest_desc: ["魔法生物をファミリアへと変える"]
+	quest.8651B48FA247C699.title: "ファミリアファミリー"
+	quest.925F1B0929405320.quest_desc: ["封じ込めの瓶を手に入れる"]
+	quest.925F1B0929405320.title: "ちっちゃな家"
+	quest.A1C43145B61F4C6D.quest_desc: ["ドライグミーのお守りを手に入れる"]
+	quest.A1C43145B61F4C6D.title: "ヘラジカダンス"
+	quest.F3FF1B835F0E8D3A.quest_desc: ["Be affected by a Ritual of Gravity"]
+	quest.F3FF1B835F0E8D3A.title: "You're Grounded"
+	quest.E401D1A213D5D951.quest_desc: ["スターバンクルのお守りを手に入れる"]
+	quest.E401D1A213D5D951.title: "世界一かわいいホッパー"
+	quest.47451C0A6FEB4668.quest_desc: ["ワールスプリグのお守りを手に入れる"]
+	quest.47451C0A6FEB4668.title: "渦巻"
+	quest.38AF0A7BF5FD545C.quest_desc: ["ウィクシーのお守りを手に入れる"]
+	quest.38AF0A7BF5FD545C.title: "内に潜む子を開放せよ"
+	quest.39567ACC2F9CB92E.quest_desc: ["メイジブルームの種を手に入れる"]
+	quest.39567ACC2F9CB92E.title: "メイジブルーム"
+	quest.CF229492AE47B1B5.quest_desc: ["ポーション瓶を手に入れる"]
+	quest.CF229492AE47B1B5.title: "ポーション収納"
+	quest.B70717E3264912BC.quest_desc: ["遠視のオクルスを手に入れる"]
+	quest.B70717E3264912BC.title: "みぃつけた！"
+	quest.E854F5997C688CA7.quest_desc: ["基本魔術タレットを手に入れる"]
+	quest.E854F5997C688CA7.title: "これは魔術MODだって、ホントだよ！"
+	quest.DE6CE4C3CFABCAB8.quest_desc: ["ウィルデンの供物を手に入れる"]
+	quest.DE6CE4C3CFABCAB8.title: "ウィルデンの貢物"
+	quest.C9EC6605C044487F.quest_desc: ["雷を封じ込めの瓶に込める"]
+	quest.C9EC6605C044487F.title: "瓶詰めされた雷"
+	quest.08BBFBD75D52B06A.quest_desc: ["スターバンクルを封じ込めの瓶に入れる"]
+	quest.08BBFBD75D52B06A.title: "スターバンクルを縮めちゃった"
+	quest.868A21E11CDDC556.quest_desc: ["時計を封じ込めの瓶に入れる"]
+	quest.868A21E11CDDC556.title: "瓶に封じられし時"
+	quest.029E8FF39C90A465.quest_desc: ["スターバンクルのサングラスを手に入れる"]
+	quest.029E8FF39C90A465.title: "かっこいいスターバンクル"
+	quest.C4179DFF80CB93D9.quest_desc: ["ウィクシーの帽子を手に入れる"]
+	quest.C4179DFF80CB93D9.title: "ポーション運送"
+	quest.28A3A204317160C7.quest_desc: ["変化のテーブルを手に入れる"]
+	quest.28A3A204317160C7.title: "防具変化"
+	quest.FAE567598BF770AB.quest_desc: ["転移の巻物を手に入れる"]
+	quest.FAE567598BF770AB.title: "目を開けるとそこは…"
+	quest.1F521E8B1CB516FE.quest_desc: ["ポーション拡散機を手に入れる"]
+	quest.1F521E8B1CB516FE.title: "何か匂わない？"
+	quest.83D4F607B98BD493.quest_desc: ["ポーションフラスコを手に入れる"]
+	quest.83D4F607B98BD493.title: "スタックできるポーション"
+	quest.9F30B77ECAABA3A8.quest_desc: ["ポーション混合機を手に入れる"]
+	quest.9F30B77ECAABA3A8.title: "混ぜて潰して放り込め"
+	quest.8C7D2C65CE60678B.quest_desc: ["スペルプリズムを手に入れる"]
+	quest.8C7D2C65CE60678B.title: "プリスマティックリダイレクション"
+	quest.D4F7D0ECAA7E507B.quest_desc: ["かの滑空攻撃を目撃する"]
+	quest.D4F7D0ECAA7E507B.title: "あいつ飛べるの？"
+	quest.27FEB877C3AE2B0F.quest_desc: ["大魔導士のスペルブックを手に入れる"]
+	quest.27FEB877C3AE2B0F.title: "大魔導士のスペルブック"
+	quest.A61C39B138931B23.quest_desc: ["召喚のフォーカスを手に入れる"]
+	quest.A61C39B138931B23.title: "召喚のフォーカス"
+	quest.EB114D21FCFAD63E.quest_desc: ["転移ポータルを作る"]
+	quest.EB114D21FCFAD63E.title: "Thinking with...違うゲームだった"
+	quest.ADAA83B7A9BBB55A.quest_desc: ["スペルをプリズムで４回以上方向転換させる"]
+	quest.ADAA83B7A9BBB55A.title: "プリズム的思考"
+	chapter.483CCD9C163DDD24.title: "L_Ender's Cataclysm"
+	quest.1F1B05C05FB24BAB.quest_desc: ["Cataclysm!"]
+	quest.1F1B05C05FB24BAB.title: "Cataclysm"
+	quest.3AFA381EB3F3E936.quest_desc: ["天空の水の神殿を見つける"]
+	quest.3AFA381EB3F3E936.title: "天空の水の神殿"
+	quest.68C8E78DB8A3A702.quest_desc: ["崩壊した砦を見つける"]
+	quest.68C8E78DB8A3A702.title: "崩壊した砦"
+	quest.15D09189F508E66F.quest_desc: ["太古の工場を見つける"]
+	quest.15D09189F508E66F.title: "場違い"
+	quest.4DD680B79F1CC461.quest_desc: ["燃え盛る闘技場を見つける"]
+	quest.4DD680B79F1CC461.title: "燃え盛る闘技場"
+	quest.43C2D9211D848256.quest_desc: ["沈没した都市を見つける"]
+	quest.43C2D9211D848256.title: "沈没した都市"
+	quest.03ED444AD596CD63.quest_desc: ["Cataclysmの頂点に君臨したぞ！"]
+	quest.03ED444AD596CD63.title: "大災厄の旅人"
+	quest.5A0A841A865AED76.quest_desc: ["凍った監獄を見つける"]
+	quest.5A0A841A865AED76.title: "凍った監獄"
+	quest.E9641E2CB1B7EEBC.quest_desc: ["呪われたピラミットを見つける"]
+	quest.E9641E2CB1B7EEBC.title: "呪われたピラミット"
+	quest.1E5ECD1A20B62776.quest_desc: ["魂の鍛冶場を見つける"]
+	quest.1E5ECD1A20B62776.title: "魂の鍛冶"
+	quest.AAD0D64BA8020C78.quest_desc: ["クローディアンを倒す"]
+	quest.AAD0D64BA8020C78.title: "アイエエエ！エビ！？エビナンデ！？"
+	quest.37F42181CC4BC900.quest_desc: ["エンダーゴーレムを倒す "]
+	quest.37F42181CC4BC900.title: "色違い"
+	quest.718A1B7EEC676154.quest_desc: ["ハービンジャーを起動し、倒す"]
+	quest.718A1B7EEC676154.title: "チョット バチガイ、、、カ、、モ、、ネ。"
+	quest.2BBBCEA81BEC54C9.quest_desc: ["燃え盛る霊魂を倒す"]
+	quest.2BBBCEA81BEC54C9.title: "不完全な存在"
+	quest.D6A2F68392603F28.quest_desc: ["リヴァイアサンを召喚して倒す"]
+	quest.D6A2F68392603F28.title: "多次元の捕食者"
+	quest.93CE9B003A3C2D6C.quest_desc: ["マレディクタスを召喚して倒す"]
+	quest.93CE9B003A3C2D6C.title: "呪いに対する聖戦"
+	quest.73F3503D58997FC9.quest_desc: ["呪われたピラミッド内の怪しい砂を発掘して目を覚ました古の魔獣の骸を打ち倒す"]
+	quest.73F3503D58997FC9.title: "死んでも、死んだ後も進み続けた者"
+	quest.E51FC8674F6F3596.quest_desc: ["ネザライトの怪物を倒す"]
+	quest.E51FC8674F6F3596.title: "破壊されし暗黒界の兵器"
+	quest.DCFF5F92BA587DCA.quest_desc: ["嵐の女帝スキュラを倒す"]
+	quest.DCFF5F92BA587DCA.title: "嵐の後の静けさ"
+	quest.855BDDF50A910D95.quest_desc: ["エンダーガーディアンを倒す"]
+	quest.855BDDF50A910D95.title: "シュルカーだったの？"
+	quest.6D38CFBDA9CDED9E.quest_desc: ["イグニスを召喚し、倒す"]
+	quest.6D38CFBDA9CDED9E.title: "鎮火"
+	chapter.3F2AC06DA2106A5E.title: "Mowzie's Mobs"
+	quest.F8E1CA96448EA72E.quest_desc: ["Mowzie's Mobsへようこそ!"]
+	quest.F8E1CA96448EA72E.title: "Mowzie's Mobs"
+	quest.48C01CD2A7C14A0C.quest_desc: ["ブラフを倒す"]
+	quest.48C01CD2A7C14A0C.title: "はったりを暴く"
+	quest.A2B8989E7B4FD435.quest_desc: ["Kill an Elokosa Howler"]
+	quest.A2B8989E7B4FD435.title: "Gibbous Gibbons"
+	quest.C9B385008D8ED0E0.quest_desc: ["フォリアスを倒す"]
+	quest.C9B385008D8ED0E0.title: "スマブラ参戦"
+	quest.E5060DA22D3A2BBE.quest_desc: ["グロットルを倒す"]
+	quest.E5060DA22D3A2BBE.title: "鬼!悪魔!"
+	quest.4D4E825B52EA0C0C.quest_desc: ["ナーガを倒す"]
+	quest.4D4E825B52EA0C0C.title: "翼を授ける"
+	quest.70F891A93801EF58.quest_desc: ["フェラス・ロートノートを倒す"]
+	quest.70F891A93801EF58.title: "なんとか致命傷で済んだ"
+	quest.1D974321CDB0C051.quest_desc: ["霜食いの巨獣を倒す"]
+	quest.1D974321CDB0C051.title: "悪い目覚め"
+	quest.45E5928C1F206205.quest_desc: ["トンビの挑戦を完遂する"]
+	quest.45E5928C1F206205.title: "信じる者がNO.1"
+	quest.609350065CA647B3.quest_desc: ["ウムヴーサナ・ラプターを倒す"]
+	quest.609350065CA647B3.title: "仮面舞踏会"
+	quest.2F41188549891F33.quest_desc: ["太陽の恩恵を受けし鳥、ウムヴーティを倒す"]
+	quest.2F41188549891F33.title: "太陽を崇めよ"
+	quest.B34AB4B811ECA344.quest_desc: ["グロットルを幸運付きツルハシで倒す"]
+	quest.B34AB4B811ECA344.title: "一か八か"
+	quest.249C4E7BF625C14C.quest_desc: ["グロットルをシルクタッチ付きツルハシで回収する"]
+	quest.249C4E7BF625C14C.title: "どこでもいっしょ"
+	quest.A3D242C07A401053.quest_desc: ["霜食いの巨獣からアイスクリスタルを盗む"]
+	quest.A3D242C07A401053.title: "IQ1000"
+	quest.9EEE5CAC7CF3DC16.quest_desc: ["トンビの挑戦中に落下死する"]
+	quest.9EEE5CAC7CF3DC16.title: "誰も挽肉のために跳ばない"
+	quest.AE514006A7E4DC21.quest_desc: ["Sneak into an Umvuthana grove in disguise"]
+	quest.AE514006A7E4DC21.title: "Birds of a Feather"
+	quest.28B12A233F7DC250.quest_desc: ["太陽の祝福を受ける"]
+	quest.28B12A233F7DC250.title: "太陽師"
+	chapter.8ECBDEC471A06B84.title: "YUNG's Better Desert Temples"
+	quest.02850C540837ACA2.quest_desc: ["Somewhere deep in the desert..."]
+	quest.02850C540837ACA2.title: "YUNG's Better Desert Temples"
+	quest.939E4BDABA897320.quest_desc: ["Discover a Better Desert Temple"]
+	quest.939E4BDABA897320.title: "An Ancient Tomb"
+	quest.AC17F5EA7D7C5E0C.quest_desc: ["Slay the Pharaoh and free the Temple from his curse"]
+	quest.AC17F5EA7D7C5E0C.title: "Eternal Slumber"
+	chapter.1052898EFFDA2A2E.title: "End Remastered"
+	quest.20AB4A787D9DB1D5.quest_desc: ["Get Your First Eye"]
+	quest.20AB4A787D9DB1D5.title: "The Beginning of An Adventure"
+	quest.157105543D4A21DC.quest_desc: ["Get Your First Old Eye"]
+	quest.157105543D4A21DC.title: "Fortune Seeker"
+	quest.AC6EA3C80C6B91A8.quest_desc: ["Get Your First Guardian Eye"]
+	quest.AC6EA3C80C6B91A8.title: "Who's Guarding The Temple Now?"
+	quest.95ABDA9E564E901A.quest_desc: ["Get Your First Cryptic Eye"]
+	quest.95ABDA9E564E901A.title: "Patience Is The Road To Wisdom"
+	quest.9A123CEABB5B33A9.quest_desc: ["Get Your First Nether Eye"]
+	quest.9A123CEABB5B33A9.title: "Stare Into Despair"
+	quest.095C4F29C89CD3C1.quest_desc: ["Get Your First Magical Eye"]
+	quest.095C4F29C89CD3C1.title: "Fallen Sorcerer"
+	quest.96573A7A1F72A8C9.quest_desc: ["Get Your First Lost Eye"]
+	quest.96573A7A1F72A8C9.title: "Need A Map?"
+	quest.A1CA51D28C05FD8B.quest_desc: ["Get Your First Evil Eye"]
+	quest.A1CA51D28C05FD8B.title: "A Real Blessing"
+	quest.76514E4BA3E61B8F.quest_desc: ["Get Your First Witch Eye"]
+	quest.76514E4BA3E61B8F.title: "Trick-or-Treat?"
+	quest.224694734E414CA2.quest_desc: ["Get Your First Rogue Eye"]
+	quest.224694734E414CA2.title: "Welcome To The Jungle"
+	quest.0CE3F6D22915F9BB.quest_desc: ["Get Your First Wither Eye"]
+	quest.0CE3F6D22915F9BB.title: "Wither You Want It Or Not"
+	quest.4C95C1011362C066.quest_desc: ["Get Your First Undead Eye"]
+	quest.4C95C1011362C066.title: "The Mirror Of The Soul"
+	quest.5CC92E676880A8FE.quest_desc: ["Get Your First Corrupted Eye"]
+	quest.5CC92E676880A8FE.title: "Cover Me In Emeralds"
+	quest.18DEA3BBCB7F184B.quest_desc: ["Get Your First Black Eye"]
+	quest.18DEA3BBCB7F184B.title: "Arghh, Where be Me Ship?"
+	quest.F07898D9A74988AF.quest_desc: ["Get Your First Cursed Eye"]
+	quest.F07898D9A74988AF.title: "A New Protector..."
+	quest.DCEF93F0782F89EE.quest_desc: ["Get Your First Cold Eye"]
+	quest.DCEF93F0782F89EE.title: "A Nice-y Look"
+	quest.892442E648550CFC.quest_desc: ["Get Your First Exotic Eye"]
+	quest.892442E648550CFC.title: "Where's Atlantis?"
 }

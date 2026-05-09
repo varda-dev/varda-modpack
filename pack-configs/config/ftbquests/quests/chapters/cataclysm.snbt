@@ -1,0 +1,561 @@
+{
+	autofocus_id: "1F1B05C05FB24BAB"
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "cataclysm"
+	group: "73A29692284919C6"
+	icon: {
+		id: "cataclysm:the_incinerator"
+	}
+	id: "483CCD9C163DDD24"
+	order_index: 4
+	quest_links: [ ]
+	title: "L_Ender's Cataclysm"
+	quests: [
+	{
+		icon: {
+			id: "cataclysm:the_incinerator"
+		}
+		id: "1F1B05C05FB24BAB"
+		description: ["Cataclysm!"]
+		rewards: [{
+			count: 4
+			id: "26CFA06A1AEE3A59"
+			item: {
+				count: 1
+				id: "cataclysm:ancient_metal_nugget"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:root"
+			criterion: ""
+			id: "AA57C2515CFFA3B3"
+			type: "advancement"
+		}]
+		x: 0.0d
+		y: 0.0d
+	},
+	{
+		dependencies: ["3AFA381EB3F3E936"]
+		icon: {
+			id: "cataclysm:lacrima"
+		}
+		id: "3AFA381EB3F3E936"
+		description: ["Find the Acropolis"]
+		rewards: [{
+			count: 1
+			id: "C05BA4013AD3F5C9"
+			item: {
+				count: 1
+				id: "cataclysm:chitin_claw"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:find_acropolis"
+			criterion: ""
+			id: "B0AA63E4D0A08D16"
+			type: "advancement"
+		}]
+		x: -8.0d
+		y: 2.0d
+	},
+	{
+		dependencies: ["1F1B05C05FB24BAB"]
+		icon: {
+			id: "cataclysm:chiseled_end_stone_bricks"
+		}
+		id: "68C8E78DB8A3A702"
+		description: ["Find the Ruined Citadel"]
+		rewards: [{
+			count: 2
+			id: "7058C7B1486A2118"
+			item: {
+				count: 1
+				id: "cataclysm:void_shard"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:find_ruined_citadel"
+			criterion: ""
+			id: "7718CFE16266A4C8"
+			type: "advancement"
+		}]
+		x: -6.0d
+		y: 2.0d
+	},
+	{
+		dependencies: ["1F1B05C05FB24BAB"]
+		icon: {
+			id: "cataclysm:emp"
+		}
+		id: "15D09189F508E66F"
+		description: ["Find the Ancient Factory"]
+		rewards: [{
+			count: 6
+			id: "2DFFAFCC49BDEFD8"
+			item: {
+				count: 1
+				id: "cataclysm:ancient_metal_nugget"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:find_ancient_factory"
+			criterion: ""
+			id: "4FA44FABC159F454"
+			type: "advancement"
+		}]
+		x: -4.0d
+		y: 2.0d
+	},
+	{
+		dependencies: ["1F1B05C05FB24BAB"]
+		icon: {
+			id: "cataclysm:altar_of_fire"
+		}
+		id: "4DD680B79F1CC461"
+		description: ["Find the Burning Arena"]
+		rewards: [{
+			count: 3
+			id: "B445204E8CEC30D4"
+			item: {
+				count: 1
+				id: "cataclysm:burning_ashes"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:find_burning_arena"
+			criterion: ""
+			id: "10ACFA7ADAB9B8F9"
+			type: "advancement"
+		}]
+		x: -2.0d
+		y: 2.0d
+	},
+	{
+		dependencies: ["1F1B05C05FB24BAB"]
+		icon: {
+			id: "cataclysm:stone_tiles"
+		}
+		id: "43C2D9211D848256"
+		description: ["Find the Sunken City"]
+		rewards: [{
+			count: 1
+			id: "A1FFD03B3E3ED21A"
+			item: {
+				count: 1
+				id: "cataclysm:chitin_claw"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:find_sunken_city"
+			criterion: ""
+			id: "3A16D9374802EF12"
+			type: "advancement"
+		}]
+		x: 0.0d
+		y: 2.0d
+	},
+	{
+		dependencies: ["855BDDF50A910D95", "718A1B7EEC676154", "6D38CFBDA9CDED9E", "D6A2F68392603F28", "93CE9B003A3C2D6C", "E51FC8674F6F3596", "73F3503D58997FC9", "DCFF5F92BA587DCA"]
+		icon: {
+			id: "cataclysm:music_disc_the_cataclysmfarer"
+		}
+		id: "03ED444AD596CD63"
+		description: ["You have reached the summit of Cataclysm!"]
+		rewards: [{
+			count: 2
+			id: "C65BB4AB781717EA"
+			item: {
+				count: 1
+				id: "cataclysm:ancient_metal_ingot"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:kill_all_bosses"
+			criterion: ""
+			id: "243A1064029BD301"
+			type: "advancement"
+		}]
+		x: 0.0d
+		y: 8.0d
+	},
+	{
+		dependencies: ["1F1B05C05FB24BAB"]
+		icon: {
+			id: "cataclysm:door_of_seal"
+		}
+		id: "5A0A841A865AED76"
+		description: ["Find the Frosted Prison"]
+		rewards: [{
+			count: 3
+			id: "112F02CB48879260"
+			item: {
+				count: 1
+				id: "cataclysm:koboleton_bone"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:find_frosted_prison"
+			criterion: ""
+			id: "582DD292355B5D0B"
+			type: "advancement"
+		}]
+		x: 2.0d
+		y: 2.0d
+	},
+	{
+		dependencies: ["1F1B05C05FB24BAB"]
+		icon: {
+			id: "cataclysm:sandstone_poison_dart_trap"
+		}
+		id: "E9641E2CB1B7EEBC"
+		description: ["Find the Cursed Pyramid"]
+		rewards: [{
+			count: 3
+			id: "BE0DAD57D3995E26"
+			item: {
+				count: 1
+				id: "cataclysm:koboleton_bone"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:find_cursed_pyramid"
+			criterion: ""
+			id: "F0732EF9C504D010"
+			type: "advancement"
+		}]
+		x: 4.0d
+		y: 2.0d
+	},
+	{
+		dependencies: ["1F1B05C05FB24BAB"]
+		icon: {
+			id: "minecraft:blackstone"
+		}
+		id: "1E5ECD1A20B62776"
+		description: ["Find the Soul Forge"]
+		rewards: [{
+			count: 4
+			id: "171AF0FBE65BE73A"
+			item: {
+				count: 1
+				id: "cataclysm:black_steel_nugget"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:find_soul_black_smith"
+			criterion: ""
+			id: "D3E4B304A141CB17"
+			type: "advancement"
+		}]
+		x: 6.0d
+		y: 2.0d
+	},
+	{
+		dependencies: ["1F1B05C05FB24BAB"]
+		icon: {
+			id: "cataclysm:chitin_claw"
+		}
+		id: "AAD0D64BA8020C78"
+		description: ["Kill an Clawdian"]
+		rewards: [{
+			count: 1
+			id: "E3B3F4B14B367F8C"
+			item: {
+				count: 1
+				id: "cataclysm:chitin_claw"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:kill_clawdian"
+			criterion: ""
+			id: "200517E4DA656D42"
+			type: "advancement"
+		}]
+		x: 8.0d
+		y: 2.0d
+	},
+	{
+		dependencies: ["68C8E78DB8A3A702"]
+		icon: {
+			id: "cataclysm:void_core"
+		}
+		id: "37F42181CC4BC900"
+		description: ["Kill an Ender Golem"]
+		rewards: [{
+			count: 2
+			id: "350B9FA6C1825490"
+			item: {
+				count: 1
+				id: "cataclysm:void_shard"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:kill_ender_golem"
+			criterion: ""
+			id: "C42EFD5D29D422C1"
+			type: "advancement"
+		}]
+		x: -6.0d
+		y: 4.0d
+	},
+	{
+		dependencies: ["15D09189F508E66F"]
+		icon: {
+			id: "cataclysm:witherite_ingot"
+		}
+		id: "718A1B7EEC676154"
+		description: ["Wake and Defeat the Harbinger"]
+		rewards: [{
+			count: 6
+			id: "8359862920C92D7A"
+			item: {
+				count: 1
+				id: "cataclysm:ancient_metal_nugget"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:kill_harbinger"
+			criterion: ""
+			id: "0326A3042615E8E2"
+			type: "advancement"
+		}]
+		x: -4.0d
+		y: 4.0d
+	},
+	{
+		dependencies: ["4DD680B79F1CC461"]
+		icon: {
+			id: "cataclysm:burning_ashes"
+		}
+		id: "2BBBCEA81BEC54C9"
+		description: ["Kill an Ignited Revenant"]
+		rewards: [{
+			count: 3
+			id: "6517001D97EC8871"
+			item: {
+				count: 1
+				id: "cataclysm:burning_ashes"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:kill_revenant"
+			criterion: ""
+			id: "77204B841AB17C53"
+			type: "advancement"
+		}]
+		x: -2.0d
+		y: 4.0d
+	},
+	{
+		dependencies: ["43C2D9211D848256"]
+		icon: {
+			id: "cataclysm:tidal_claws"
+		}
+		id: "D6A2F68392603F28"
+		description: ["Summon and Defeat the Leviathan"]
+		rewards: [{
+			count: 1
+			id: "6E816A4D43F19FD0"
+			item: {
+				count: 1
+				id: "cataclysm:chitin_claw"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:kill_leviathan"
+			criterion: ""
+			id: "F9EE9559F762989D"
+			type: "advancement"
+		}]
+		x: 0.0d
+		y: 4.0d
+	},
+	{
+		dependencies: ["5A0A841A865AED76"]
+		icon: {
+			id: "cataclysm:cursed_tombstone"
+		}
+		id: "93CE9B003A3C2D6C"
+		description: ["Summon and Defeat Maledictus"]
+		rewards: [{
+			count: 3
+			id: "E48CC94CF957AD6A"
+			item: {
+				count: 1
+				id: "cataclysm:koboleton_bone"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:kill_maledictus"
+			criterion: ""
+			id: "FEA4DE1F51CD1288"
+			type: "advancement"
+		}]
+		x: 2.0d
+		y: 4.0d
+	},
+	{
+		dependencies: ["E9641E2CB1B7EEBC"]
+		icon: {
+			id: "cataclysm:remnant_skull"
+		}
+		id: "73F3503D58997FC9"
+		description: ["Excavate from the suspicious sand within the cursed pyramid to wake up and knock down the Ancient Remnant"]
+		rewards: [{
+			count: 3
+			id: "4658449C30536253"
+			item: {
+				count: 1
+				id: "cataclysm:koboleton_bone"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:kill_remnant"
+			criterion: ""
+			id: "164ADE991CFF0FCD"
+			type: "advancement"
+		}]
+		x: 4.0d
+		y: 4.0d
+	},
+	{
+		dependencies: ["1E5ECD1A20B62776"]
+		icon: {
+			id: "cataclysm:infernal_forge"
+		}
+		id: "E51FC8674F6F3596"
+		description: ["Kill the Netherite Monstrosity"]
+		rewards: [{
+			count: 4
+			id: "9CC426A6E475511F"
+			item: {
+				count: 1
+				id: "cataclysm:black_steel_nugget"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:kill_monstrosity"
+			criterion: ""
+			id: "548C2C37C68A1655"
+			type: "advancement"
+		}]
+		x: 6.0d
+		y: 4.0d
+	},
+	{
+		dependencies: ["AAD0D64BA8020C78"]
+		icon: {
+			id: "cataclysm:essence_of_the_storm"
+		}
+		id: "DCFF5F92BA587DCA"
+		description: ["Defeat the Storm Empress, Scylla"]
+		rewards: [{
+			count: 1
+			id: "BD101B59C7FC0AB7"
+			item: {
+				count: 1
+				id: "cataclysm:chitin_claw"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:kill_scylla"
+			criterion: ""
+			id: "D44AF8294C7DF42D"
+			type: "advancement"
+		}]
+		x: 8.0d
+		y: 4.0d
+	},
+	{
+		dependencies: ["37F42181CC4BC900"]
+		icon: {
+			id: "cataclysm:gauntlet_of_guard"
+		}
+		id: "855BDDF50A910D95"
+		description: ["Defeat the Ender Guardian"]
+		rewards: [{
+			count: 2
+			id: "044A5B2D114DED45"
+			item: {
+				count: 1
+				id: "cataclysm:void_shard"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:kill_ender_guardian"
+			criterion: ""
+			id: "1532656CB4A21032"
+			type: "advancement"
+		}]
+		x: -6.0d
+		y: 6.0d
+	},
+	{
+		dependencies: ["2BBBCEA81BEC54C9"]
+		icon: {
+			id: "cataclysm:bulwark_of_the_flame"
+		}
+		id: "6D38CFBDA9CDED9E"
+		description: ["Summon and Defeat the Ignis"]
+		rewards: [{
+			count: 3
+			id: "47FAD0092FCAFC5B"
+			item: {
+				count: 1
+				id: "cataclysm:burning_ashes"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "cataclysm:kill_ignis"
+			criterion: ""
+			id: "6D161D67312E3C0B"
+			type: "advancement"
+		}]
+		x: -2.0d
+		y: 6.0d
+	}
+	]
+}
