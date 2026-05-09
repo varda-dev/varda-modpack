@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+from fnmatch import fnmatchcase
 import json
 import re
 from pathlib import Path
@@ -15,13 +16,59 @@ REPO_ROOT = SCRIPT_DIR.parent
 OUTPUT_DIR = REPO_ROOT / "tmp/advancements"
 LOCALES_PATH = SCRIPT_DIR / "lib" / "locales.json"
 DEFAULT_MOD_PATTERNS = (
+  "ars_additions-*.jar",
+  "ars_affinity-*.jar",
+  "ars_elemental-*.jar",
   "ars_nouveau-*.jar",
   "endrem-neoforge-*.jar",
   "FarmersDelight-*.jar",
+  "HopoBetterRuinedPortals-*.jar",
+  "HopoBetterUnderwaterRuins-*.jar",
   "L_Ender's Cataclysm*.jar",
   "mowziesmobs-*.jar",
+  "occultism-*.jar",
+  "starbunclemania-*.jar",
+  "YungsBetterDungeons-*.jar",
   "YungsBetterDesertTemples-*.jar",
+  "YungsBetterNetherFortresses-*.jar",
+  "YungsBetterStrongholds-*.jar",
 )
+OUTPUT_TITLES = {
+  "ars_additions": "Ars Additions",
+  "ars_affinity": "Ars Affinity",
+  "ars_elemental": "Ars Elemental",
+  "ars_nouveau": "Ars Nouveau",
+  "betterdeserttemples": "YUNG's Better Desert Temples",
+  "betterdungeons": "YUNG's Better Dungeons",
+  "cataclysm": "L_Ender's Cataclysm",
+  "endrem": "End Remastered",
+  "farmersdelight": "Farmer's Delight",
+  "hopo": "Hopo",
+  "minecraft": "Minecraft",
+  "mowziesmobs": "Mowzie's Mobs",
+  "occultism": "Occultism",
+  "starbunclemania": "Starbunclemania",
+}
+DEFAULT_MOD_OUTPUTS = {
+  "ars_elemental-*.jar": ("ars_elemental", None),
+  "HopoBetterRuinedPortals-*.jar": (
+    "hopo_better_ruined_portals",
+    "Hopo Better Ruined Portals",
+  ),
+  "HopoBetterUnderwaterRuins-*.jar": (
+    "hopo_better_underwater_ruins",
+    "Hopo Better Underwater Ruins",
+  ),
+  "starbunclemania-*.jar": ("starbunclemania", None),
+  "YungsBetterNetherFortresses-*.jar": (
+    "betterfortresses",
+    "YUNG's Better Nether Fortresses",
+  ),
+  "YungsBetterStrongholds-*.jar": (
+    "betterstrongholds",
+    "YUNG's Better Strongholds",
+  ),
+}
 DEFAULT_LOCALES = (
   "en_us",
   "de_de",
@@ -111,6 +158,16 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "-d",
+        "--discover",
+        action="store_true",
+        help=(
+            "Scan the configured CurseForge instance mods directory for jars "
+            "with displayed advancements that are not already covered by "
+            "DEFAULT_MOD_PATTERNS. Prints only matching jar filenames."
+        ),
+    )
+    parser.add_argument(
         "-l",
         "--locale",
         action="append",
@@ -126,6 +183,10 @@ def parse_args() -> argparse.Namespace:
     args = parser.parse_args()
     if args.test and not args.jar:
         parser.error("--test requires --jar")
+    if args.discover and args.jar:
+        parser.error("--discover cannot be used with --jar")
+    if args.discover and args.test:
+        parser.error("--discover cannot be used with --test")
     return args
 
 
@@ -230,6 +291,23 @@ def find_default_mod_jars(instance_dir: Path) -> list[Path]:
         jars.extend(matches)
 
     return sorted(set(jars))
+
+
+def find_known_default_mod_jars(mods_dir: Path) -> set[Path]:
+    jars = set()
+    for pattern in DEFAULT_MOD_PATTERNS:
+        jars.update(mods_dir.glob(pattern))
+
+    return {path.resolve() for path in jars}
+
+
+def default_mod_output(jar_path: Path) -> tuple[str | None, str | None]:
+    for pattern, output in DEFAULT_MOD_OUTPUTS.items():
+        if fnmatchcase(jar_path.name, pattern):
+            source_slug, title = output
+            return source_slug, title or output_title(source_slug)
+
+    return None, None
 
 
 def validate_jar(path: Path) -> Path:
@@ -492,6 +570,39 @@ def collect_advancements(
     return records, meta
 
 
+def has_displayed_advancements(jar_path: Path) -> bool:
+    with ZipFile(jar_path) as zip_file:
+        for name in sorted(zip_file.namelist()):
+            if not ADVANCEMENT_RE.match(name):
+                continue
+
+            try:
+                data = read_zip_json(zip_file, name)
+            except json.JSONDecodeError:
+                continue
+
+            if isinstance(data, dict) and isinstance(data.get("display"), dict):
+                return True
+
+    return False
+
+
+def discover_mod_jars(instance_dir: Path) -> list[Path]:
+    mods_dir = instance_dir / "mods"
+    if not mods_dir.exists():
+        raise FileNotFoundError(f"Mods directory does not exist: {mods_dir}")
+
+    known_jars = find_known_default_mod_jars(mods_dir)
+    discovered = []
+    for jar_path in sorted(mods_dir.glob("*.jar"), key=lambda path: path.name.lower()):
+        if jar_path.resolve() in known_jars:
+            continue
+        if has_displayed_advancements(jar_path):
+            discovered.append(jar_path)
+
+    return discovered
+
+
 def output_slug(records: list[dict[str, Any]], fallback: str) -> str:
     namespaces = sorted({record["namespace"] for record in records})
     if len(namespaces) == 1:
@@ -502,16 +613,7 @@ def output_slug(records: list[dict[str, Any]], fallback: str) -> str:
 
 
 def output_title(source_slug: str) -> str:
-    titles = {
-      "minecraft": "Minecraft",
-      "ars_nouveau": "Ars Nouveau",
-      "endrem": "End Remastered",
-      "farmersdelight": "Farmer's Delight",
-      "cataclysm": "L_Ender's Cataclysm",
-      "mowziesmobs": "Mowzie's Mobs",
-      "betterdeserttemples": "YUNG's Better Desert Temples",
-    }
-    return titles.get(source_slug, source_slug)
+    return OUTPUT_TITLES.get(source_slug, source_slug)
 
 
 def write_json(path: Path, value: Any) -> None:
@@ -656,6 +758,12 @@ def test_archive(
 
 def main() -> int:
     args = parse_args()
+    if args.discover:
+        instance_dir = get_curseforge_instance_dir()
+        for jar_path in discover_mod_jars(instance_dir):
+            print(jar_path.name)
+        return 0
+
     locales = normalize_locales(args.locales)
     if args.test:
         jar_path = validate_jar(args.jar)
@@ -665,8 +773,9 @@ def main() -> int:
     if args.jar:
         jar_path = validate_jar(args.jar)
         minecraft_install = find_minecraft_install(jar_path)
+        source_slug, title = default_mod_output(jar_path)
         archives: list[tuple[Path, str | None, str | None]] = [
-            (jar_path, None, None),
+            (jar_path, source_slug, title),
         ]
     else:
         instance_dir = get_curseforge_instance_dir()
@@ -676,7 +785,8 @@ def main() -> int:
         archives = [(minecraft_jar, "minecraft", "Minecraft")]
 
         for mod_jar in find_default_mod_jars(instance_dir):
-            archives.append((mod_jar, None, None))
+            source_slug, title = default_mod_output(mod_jar)
+            archives.append((mod_jar, source_slug, title))
 
     for jar_path, source_slug, title in archives:
         records, files = extract_archive(

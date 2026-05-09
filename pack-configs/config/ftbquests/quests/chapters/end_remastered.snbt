@@ -3,14 +3,14 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "end_remastered"
-	group: "73A29692284919C6"
+	group: "A6F14C0E37D5B982"
 	icon: {
 		id: "endrem:ancient_portal_frame"
 	}
 	id: "1052898EFFDA2A2E"
-	order_index: 7
+	order_index: 2
 	quest_links: [ ]
-	title: "End Remastered"
+	title: "The Eyes Unbound"
 	quests: [
 	{
 		icon: {

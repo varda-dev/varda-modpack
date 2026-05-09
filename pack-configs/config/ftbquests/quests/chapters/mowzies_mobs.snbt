@@ -3,14 +3,14 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "mowzies_mobs"
-	group: "73A29692284919C6"
+	group: "A6F14C0E37D5B982"
 	icon: {
 		id: "mowziesmobs:logo"
 	}
 	id: "3F2AC06DA2106A5E"
-	order_index: 5
+	order_index: 1
 	quest_links: [ ]
-	title: "Mowzie's Mobs"
+	title: "The Hunter's Folly"
 	quests: [
 	{
 		icon: {

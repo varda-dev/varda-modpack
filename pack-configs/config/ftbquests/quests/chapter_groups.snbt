@@ -1,3 +1,12 @@
 {
-	chapter_groups: [{ id: "73A29692284919C6" }]
+	chapter_groups: [
+		{ id: "73A29692284919C6" },
+		{
+			icon: {
+				id: "minecraft:spyglass"
+			}
+			id: "A6F14C0E37D5B982"
+			title: "The Uncharted Veil"
+		}
+	]
 }

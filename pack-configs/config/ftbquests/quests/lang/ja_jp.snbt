@@ -5,6 +5,7 @@
 	quest.7D555AC90E8BC38E.title: "携帯作業台"
 	chapter.01DE47A54FB130A3.title: "見慣れた道"
 	chapter_group.73A29692284919C6.title: "擦り切れた道"
+	chapter_group.A6F14C0E37D5B982.title: "The Uncharted Veil"
 	quest.3E841EEC942599CB.quest_desc: ["ゲームのストーリーと核心"]
 	quest.3E841EEC942599CB.title: "Minecraft"
 	quest.4F9EDFE7884FF6E1.quest_desc: ["真新しいツルハシで石を採掘する"]
@@ -292,7 +293,7 @@
 	quest.D8AF1CCC379F3B52.title: "ワンチーム"
 	quest.262398D405EC06FA.quest_desc: ["夏服を持って来る"]
 	quest.262398D405EC06FA.title: "ネザー"
-	chapter.3CFE283B0F800A6F.title: "Ars Nouveau"
+	chapter.3CFE283B0F800A6F.title: "The Woven Spell"
 	quest.D059C74E9F4C4043.quest_desc: ["使い古されたノートを手に入れる"]
 	quest.D059C74E9F4C4043.title: "Ars Nouveau"
 	quest.B80F93246F395769.quest_desc: ["注入チェンバーを手に入れる"]
@@ -371,7 +372,7 @@
 	quest.EB114D21FCFAD63E.title: "Thinking with...違うゲームだった"
 	quest.ADAA83B7A9BBB55A.quest_desc: ["スペルをプリズムで４回以上方向転換させる"]
 	quest.ADAA83B7A9BBB55A.title: "プリズム的思考"
-	chapter.483CCD9C163DDD24.title: "L_Ender's Cataclysm"
+	chapter.483CCD9C163DDD24.title: "The Shattered Omen"
 	quest.1F1B05C05FB24BAB.quest_desc: ["Cataclysm!"]
 	quest.1F1B05C05FB24BAB.title: "Cataclysm"
 	quest.3AFA381EB3F3E936.quest_desc: ["天空の水の神殿を見つける"]
@@ -414,7 +415,7 @@
 	quest.855BDDF50A910D95.title: "シュルカーだったの？"
 	quest.6D38CFBDA9CDED9E.quest_desc: ["イグニスを召喚し、倒す"]
 	quest.6D38CFBDA9CDED9E.title: "鎮火"
-	chapter.3F2AC06DA2106A5E.title: "Mowzie's Mobs"
+	chapter.3F2AC06DA2106A5E.title: "The Hunter's Folly"
 	quest.F8E1CA96448EA72E.quest_desc: ["Mowzie's Mobsへようこそ!"]
 	quest.F8E1CA96448EA72E.title: "Mowzie's Mobs"
 	quest.48C01CD2A7C14A0C.quest_desc: ["ブラフを倒す"]
@@ -449,14 +450,14 @@
 	quest.AE514006A7E4DC21.title: "Birds of a Feather"
 	quest.28B12A233F7DC250.quest_desc: ["太陽の祝福を受ける"]
 	quest.28B12A233F7DC250.title: "太陽師"
-	chapter.8ECBDEC471A06B84.title: "YUNG's Better Desert Temples"
+	chapter.8ECBDEC471A06B84.title: "The Sunken Shrine"
 	quest.02850C540837ACA2.quest_desc: ["Somewhere deep in the desert..."]
 	quest.02850C540837ACA2.title: "YUNG's Better Desert Temples"
 	quest.939E4BDABA897320.quest_desc: ["Discover a Better Desert Temple"]
 	quest.939E4BDABA897320.title: "An Ancient Tomb"
 	quest.AC17F5EA7D7C5E0C.quest_desc: ["Slay the Pharaoh and free the Temple from his curse"]
 	quest.AC17F5EA7D7C5E0C.title: "Eternal Slumber"
-	chapter.1052898EFFDA2A2E.title: "End Remastered"
+	chapter.1052898EFFDA2A2E.title: "The Eyes Unbound"
 	quest.20AB4A787D9DB1D5.quest_desc: ["Get Your First Eye"]
 	quest.20AB4A787D9DB1D5.title: "The Beginning of An Adventure"
 	quest.157105543D4A21DC.quest_desc: ["Get Your First Old Eye"]

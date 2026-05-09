@@ -5,6 +5,7 @@
 	quest.7D555AC90E8BC38E.title: "휴대용 제작"
 	chapter.01DE47A54FB130A3.title: "익숙한 길"
 	chapter_group.73A29692284919C6.title: "해진 길"
+	chapter_group.A6F14C0E37D5B982.title: "The Uncharted Veil"
 	quest.3E841EEC942599CB.quest_desc: ["게임의 핵심과 이야기"]
 	quest.3E841EEC942599CB.title: "Minecraft"
 	quest.4F9EDFE7884FF6E1.quest_desc: ["새 곡괭이로 돌을 채굴하세요"]
@@ -292,7 +293,7 @@
 	quest.D8AF1CCC379F3B52.title: "외롭지 못한 늑대"
 	quest.262398D405EC06FA.quest_desc: ["여름옷을 가져오세요"]
 	quest.262398D405EC06FA.title: "네더"
-	chapter.3CFE283B0F800A6F.title: "Ars Nouveau"
+	chapter.3CFE283B0F800A6F.title: "The Woven Spell"
 	quest.D059C74E9F4C4043.quest_desc: ["낡은 공책을 얻으세요"]
 	quest.D059C74E9F4C4043.title: "Ars Nouveau"
 	quest.B80F93246F395769.quest_desc: ["주입 챔버를 얻으세요"]
@@ -371,7 +372,7 @@
 	quest.EB114D21FCFAD63E.title: "포탈처럼...이 게임이 아닌데"
 	quest.ADAA83B7A9BBB55A.quest_desc: ["프리즘을 사용하여 주문의 방향을 4회 이상 전환시키세요"]
 	quest.ADAA83B7A9BBB55A.title: "프리즘으로 궁리하기"
-	chapter.483CCD9C163DDD24.title: "L_Ender's Cataclysm"
+	chapter.483CCD9C163DDD24.title: "The Shattered Omen"
 	quest.1F1B05C05FB24BAB.quest_desc: ["대격변!"]
 	quest.1F1B05C05FB24BAB.title: "대격변"
 	quest.3AFA381EB3F3E936.quest_desc: ["아크로폴리스를 찾으세요"]
@@ -414,7 +415,7 @@
 	quest.855BDDF50A910D95.title: "수호자의 비밀"
 	quest.6D38CFBDA9CDED9E.quest_desc: ["타오르는 잿더미를 제단에 바쳐 이그니스를 소환한 뒤, 쓰러뜨리세요"]
 	quest.6D38CFBDA9CDED9E.title: "꺼져버린 불꽃"
-	chapter.3F2AC06DA2106A5E.title: "Mowzie's Mobs"
+	chapter.3F2AC06DA2106A5E.title: "The Hunter's Folly"
 	quest.F8E1CA96448EA72E.quest_desc: ["Mowzie's Mobs에 오신 것을 환영합니다!"]
 	quest.F8E1CA96448EA72E.title: "Mowzie's Mobs"
 	quest.48C01CD2A7C14A0C.quest_desc: ["Kill a Bluff"]
@@ -449,14 +450,14 @@
 	quest.AE514006A7E4DC21.title: "스파이"
 	quest.28B12A233F7DC250.quest_desc: ["태양의 축복을 받으세요"]
 	quest.28B12A233F7DC250.title: "태양의 힘"
-	chapter.8ECBDEC471A06B84.title: "YUNG's Better Desert Temples"
+	chapter.8ECBDEC471A06B84.title: "The Sunken Shrine"
 	quest.02850C540837ACA2.quest_desc: ["Somewhere deep in the desert..."]
 	quest.02850C540837ACA2.title: "YUNG's Better Desert Temples"
 	quest.939E4BDABA897320.quest_desc: ["Discover a Better Desert Temple"]
 	quest.939E4BDABA897320.title: "An Ancient Tomb"
 	quest.AC17F5EA7D7C5E0C.quest_desc: ["Slay the Pharaoh and free the Temple from his curse"]
 	quest.AC17F5EA7D7C5E0C.title: "Eternal Slumber"
-	chapter.1052898EFFDA2A2E.title: "End Remastered"
+	chapter.1052898EFFDA2A2E.title: "The Eyes Unbound"
 	quest.20AB4A787D9DB1D5.quest_desc: ["처음으로 눈을 얻으세요"]
 	quest.20AB4A787D9DB1D5.title: "모험의 시작"
 	quest.157105543D4A21DC.quest_desc: ["처음으로 오래된 눈을 얻으세요"]

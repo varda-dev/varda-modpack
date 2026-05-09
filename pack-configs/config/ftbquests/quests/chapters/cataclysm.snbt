@@ -3,14 +3,14 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "cataclysm"
-	group: "73A29692284919C6"
+	group: "A6F14C0E37D5B982"
 	icon: {
 		id: "cataclysm:the_incinerator"
 	}
 	id: "483CCD9C163DDD24"
-	order_index: 4
+	order_index: 0
 	quest_links: [ ]
-	title: "L_Ender's Cataclysm"
+	title: "The Shattered Omen"
 	quests: [
 	{
 		icon: {

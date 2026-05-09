@@ -5,6 +5,7 @@
 	quest.7D555AC90E8BC38E.title: "Переносное создание"
 	chapter.01DE47A54FB130A3.title: "Знакомая тропа"
 	chapter_group.73A29692284919C6.title: "Истрёпанный путь"
+	chapter_group.A6F14C0E37D5B982.title: "The Uncharted Veil"
 	quest.3E841EEC942599CB.quest_desc: ["Главная история игры"]
 	quest.3E841EEC942599CB.title: "Minecraft"
 	quest.4F9EDFE7884FF6E1.quest_desc: ["Добудьте камень новой киркой"]
@@ -292,7 +293,7 @@
 	quest.D8AF1CCC379F3B52.title: "Барбоскины"
 	quest.262398D405EC06FA.quest_desc: ["Захватите летнюю одежду"]
 	quest.262398D405EC06FA.title: "Незер"
-	chapter.3CFE283B0F800A6F.title: "Ars Nouveau"
+	chapter.3CFE283B0F800A6F.title: "The Woven Spell"
 	quest.D059C74E9F4C4043.quest_desc: ["Получите Засаленный блокнот"]
 	quest.D059C74E9F4C4043.title: "Ар Нуво"
 	quest.B80F93246F395769.quest_desc: ["Получите Камеру Впитывания"]
@@ -371,7 +372,7 @@
 	quest.EB114D21FCFAD63E.title: "Мышление с помощью... неправильной игры"
 	quest.ADAA83B7A9BBB55A.quest_desc: ["Перенаправьте заклинание с помощью Призмы четыре или более раз"]
 	quest.ADAA83B7A9BBB55A.title: "Мышление с помощью призм"
-	chapter.483CCD9C163DDD24.title: "L_Ender's Cataclysm"
+	chapter.483CCD9C163DDD24.title: "The Shattered Omen"
 	quest.1F1B05C05FB24BAB.quest_desc: ["Катаклизм!"]
 	quest.1F1B05C05FB24BAB.title: "Cataclysm"
 	quest.3AFA381EB3F3E936.quest_desc: ["Найдите Акрополь"]
@@ -414,7 +415,7 @@
 	quest.855BDDF50A910D95.title: "Это точно был шалкер?"
 	quest.6D38CFBDA9CDED9E.quest_desc: ["Пробудите и сразите Игниса"]
 	quest.6D38CFBDA9CDED9E.title: "Потушенный огонь"
-	chapter.3F2AC06DA2106A5E.title: "Mowzie's Mobs"
+	chapter.3F2AC06DA2106A5E.title: "The Hunter's Folly"
 	quest.F8E1CA96448EA72E.quest_desc: ["Welcome to Mowzie's Mobs!"]
 	quest.F8E1CA96448EA72E.title: "Mowzie's Mobs"
 	quest.48C01CD2A7C14A0C.quest_desc: ["Kill a Bluff"]
@@ -449,14 +450,14 @@
 	quest.AE514006A7E4DC21.title: "Birds of a Feather"
 	quest.28B12A233F7DC250.quest_desc: ["Receive the Sun's Blessing"]
 	quest.28B12A233F7DC250.title: "Heliomancer"
-	chapter.8ECBDEC471A06B84.title: "Улучшенные пустынные храмы YUNG'a"
+	chapter.8ECBDEC471A06B84.title: "The Sunken Shrine"
 	quest.02850C540837ACA2.quest_desc: ["Где-то глубоко в пустыне..."]
 	quest.02850C540837ACA2.title: "Улучшенные пустынные храмы YUNG'a"
 	quest.939E4BDABA897320.quest_desc: ["Откройте для себя улучшенный пустынный храм"]
 	quest.939E4BDABA897320.title: "Древняя гробница"
 	quest.AC17F5EA7D7C5E0C.quest_desc: ["Убейте фараона и освободите храм от его проклятия"]
 	quest.AC17F5EA7D7C5E0C.title: "Вечный сон"
-	chapter.1052898EFFDA2A2E.title: "End Remastered"
+	chapter.1052898EFFDA2A2E.title: "The Eyes Unbound"
 	quest.20AB4A787D9DB1D5.quest_desc: ["Заполучите своё первое Око"]
 	quest.20AB4A787D9DB1D5.title: "Начало путешевствия"
 	quest.157105543D4A21DC.quest_desc: ["Заполучите своё первое Старинное Око"]
