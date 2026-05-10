@@ -30,6 +30,7 @@ PACK_DISPLAY_NAME = "Varda"
 PROJECT_ID = "533644"
 DEFAULT_UPLOAD_MAX_ATTEMPTS = 3
 DEFAULT_UPLOAD_RETRY_BASE_DELAY = 5
+MAX_CURSEFORGE_UPLOAD_SIZE = 500 * 1000 * 1000
 # CurseForge game version IDs from /api/game/versions:
 # 12735 = Minecraft 1.21.1, gameVersionTypeID 1
 # 10150 = NeoForge, gameVersionTypeID 68441
@@ -66,6 +67,23 @@ def build_artifact_path(
 
   filename = f"{PACK_SLUG}-{artifact_type}-{version}-{release_type}.zip"
   return UPLOAD_DIR / filename
+
+
+def format_file_size(size: int) -> str:
+  return f"{size / 1000 / 1000:.1f} MB"
+
+
+def validate_upload_file_size(file_path: Path) -> None:
+  size = file_path.stat().st_size
+
+  if size > MAX_CURSEFORGE_UPLOAD_SIZE:
+    raise RuntimeError(
+      "upload file is too large for CurseForge API: "
+      f"{file_path} is {format_file_size(size)}; "
+      f"limit is {format_file_size(MAX_CURSEFORGE_UPLOAD_SIZE)}. "
+      "CurseForge/Cloudflare is likely to reject this with HTTP 413 "
+      "Payload Too Large, which may appear as Broken pipe."
+    )
 
 
 def build_metadata(
@@ -123,6 +141,9 @@ def upload_artifact(
   if not file_path.is_file():
     raise RuntimeError(f"upload file not found: {file_path}")
 
+  file_size = file_path.stat().st_size
+  validate_upload_file_size(file_path)
+
   metadata = build_metadata(
     artifact_type=artifact_type,
     version=version,
@@ -135,6 +156,7 @@ def upload_artifact(
   print(f"  project ID:     {PROJECT_ID}")
   print(f"  artifact type:  {artifact_type}")
   print(f"  file:           {file_path}")
+  print(f"  file size:      {format_file_size(file_size)}")
   print(f"  display name:   {metadata['displayName']}")
   print(f"  release type:   {release_type}")
 
