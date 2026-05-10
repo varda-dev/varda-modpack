@@ -20,6 +20,7 @@ Uploads the release zips to CurseForge.
 - `--client-only` uploads only the client zip
 - `--server-only --parent-file-id <id>` uploads only the server zip as an additional file
 - `--dry-run` prints the planned upload metadata without making API calls
+- `--child-upload-delay <seconds>` waits between the client upload and the server upload
 
 ### `scripts/reset-sync.py`
 Resets a CurseForge instance and copies the repo's synced pack files into it.

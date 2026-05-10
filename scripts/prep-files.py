@@ -20,7 +20,7 @@ from lib.env import CURSEFORGE_INSTANCE_DIR, get_curseforge_instance_dir
 CLIENT_ONLY_PATTERNS = [
   "appleskin-neoforge-mc1.21-*.jar",
   "arsnumerichud-*.jar",
-  "BetterAdvancements-NeoForge-*.jar",
+  #"BetterAdvancements-NeoForge-*.jar",
   "Controlling-neoforge-*.jar",
   "enchdesc-neoforge-*.jar",
   "bookshelf-neoforge-*.jar",
@@ -37,8 +37,8 @@ CLIENT_ONLY_PATTERNS = [
   "iris-neoforge-*.jar",
   "sodium-neoforge-*.jar",
   "Jade-*.jar",
-  "timm-*.jar",
-  "cloth-config-*.jar",
+  #"timm-*.jar",
+  #"cloth-config-*.jar",
 ]
 
 SERVER_ONLY_PATTERNS = []

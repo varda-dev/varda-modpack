@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 import argparse
+import errno
 import http.client
 import json
 import mimetypes
 import re
+import shlex
 import sys
+import time
 import uuid
 from pathlib import Path
 from typing import Any, Iterator
@@ -25,10 +28,18 @@ PACK_SLUG = "varda"
 PACK_DISPLAY_NAME = "Varda"
 
 PROJECT_ID = "533644"
+DEFAULT_UPLOAD_MAX_ATTEMPTS = 3
+DEFAULT_UPLOAD_RETRY_BASE_DELAY = 5
 # CurseForge game version IDs from /api/game/versions:
 # 12735 = Minecraft 1.21.1, gameVersionTypeID 1
 # 10150 = NeoForge, gameVersionTypeID 68441
 GAME_VERSIONS = [11779, 10150]
+
+
+class CurseForgeUploadError(RuntimeError):
+  def __init__(self, message: str, *, http_status: int | None = None):
+    super().__init__(message)
+    self.http_status = http_status
 
 
 def slugify_version(value: str) -> str:
@@ -151,6 +162,42 @@ def upload_artifact(
   )
 
 
+def is_retryable_upload_error(err: BaseException) -> bool:
+  current: BaseException | None = err
+  seen: set[int] = set()
+
+  while current is not None and id(current) not in seen:
+    seen.add(id(current))
+
+    if isinstance(current, (BrokenPipeError, ConnectionResetError, TimeoutError)):
+      return True
+
+    if isinstance(current, OSError) and current.errno in {
+      errno.EPIPE,
+      errno.ECONNRESET,
+      errno.ETIMEDOUT,
+      errno.EAGAIN,
+    }:
+      return True
+
+    cause = current.__cause__
+    current = cause if isinstance(cause, BaseException) else None
+
+  return False
+
+
+def is_retryable_http_status(status: int) -> bool:
+  return status >= 500
+
+
+def retry_delay_for_attempt(
+  attempt: int,
+  *,
+  base_delay: int = DEFAULT_UPLOAD_RETRY_BASE_DELAY,
+) -> int:
+  return base_delay * attempt
+
+
 def multipart_field_part(boundary: str, name: str, value: str) -> bytes:
   header = (
     f"--{boundary}\r\n"
@@ -239,7 +286,7 @@ def parse_upload_response(raw: str) -> dict[str, Any]:
     raise RuntimeError(f"CurseForge upload returned invalid JSON:\n{raw}") from err
 
 
-def upload_file(
+def upload_file_once(
   *,
   base_url: str,
   token: str,
@@ -279,18 +326,79 @@ def upload_file(
     raw = response.read().decode("utf-8", errors="replace")
 
     if response.status < 200 or response.status >= 300:
-      raise RuntimeError(
-        f"CurseForge upload failed: HTTP {response.status} {response.reason}\n{raw}"
+      raise CurseForgeUploadError(
+        f"CurseForge upload failed: HTTP {response.status} {response.reason}\n{raw}",
+        http_status=response.status,
       )
 
     return parse_upload_response(raw)
 
   except (OSError, http.client.HTTPException) as err:
-    raise RuntimeError(f"CurseForge upload failed: {err}") from err
+    raise CurseForgeUploadError(f"CurseForge upload failed: {err}") from err
 
   finally:
     if connection is not None:
       connection.close()
+
+
+def upload_file(
+  *,
+  base_url: str,
+  token: str,
+  project_id: str,
+  file_path: Path,
+  metadata: dict[str, Any],
+  max_attempts: int = DEFAULT_UPLOAD_MAX_ATTEMPTS,
+) -> dict[str, Any]:
+  last_err: BaseException | None = None
+
+  for attempt in range(1, max_attempts + 1):
+    try:
+      return upload_file_once(
+        base_url=base_url,
+        token=token,
+        project_id=project_id,
+        file_path=file_path,
+        metadata=metadata,
+      )
+    except CurseForgeUploadError as err:
+      last_err = err
+
+      retryable = (
+        (err.http_status is not None and is_retryable_http_status(err.http_status))
+        or is_retryable_upload_error(err)
+      )
+
+      if not retryable or attempt >= max_attempts:
+        raise
+
+      delay = retry_delay_for_attempt(attempt)
+      print(
+        f"CurseForge upload failed on attempt {attempt}/{max_attempts}; "
+        f"retrying in {delay}s.",
+        file=sys.stderr,
+      )
+      time.sleep(delay)
+
+  assert last_err is not None
+  raise last_err
+
+
+def build_server_retry_command(
+  *,
+  version: str,
+  release_type: str,
+  parent_file_id: int,
+  changelog: str,
+) -> str:
+  return (
+    "./scripts/cf-upload.py "
+    f"-v {shlex.quote(version)} "
+    f"-r {shlex.quote(release_type)} "
+    f"--server-only "
+    f"--parent-file-id {parent_file_id} "
+    f"-c {shlex.quote(changelog)}"
+  )
 
 
 def parse_args() -> argparse.Namespace:
@@ -343,6 +451,13 @@ def parse_args() -> argparse.Namespace:
     "--parent-file-id",
     type=int,
     help="Parent CurseForge file ID for server-only uploads.",
+  )
+
+  parser.add_argument(
+    "--child-upload-delay",
+    type=int,
+    default=0,
+    help="Seconds to wait between client and server uploads.",
   )
 
   return parser.parse_args()
@@ -418,15 +533,37 @@ def main() -> int:
       else:
         parent_file_id = require_uploaded_file_id(client_result)
 
-      result = upload_artifact(
-        token=token,
-        artifact_type="server",
-        version=version,
-        release_type=args.release_type,
-        changelog=f"Server files for {PACK_DISPLAY_NAME} {version}.",
-        parent_file_id=parent_file_id,
-        dry_run=args.dry_run,
-      )
+        if args.child_upload_delay > 0:
+          print(
+            f"Waiting {args.child_upload_delay}s before server upload...",
+          )
+          time.sleep(args.child_upload_delay)
+
+      try:
+        result = upload_artifact(
+          token=token,
+          artifact_type="server",
+          version=version,
+          release_type=args.release_type,
+          changelog=args.changelog,
+          parent_file_id=parent_file_id,
+          dry_run=args.dry_run,
+        )
+      except Exception:
+        if not args.dry_run:
+          retry_command = build_server_retry_command(
+            version=version,
+            release_type=args.release_type,
+            parent_file_id=parent_file_id,
+            changelog=args.changelog,
+          )
+          print(
+            f"Client upload succeeded with file ID {parent_file_id}, but server upload failed.",
+            file=sys.stderr,
+          )
+          print("Retry the server upload with:", file=sys.stderr)
+          print(f"  {retry_command}", file=sys.stderr)
+        raise
 
   except (OSError, RuntimeError, ValueError) as err:
     print(f"error: {err}", file=sys.stderr)
