@@ -24,6 +24,15 @@ These notes apply to the whole repository. Varda is a Minecraft modpack centered
 - `scripts/` contains PowerShell and shell helper scripts for local development.
 - `PACK_DIR.txt`, `varda-server/`, and `varda-server.zip` are local/generated and intentionally ignored.
 
+## Python Script Reference
+
+- `scripts/prep-files.py` builds release zips in `tmp/`. `--both` is the normal release path, while `--client` and `--server` build one target at a time.
+- `scripts/cf-upload.py` uploads to CurseForge. Default behavior uploads the client zip and then the server zip as an additional file attached to the client file. `--client-only`, `--server-only`, `--parent-file-id`, and `--dry-run` are supported.
+- `scripts/reset-sync.py` resets a local CurseForge instance and copies the repo's synced files into it.
+- `scripts/copy-confs.py` pulls FTB Quests and Structurify config files back from the configured instance into the repo.
+- `scripts/advancements.py` extracts displayed advancement metadata from the vanilla jar and mod jars. `--discover` scans instance mods for jars with displayed advancements that are not already in `DEFAULT_MOD_PATTERNS`.
+- `scripts/locate.py` reports structure IDs recorded in the chunk containing the requested block coordinates across all saves in the configured instance.
+
 ## Local Workflow
 
 1. Run `.\scripts\set-pack-dir.ps1` once, or create `PACK_DIR.txt` manually with the full path to the local CurseForge instance.

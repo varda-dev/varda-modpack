@@ -1,4 +1,44 @@
 # Python
+
+## Project Scripts
+
+### `scripts/prep-files.py`
+Builds release zips in `tmp/`.
+
+- `--client` builds `tmp/varda-client-<version>-<release>.zip`
+- `--server` builds `tmp/varda-server-<version>-<release>.zip`
+- `--both` builds both zips in one run
+
+The server build installs NeoForge into the temporary package directory, patches the generated launchers, and includes `server-files/README-SERVER.txt`.
+
+### `scripts/cf-upload.py`
+Uploads the release zips to CurseForge.
+
+- Default behavior uploads both client and server
+- `--client-only` uploads only the client zip
+- `--server-only --parent-file-id <id>` uploads only the server zip as an additional file
+- `--dry-run` prints the planned upload metadata without making API calls
+
+### `scripts/reset-sync.py`
+Resets a CurseForge instance and copies the repo's synced pack files into it.
+
+- Default mode performs the minimal wipe and sync
+- `--full-wipe` removes additional generated folders and files
+- `--inline` copies just KubeJS and FTB Quests without wiping folders first
+
+### `scripts/copy-confs.py`
+Copies FTB Quests and Structurify config files from the configured instance back into `pack-configs/config/`.
+
+### `scripts/advancements.py`
+Extracts displayed advancement metadata from the vanilla Minecraft jar and mod jars.
+
+- `--discover` scans the instance `mods/` folder for jars with displayed advancements that are not already covered by `DEFAULT_MOD_PATTERNS`
+- `--jar` targets a single jar
+- `--test` checks whether a single jar has extractable displayed advancements without writing output
+
+### `scripts/locate.py`
+Scans all saves in the configured instance and reports structure IDs recorded in the chunk containing the requested block coordinates.
+
 ## Windows
 ### Installation
 `winget install --id Python.Launcher -e`  

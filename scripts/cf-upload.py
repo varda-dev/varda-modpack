@@ -23,7 +23,6 @@ UPLOAD_DIR = REPO_ROOT / "tmp"
 
 PACK_SLUG = "varda"
 PACK_DISPLAY_NAME = "Varda"
-ARTIFACT_TYPE = "client"
 
 PROJECT_ID = "533644"
 # CurseForge game version IDs from /api/game/versions:
@@ -46,9 +45,110 @@ def slugify_version(value: str) -> str:
   return value
 
 
-def build_artifact_path(version: str, release_type: str) -> Path:
-  filename = f"{PACK_SLUG}-{ARTIFACT_TYPE}-{version}-{release_type}.zip"
+def build_artifact_path(
+  artifact_type: str,
+  version: str,
+  release_type: str,
+) -> Path:
+  if artifact_type not in {"client", "server"}:
+    raise RuntimeError(f"Unknown artifact type: {artifact_type}")
+
+  filename = f"{PACK_SLUG}-{artifact_type}-{version}-{release_type}.zip"
   return UPLOAD_DIR / filename
+
+
+def build_metadata(
+  *,
+  artifact_type: str,
+  version: str,
+  release_type: str,
+  changelog: str,
+  parent_file_id: int | None = None,
+) -> dict[str, Any]:
+  if artifact_type not in {"client", "server"}:
+    raise RuntimeError(f"Unknown artifact type: {artifact_type}")
+
+  metadata: dict[str, Any] = {
+    "changelog": changelog,
+    "changelogType": "text",
+    "releaseType": release_type,
+    "isMarkedForManualRelease": False,
+  }
+
+  if artifact_type == "client":
+    metadata["displayName"] = f"{PACK_DISPLAY_NAME} {version}"
+    metadata["gameVersions"] = GAME_VERSIONS
+    return metadata
+
+  if parent_file_id is None:
+    raise RuntimeError("Server uploads require a parent file ID")
+
+  metadata["displayName"] = f"{PACK_DISPLAY_NAME} {version} Server Files"
+  metadata["parentFileID"] = parent_file_id
+  return metadata
+
+
+def require_uploaded_file_id(result: dict[str, Any]) -> int:
+  file_id = result.get("id")
+  if not isinstance(file_id, int):
+    raise RuntimeError(
+      f"CurseForge upload response did not include numeric id: {result}"
+    )
+  return file_id
+
+
+def upload_artifact(
+  *,
+  token: str,
+  artifact_type: str,
+  version: str,
+  release_type: str,
+  changelog: str,
+  parent_file_id: int | None,
+  dry_run: bool,
+) -> dict[str, Any]:
+  file_path = build_artifact_path(artifact_type, version, release_type)
+
+  if not file_path.is_file():
+    raise RuntimeError(f"upload file not found: {file_path}")
+
+  metadata = build_metadata(
+    artifact_type=artifact_type,
+    version=version,
+    release_type=release_type,
+    changelog=changelog,
+    parent_file_id=parent_file_id,
+  )
+
+  print("CurseForge upload:")
+  print(f"  project ID:     {PROJECT_ID}")
+  print(f"  artifact type:  {artifact_type}")
+  print(f"  file:           {file_path}")
+  print(f"  display name:   {metadata['displayName']}")
+  print(f"  release type:   {release_type}")
+
+  if artifact_type == "client":
+    print(f"  game versions:  {metadata['gameVersions']}")
+  else:
+    if dry_run and metadata["parentFileID"] == 0:
+      print("  parent file ID: 0 (dry-run placeholder)")
+    else:
+      print(f"  parent file ID: {metadata['parentFileID']}")
+
+  print()
+
+  if dry_run:
+    print("Metadata:")
+    print(json.dumps(metadata, indent=2))
+    return {}
+
+  return upload_file(
+    base_url=DEFAULT_BASE_URL,
+    token=token,
+    project_id=PROJECT_ID,
+    file_path=file_path,
+    metadata=metadata,
+  )
 
 
 def multipart_field_part(boundary: str, name: str, value: str) -> bytes:
@@ -195,7 +295,7 @@ def upload_file(
 
 def parse_args() -> argparse.Namespace:
   parser = argparse.ArgumentParser(
-    description="Upload a CurseForge Minecraft client modpack zip."
+    description="Upload Varda client and server files to CurseForge."
   )
 
   parser.add_argument(
@@ -226,6 +326,25 @@ def parse_args() -> argparse.Namespace:
     help="Print resolved upload metadata without uploading.",
   )
 
+  target_group = parser.add_mutually_exclusive_group()
+  target_group.add_argument(
+    "--client-only",
+    action="store_true",
+    help="Upload only the client artifact.",
+  )
+
+  target_group.add_argument(
+    "--server-only",
+    action="store_true",
+    help="Upload only the server artifact.",
+  )
+
+  parser.add_argument(
+    "--parent-file-id",
+    type=int,
+    help="Parent CurseForge file ID for server-only uploads.",
+  )
+
   return parser.parse_args()
 
 
@@ -235,54 +354,86 @@ def main() -> int:
   try:
     version = slugify_version(args.version)
 
+    if args.client_only and args.server_only:
+      raise RuntimeError("--client-only and --server-only are mutually exclusive")
+
+    if args.client_only and args.parent_file_id is not None:
+      raise RuntimeError("--client-only does not accept --parent-file-id")
+
+    if args.server_only and args.parent_file_id is None:
+      raise RuntimeError("--server-only requires --parent-file-id")
+
+    if not args.client_only and not args.server_only and args.parent_file_id is not None:
+      raise RuntimeError(
+        "Default client+server uploads do not accept --parent-file-id"
+      )
+
   except (OSError, RuntimeError, ValueError) as err:
     print(f"error: {err}", file=sys.stderr)
     return 1
 
-  file_path = build_artifact_path(version, args.release_type)
-
-  if not file_path.is_file():
-    print(f"error: upload file not found: {file_path}", file=sys.stderr)
-    return 1
-
-  display_name = f"{PACK_DISPLAY_NAME} {version}"
-
-  metadata: dict[str, Any] = {
-    "changelog": args.changelog,
-    "changelogType": "text",
-    "displayName": display_name,
-    "gameVersions": GAME_VERSIONS,
-    "releaseType": args.release_type,
-    "isMarkedForManualRelease": False,
-  }
-
-  print("CurseForge upload:")
-  print(f"  project ID:     {PROJECT_ID}")
-  print(f"  file:           {file_path}")
-  print(f"  display name:   {display_name}")
-  print(f"  release type:   {args.release_type}")
-  print(f"  game versions:  {GAME_VERSIONS}")
-  print()
-
-  if args.dry_run:
-    print("Metadata:")
-    print(json.dumps(metadata, indent=2))
-    return 0
+  if args.client_only:
+    package_modes = ["client"]
+  elif args.server_only:
+    package_modes = ["server"]
+  else:
+    package_modes = ["client", "server"]
 
   try:
-    token = get_curseforge_api_token()
-    result = upload_file(
-      base_url=DEFAULT_BASE_URL,
-      token=token,
-      project_id=PROJECT_ID,
-      file_path=file_path,
-      metadata=metadata,
-    )
+    token = "" if args.dry_run else get_curseforge_api_token()
+
+    if package_modes == ["client"]:
+      result = upload_artifact(
+        token=token,
+        artifact_type="client",
+        version=version,
+        release_type=args.release_type,
+        changelog=args.changelog,
+        parent_file_id=None,
+        dry_run=args.dry_run,
+      )
+    elif package_modes == ["server"]:
+      result = upload_artifact(
+        token=token,
+        artifact_type="server",
+        version=version,
+        release_type=args.release_type,
+        changelog=args.changelog,
+        parent_file_id=args.parent_file_id,
+        dry_run=args.dry_run,
+      )
+    else:
+      client_result = upload_artifact(
+        token=token,
+        artifact_type="client",
+        version=version,
+        release_type=args.release_type,
+        changelog=args.changelog,
+        parent_file_id=None,
+        dry_run=args.dry_run,
+      )
+
+      if args.dry_run:
+        parent_file_id = 0
+      else:
+        parent_file_id = require_uploaded_file_id(client_result)
+
+      result = upload_artifact(
+        token=token,
+        artifact_type="server",
+        version=version,
+        release_type=args.release_type,
+        changelog=f"Server files for {PACK_DISPLAY_NAME} {version}.",
+        parent_file_id=parent_file_id,
+        dry_run=args.dry_run,
+      )
+
   except (OSError, RuntimeError, ValueError) as err:
     print(f"error: {err}", file=sys.stderr)
     return 1
 
-  print("Upload successful.")
+  if not args.dry_run:
+    print("Upload successful.")
 
   if result:
     print(json.dumps(result, indent=2))

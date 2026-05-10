@@ -12,7 +12,7 @@ CURSEFORGE_API_TOKEN=""
 These don't actually get injected into the environment, just read by the scripts.  
 
 ## Scripts
-Change to `/` slashes if on Linux.  
+Change to `/` slashes if on Linux.
 
 Scripts require Python. See [docs/PYTHON.md](docs/PYTHON.md) for help.  
 
@@ -26,10 +26,10 @@ Scripts require Python. See [docs/PYTHON.md](docs/PYTHON.md) for help.
   - `(none)` means that save has chunk data at those coordinates, but no structure IDs are recorded for that chunk.
 
 ### Uploading to Curseforge
-- Run `/scripts/prep-files.py -c -v 0.1.2 -r beta`
-- Then upload it `./scripts/cf-upload.py -v 0.1.2 -r beta -c "A meaningful comment."`
-
-Still need to work on server files.  
+- Build both release zips with `.\scripts\prep-files.py --both -v 0.1.2 -r beta`
+- Upload both files with `.\scripts\cf-upload.py -v 0.1.2 -r beta -c "A meaningful comment."`
+- Upload only the client file with `.\scripts\cf-upload.py --client-only -v 0.1.2 -r beta -c "A meaningful comment."`
+- Upload only the server file with `.\scripts\cf-upload.py --server-only --parent-file-id 1234567 -v 0.1.2 -r beta -c "Server files."`
 
 ## Config Layout
 - `pack-configs/config` is the main Minecraft `config` directory.
@@ -39,7 +39,7 @@ Still need to work on server files.
 - `pack-configs/profileImage`, `pack-configs/shaderpacks`, and `pack-configs/optionsshaders.txt` are synced directly into the instance when present.
 
 ## Exporting to CurseForge
-I eventually want to automate this with the Curseforge API with `.\scripts\cf-upload.py`  
+I eventually want to automate this with the Curseforge API with `.\scripts\cf-upload.py`
 
 - Share Profile -> Export as .zip -> 
   - Everything in config

@@ -253,7 +253,7 @@ def zip_directory_contents(source_dir: Path, zip_file: Path) -> None:
 
 def parse_args() -> argparse.Namespace:
   parser = argparse.ArgumentParser(
-    description="Prepare client or server modpack zip files.",
+    description="Prepare client, server, or both modpack zip files.",
     formatter_class=HelpFormatter,
   )
 
@@ -269,6 +269,12 @@ def parse_args() -> argparse.Namespace:
     "--server",
     action="store_true",
     help="Prepare server files.",
+  )
+  target_group.add_argument(
+    "-b",
+    "--both",
+    action="store_true",
+    help="Prepare both client and server files.",
   )
 
   parser.add_argument(
@@ -325,6 +331,11 @@ def prepare_output_path(zip_file: Path, force: bool) -> None:
 
   if not force:
     fail(f"Output already exists: {zip_file}. Pass -f/--force to overwrite it.")
+
+
+def prepare_output_paths(zip_files: list[Path], force: bool) -> None:
+  for zip_file in zip_files:
+    prepare_output_path(zip_file, force)
 
 
 def copy_common_pack_files(
@@ -466,20 +477,61 @@ def prepare_server_files(
   patch_server_launchers(package_dir, neoforge_version)
 
 
+def prepare_package_files(
+  *,
+  package_type: str,
+  instance_dir: Path,
+  pack_configs_dir: Path,
+  repo_root: Path,
+  package_dir: Path,
+) -> None:
+  if package_type == "client":
+    prepare_client_files(
+      instance_dir=instance_dir,
+      pack_configs_dir=pack_configs_dir,
+      package_dir=package_dir,
+    )
+    return
+
+  if package_type == "server":
+    prepare_server_files(
+      repo_root=repo_root,
+      instance_dir=instance_dir,
+      pack_configs_dir=pack_configs_dir,
+      package_dir=package_dir,
+    )
+    return
+
+  fail(f"Unknown package type: {package_type}")
+
+
 def main() -> int:
   args = parse_args()
-  package_type = "client" if args.client else "server"
   version = validate_version(args.version)
+
+  if args.client:
+    package_types = ["client"]
+  elif args.server:
+    package_types = ["server"]
+  else:
+    package_types = ["client", "server"]
 
   script_dir = Path(__file__).resolve().parent
   repo_root = script_dir.parent
   pack_configs_dir = repo_root / "pack-configs"
-  zip_file = output_zip_path(
-    repo_root=repo_root,
-    package_type=package_type,
-    version=version,
-    release=args.release,
-  )
+  zip_files = {
+    package_type: output_zip_path(
+      repo_root=repo_root,
+      package_type=package_type,
+      version=version,
+      release=args.release,
+    )
+    for package_type in package_types
+  }
+
+  prepare_output_paths(list(zip_files.values()), args.force)
+
+  package_label = "client/server" if len(package_types) > 1 else package_types[0]
 
   try:
     instance_dir = get_curseforge_instance_dir()
@@ -490,35 +542,30 @@ def main() -> int:
   if not minecraft_instance_json.is_file():
     fail(f"minecraftinstance.json not found: {minecraft_instance_json}")
 
-  prepare_output_path(zip_file, args.force)
-
   print(f"Using {instance_dir} from {CURSEFORGE_INSTANCE_DIR}")
-  print(f"Preparing {package_type} files")
-  print(f"Output: {zip_file}")
+  print(f"Preparing {package_label} files")
 
-  with tempfile.TemporaryDirectory(
-    prefix=f"varda-{package_type}-",
-    dir=zip_file.parent,
-  ) as temp_dir_raw:
-    package_dir = Path(temp_dir_raw)
+  for package_type in package_types:
+    zip_file = zip_files[package_type]
+    print(f"Output: {zip_file}")
 
-    if args.client:
-      prepare_client_files(
+    with tempfile.TemporaryDirectory(
+      prefix=f"varda-{package_type}-",
+      dir=zip_file.parent,
+    ) as temp_dir_raw:
+      package_dir = Path(temp_dir_raw)
+
+      prepare_package_files(
+        package_type=package_type,
         instance_dir=instance_dir,
         pack_configs_dir=pack_configs_dir,
-        package_dir=package_dir,
-      )
-    else:
-      prepare_server_files(
         repo_root=repo_root,
-        instance_dir=instance_dir,
-        pack_configs_dir=pack_configs_dir,
         package_dir=package_dir,
       )
 
-    zip_directory_contents(package_dir, zip_file)
+      zip_directory_contents(package_dir, zip_file)
 
-  print(f"Created {zip_file}")
+    print(f"Created {zip_file}")
 
   return 0
 
