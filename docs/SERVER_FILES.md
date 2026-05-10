@@ -15,6 +15,7 @@ The server build process itself:
 - patches the generated launch scripts to start in `nogui`
 - replaces `user_jvm_args.txt` with the Varda defaults
 - removes installer artifacts before zipping the result
+- runs quietly by default, with `--verbose` available if you want the installer output
 
 The generated archive should still include the standard pack content:
 `libraries/`, `mods/`, `config/`, `kubejs/`, `minecraftinstance.json`,

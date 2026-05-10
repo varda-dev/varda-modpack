@@ -51,8 +51,18 @@ class HelpFormatter(argparse.HelpFormatter):
 
 
 def fail(message: str) -> None:
-  print(message, file=sys.stderr)
+  print(message, file=sys.stderr, flush=True)
   raise SystemExit(1)
+
+
+def log(message: str, *, quiet: bool = False) -> None:
+  if not quiet:
+    print(message, flush=True)
+
+
+def verbose_log(message: str, *, verbose: bool = False, quiet: bool = False) -> None:
+  if verbose and not quiet:
+    print(message, flush=True)
 
 
 def is_blank(value: str | None) -> bool:
@@ -89,14 +99,25 @@ def copy_optional_populated_path(source: Path, destination: Path) -> None:
     copy_required_path(source, destination)
 
 
-def remove_matching_mods(mods_dir: Path, patterns: list[str], label: str) -> None:
+def remove_matching_mods(
+  mods_dir: Path,
+  patterns: list[str],
+  label: str,
+  *,
+  quiet: bool,
+  verbose: bool,
+) -> None:
   if not mods_dir.is_dir():
     fail(f"Mods folder not found: {mods_dir}")
 
   for pattern in patterns:
     for mod_file in mods_dir.glob(pattern):
       if mod_file.is_file() or mod_file.is_symlink():
-        print(f"Removing {label} mod {mod_file.name} ...")
+        verbose_log(
+          f"Removing {label} mod {mod_file.name} ...",
+          verbose=verbose,
+          quiet=quiet,
+        )
         mod_file.unlink()
 
 
@@ -111,9 +132,31 @@ def read_json_file(path: Path, label: str) -> object:
     fail(f"Invalid {label}: {error}")
 
 
-def run_command(command: list[str], cwd: Path) -> None:
+def run_command(command: list[str], cwd: Path, *, quiet: bool, verbose: bool) -> None:
   try:
-    subprocess.run(command, cwd=cwd, check=True)
+    if verbose and not quiet:
+      subprocess.run(command, cwd=cwd, check=True)
+      return
+
+    result = subprocess.run(
+      command,
+      cwd=cwd,
+      check=False,
+      stdout=subprocess.PIPE,
+      stderr=subprocess.PIPE,
+      text=True,
+    )
+    if result.returncode != 0:
+      output = "\n".join(
+        part.strip()
+        for part in (result.stdout, result.stderr)
+        if part and part.strip()
+      )
+      details = f"\n\nCommand output:\n{output}" if output else ""
+      fail(
+        f"Command failed with exit code {result.returncode}: {' '.join(command)}"
+        f"{details}"
+      )
   except FileNotFoundError:
     if command and command[0] == "java":
       fail("Java was not found. Java 21 is required.")
@@ -124,8 +167,19 @@ def run_command(command: list[str], cwd: Path) -> None:
     )
 
 
-def install_neoforge_server(package_dir: Path, installer_name: str) -> None:
-  run_command(["java", "-jar", installer_name, "--installServer"], cwd=package_dir)
+def install_neoforge_server(
+  package_dir: Path,
+  installer_name: str,
+  *,
+  quiet: bool,
+  verbose: bool,
+) -> None:
+  run_command(
+    ["java", "-jar", installer_name, "--installServer"],
+    cwd=package_dir,
+    quiet=quiet,
+    verbose=verbose,
+  )
 
 
 def write_json_file(path: Path, data: object) -> None:
@@ -233,8 +287,8 @@ def read_instance_versions(minecraft_instance_json: Path) -> tuple[str | None, s
   return minecraft_version, str(neoforge_version)
 
 
-def download_file(url: str, destination: Path) -> None:
-  print(f"Downloading {url}")
+def download_file(url: str, destination: Path, *, quiet: bool) -> None:
+  log(f"Downloading {url}", quiet=quiet)
   destination.parent.mkdir(parents=True, exist_ok=True)
 
   try:
@@ -298,6 +352,19 @@ def parse_args() -> argparse.Namespace:
     "--force",
     action="store_true",
     help="Overwrite an existing output zip with the same name.",
+  )
+
+  parser.add_argument(
+    "-q",
+    "--quiet",
+    action="store_true",
+    help="Only print errors and final output zip path(s).",
+  )
+
+  parser.add_argument(
+    "--verbose",
+    action="store_true",
+    help="Print detailed progress and subprocess output.",
   )
 
   return parser.parse_args()
@@ -444,6 +511,8 @@ def prepare_server_files(
   instance_dir: Path,
   pack_configs_dir: Path,
   package_dir: Path,
+  quiet: bool,
+  verbose: bool,
 ) -> None:
   minecraft_instance_json = instance_dir / "minecraftinstance.json"
 
@@ -457,12 +526,18 @@ def prepare_server_files(
   )
   copy_required_path(minecraft_instance_json, package_dir / "minecraftinstance.json")
   copy_server_support_files(repo_root=repo_root, package_dir=package_dir)
-  remove_matching_mods(package_dir / "mods", CLIENT_ONLY_PATTERNS, "client-only")
+  remove_matching_mods(
+    package_dir / "mods",
+    CLIENT_ONLY_PATTERNS,
+    "client-only",
+    quiet=quiet,
+    verbose=verbose,
+  )
 
   minecraft_version, neoforge_version = read_instance_versions(minecraft_instance_json)
 
-  print(f"Minecraft version: {minecraft_version}")
-  print(f"NeoForge version: {neoforge_version}")
+  log(f"Minecraft version: {minecraft_version}", quiet=quiet)
+  log(f"NeoForge version: {neoforge_version}", quiet=quiet)
 
   installer_name = f"neoforge-{neoforge_version}-installer.jar"
   installer_path = package_dir / installer_name
@@ -471,8 +546,13 @@ def prepare_server_files(
     f"{neoforge_version}/{installer_name}"
   )
 
-  download_file(installer_url, installer_path)
-  install_neoforge_server(package_dir, installer_name)
+  download_file(installer_url, installer_path, quiet=quiet)
+  install_neoforge_server(
+    package_dir,
+    installer_name,
+    quiet=quiet,
+    verbose=verbose,
+  )
   cleanup_installer_files(package_dir, installer_name)
   patch_server_launchers(package_dir, neoforge_version)
 
@@ -484,6 +564,8 @@ def prepare_package_files(
   pack_configs_dir: Path,
   repo_root: Path,
   package_dir: Path,
+  quiet: bool,
+  verbose: bool,
 ) -> None:
   if package_type == "client":
     prepare_client_files(
@@ -499,6 +581,8 @@ def prepare_package_files(
       instance_dir=instance_dir,
       pack_configs_dir=pack_configs_dir,
       package_dir=package_dir,
+      quiet=quiet,
+      verbose=verbose,
     )
     return
 
@@ -507,6 +591,8 @@ def prepare_package_files(
 
 def main() -> int:
   args = parse_args()
+  if args.quiet and args.verbose:
+    fail("--quiet and --verbose cannot be used together.")
   version = validate_version(args.version)
 
   if args.client:
@@ -542,12 +628,12 @@ def main() -> int:
   if not minecraft_instance_json.is_file():
     fail(f"minecraftinstance.json not found: {minecraft_instance_json}")
 
-  print(f"Using {instance_dir} from {CURSEFORGE_INSTANCE_DIR}")
-  print(f"Preparing {package_label} files")
+  log(f"Using {instance_dir} from {CURSEFORGE_INSTANCE_DIR}", quiet=args.quiet)
+  log(f"Preparing {package_label} files", quiet=args.quiet)
 
   for package_type in package_types:
     zip_file = zip_files[package_type]
-    print(f"Output: {zip_file}")
+    log(f"Output: {zip_file}", quiet=args.quiet)
 
     with tempfile.TemporaryDirectory(
       prefix=f"varda-{package_type}-",
@@ -561,11 +647,16 @@ def main() -> int:
         pack_configs_dir=pack_configs_dir,
         repo_root=repo_root,
         package_dir=package_dir,
+        quiet=args.quiet,
+        verbose=args.verbose,
       )
 
       zip_directory_contents(package_dir, zip_file)
 
-    print(f"Created {zip_file}")
+    if args.quiet:
+      print(zip_file, flush=True)
+    else:
+      log(f"Created {zip_file}", quiet=args.quiet)
 
   return 0
 

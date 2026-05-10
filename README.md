@@ -27,6 +27,7 @@ Scripts require Python. See [docs/PYTHON.md](docs/PYTHON.md) for help.
 
 ### Uploading to Curseforge
 - Build both release zips with `.\scripts\prep-files.py --both -v 0.1.2 -r beta`
+  - Add `--quiet` for automation or `--verbose` to stream installer output.
 - Upload both files with `.\scripts\cf-upload.py -v 0.1.2 -r beta -c "A meaningful comment."`
 - Upload only the client file with `.\scripts\cf-upload.py --client-only -v 0.1.2 -r beta -c "A meaningful comment."`
 - Upload only the server file with `.\scripts\cf-upload.py --server-only --parent-file-id 1234567 -v 0.1.2 -r beta -c "Server files."`

@@ -8,6 +8,8 @@ Builds release zips in `tmp/`.
 - `--client` builds `tmp/varda-client-<version>-<release>.zip`
 - `--server` builds `tmp/varda-server-<version>-<release>.zip`
 - `--both` builds both zips in one run
+- `--quiet` prints only errors and the final zip path(s)
+- `--verbose` prints detailed progress and streams subprocess output
 
 The server build installs NeoForge into the temporary package directory, patches the generated launchers, and includes `server-files/README-SERVER.txt`.
 
