@@ -7,6 +7,7 @@ import fnmatch
 import json
 import re
 import shutil
+import subprocess
 import sys
 import tempfile
 import urllib.request
@@ -108,6 +109,23 @@ def read_json_file(path: Path, label: str) -> object:
     return json.loads(path.read_text(encoding="utf-8"))
   except json.JSONDecodeError as error:
     fail(f"Invalid {label}: {error}")
+
+
+def run_command(command: list[str], cwd: Path) -> None:
+  try:
+    subprocess.run(command, cwd=cwd, check=True)
+  except FileNotFoundError:
+    if command and command[0] == "java":
+      fail("Java was not found. Java 21 is required.")
+    fail(f"Command not found: {' '.join(command)}")
+  except subprocess.CalledProcessError as error:
+    fail(
+      f"Command failed with exit code {error.returncode}: {' '.join(command)}"
+    )
+
+
+def install_neoforge_server(package_dir: Path, installer_name: str) -> None:
+  run_command(["java", "-jar", installer_name, "--installServer"], cwd=package_dir)
 
 
 def write_json_file(path: Path, data: object) -> None:
@@ -321,6 +339,72 @@ def copy_common_pack_files(
   copy_required_path(instance_dir / "mods", package_dir / "mods")
 
 
+def copy_server_support_files(*, repo_root: Path, package_dir: Path) -> None:
+  server_files_dir = repo_root / "server-files"
+  copy_required_path(server_files_dir / "README-SERVER.txt", package_dir / "README-SERVER.txt")
+  copy_optional_path(
+    server_files_dir / "server.properties",
+    package_dir / "server.properties",
+  )
+
+
+def patch_server_launchers(package_dir: Path, neoforge_version: str) -> None:
+  run_sh = package_dir / "run.sh"
+  run_bat = package_dir / "run.bat"
+  user_jvm_args = package_dir / "user_jvm_args.txt"
+
+  if not run_sh.is_file():
+    fail(f"run.sh not found after NeoForge installation: {run_sh}")
+  if not run_bat.is_file():
+    fail(f"run.bat not found after NeoForge installation: {run_bat}")
+  if not user_jvm_args.is_file():
+    fail(f"user_jvm_args.txt not found after NeoForge installation: {user_jvm_args}")
+
+  run_sh_text = run_sh.read_text(encoding="utf-8")
+  old_run_sh = (
+    f'java @user_jvm_args.txt '
+    f'@libraries/net/neoforged/neoforge/{neoforge_version}/unix_args.txt "$@"'
+  )
+  new_run_sh = (
+    f'java @user_jvm_args.txt '
+    f'@libraries/net/neoforged/neoforge/{neoforge_version}/unix_args.txt nogui "$@"'
+  )
+  if old_run_sh not in run_sh_text:
+    fail("run.sh did not contain the expected NeoForge launch command.")
+  run_sh.write_text(run_sh_text.replace(old_run_sh, new_run_sh, 1), encoding="utf-8")
+
+  run_bat_text = run_bat.read_text(encoding="utf-8")
+  old_run_bat = (
+    f'java @user_jvm_args.txt '
+    f'@libraries/net/neoforged/neoforge/{neoforge_version}/win_args.txt %*'
+  )
+  new_run_bat = (
+    f'java @user_jvm_args.txt '
+    f'@libraries/net/neoforged/neoforge/{neoforge_version}/win_args.txt nogui %*'
+  )
+  if old_run_bat not in run_bat_text:
+    fail("run.bat did not contain the expected NeoForge launch command.")
+  run_bat.write_text(run_bat_text.replace(old_run_bat, new_run_bat, 1), encoding="utf-8")
+
+  user_jvm_args.write_text(
+    "# JVM memory settings for Varda.\n"
+    "# Adjust these based on available server RAM.\n"
+    "-Xms4G\n"
+    "-Xmx6G\n",
+    encoding="utf-8",
+  )
+
+
+def cleanup_installer_files(package_dir: Path, installer_name: str) -> None:
+  installer_path = package_dir / installer_name
+  installer_log = package_dir / f"{installer_name}.log"
+
+  if installer_path.exists() or installer_path.is_symlink():
+    installer_path.unlink()
+  if installer_log.exists() or installer_log.is_symlink():
+    installer_log.unlink()
+
+
 def prepare_client_files(
   *,
   instance_dir: Path,
@@ -345,6 +429,7 @@ def prepare_client_files(
 
 def prepare_server_files(
   *,
+  repo_root: Path,
   instance_dir: Path,
   pack_configs_dir: Path,
   package_dir: Path,
@@ -360,6 +445,7 @@ def prepare_server_files(
     package_dir=package_dir,
   )
   copy_required_path(minecraft_instance_json, package_dir / "minecraftinstance.json")
+  copy_server_support_files(repo_root=repo_root, package_dir=package_dir)
   remove_matching_mods(package_dir / "mods", CLIENT_ONLY_PATTERNS, "client-only")
 
   minecraft_version, neoforge_version = read_instance_versions(minecraft_instance_json)
@@ -375,6 +461,9 @@ def prepare_server_files(
   )
 
   download_file(installer_url, installer_path)
+  install_neoforge_server(package_dir, installer_name)
+  cleanup_installer_files(package_dir, installer_name)
+  patch_server_launchers(package_dir, neoforge_version)
 
 
 def main() -> int:
@@ -421,6 +510,7 @@ def main() -> int:
       )
     else:
       prepare_server_files(
+        repo_root=repo_root,
         instance_dir=instance_dir,
         pack_configs_dir=pack_configs_dir,
         package_dir=package_dir,
