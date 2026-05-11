@@ -4,23 +4,21 @@ from __future__ import annotations
 
 import argparse
 import fnmatch
-import json
 import re
 import shutil
 import subprocess
-import sys
 import tempfile
 import urllib.request
 import zipfile
 from pathlib import Path
 
+from lib.common import fail, log, verbose_log, is_blank, read_json, write_json, remove_path
 from lib.env import CURSEFORGE_INSTANCE_DIR, get_curseforge_instance_dir
 
 
 CLIENT_ONLY_PATTERNS = [
   "appleskin-neoforge-mc1.21-*.jar",
   "arsnumerichud-*.jar",
-  #"BetterAdvancements-NeoForge-*.jar",
   "Controlling-neoforge-*.jar",
   "enchdesc-neoforge-*.jar",
   "bookshelf-neoforge-*.jar",
@@ -37,8 +35,6 @@ CLIENT_ONLY_PATTERNS = [
   "iris-neoforge-*.jar",
   "sodium-neoforge-*.jar",
   "Jade-*.jar",
-  #"timm-*.jar",
-  #"cloth-config-*.jar",
 ]
 
 SERVER_ONLY_PATTERNS = []
@@ -50,45 +46,26 @@ class HelpFormatter(argparse.HelpFormatter):
     super().__init__(prog, max_help_position=34, width=88)
 
 
-def fail(message: str) -> None:
-  print(message, file=sys.stderr, flush=True)
-  raise SystemExit(1)
+def matches_any_pattern(file_name: str, patterns: list[str]) -> bool:
+  return any(fnmatch.fnmatchcase(file_name, pattern) for pattern in patterns)
 
 
-def log(message: str, *, quiet: bool = False) -> None:
-  if not quiet:
-    print(message, flush=True)
-
-
-def verbose_log(message: str, *, verbose: bool = False, quiet: bool = False) -> None:
-  if verbose and not quiet:
-    print(message, flush=True)
-
-
-def is_blank(value: str | None) -> bool:
-  return value is None or value.strip() == ""
-
-
-def copy_required_path(source: Path, destination: Path) -> None:
+def copy_path(source: Path, destination: Path, *, ignore_patterns: list[str] | None = None) -> None:
   if not source.exists():
     fail(f"Source not found: {source}")
 
-  if destination.exists() or destination.is_symlink():
-    if destination.is_dir() and not destination.is_symlink():
-      shutil.rmtree(destination)
-    else:
-      destination.unlink()
+  remove_path(destination)
 
   if source.is_dir():
-    shutil.copytree(source, destination)
+    if ignore_patterns:
+        def ignore_func(path, names):
+            return [name for name in names if matches_any_pattern(name, ignore_patterns)]
+        shutil.copytree(source, destination, ignore=ignore_func)
+    else:
+        shutil.copytree(source, destination)
   else:
     destination.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(source, destination)
-
-
-def copy_optional_path(source: Path, destination: Path) -> None:
-  if source.exists():
-    copy_required_path(source, destination)
 
 
 def copy_optional_populated_path(source: Path, destination: Path) -> None:
@@ -96,40 +73,7 @@ def copy_optional_populated_path(source: Path, destination: Path) -> None:
     path.is_file() and path.name not in IGNORED_PLACEHOLDER_FILES
     for path in source.rglob("*")
   ):
-    copy_required_path(source, destination)
-
-
-def remove_matching_mods(
-  mods_dir: Path,
-  patterns: list[str],
-  label: str,
-  *,
-  quiet: bool,
-  verbose: bool,
-) -> None:
-  if not mods_dir.is_dir():
-    fail(f"Mods folder not found: {mods_dir}")
-
-  for pattern in patterns:
-    for mod_file in mods_dir.glob(pattern):
-      if mod_file.is_file() or mod_file.is_symlink():
-        verbose_log(
-          f"Removing {label} mod {mod_file.name} ...",
-          verbose=verbose,
-          quiet=quiet,
-        )
-        mod_file.unlink()
-
-
-def matches_any_pattern(file_name: str, patterns: list[str]) -> bool:
-  return any(fnmatch.fnmatchcase(file_name, pattern) for pattern in patterns)
-
-
-def read_json_file(path: Path, label: str) -> object:
-  try:
-    return json.loads(path.read_text(encoding="utf-8"))
-  except json.JSONDecodeError as error:
-    fail(f"Invalid {label}: {error}")
+    copy_path(source, destination)
 
 
 def run_command(command: list[str], cwd: Path, *, quiet: bool, verbose: bool) -> None:
@@ -167,31 +111,11 @@ def run_command(command: list[str], cwd: Path, *, quiet: bool, verbose: bool) ->
     )
 
 
-def install_neoforge_server(
-  package_dir: Path,
-  installer_name: str,
-  *,
-  quiet: bool,
-  verbose: bool,
-) -> None:
-  run_command(
-    ["java", "-jar", installer_name, "--installServer"],
-    cwd=package_dir,
-    quiet=quiet,
-    verbose=verbose,
-  )
-
-
-def write_json_file(path: Path, data: object) -> None:
-  path.parent.mkdir(parents=True, exist_ok=True)
-  path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
-
-
 def current_installed_manifest_files(
   minecraft_instance_json: Path,
   exclude_patterns: list[str],
 ) -> list[dict[str, object]]:
-  instance = read_json_file(minecraft_instance_json, "minecraftinstance.json")
+  instance = read_json(minecraft_instance_json)
   if not isinstance(instance, dict):
     fail("minecraftinstance.json must contain a JSON object.")
 
@@ -252,10 +176,7 @@ def copy_client_manifest(
   if not source.is_file():
     fail(f"manifest.json not found: {source}")
 
-  if not minecraft_instance_json.is_file():
-    fail(f"minecraftinstance.json not found: {minecraft_instance_json}")
-
-  manifest = read_json_file(source, "manifest.json")
+  manifest = read_json(source)
   if not isinstance(manifest, dict):
     fail("manifest.json must contain a JSON object.")
 
@@ -265,11 +186,11 @@ def copy_client_manifest(
     server_only_patterns,
   )
 
-  write_json_file(package_dir / "manifest.json", manifest)
+  write_json(package_dir / "manifest.json", manifest)
 
 
 def read_instance_versions(minecraft_instance_json: Path) -> tuple[str | None, str]:
-  instance = read_json_file(minecraft_instance_json, "minecraftinstance.json")
+  instance = read_json(minecraft_instance_json)
   if not isinstance(instance, dict):
     fail("minecraftinstance.json must contain a JSON object.")
 
@@ -390,19 +311,11 @@ def output_zip_path(
   return repo_root / "tmp" / f"varda-{package_type}-{version}-{release}.zip"
 
 
-def prepare_output_path(zip_file: Path, force: bool) -> None:
-  zip_file.parent.mkdir(parents=True, exist_ok=True)
-
-  if not zip_file.exists():
-    return
-
-  if not force:
-    fail(f"Output already exists: {zip_file}. Pass -f/--force to overwrite it.")
-
-
 def prepare_output_paths(zip_files: list[Path], force: bool) -> None:
   for zip_file in zip_files:
-    prepare_output_path(zip_file, force)
+    zip_file.parent.mkdir(parents=True, exist_ok=True)
+    if zip_file.exists() and not force:
+      fail(f"Output already exists: {zip_file}. Pass -f/--force to overwrite it.")
 
 
 def copy_common_pack_files(
@@ -410,20 +323,23 @@ def copy_common_pack_files(
   instance_dir: Path,
   pack_configs_dir: Path,
   package_dir: Path,
+  ignore_patterns: list[str] | None = None,
 ) -> None:
-  copy_required_path(pack_configs_dir / "config", package_dir / "config")
-  copy_optional_path(pack_configs_dir / "defaultconfigs", package_dir / "defaultconfigs")
-  copy_required_path(pack_configs_dir / "kubejs", package_dir / "kubejs")
-  copy_required_path(instance_dir / "mods", package_dir / "mods")
+  copy_path(pack_configs_dir / "config", package_dir / "config")
+  if (pack_configs_dir / "defaultconfigs").exists():
+      copy_path(pack_configs_dir / "defaultconfigs", package_dir / "defaultconfigs")
+  copy_path(pack_configs_dir / "kubejs", package_dir / "kubejs")
+  copy_path(instance_dir / "mods", package_dir / "mods", ignore_patterns=ignore_patterns)
 
 
 def copy_server_support_files(*, repo_root: Path, package_dir: Path) -> None:
   server_files_dir = repo_root / "server-files"
-  copy_required_path(server_files_dir / "README-SERVER.txt", package_dir / "README-SERVER.txt")
-  copy_optional_path(
-    server_files_dir / "server.properties",
-    package_dir / "server.properties",
-  )
+  copy_path(server_files_dir / "README-SERVER.txt", package_dir / "README-SERVER.txt")
+  if (server_files_dir / "server.properties").exists():
+      copy_path(
+        server_files_dir / "server.properties",
+        package_dir / "server.properties",
+      )
 
 
 def patch_server_launchers(package_dir: Path, neoforge_version: str) -> None:
@@ -474,13 +390,8 @@ def patch_server_launchers(package_dir: Path, neoforge_version: str) -> None:
 
 
 def cleanup_installer_files(package_dir: Path, installer_name: str) -> None:
-  installer_path = package_dir / installer_name
-  installer_log = package_dir / f"{installer_name}.log"
-
-  if installer_path.exists() or installer_path.is_symlink():
-    installer_path.unlink()
-  if installer_log.exists() or installer_log.is_symlink():
-    installer_log.unlink()
+  remove_path(package_dir / installer_name)
+  remove_path(package_dir / f"{installer_name}.log")
 
 
 def prepare_client_files(
@@ -496,10 +407,10 @@ def prepare_client_files(
     package_dir=package_dir,
     server_only_patterns=SERVER_ONLY_PATTERNS,
   )
-  copy_required_path(instance_dir / "modlist.html", package_dir / "modlist.html")
+  copy_path(instance_dir / "modlist.html", package_dir / "modlist.html")
 
-  copy_required_path(pack_configs_dir / "config", overrides_dir / "config")
-  copy_required_path(pack_configs_dir / "kubejs", overrides_dir / "kubejs")
+  copy_path(pack_configs_dir / "config", overrides_dir / "config")
+  copy_path(pack_configs_dir / "kubejs", overrides_dir / "kubejs")
   copy_optional_populated_path(pack_configs_dir / "shaderpacks", overrides_dir / "shaderpacks")
   copy_optional_populated_path(pack_configs_dir / "datapacks", overrides_dir / "datapacks")
   copy_optional_populated_path(pack_configs_dir / "resourcepacks", overrides_dir / "resourcepacks")
@@ -523,16 +434,10 @@ def prepare_server_files(
     instance_dir=instance_dir,
     pack_configs_dir=pack_configs_dir,
     package_dir=package_dir,
+    ignore_patterns=CLIENT_ONLY_PATTERNS,
   )
-  copy_required_path(minecraft_instance_json, package_dir / "minecraftinstance.json")
+  copy_path(minecraft_instance_json, package_dir / "minecraftinstance.json")
   copy_server_support_files(repo_root=repo_root, package_dir=package_dir)
-  remove_matching_mods(
-    package_dir / "mods",
-    CLIENT_ONLY_PATTERNS,
-    "client-only",
-    quiet=quiet,
-    verbose=verbose,
-  )
 
   minecraft_version, neoforge_version = read_instance_versions(minecraft_instance_json)
 
@@ -555,38 +460,6 @@ def prepare_server_files(
   )
   cleanup_installer_files(package_dir, installer_name)
   patch_server_launchers(package_dir, neoforge_version)
-
-
-def prepare_package_files(
-  *,
-  package_type: str,
-  instance_dir: Path,
-  pack_configs_dir: Path,
-  repo_root: Path,
-  package_dir: Path,
-  quiet: bool,
-  verbose: bool,
-) -> None:
-  if package_type == "client":
-    prepare_client_files(
-      instance_dir=instance_dir,
-      pack_configs_dir=pack_configs_dir,
-      package_dir=package_dir,
-    )
-    return
-
-  if package_type == "server":
-    prepare_server_files(
-      repo_root=repo_root,
-      instance_dir=instance_dir,
-      pack_configs_dir=pack_configs_dir,
-      package_dir=package_dir,
-      quiet=quiet,
-      verbose=verbose,
-    )
-    return
-
-  fail(f"Unknown package type: {package_type}")
 
 
 def main() -> int:
@@ -617,23 +490,16 @@ def main() -> int:
 
   prepare_output_paths(list(zip_files.values()), args.force)
 
-  package_label = "client/server" if len(package_types) > 1 else package_types[0]
-
   try:
     instance_dir = get_curseforge_instance_dir()
   except (OSError, ValueError) as error:
     fail(str(error))
 
-  minecraft_instance_json = instance_dir / "minecraftinstance.json"
-  if not minecraft_instance_json.is_file():
-    fail(f"minecraftinstance.json not found: {minecraft_instance_json}")
-
   log(f"Using {instance_dir} from {CURSEFORGE_INSTANCE_DIR}", quiet=args.quiet)
-  log(f"Preparing {package_label} files", quiet=args.quiet)
 
   for package_type in package_types:
     zip_file = zip_files[package_type]
-    log(f"Output: {zip_file}", quiet=args.quiet)
+    log(f"Preparing {package_type} files...", quiet=args.quiet)
 
     with tempfile.TemporaryDirectory(
       prefix=f"varda-{package_type}-",
@@ -641,15 +507,21 @@ def main() -> int:
     ) as temp_dir_raw:
       package_dir = Path(temp_dir_raw)
 
-      prepare_package_files(
-        package_type=package_type,
-        instance_dir=instance_dir,
-        pack_configs_dir=pack_configs_dir,
-        repo_root=repo_root,
-        package_dir=package_dir,
-        quiet=args.quiet,
-        verbose=args.verbose,
-      )
+      if package_type == "client":
+          prepare_client_files(
+            instance_dir=instance_dir,
+            pack_configs_dir=pack_configs_dir,
+            package_dir=package_dir,
+          )
+      else:
+          prepare_server_files(
+            repo_root=repo_root,
+            instance_dir=instance_dir,
+            pack_configs_dir=pack_configs_dir,
+            package_dir=package_dir,
+            quiet=args.quiet,
+            verbose=args.verbose,
+          )
 
       zip_directory_contents(package_dir, zip_file)
 

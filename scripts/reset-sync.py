@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 import argparse
-import shutil
 import sys
 from pathlib import Path
 
+from lib.common import fail, remove_path, copy_path as lib_copy_path
 from lib.env import get_curseforge_instance_dir
 
 
@@ -56,45 +56,8 @@ class HelpFormatter(argparse.HelpFormatter):
     super().__init__(prog, max_help_position=34, width=88)
 
 
-def fail(message: str) -> None:
-  print(message, file=sys.stderr)
-  raise SystemExit(1)
-
-
 def is_blank(value: str | None) -> bool:
   return value is None or value.strip() == ""
-
-
-def copy_directory(source: Path, destination: Path) -> None:
-  destination.mkdir(parents=True, exist_ok=True)
-
-  for child in source.rglob("*"):
-    relative_path = child.relative_to(source)
-    target_path = destination / relative_path
-
-    if child.is_dir():
-      target_path.mkdir(parents=True, exist_ok=True)
-      continue
-
-    target_path.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(child, target_path)
-
-
-def copy_path_to_instance(source: Path, destination: Path) -> None:
-  if destination.exists() or destination.is_symlink():
-    if destination.is_dir() and not destination.is_symlink():
-      shutil.rmtree(destination)
-    else:
-      destination.unlink()
-
-  if source.is_dir():
-    print(f"Copying folder {source.name} ...")
-    copy_directory(source, destination)
-    return
-
-  print(f"Copying file {source.name} ...")
-  destination.parent.mkdir(parents=True, exist_ok=True)
-  shutil.copy2(source, destination)
 
 
 def refuse_filesystem_root(path: Path) -> None:
@@ -102,19 +65,6 @@ def refuse_filesystem_root(path: Path) -> None:
 
   if resolved.parent == resolved:
     fail(f"Refusing to use filesystem root as CURSEFORGE_INSTANCE_DIR: {resolved}")
-
-
-def delete_folder(path: Path) -> None:
-  if path.exists() or path.is_symlink():
-    if path.is_dir() and not path.is_symlink():
-      shutil.rmtree(path)
-    else:
-      path.unlink()
-
-
-def delete_file(path: Path) -> None:
-  if path.is_file() or path.is_symlink():
-    path.unlink()
 
 
 def iter_pack_config_sources(pack_configs_dir: Path) -> list[Path]:
@@ -219,7 +169,20 @@ def main() -> int:
         fail(f"Source folder not found: {source}")
 
       print(f"Copying folder {name} ...")
-      copy_directory(source, destination)
+      # Inline sync should NOT remove the destination first, it should merge
+      # Actually, lib_copy_path removes destination. 
+      # For inline, we might want a merge_path utility, but for now we'll stick to original behavior which was copy_directory (which merged).
+      # Let's re-implement a simple merge here if lib_copy_path is too destructive for "inline".
+      import shutil
+      destination.mkdir(parents=True, exist_ok=True)
+      for child in source.rglob("*"):
+          rel = child.relative_to(source)
+          dest_child = destination / rel
+          if child.is_dir():
+              dest_child.mkdir(parents=True, exist_ok=True)
+          else:
+              dest_child.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(child, dest_child)
 
     print()
     print("Inline sync complete!")
@@ -236,26 +199,26 @@ def main() -> int:
 
   for folder in folders:
     print(f"Deleting folder {folder} ...")
-    delete_folder(instance_dir / folder)
+    remove_path(instance_dir / folder)
 
   for file in files:
     print(f"Deleting file {file} ...")
-    delete_file(instance_dir / file)
+    remove_path(instance_dir / file)
 
   shaderpacks_path = instance_dir / "shaderpacks"
 
   if args.full_wipe and shaderpacks_path.is_dir():
     print("Deleting shaderpacks/*.txt files ...")
     for txt_file in shaderpacks_path.glob("*.txt"):
-      if txt_file.is_file() or txt_file.is_symlink():
-        txt_file.unlink()
+      remove_path(txt_file)
 
   print()
   print("Copying pack-configs to instance folder...")
 
   for source in iter_pack_config_sources(pack_configs_dir):
     destination = instance_dir / source.name
-    copy_path_to_instance(source, destination)
+    print(f"Syncing {source.name} ...")
+    lib_copy_path(source, destination)
 
   print()
   print("Modpack reset and synced!")

@@ -6,6 +6,7 @@ import zlib
 from pathlib import Path
 from typing import Any
 
+from lib.common import fail
 from lib.env import get_curseforge_instance_dir
 
 
@@ -24,11 +25,11 @@ def parse_args() -> argparse.Namespace:
 def list_save_dirs(instance_dir: Path) -> list[Path]:
     saves_dir = instance_dir / "saves"
     if not saves_dir.exists():
-        raise FileNotFoundError(f"Saves directory does not exist: {saves_dir}")
+        fail(f"Saves directory does not exist: {saves_dir}")
 
     saves = sorted(path for path in saves_dir.iterdir() if path.is_dir())
     if not saves:
-        raise FileNotFoundError(f"No saves found in: {saves_dir}")
+        fail(f"No saves found in: {saves_dir}")
 
     return saves
 
@@ -58,19 +59,25 @@ def decompress_payload(payload: bytes, compression: int) -> bytes:
     raise ValueError(f"Unsupported compression type: {compression}")
 
 
-def read_region_chunk(region_data: bytes, local_x: int, local_z: int) -> bytes | None:
-    index = local_x + local_z * 32
-    offset_entry = region_data[index * 4:index * 4 + 4]
-    offset = int.from_bytes(offset_entry[:3], "big")
+def read_region_chunk(region_path: Path, local_x: int, local_z: int) -> bytes | None:
+    with region_path.open("rb") as f:
+        index = (local_x + local_z * 32) * 4
+        f.seek(index)
+        offset_entry = f.read(4)
+        offset = int.from_bytes(offset_entry[:3], "big")
 
-    if offset == 0:
-        return None
+        if offset == 0:
+            return None
 
-    chunk_start = offset * 4096
-    length = struct.unpack(">I", region_data[chunk_start:chunk_start + 4])[0]
-    compression = region_data[chunk_start + 4]
-    payload = region_data[chunk_start + 5:chunk_start + 4 + length]
-    return decompress_payload(payload, compression)
+        chunk_start = offset * 4096
+        f.seek(chunk_start)
+        length_bytes = f.read(4)
+        if not length_bytes:
+            return None
+        length = struct.unpack(">I", length_bytes)[0]
+        compression = f.read(1)[0]
+        payload = f.read(length - 1)
+        return decompress_payload(payload, compression)
 
 
 class NbtReader:
@@ -198,9 +205,7 @@ def validate_region_files(
         targets.append((save_dir, region_file, local_x, local_z, chunk_x, chunk_z))
 
     if missing:
-        raise FileNotFoundError(
-            "Missing region file for requested coordinates:\n" + "\n".join(missing)
-        )
+        fail("Missing region file for requested coordinates:\n" + "\n".join(missing))
 
     return targets
 
@@ -221,12 +226,14 @@ def scan_saves(block_x: int, block_z: int) -> int:
     for index, (save_dir, region_file, local_x, local_z, chunk_x, chunk_z) in enumerate(
         targets
     ):
-        raw = read_region_chunk(region_file.read_bytes(), local_x, local_z)
+        raw = read_region_chunk(region_file, local_x, local_z)
         if raw is None:
-            raise ValueError(
-                f"No chunk data for {save_dir.name} at chunk {chunk_x},{chunk_z} "
-                f"({region_file.name}, local {local_x},{local_z})."
-            )
+            # We don't fail here because some saves might not have the chunk generated
+            if index:
+                print()
+            print(f"{save_dir.name}:")
+            print("  (chunk not generated)")
+            continue
 
         if index:
             print()

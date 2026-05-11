@@ -7,7 +7,6 @@ import errno
 import http.client
 import json
 import mimetypes
-import re
 import shlex
 import sys
 import time
@@ -16,11 +15,12 @@ from pathlib import Path
 from typing import Any, Iterator
 from urllib.parse import urlsplit
 
+from lib.common import fail, slugify_version, read_json
 from lib.env import REPO_ROOT, get_curseforge_api_token
 
 
 DEFAULT_BASE_URL = "https://minecraft.curseforge.com"
-UPLOAD_CHUNK_SIZE = 1024 * 1024
+UPLOAD_CHUNK_SIZE = 8 * 1024 * 1024  # Increased to 8MB
 
 UPLOAD_DIR = REPO_ROOT / "tmp"
 
@@ -32,8 +32,8 @@ DEFAULT_UPLOAD_MAX_ATTEMPTS = 3
 DEFAULT_UPLOAD_RETRY_BASE_DELAY = 5
 MAX_CURSEFORGE_UPLOAD_SIZE = 500 * 1000 * 1000
 # CurseForge game version IDs from /api/game/versions:
-# 12735 = Minecraft 1.21.1, gameVersionTypeID 1
-# 10150 = NeoForge, gameVersionTypeID 68441
+# 11779 = Minecraft 1.21.1
+# 10150 = NeoForge
 GAME_VERSIONS = [11779, 10150]
 
 
@@ -43,27 +43,13 @@ class CurseForgeUploadError(RuntimeError):
     self.http_status = http_status
 
 
-def slugify_version(value: str) -> str:
-  value = value.strip()
-
-  if not value:
-    raise RuntimeError("Version cannot be empty")
-
-  if not re.fullmatch(r"[A-Za-z0-9._-]+", value):
-    raise RuntimeError(
-      "Version may only contain letters, numbers, dots, underscores, and hyphens"
-    )
-
-  return value
-
-
 def build_artifact_path(
   artifact_type: str,
   version: str,
   release_type: str,
 ) -> Path:
   if artifact_type not in {"client", "server"}:
-    raise RuntimeError(f"Unknown artifact type: {artifact_type}")
+    fail(f"Unknown artifact type: {artifact_type}")
 
   filename = f"{PACK_SLUG}-{artifact_type}-{version}-{release_type}.zip"
   return UPLOAD_DIR / filename
@@ -77,7 +63,7 @@ def validate_upload_file_size(file_path: Path) -> None:
   size = file_path.stat().st_size
 
   if size > MAX_CURSEFORGE_UPLOAD_SIZE:
-    raise RuntimeError(
+    fail(
       "upload file is too large for CurseForge API: "
       f"{file_path} is {format_file_size(size)}; "
       f"limit is {format_file_size(MAX_CURSEFORGE_UPLOAD_SIZE)}. "
@@ -95,7 +81,7 @@ def build_metadata(
   parent_file_id: int | None = None,
 ) -> dict[str, Any]:
   if artifact_type not in {"client", "server"}:
-    raise RuntimeError(f"Unknown artifact type: {artifact_type}")
+    fail(f"Unknown artifact type: {artifact_type}")
 
   metadata: dict[str, Any] = {
     "changelog": changelog,
@@ -110,7 +96,7 @@ def build_metadata(
     return metadata
 
   if parent_file_id is None:
-    raise RuntimeError("Server uploads require a parent file ID")
+    fail("Server uploads require a parent file ID")
 
   metadata["displayName"] = f"{PACK_DISPLAY_NAME} {version} Server Files"
   metadata["parentFileID"] = parent_file_id
@@ -120,9 +106,7 @@ def build_metadata(
 def require_uploaded_file_id(result: dict[str, Any]) -> int:
   file_id = result.get("id")
   if not isinstance(file_id, int):
-    raise RuntimeError(
-      f"CurseForge upload response did not include numeric id: {result}"
-    )
+    fail(f"CurseForge upload response did not include numeric id: {result}")
   return file_id
 
 
@@ -139,7 +123,7 @@ def upload_artifact(
   file_path = build_artifact_path(artifact_type, version, release_type)
 
   if not file_path.is_file():
-    raise RuntimeError(f"upload file not found: {file_path}")
+    fail(f"upload file not found: {file_path}")
 
   file_size = file_path.stat().st_size
   validate_upload_file_size(file_path)
@@ -286,10 +270,10 @@ def url_request_path(url: str) -> tuple[str, str, str]:
   parsed = urlsplit(url)
 
   if parsed.scheme not in {"http", "https"}:
-    raise RuntimeError(f"Unsupported upload URL scheme: {parsed.scheme}")
+    fail(f"Unsupported upload URL scheme: {parsed.scheme}")
 
   if not parsed.netloc:
-    raise RuntimeError(f"Upload URL is missing a host: {url}")
+    fail(f"Upload URL is missing a host: {url}")
 
   path = parsed.path or "/"
   if parsed.query:
@@ -305,7 +289,7 @@ def parse_upload_response(raw: str) -> dict[str, Any]:
   try:
     return json.loads(raw)
   except json.JSONDecodeError as err:
-    raise RuntimeError(f"CurseForge upload returned invalid JSON:\n{raw}") from err
+    fail(f"CurseForge upload returned invalid JSON:\n{raw}")
 
 
 def upload_file_once(
@@ -492,18 +476,16 @@ def main() -> int:
     version = slugify_version(args.version)
 
     if args.client_only and args.server_only:
-      raise RuntimeError("--client-only and --server-only are mutually exclusive")
+      fail("--client-only and --server-only are mutually exclusive")
 
     if args.client_only and args.parent_file_id is not None:
-      raise RuntimeError("--client-only does not accept --parent-file-id")
+      fail("--client-only does not accept --parent-file-id")
 
     if args.server_only and args.parent_file_id is None:
-      raise RuntimeError("--server-only requires --parent-file-id")
+      fail("--server-only requires --parent-file-id")
 
     if not args.client_only and not args.server_only and args.parent_file_id is not None:
-      raise RuntimeError(
-        "Default client+server uploads do not accept --parent-file-id"
-      )
+      fail("Default client+server uploads do not accept --parent-file-id")
 
   except (OSError, RuntimeError, ValueError) as err:
     print(f"error: {err}", file=sys.stderr)

@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 from zipfile import ZipFile
 
+from lib.common import fail, read_json, write_json
 from lib.env import get_curseforge_instance_dir
 
 
@@ -84,7 +85,7 @@ DEFAULT_LOCALES = (
 ADVANCEMENT_RE = re.compile(
     r"^data/(?P<namespace>[^/]+)/advancements?/(?P<path>.+)\.json$"
 )
-LANG_RE = re.compile(r"^assets/[^/]+/lang/(?P<locale>[a-z0-9_-]+)\.json$")
+LANG_RE = re.compile(r"^assets/(?P<namespace>[^/]+)/lang/(?P<locale>[a-z0-9_-]+)\.json$")
 
 VALID_LOCALES: frozenset[str] | None = None
 
@@ -98,9 +99,9 @@ def get_valid_locales() -> frozenset[str]:
     if VALID_LOCALES is not None:
         return VALID_LOCALES
 
-    data = json.loads(LOCALES_PATH.read_text(encoding="utf-8"))
+    data = read_json(LOCALES_PATH)
     if not isinstance(data, list):
-        raise ValueError(f"Expected locale list in {LOCALES_PATH}")
+        fail(f"Expected locale list in {LOCALES_PATH}")
 
     valid = set(DEFAULT_LOCALES)
     for entry in data:
@@ -190,18 +191,25 @@ def parse_args() -> argparse.Namespace:
     return args
 
 
-def read_json(path: Path) -> Any:
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
 def find_minecraft_root(instance_dir: Path) -> Path:
+    # Check parent directories for common CurseForge layout
     for path in (instance_dir, *instance_dir.parents):
         if path.name == "minecraft" and (path / "Install").exists():
             return path
+    
+    # Check common system paths if instance discovery fails
+    # This is a bit speculative but helps in non-standard setups
+    home = Path.home()
+    common_roots = [
+        home / "curseforge/minecraft",
+        home / "AppData/Roaming/curseforge/minecraft",
+        home / ".local/share/curseforge/minecraft",
+    ]
+    for root in common_roots:
+        if root.exists() and (root / "Install").exists():
+            return root
 
-    raise FileNotFoundError(
-        f"Could not find CurseForge minecraft root above instance directory: {instance_dir}"
-    )
+    fail(f"Could not find CurseForge minecraft root above instance directory: {instance_dir}")
 
 
 def find_manifest(instance_dir: Path) -> Path:
@@ -209,9 +217,7 @@ def find_manifest(instance_dir: Path) -> Path:
         if path.exists():
             return path
 
-    raise FileNotFoundError(
-        f"No manifest.json found in instance directory or repo root: {instance_dir}"
-    )
+    fail(f"No manifest.json found in instance directory or repo root: {instance_dir}")
 
 
 def get_minecraft_version(instance_dir: Path) -> str:
@@ -219,10 +225,10 @@ def get_minecraft_version(instance_dir: Path) -> str:
     try:
         version = manifest["minecraft"]["version"]
     except KeyError as error:
-        raise KeyError("manifest.json is missing minecraft.version") from error
+        fail("manifest.json is missing minecraft.version")
 
     if not isinstance(version, str) or not version:
-        raise ValueError("manifest.json minecraft.version must be a non-empty string")
+        fail("manifest.json minecraft.version must be a non-empty string")
 
     return version
 
@@ -231,7 +237,7 @@ def find_minecraft_jar(instance_dir: Path, version: str) -> Path:
     minecraft_root = find_minecraft_root(instance_dir)
     jar_path = minecraft_root / "Install" / "versions" / version / f"{version}.jar"
     if not jar_path.exists():
-        raise FileNotFoundError(f"Minecraft jar does not exist: {jar_path}")
+        fail(f"Minecraft jar does not exist: {jar_path}")
 
     return jar_path
 
@@ -280,14 +286,12 @@ def find_default_mod_jars(instance_dir: Path) -> list[Path]:
     mods_dir = instance_dir / "mods"
 
     if not mods_dir.exists():
-        raise FileNotFoundError(f"Mods directory does not exist: {mods_dir}")
+        fail(f"Mods directory does not exist: {mods_dir}")
 
     for pattern in DEFAULT_MOD_PATTERNS:
         matches = sorted(mods_dir.glob(pattern))
         if not matches:
-            raise FileNotFoundError(
-                f"No mod jars matched pattern {pattern!r} in {mods_dir}"
-            )
+            fail(f"No mod jars matched pattern {pattern!r} in {mods_dir}")
         jars.extend(matches)
 
     return sorted(set(jars))
@@ -313,15 +317,10 @@ def default_mod_output(jar_path: Path) -> tuple[str | None, str | None]:
 def validate_jar(path: Path) -> Path:
     jar_path = path.expanduser()
     if not jar_path.exists():
-        raise FileNotFoundError(f"Jar does not exist: {jar_path}")
+        fail(f"Jar does not exist: {jar_path}")
     if not jar_path.is_file():
-        raise FileNotFoundError(f"Jar path is not a file: {jar_path}")
+        fail(f"Jar path is not a file: {jar_path}")
     return jar_path
-
-
-def read_zip_json(zip_file: ZipFile, name: str) -> Any:
-    with zip_file.open(name) as file:
-        return json.load(file)
 
 
 def normalize_locales(locales: list[str] | None) -> tuple[str, ...]:
@@ -341,57 +340,24 @@ def normalize_locales(locales: list[str] | None) -> tuple[str, ...]:
     return tuple(normalized)
 
 
-def load_zip_translations(
-    zip_file: ZipFile,
-    locales: tuple[str, ...],
-) -> dict[str, dict[str, str]]:
-    translations_by_locale = {locale: {} for locale in locales}
-    locale_set = set(locales)
-
-    for name in sorted(zip_file.namelist()):
-        match = LANG_RE.match(name)
-        if not match:
-            continue
-
-        locale = normalize_locale_code(match.group("locale"))
-        if locale not in locale_set:
-            continue
-
-        try:
-            translations = read_zip_json(zip_file, name)
-        except json.JSONDecodeError:
-            continue
-
-        if isinstance(translations, dict):
-            translations_by_locale[locale].update(
-                {str(key): str(value) for key, value in translations.items()}
-            )
-
-    return translations_by_locale
-
-
-def asset_object_path(minecraft_install: Path, asset_hash: str) -> Path:
-    return minecraft_install / "assets" / "objects" / asset_hash[:2] / asset_hash
-
-
 def load_minecraft_asset_translations(
     minecraft_install: Path | None,
     jar_path: Path,
     locales: tuple[str, ...],
 ) -> dict[str, dict[str, str]]:
+    translations_by_locale = {locale: {} for locale in locales}
     if minecraft_install is None:
-        return {locale: {} for locale in locales}
+        return translations_by_locale
 
     index_path = find_asset_index_path(jar_path, minecraft_install)
     if index_path is None:
-        return {locale: {} for locale in locales}
+        return translations_by_locale
 
     index = read_json(index_path)
     objects = index.get("objects")
     if not isinstance(objects, dict):
-        return {locale: {} for locale in locales}
+        return translations_by_locale
 
-    translations_by_locale = {locale: {} for locale in locales}
     for locale in locales:
         entry = objects.get(f"minecraft/lang/{locale}.json")
         if not isinstance(entry, dict):
@@ -399,7 +365,7 @@ def load_minecraft_asset_translations(
         asset_hash = entry.get("hash")
         if not isinstance(asset_hash, str):
             continue
-        lang_path = asset_object_path(minecraft_install, asset_hash)
+        lang_path = minecraft_install / "assets" / "objects" / asset_hash[:2] / asset_hash
         if not lang_path.exists():
             continue
         translations = read_json(lang_path)
@@ -539,21 +505,46 @@ def collect_advancements(
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     records = []
     skipped = 0
+    locale_set = set(locales)
+    translations_from_zip = {locale: {} for locale in locales}
+    advancement_files = []
 
     with ZipFile(jar_path) as zip_file:
-        names = zip_file.namelist()
-        translations_by_locale = merge_translations(
-            load_minecraft_asset_translations(minecraft_install, jar_path, locales),
-            load_zip_translations(zip_file, locales),
-        )
-
-        for name in sorted(names):
-            if not ADVANCEMENT_RE.match(name):
+        for name in sorted(zip_file.namelist()):
+            # Collect translations
+            lang_match = LANG_RE.match(name)
+            if lang_match:
+                locale = normalize_locale_code(lang_match.group("locale"))
+                if locale in locale_set:
+                    try:
+                        with zip_file.open(name) as f:
+                            translations = json.load(f)
+                            if isinstance(translations, dict):
+                                translations_from_zip[locale].update(
+                                    {str(key): str(value) for key, value in translations.items()}
+                                )
+                    except (json.JSONDecodeError, OSError):
+                        continue
                 continue
 
-            data = read_zip_json(zip_file, name)
+            # Collect advancement candidates
+            if ADVANCEMENT_RE.match(name):
+                advancement_files.append(name)
+
+        translations_by_locale = merge_translations(
+            load_minecraft_asset_translations(minecraft_install, jar_path, locales),
+            translations_from_zip,
+        )
+
+        for name in advancement_files:
+            try:
+                with zip_file.open(name) as f:
+                    data = json.load(f)
+            except (json.JSONDecodeError, OSError):
+                continue
+
             if not isinstance(data, dict):
-                raise ValueError(f"Expected advancement JSON object in {name}")
+                continue
 
             if not isinstance(data.get("display"), dict):
                 skipped += 1
@@ -572,13 +563,14 @@ def collect_advancements(
 
 def has_displayed_advancements(jar_path: Path) -> bool:
     with ZipFile(jar_path) as zip_file:
-        for name in sorted(zip_file.namelist()):
+        for name in zip_file.namelist():
             if not ADVANCEMENT_RE.match(name):
                 continue
 
             try:
-                data = read_zip_json(zip_file, name)
-            except json.JSONDecodeError:
+                with zip_file.open(name) as f:
+                    data = json.load(f)
+            except (json.JSONDecodeError, OSError):
                 continue
 
             if isinstance(data, dict) and isinstance(data.get("display"), dict):
@@ -590,7 +582,7 @@ def has_displayed_advancements(jar_path: Path) -> bool:
 def discover_mod_jars(instance_dir: Path) -> list[Path]:
     mods_dir = instance_dir / "mods"
     if not mods_dir.exists():
-        raise FileNotFoundError(f"Mods directory does not exist: {mods_dir}")
+        fail(f"Mods directory does not exist: {mods_dir}")
 
     known_jars = find_known_default_mod_jars(mods_dir)
     discovered = []
@@ -614,14 +606,6 @@ def output_slug(records: list[dict[str, Any]], fallback: str) -> str:
 
 def output_title(source_slug: str) -> str:
     return OUTPUT_TITLES.get(source_slug, source_slug)
-
-
-def write_json(path: Path, value: Any) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-    )
 
 
 def criteria_summary(record: dict[str, Any]) -> str:
