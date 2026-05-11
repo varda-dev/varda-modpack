@@ -193,7 +193,7 @@ def is_retryable_upload_error(err: BaseException) -> bool:
 
 
 def is_retryable_http_status(status: int) -> bool:
-  return status >= 500
+  return status >= 500 or status == 429
 
 
 def retry_delay_for_attempt(

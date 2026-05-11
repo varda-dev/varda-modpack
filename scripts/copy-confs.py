@@ -32,7 +32,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> int:
-  args = parse_args()
+  parse_args()
   try:
     script_dir = Path(__file__).resolve().parent
     repo_root = script_dir.parent
@@ -50,7 +50,7 @@ def main() -> int:
       name = config_copy["name"]
       relative_path = config_copy["relative_path"]
       path_type = config_copy["path_type"]
-      
+
       source = instance_dir / "config" / relative_path
       destination = destination_parent / relative_path
 

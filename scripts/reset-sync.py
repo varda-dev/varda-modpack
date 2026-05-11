@@ -3,10 +3,11 @@
 from __future__ import annotations
 
 import argparse
+import shutil
 import sys
 from pathlib import Path
 
-from lib.common import fail, remove_path, copy_path as lib_copy_path
+from lib.common import fail, is_blank, remove_path, copy_path as lib_copy_path
 from lib.env import get_curseforge_instance_dir
 
 
@@ -56,10 +57,6 @@ class HelpFormatter(argparse.HelpFormatter):
     super().__init__(prog, max_help_position=34, width=88)
 
 
-def is_blank(value: str | None) -> bool:
-  return value is None or value.strip() == ""
-
-
 def refuse_filesystem_root(path: Path) -> None:
   resolved = path.resolve(strict=False)
 
@@ -71,11 +68,7 @@ def iter_pack_config_sources(pack_configs_dir: Path) -> list[Path]:
   if not pack_configs_dir.is_dir():
     fail(f"pack-configs folder not found: {pack_configs_dir}")
 
-  return sorted(
-    child
-    for child in pack_configs_dir.iterdir()
-    if child.name not in {".", ".."}
-  )
+  return sorted(pack_configs_dir.iterdir())
 
 
 def main() -> int:
@@ -138,8 +131,6 @@ def main() -> int:
     if not instance_dir.is_dir():
       fail(f"Target Directory does not exist: {instance_dir}")
 
-    instance_dir = instance_dir.resolve()
-
   if args.inline and args.full_wipe:
     fail("-i/--inline cannot be combined with -f/--full-wipe.")
 
@@ -169,11 +160,7 @@ def main() -> int:
         fail(f"Source folder not found: {source}")
 
       print(f"Copying folder {name} ...")
-      # Inline sync should NOT remove the destination first, it should merge
-      # Actually, lib_copy_path removes destination. 
-      # For inline, we might want a merge_path utility, but for now we'll stick to original behavior which was copy_directory (which merged).
-      # Let's re-implement a simple merge here if lib_copy_path is too destructive for "inline".
-      import shutil
+      # Merge into destination without removing existing files (unlike lib_copy_path).
       destination.mkdir(parents=True, exist_ok=True)
       for child in source.rglob("*"):
           rel = child.relative_to(source)

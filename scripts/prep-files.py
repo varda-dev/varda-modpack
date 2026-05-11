@@ -87,10 +87,6 @@ def run_command(command: list[str], cwd: Path, *, quiet: bool, verbose: bool) ->
     if command and command[0] == "java":
       fail("Java was not found. Java 21 is required.")
     fail(f"Command not found: {' '.join(command)}")
-  except subprocess.CalledProcessError as error:
-    fail(
-      f"Command failed with exit code {error.returncode}: {' '.join(command)}"
-    )
 
 
 def current_installed_manifest_files(
@@ -309,7 +305,7 @@ def copy_common_pack_files(
 ) -> None:
   copy_path(pack_configs_dir / "config", package_dir / "config")
   if (pack_configs_dir / "defaultconfigs").exists():
-      copy_path(pack_configs_dir / "defaultconfigs", package_dir / "defaultconfigs")
+    copy_path(pack_configs_dir / "defaultconfigs", package_dir / "defaultconfigs")
   copy_path(pack_configs_dir / "kubejs", package_dir / "kubejs")
   copy_path(instance_dir / "mods", package_dir / "mods", ignore_patterns=ignore_patterns)
 
@@ -318,10 +314,10 @@ def copy_server_support_files(*, repo_root: Path, package_dir: Path) -> None:
   server_files_dir = repo_root / "server-files"
   copy_path(server_files_dir / "README-SERVER.txt", package_dir / "README-SERVER.txt")
   if (server_files_dir / "server.properties").exists():
-      copy_path(
-        server_files_dir / "server.properties",
-        package_dir / "server.properties",
-      )
+    copy_path(
+      server_files_dir / "server.properties",
+      package_dir / "server.properties",
+    )
 
 
 def patch_server_launchers(package_dir: Path, neoforge_version: str) -> None:
@@ -490,20 +486,20 @@ def main() -> int:
       package_dir = Path(temp_dir_raw)
 
       if package_type == "client":
-          prepare_client_files(
-            instance_dir=instance_dir,
-            pack_configs_dir=pack_configs_dir,
-            package_dir=package_dir,
-          )
+        prepare_client_files(
+          instance_dir=instance_dir,
+          pack_configs_dir=pack_configs_dir,
+          package_dir=package_dir,
+        )
       else:
-          prepare_server_files(
-            repo_root=repo_root,
-            instance_dir=instance_dir,
-            pack_configs_dir=pack_configs_dir,
-            package_dir=package_dir,
-            quiet=args.quiet,
-            verbose=args.verbose,
-          )
+        prepare_server_files(
+          repo_root=repo_root,
+          instance_dir=instance_dir,
+          pack_configs_dir=pack_configs_dir,
+          package_dir=package_dir,
+          quiet=args.quiet,
+          verbose=args.verbose,
+        )
 
       zip_directory_contents(package_dir, zip_file)
 
