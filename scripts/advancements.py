@@ -198,7 +198,7 @@ def find_minecraft_root(instance_dir: Path) -> Path:
     for path in (instance_dir, *instance_dir.parents):
         if path.name == "minecraft" and (path / "Install").exists():
             return path
-    
+
     # Check common system paths if instance discovery fails
     # This is a bit speculative but helps in non-standard setups
     home = Path.home()

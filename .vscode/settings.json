@@ -10,7 +10,8 @@
     "*.snbt": "snbt",
     "*.toml": "toml",
     "*.ps1": "powershell",
-    "*.py": "python"
+    "*.py": "python",
+    "*.go": "golang"
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -49,6 +50,9 @@
     "files.eol": "\r\n"
   },
   "[python]": {
+    "files.eol": "\n"
+  },
+  "[golang]": {
     "files.eol": "\n"
   }
 }

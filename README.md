@@ -25,11 +25,10 @@ Change to `/` slashes if on Linux.
   - `(none)` means that save has chunk data at those coordinates, but no structure IDs are recorded for that chunk.
 
 ### Uploading to Curseforge
-- Build both release zips with `.\scripts\prep-files.py --b -v 0.1.2 -r beta`
-  - Add `-q` / `--quiet` to supress output or `--verbose` to stream installer output.
-- Upload both files with `.\scripts\cf-upload.py -v 0.1.2 -r beta -c "A meaningful comment."`
-- Upload only the client file with `.\scripts\cf-upload.py --client-only -v 0.1.2 -r beta -c "A meaningful comment."`
-- Upload only the server file with `.\scripts\cf-upload.py --server-only --parent-file-id 1234567 -v 0.1.2 -r beta -c "Server files."`
+- Build client zip and server installers with `.\scripts\prep-files.py --b -v 0.1.2 -r beta`
+  - Add `-q` / `--quiet` to suppress output.
+- Upload release files with `.\scripts\cf-upload.py -v 0.1.2 -r beta -c "A meaningful comment."`
+- Release artifacts land in `tmp/release/`. The upload script sends the client zip first and then uploads each server installer as a CurseForge additional file.
 
 ## Config Layout
 - `pack-configs/config` is the main Minecraft `config` directory.

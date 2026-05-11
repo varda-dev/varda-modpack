@@ -1,22 +1,20 @@
-# Server Files
+# Server Payload
 
-This repo includes `server-files/` for text that gets bundled into the generated
-server zip.
+`cmd/varda-server-installer/payload/` holds text bundled into generated server installer binaries.
 
-`README-SERVER.txt` is the user-facing file that ends up in the archive root.
-Keep it brief and practical, since it is meant to be read after extraction.
+`README-SERVER.txt` is the user-facing file that lands in server root. Keep it short and practical.
 
-`server.properties` is optional. If present, `scripts/prep-files.py --server`
-will copy it into the package root alongside the generated NeoForge files.
+The server build process:
+- copies selected pack files into `cmd/varda-server-installer/payload/`
+- embeds that payload into Go installer binary
+- installs NeoForge into target server directory
+- patches or creates `run.sh` and `run.bat`
+- replaces `user_jvm_args.txt` with Varda defaults
+- writes runtime metadata to `.varda/`
+- removes installer artifacts after successful NeoForge install
+- downloads server mod jars from `.varda/mods-list.txt`
+- removes unmanaged files and directories from `mods/`
+- supports `--download-workers 6` to speed mod downloads
 
-The server build process itself:
-- copies the selected pack files into a temp package directory
-- installs the NeoForge server into that directory
-- patches the generated launch scripts to start in `nogui`
-- replaces `user_jvm_args.txt` with the Varda defaults
-- removes installer artifacts before zipping the result
-- runs quietly by default, with `--verbose` available if you want the installer output
-
-The generated archive should still include the standard pack content:
-`libraries/`, `mods/`, `config/`, `kubejs/`, `minecraftinstance.json`,
-`run.sh`, `run.bat`, `user_jvm_args.txt`, and `README-SERVER.txt`.
+Generated payload should still include standard pack content:
+`config/`, `kubejs/`, `README-SERVER.txt`, plus embedded metadata that lands in `.varda/mods-list.txt`, `.varda/neoforge-url.txt`, and `.varda/installer-version.txt`.

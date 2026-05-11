@@ -3,24 +3,22 @@
 ## Project Scripts
 
 ### `scripts/prep-files.py`
-Builds release zips in `tmp/`.
+Builds release artifacts in `tmp/release/`.
 
-- `--client` builds `tmp/varda-client-<version>-<release>.zip`
-- `--server` builds `tmp/varda-server-<version>-<release>.zip`
-- `--both` builds both zips in one run
-- `--quiet` prints only errors and the final zip path(s)
+- `--client` builds `tmp/release/varda-client-<version>-<release>.zip`
+- `--server` builds `tmp/release/varda-server-installer-<version>-<release>-<os>-<arch>` binaries
+- `--both` builds the client zip and all server installer binaries in one run
+- `--quiet` prints only errors and the final output path(s)
 - `--verbose` prints detailed progress and streams subprocess output
 
-The server build installs NeoForge into the temporary package directory, patches the generated launchers, and includes `server-files/README-SERVER.txt`.
+The server build prepares `cmd/varda-server-installer/payload/`, embeds it into cross-compiled Go installer binaries, and keeps `README-SERVER.txt` in that payload directory.
 
 ### `scripts/cf-upload.py`
-Uploads the release zips to CurseForge.
+Uploads the client zip and server installer additional files to CurseForge.
 
-- Default behavior uploads both client and server
+- Default behavior uploads the client zip first and then uploads all server installer binaries as CurseForge additional files
 - `--client-only` uploads only the client zip
-- `--server-only --parent-file-id <id>` uploads only the server zip as an additional file
 - `--dry-run` prints the planned upload metadata without making API calls
-- `--child-upload-delay <seconds>` waits between the client upload and the server upload
 
 ### `scripts/reset-sync.py`
 Resets a CurseForge instance and copies the repo's synced pack files into it.

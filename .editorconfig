@@ -18,7 +18,7 @@ tab_width = 2
 [*.ps1]
 end_of_line = crlf
 
-[*.{ini,js,json,json5,properties,snbt,toml,py}]
+[*.{ini,js,json,json5,properties,snbt,toml,py,go}]
 end_of_line = lf
 
 [*.md]
