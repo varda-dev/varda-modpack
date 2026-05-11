@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+import argparse
 import sys
 from pathlib import Path
 
-from lib.common import fail, remove_path, copy_path as lib_copy_path
+from lib.common import fail, copy_path as lib_copy_path
 from lib.env import get_curseforge_instance_dir
 
 
@@ -23,7 +24,15 @@ CONFIG_COPIES = [
 ]
 
 
+def parse_args() -> argparse.Namespace:
+  parser = argparse.ArgumentParser(
+    description="Copy specific config files from the Minecraft instance into the repository."
+  )
+  return parser.parse_args()
+
+
 def main() -> int:
+  args = parse_args()
   try:
     script_dir = Path(__file__).resolve().parent
     repo_root = script_dir.parent

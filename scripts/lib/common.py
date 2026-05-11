@@ -63,3 +63,22 @@ def remove_path(path: Path) -> None:
         shutil.rmtree(path)
     else:
         path.unlink()
+
+
+def copy_path(source: Path, destination: Path, *, ignore_patterns: list[str] | None = None) -> None:
+    if not source.exists():
+        fail(f"Source not found: {source}")
+
+    remove_path(destination)
+
+    if source.is_dir():
+        if ignore_patterns:
+            def ignore_func(path, names):
+                import fnmatch
+                return [name for name in names if any(fnmatch.fnmatchcase(name, p) for p in ignore_patterns)]
+            shutil.copytree(source, destination, ignore=ignore_func)
+        else:
+            shutil.copytree(source, destination)
+    else:
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, destination)

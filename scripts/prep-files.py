@@ -12,7 +12,7 @@ import urllib.request
 import zipfile
 from pathlib import Path
 
-from lib.common import fail, log, verbose_log, is_blank, read_json, write_json, remove_path
+from lib.common import fail, log, verbose_log, is_blank, read_json, write_json, remove_path, copy_path
 from lib.env import CURSEFORGE_INSTANCE_DIR, get_curseforge_instance_dir
 
 
@@ -48,24 +48,6 @@ class HelpFormatter(argparse.HelpFormatter):
 
 def matches_any_pattern(file_name: str, patterns: list[str]) -> bool:
   return any(fnmatch.fnmatchcase(file_name, pattern) for pattern in patterns)
-
-
-def copy_path(source: Path, destination: Path, *, ignore_patterns: list[str] | None = None) -> None:
-  if not source.exists():
-    fail(f"Source not found: {source}")
-
-  remove_path(destination)
-
-  if source.is_dir():
-    if ignore_patterns:
-        def ignore_func(path, names):
-            return [name for name in names if matches_any_pattern(name, ignore_patterns)]
-        shutil.copytree(source, destination, ignore=ignore_func)
-    else:
-        shutil.copytree(source, destination)
-  else:
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(source, destination)
 
 
 def copy_optional_populated_path(source: Path, destination: Path) -> None:
