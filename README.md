@@ -12,13 +12,12 @@ CURSEFORGE_API_TOKEN=""
 These don't actually get injected into the environment, just read by the scripts.  
 
 ## Scripts
-Change to `/` slashes if on Linux.
-
 Scripts require Python. See [docs/PYTHON.md](docs/PYTHON.md) for help.  
 
-### During Developemtn
+Change to `/` slashes if on Linux.  
+### During Development
+- All scripts come with `-h` / `--help`
 - Run `.\scripts\reset-sync.py` to clean up the modpack folder and copy over this repo's changes.
-  - Use `.\scripts\reset-sync.py -h` for help.
 - Run `.\scripts\locate.py X Z` to inspect the save chunk containing those block coordinates across every save in the instance from `CURSEFORGE_INSTANCE_DIR`.
   - `X` and `Z` are block coordinates, not chunk coordinates. The script converts them to the matching chunk and region file.
   - It reads each save's `.mca` region data directly and reports structure IDs recorded in the chunk's `structures.starts` and `structures.References` NBT.
@@ -26,8 +25,8 @@ Scripts require Python. See [docs/PYTHON.md](docs/PYTHON.md) for help.
   - `(none)` means that save has chunk data at those coordinates, but no structure IDs are recorded for that chunk.
 
 ### Uploading to Curseforge
-- Build both release zips with `.\scripts\prep-files.py --both -v 0.1.2 -r beta`
-  - Add `--quiet` for automation or `--verbose` to stream installer output.
+- Build both release zips with `.\scripts\prep-files.py --b -v 0.1.2 -r beta`
+  - Add `-q` / `--quiet` to supress output or `--verbose` to stream installer output.
 - Upload both files with `.\scripts\cf-upload.py -v 0.1.2 -r beta -c "A meaningful comment."`
 - Upload only the client file with `.\scripts\cf-upload.py --client-only -v 0.1.2 -r beta -c "A meaningful comment."`
 - Upload only the server file with `.\scripts\cf-upload.py --server-only --parent-file-id 1234567 -v 0.1.2 -r beta -c "Server files."`
