@@ -5,9 +5,11 @@ Create a .env file in the repo root with:
 ```
 CURSEFORGE_INSTANCE_DIR=""
 CURSEFORGE_API_TOKEN=""
+GITHUB_RELEASES_PAT=""
 ```
 - Instance directory example: `C:\Users\varda-dev\curseforge\minecraft\Instances\Varda`  
 - Curseforge API token can be found/generated at [https://legacy.curseforge.com/account/api-tokens](https://legacy.curseforge.com/account/api-tokens)  
+- `scripts/gh-upload.py` hardcodes the GitHub repository to `varda-dev/varda-modpack`.
 
 These don't actually get injected into the environment, just read by the scripts.  
 
@@ -24,11 +26,13 @@ Change to `/` slashes if on Linux.
   - Results are actual structure data for that chunk, not broad text matches from unrelated chunk data like block entities, attachments, or mod state.
   - `(none)` means that save has chunk data at those coordinates, but no structure IDs are recorded for that chunk.
 
-### Uploading to Curseforge
-- Build client zip and server installers with `.\scripts\prep-files.py --b -v 0.1.2 -r beta`
+### Release Publishing
+- Build release artifacts with `.\scripts\prep-files.py --b -v 0.1.2 -r beta`
   - Add `-q` / `--quiet` to suppress output.
-- Upload release files with `.\scripts\cf-upload.py -v 0.1.2 -r beta -c "A meaningful comment."`
-- Release artifacts land in `tmp/release/`. The upload script sends the client zip first and then uploads each server installer as a CurseForge additional file.
+- Upload the CurseForge client zip with `.\scripts\cf-upload.py -v 0.1.2 -r beta -c "A meaningful comment."`
+- Upload the server installer binaries to GitHub Releases with `.\scripts\gh-upload.py -v 0.1.2 -r beta -c "A meaningful comment." --replace-assets`
+- Release artifacts land in `tmp/release/`. CurseForge gets the client zip only. GitHub Releases gets the server installer binaries and `checksums.txt`.
+- See [docs/release.md](docs/release.md) for the split release flow and token setup.
 
 ## Config Layout
 - `pack-configs/config` is the main Minecraft `config` directory.
@@ -36,13 +40,3 @@ Change to `/` slashes if on Linux.
   - Currently nothing uses this directory
 - `pack-configs/kubejs` contains the KubeJS config, client scripts, and server scripts.
 - `pack-configs/profileImage`, `pack-configs/shaderpacks`, and `pack-configs/optionsshaders.txt` are synced directly into the instance when present.
-
-## Exporting to CurseForge
-I eventually want to automate this with the Curseforge API with `.\scripts\cf-upload.py`
-
-- Share Profile -> Export as .zip -> 
-  - Everything in config
-  - From kubejs, client_scripts, config, data, and server_scripts
-  - profileImage
-  - shaderpacks
-  - Everything in mods

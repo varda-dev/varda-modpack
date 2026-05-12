@@ -12,10 +12,10 @@ import time
 import uuid
 from pathlib import Path
 from typing import Any, Iterator
-from urllib.parse import urlsplit
 
 from lib.common import fail, slugify_version
 from lib.env import REPO_ROOT, get_curseforge_api_token
+from lib.http import request_url_parts, retry_delay_for_attempt as shared_retry_delay_for_attempt
 
 
 DEFAULT_BASE_URL = "https://minecraft.curseforge.com"
@@ -34,13 +34,6 @@ MAX_CURSEFORGE_UPLOAD_SIZE = 500 * 1000 * 1000
 # 11779 = Minecraft 1.21.1
 # 10150 = NeoForge
 GAME_VERSIONS = [11779, 10150]
-SERVER_INSTALLER_TARGETS = [
-  ("windows", "amd64", ".exe", "Windows AMD64"),
-  ("linux", "amd64", "", "Linux AMD64"),
-  ("linux", "arm64", "", "Linux ARM64"),
-  ("darwin", "amd64", "", "macOS AMD64"),
-  ("darwin", "arm64", "", "macOS ARM64"),
-]
 
 
 class CurseForgeUploadError(RuntimeError):
@@ -51,18 +44,6 @@ class CurseForgeUploadError(RuntimeError):
 
 def client_artifact_path(version: str, release_type: str) -> Path:
   return UPLOAD_DIR / f"{PACK_SLUG}-client-{version}-{release_type}.zip"
-
-
-def server_installer_artifact_path(
-  version: str,
-  release_type: str,
-  goos: str,
-  goarch: str,
-  suffix: str,
-) -> Path:
-  return UPLOAD_DIR / (
-    f"{PACK_SLUG}-server-installer-{version}-{release_type}-{goos}-{goarch}{suffix}"
-  )
 
 
 def format_file_size(size: int) -> str:
@@ -99,24 +80,6 @@ def build_client_metadata(
   return metadata
 
 
-def build_server_installer_metadata(
-  *,
-  version: str,
-  release_type: str,
-  changelog: str,
-  display_platform: str,
-  parent_file_id: int,
-) -> dict[str, Any]:
-  return {
-    "changelog": changelog,
-    "changelogType": "text",
-    "releaseType": release_type,
-    "isMarkedForManualRelease": False,
-    "displayName": f"{PACK_DISPLAY_NAME} {version} Server Installer - {display_platform}",
-    "parentFileID": parent_file_id,
-  }
-
-
 def resolve_client_artifact(
   *,
   version: str,
@@ -125,22 +88,9 @@ def resolve_client_artifact(
   return client_artifact_path(version, release_type)
 
 
-def resolve_server_artifact(
-  *,
-  version: str,
-  release_type: str,
-  goos: str,
-  goarch: str,
-  suffix: str,
-) -> Path:
-  return server_installer_artifact_path(version, release_type, goos, goarch, suffix)
-
-
-def print_metadata(kind: str, metadata: dict[str, Any]) -> None:
+def print_metadata(metadata: dict[str, Any]) -> None:
   print("Metadata:")
   print(json.dumps(metadata, indent=2))
-  if kind == "server" and metadata.get("parentFileID") == 0:
-    print("  parentFileID:    0 (dry-run placeholder)")
 
 
 def upload_artifact(
@@ -150,37 +100,13 @@ def upload_artifact(
   release_type: str,
   changelog: str,
   dry_run: bool,
-  artifact_kind: str = "client",
-  parent_file_id: int | None = None,
-  goos: str | None = None,
-  goarch: str | None = None,
-  suffix: str | None = None,
-  display_platform: str | None = None,
 ) -> dict[str, Any]:
-  if artifact_kind == "client":
-    file_path = resolve_client_artifact(version=version, release_type=release_type)
-    metadata = build_client_metadata(
-      version=version,
-      release_type=release_type,
-      changelog=changelog,
-    )
-  else:
-    if parent_file_id is None or goos is None or goarch is None or suffix is None or display_platform is None:
-      fail("server artifact upload requires parent file ID and platform details")
-    file_path = resolve_server_artifact(
-      version=version,
-      release_type=release_type,
-      goos=goos,
-      goarch=goarch,
-      suffix=suffix,
-    )
-    metadata = build_server_installer_metadata(
-      version=version,
-      release_type=release_type,
-      changelog=changelog,
-      display_platform=display_platform,
-      parent_file_id=parent_file_id,
-    )
+  file_path = resolve_client_artifact(version=version, release_type=release_type)
+  metadata = build_client_metadata(
+    version=version,
+    release_type=release_type,
+    changelog=changelog,
+  )
 
   if not file_path.is_file():
     fail(f"upload file not found: {file_path}")
@@ -190,20 +116,16 @@ def upload_artifact(
 
   print("CurseForge upload:")
   print(f"  project ID:     {PROJECT_ID}")
-  print(f"  artifact type:  {artifact_kind}")
   print(f"  file:           {file_path}")
   print(f"  file size:      {format_file_size(file_size)}")
   print(f"  display name:   {metadata['displayName']}")
   print(f"  release type:   {release_type}")
-  if artifact_kind == "client":
-    print(f"  game versions:   {metadata['gameVersions']}")
-  else:
-    print(f"  parent file ID:  {metadata['parentFileID']}")
+  print(f"  game versions:  {metadata['gameVersions']}")
 
   print()
 
   if dry_run:
-    print_metadata(artifact_kind, metadata)
+    print_metadata(metadata)
     return {}
 
   return upload_file(
@@ -213,38 +135,6 @@ def upload_artifact(
     file_path=file_path,
     metadata=metadata,
   )
-
-
-def upload_server_installers(
-  *,
-  token: str,
-  version: str,
-  release_type: str,
-  changelog: str,
-  dry_run: bool,
-  parent_file_id: int,
-) -> None:
-  for goos, goarch, suffix, display_platform in SERVER_INSTALLER_TARGETS:
-    try:
-      upload_artifact(
-        token=token,
-        version=version,
-        release_type=release_type,
-        changelog=changelog,
-        dry_run=dry_run,
-        artifact_kind="server",
-        parent_file_id=parent_file_id,
-        goos=goos,
-        goarch=goarch,
-        suffix=suffix,
-        display_platform=display_platform,
-      )
-    except Exception as err:
-      raise RuntimeError(
-        "Failed to upload additional server installer file "
-        f"{server_installer_artifact_path(version, release_type, goos, goarch, suffix)} "
-        f"for parent file ID {parent_file_id}: {err}"
-      ) from err
 
 
 def is_retryable_upload_error(err: BaseException) -> bool:
@@ -273,14 +163,6 @@ def is_retryable_upload_error(err: BaseException) -> bool:
 
 def is_retryable_http_status(status: int) -> bool:
   return status >= 500 or status == 429
-
-
-def retry_delay_for_attempt(
-  attempt: int,
-  *,
-  base_delay: int = DEFAULT_UPLOAD_RETRY_BASE_DELAY,
-) -> int:
-  return base_delay * attempt
 
 
 def multipart_field_part(boundary: str, name: str, value: str) -> bytes:
@@ -345,22 +227,6 @@ def iter_multipart_chunks(
   yield f"--{boundary}--\r\n".encode("utf-8")
 
 
-def url_request_path(url: str) -> tuple[str, str, str]:
-  parsed = urlsplit(url)
-
-  if parsed.scheme not in {"http", "https"}:
-    fail(f"Unsupported upload URL scheme: {parsed.scheme}")
-
-  if not parsed.netloc:
-    fail(f"Upload URL is missing a host: {url}")
-
-  path = parsed.path or "/"
-  if parsed.query:
-    path = f"{path}?{parsed.query}"
-
-  return parsed.scheme, parsed.netloc, path
-
-
 def parse_upload_response(raw: str) -> dict[str, Any]:
   if not raw.strip():
     return {}
@@ -386,7 +252,7 @@ def upload_file_once(
   content_type = f"multipart/form-data; boundary={boundary}"
   content_length = multipart_content_length(boundary, fields, files)
 
-  scheme, host, path = url_request_path(url)
+  scheme, host, path = request_url_parts(url, label="CurseForge upload URL")
   connection: http.client.HTTPConnection | None = None
 
   try:
@@ -457,7 +323,7 @@ def upload_file(
       if not retryable or attempt >= max_attempts:
         raise
 
-      delay = retry_delay_for_attempt(attempt)
+      delay = shared_retry_delay_for_attempt(attempt, base_delay=DEFAULT_UPLOAD_RETRY_BASE_DELAY)
       print(
         f"CurseForge upload failed on attempt {attempt}/{max_attempts}; "
         f"retrying in {delay}s.",
@@ -471,7 +337,8 @@ def upload_file(
 
 def parse_args() -> argparse.Namespace:
   parser = argparse.ArgumentParser(
-    description="Upload Varda release files to CurseForge."
+    description="Upload the Varda CurseForge client zip only. "
+    "Server installers are published with scripts/gh-upload.py."
   )
 
   parser.add_argument(
@@ -502,13 +369,6 @@ def parse_args() -> argparse.Namespace:
     help="Print resolved upload metadata without uploading.",
   )
 
-  target_group = parser.add_mutually_exclusive_group()
-  target_group.add_argument(
-    "--client-only",
-    action="store_true",
-    help="Upload only the client artifact.",
-  )
-
   return parser.parse_args()
 
 
@@ -530,28 +390,9 @@ def main() -> int:
       release_type=args.release_type,
       changelog=args.changelog,
       dry_run=args.dry_run,
-      artifact_kind="client",
     )
-
-    if args.client_only:
-      if not args.dry_run and not isinstance(result.get("id"), int):
-        fail("CurseForge client upload response did not include an id.")
-    else:
-      parent_file_id = 0 if args.dry_run else result.get("id")
-      if not isinstance(parent_file_id, int):
-        fail("CurseForge client upload response did not include a numeric id.")
-
-      if not args.dry_run:
-        print(f"Client file ID: {parent_file_id}")
-
-      upload_server_installers(
-        token=token,
-        version=version,
-        release_type=args.release_type,
-        changelog=args.changelog,
-        dry_run=args.dry_run,
-        parent_file_id=parent_file_id,
-      )
+    if not args.dry_run and (not isinstance(result, dict) or not isinstance(result.get("id"), int)):
+      fail("CurseForge client upload response did not include a numeric id.")
 
   except (OSError, RuntimeError, ValueError) as err:
     print(f"error: {err}", file=sys.stderr)

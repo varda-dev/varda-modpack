@@ -14,11 +14,16 @@ Builds release artifacts in `tmp/release/`.
 The server build prepares `cmd/varda-server-installer/payload/`, embeds it into cross-compiled Go installer binaries, and keeps `README-SERVER.txt` in that payload directory.
 
 ### `scripts/cf-upload.py`
-Uploads the client zip and server installer additional files to CurseForge.
+Uploads the Varda CurseForge client zip.
 
-- Default behavior uploads the client zip first and then uploads all server installer binaries as CurseForge additional files
-- `--client-only` uploads only the client zip
 - `--dry-run` prints the planned upload metadata without making API calls
+
+### `scripts/gh-upload.py`
+Uploads the server installer binaries and `checksums.txt` to GitHub Releases.
+
+- Hardcodes the repository to `varda-dev/varda-modpack`
+- `--replace-assets` deletes same-name release assets before reuploading them
+- `--dry-run` prints the planned release actions without making API calls
 
 ### `scripts/reset-sync.py`
 Resets a CurseForge instance and copies the repo's synced pack files into it.

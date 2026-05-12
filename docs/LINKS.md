@@ -2,6 +2,9 @@
 ## Curseforge
 - API
   - https://support.curseforge.com/support/solutions/articles/9000197321-curseforge-api
+## Github
+- API
+  - https://docs.github.com/en
 ## Tools
 - Lettering
   - https://textcraft.net/
