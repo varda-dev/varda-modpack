@@ -7,35 +7,34 @@ CURSEFORGE_INSTANCE_DIR=""
 CURSEFORGE_API_TOKEN=""
 GITHUB_RELEASES_PAT=""
 ```
+These don't actually get injected into the environment, just read by the scripts.  
 - Instance directory example: `C:\Users\varda-dev\curseforge\minecraft\Instances\Varda`  
 - Curseforge API token can be found/generated at [https://legacy.curseforge.com/account/api-tokens](https://legacy.curseforge.com/account/api-tokens)  
-- `scripts/gh-upload.py` hardcodes the GitHub repository to `varda-dev/varda-modpack`.
-- GitHub Pages serves `docs/manifest.json` from `main` + `/docs`.
-- Installer default manifest URL: `https://varda-dev.github.io/varda-modpack/manifest.json`
-
-These don't actually get injected into the environment, just read by the scripts.  
+- You'll need repo access to get a `GITHUB_RELEASES_PAT`.
 
 ## Scripts
-Scripts require Python. See [docs/PYTHON.md](docs/PYTHON.md) for help.  
-
-Change to `/` slashes if on Linux.  
-### During Development
+- Scripts require Python. See [docs/PYTHON.md](docs/PYTHON.md) for help.  
 - All scripts come with `-h` / `--help`
-- Run `.\scripts\reset-sync.py` to clean up the modpack folder and copy over this repo's changes.
-- Run `.\scripts\locate.py X Z` to inspect the save chunk containing those block coordinates across every save in the instance from `CURSEFORGE_INSTANCE_DIR`.
-  - `X` and `Z` are block coordinates, not chunk coordinates. The script converts them to the matching chunk and region file.
-  - It reads each save's `.mca` region data directly and reports structure IDs recorded in the chunk's `structures.starts` and `structures.References` NBT.
-  - Results are actual structure data for that chunk, not broad text matches from unrelated chunk data like block entities, attachments, or mod state.
-  - `(none)` means that save has chunk data at those coordinates, but no structure IDs are recorded for that chunk.
+### `.\scripts\locate.py`
+Locate the name of a structure from the X / Z coordinates of the chunk you're in.  
+### `.\scripts\advancements.py`
+Extract *displayed* advancements for Minecraft and mods.
+### `.\scripts\copy-confs.py`
+Copies FTB Quests and Structurify configuration files from instance directory into this repo, overwriting what's here.
+### `.\scripts\reset-sync.py`
+Resets the instance directory's configuration and files and syncs configuration files from this repo.
+### `.\scripts\prep-files.py`
+Prepares CurseForge client ZIP and server configuration files for GitHub Releases upload.
+### `.\scripts\cf-upload.py`
+Uploads CurseForge client ZIP.
+### `.\scripts\gh-upload.py`
+Uploads server configuration files to GitHub releases for the [varda-server-installer](https://github.com/varda-dev/varda-server-installer).
 
 ### Release Publishing
-- Build release artifacts with `.\scripts\prep-files.py -v 0.1.2 -f`
-  - Add `-q` / `--quiet` to suppress output.
-- Upload the CurseForge client zip with `.\scripts\cf-upload.py -v 0.1.2 -r beta -c "A meaningful comment."`
-- Upload the server config ZIP to GitHub Releases with `.\scripts\gh-upload.py -v 0.1.2 -c "A meaningful comment." --replace-assets`
-- Release artifacts land in `tmp/release/`. CurseForge gets the client zip. GitHub Releases gets `varda-server-config-<version>.zip`.
-- `prep-files.py` also writes `docs/manifest.json` for GitHub Pages.
-- GitHub Pages config stays branch-based: source `main`, folder `/docs`.
+- Build release artifacts with `.\scripts\prep-files.py -v 0.1.2 -r beta -q`.
+- Upload the CurseForge client zip with `.\scripts\cf-upload.py -v 0.1.2 -r beta -c "A meaningful comment."`.
+- Upload the server config ZIP to GitHub Releases with `.\scripts\gh-upload.py -v 0.1.2 -c "A meaningful comment."`.
+- Push this repo to update GitHub Pages with what gets generated into `docs\`.
 
 ## Config Layout
 - `pack-configs/config` is the main Minecraft `config` directory.

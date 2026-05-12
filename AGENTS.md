@@ -21,13 +21,16 @@ These notes apply to the whole repository. Varda is a Minecraft modpack centered
 - `pack-configs/shaderpacks/` and `pack-configs/optionsshaders.txt` are synced when present.
 - `configureddefaults` is not used.
 - `docs/manifest.json` is the GitHub Pages manifest for the separate server installer repo.
+- `docs/index.html` is a manually maintained static landing page. `scripts/prep-files.py` must not generate it.
 - `docs/MODS.md` tracks important mod dependency notes.
 - `scripts/` contains PowerShell and shell helper scripts for local development.
 - `PACK_DIR.txt`, `varda-server/`, and `varda-server.zip` are local/generated and intentionally ignored.
+- `tmp/release/` is generated release output. It may contain the CurseForge client zip, `varda-server-config-<version>.zip`, and related build artifacts.
 
 ## Python Script Reference
 
 - `scripts/prep-files.py` builds the CurseForge client zip, `tmp/release/varda-server-config-<version>.zip`, and `docs/manifest.json`.
+- `scripts/prep-files.py` always overwrites `docs/manifest.json`, but only overwrites release artifacts in `tmp/release/` when `-f/--force` is given.
 - `scripts/cf-upload.py` uploads to CurseForge. Default behavior uploads the client zip. `--client-only`, `--server-only`, `--parent-file-id`, and `--dry-run` are supported.
 - `scripts/gh-upload.py` uploads the server config ZIP to GitHub Releases.
 - `scripts/reset-sync.py` resets a local CurseForge instance and copies the repo's synced files into it.
@@ -47,6 +50,7 @@ These notes apply to the whole repository. Varda is a Minecraft modpack centered
 Be careful with sync scripts. They delete files in the configured instance directory. Do not run full wipes unless that is part of the task.
 `reset-sync.ps1 -FullWipe` should not delete `resourcepacks` or `shaderpacks`; CurseForge may not restore those automatically. It may delete generated cache folders such as `dynamic-data-pack-cache`, `dynamic-resource-pack-cache`, and `moonlight-global-datapacks`.
 Reset sync copies `pack-configs/config`, `pack-configs/defaultconfigs`, `pack-configs/kubejs`, `pack-configs/profileImage`, `pack-configs/shaderpacks`, and `pack-configs/optionsshaders.txt` when present. Files matching the hardcoded `*.disabled` exclude pattern are skipped during directory syncs.
+`scripts/prep-files.py` is the main local release prep command. It reads `CURSEFORGE_INSTANCE_DIR`, generates the client zip, generates the server config ZIP, and writes `docs/manifest.json` for Pages.
 
 ## Mod And Config Policy
 
@@ -92,3 +96,4 @@ There is no conventional unit test suite for this repo. Verify changes with the 
 - Keep PowerShell scripts (`*.ps1`) CRLF-only with a final newline. After editing a PowerShell script with automation, verify `git ls-files --eol -- scripts/*.ps1` reports `w/crlf`.
 - Prefer ASCII in text files unless editing existing non-ASCII content.
 - When uncertain about current mod versions, CurseForge metadata, NeoForge behavior, or KubeJS syntax for the active Minecraft version, verify against current primary sources before changing configs.
+- Do not make `scripts/prep-files.py` generate or overwrite `docs/index.html`; keep that file static unless a human-authored update is intended.
