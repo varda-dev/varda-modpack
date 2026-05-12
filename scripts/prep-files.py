@@ -248,7 +248,6 @@ def current_server_mod_entries(
         project_id,
         file_id,
         {
-          "filename": str(file_name),
           "url": url,
         },
       )
@@ -425,7 +424,6 @@ def build_manifest(
     "schema_version": 1,
     "minecraft": minecraft_version,
     "neoforge": {
-      "version": neoforge_version,
       "installer_url": neoforge_installer_url(neoforge_version),
     },
     "server_config": {
