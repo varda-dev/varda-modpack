@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Varda Modpack Manifest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f1e7;
+      --fg: #241f17;
+      --muted: #645849;
+      --card: #fffaf1;
+      --line: #d9cdb7;
+      --accent: #6a4b25;
+    }
+    body {
+      margin: 0;
+      font: 16px/1.6 system-ui, sans-serif;
+      color: var(--fg);
+      background:
+        radial-gradient(circle at top, #fff8eb 0%, var(--bg) 42%, #eadfc8 100%);
+    }
+    main {
+      max-width: 720px;
+      margin: 8vh auto;
+      padding: 32px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 12px 40px rgba(36, 31, 23, 0.08);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+    }
+    p { margin: 0 0 14px; color: var(--muted); }
+    a { color: var(--accent); }
+    code {
+      padding: 0.15rem 0.35rem;
+      border-radius: 6px;
+      background: #f2e6d6;
+    }
+    .meta {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="card">
+      <h1>Varda Modpack</h1>
+      <p>GitHub Pages serves installer manifest from <code>manifest.json</code>.</p>
+      <p>Installer default URL: <a href="manifest.json">https://varda-dev.github.io/varda-modpack/manifest.json</a></p>
+      <div class="meta">
+        <p>Source: <code>main</code> branch, <code>/docs</code> folder.</p>
+        <p>Server config ZIP and mod URLs are published from the current release workflow.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

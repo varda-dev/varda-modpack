@@ -3,14 +3,15 @@
 Varda now splits release publishing into two paths:
 
 - CurseForge receives the client zip only.
-- GitHub Releases receives the server installer binaries plus `checksums.txt`.
+- GitHub Releases receives `varda-server-config-<version>.zip`.
+- GitHub Pages serves `docs/manifest.json` at `https://varda-dev.github.io/varda-modpack/manifest.json`.
 
 ## Local Flow
 
 Build the release artifacts first:
 
 ```bash
-python scripts/prep-files.py --both -v 0.1.0 -r beta -f
+python scripts/prep-files.py -v 0.1.0 -f
 ```
 
 Upload the CurseForge client zip:
@@ -19,10 +20,10 @@ Upload the CurseForge client zip:
 python scripts/cf-upload.py -v 0.1.0 -r beta -c "Changelog text"
 ```
 
-Upload the GitHub release assets:
+Upload the GitHub release asset:
 
 ```bash
-python scripts/gh-upload.py -v 0.1.0 -r beta -c "Changelog text" --replace-assets
+python scripts/gh-upload.py -v 0.1.0 -c "Changelog text" --replace-assets
 ```
 
 ## Environment
@@ -36,6 +37,7 @@ GITHUB_RELEASES_PAT="..."
 ```
 
 `scripts/gh-upload.py` hardcodes the repository to `varda-dev/varda-modpack`.
+`docs/manifest.json` is published from GitHub Pages branch `main` / folder `/docs`.
 
 ## Token Access
 
@@ -55,9 +57,6 @@ If you run the GitHub Actions release workflow with `GITHUB_TOKEN`, set the work
 - CurseForge:
   - `varda-client-{version}-{release}.zip`
 - GitHub Releases:
-  - `varda-server-installer-{version}-{release}-windows-amd64.exe`
-  - `varda-server-installer-{version}-{release}-linux-amd64`
-  - `varda-server-installer-{version}-{release}-linux-arm64`
-  - `varda-server-installer-{version}-{release}-darwin-amd64`
-  - `varda-server-installer-{version}-{release}-darwin-arm64`
-  - `checksums.txt`
+  - `varda-server-config-{version}.zip`
+- GitHub Pages:
+  - `docs/manifest.json`

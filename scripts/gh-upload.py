@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import mimetypes
 import sys
 from pathlib import Path
@@ -49,56 +48,8 @@ def repository_path(repository: str) -> str:
   return f"/repos/{quote(owner, safe='')}/{quote(name, safe='')}"
 
 
-def release_tag_for_version(version: str, release_type: str) -> str:
-  if release_type == "release":
-    return f"v{version}"
-  return f"v{version}-{release_type}"
-
-
-def release_name_for_version(version: str, release_type: str) -> str:
-  if release_type == "release":
-    return f"Varda {version}"
-  return f"Varda {version} {release_type}"
-
-
-def resolve_server_installer_assets(version: str, release_type: str) -> list[Path]:
-  pattern = f"varda-server-installer-{version}-{release_type}-*"
-  assets = [
-    path
-    for path in sorted(UPLOAD_DIR.glob(pattern), key=lambda candidate: candidate.name)
-    if path.is_file()
-  ]
-
-  if not assets:
-    fail(
-      "No server installer binaries were found in tmp/release. "
-      f"Expected files matching {pattern}."
-    )
-
-  return assets
-
-
-def sha256_file(path: Path) -> str:
-  digest = hashlib.sha256()
-  with path.open("rb") as file:
-    while True:
-      chunk = file.read(1024 * 1024)
-      if not chunk:
-        break
-      digest.update(chunk)
-  return digest.hexdigest()
-
-
-def write_checksums(asset_paths: list[Path]) -> Path:
-  checksums_path = UPLOAD_DIR / "checksums.txt"
-  checksums_path.parent.mkdir(parents=True, exist_ok=True)
-
-  lines = [
-    f"{sha256_file(path)}  {path.name}"
-    for path in sorted(asset_paths, key=lambda candidate: candidate.name)
-  ]
-  checksums_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
-  return checksums_path
+def server_config_asset_path(version: str) -> Path:
+  return UPLOAD_DIR / f"varda-server-config-{version}.zip"
 
 
 def github_api_request(
@@ -257,14 +208,14 @@ def upload_release_asset(
 
 
 def validate_release_assets(
-  assets: list[Path],
+  asset_paths: list[Path],
   release: dict[str, Any] | None,
   *,
   replace_assets: bool,
   token: str,
 ) -> list[Path]:
   if release is None:
-    return assets
+    return asset_paths
 
   existing_assets = list_release_assets(token, release)
   existing_by_name = {
@@ -273,7 +224,7 @@ def validate_release_assets(
     if isinstance((asset_name := asset.get("name")), str) and asset_name
   }
 
-  for asset_path in assets:
+  for asset_path in asset_paths:
     existing_asset = existing_by_name.get(asset_path.name)
     if existing_asset is None:
       continue
@@ -284,7 +235,7 @@ def validate_release_assets(
       )
     delete_release_asset(token, existing_asset)
 
-  return assets
+  return asset_paths
 
 
 def print_summary(
@@ -295,7 +246,6 @@ def print_summary(
   draft: bool,
   prerelease: bool,
   asset_paths: list[Path],
-  checksums_path: Path,
 ) -> None:
   print("GitHub release upload:")
   print(f"  repo:         {repository}")
@@ -306,12 +256,11 @@ def print_summary(
   print("  assets:")
   for asset_path in asset_paths:
     print(f"    - {asset_path}")
-  print(f"    - {checksums_path}")
 
 
 def parse_args() -> argparse.Namespace:
   parser = argparse.ArgumentParser(
-    description="Upload Varda server installer binaries to GitHub Releases."
+    description="Upload Varda server config ZIP to GitHub Releases."
   )
 
   parser.add_argument(
@@ -319,14 +268,6 @@ def parse_args() -> argparse.Namespace:
     "--version",
     required=True,
     help="Version string, example: 1.0.0.",
-  )
-
-  parser.add_argument(
-    "-r",
-    "--release-type",
-    choices=("alpha", "beta", "release"),
-    required=True,
-    help="Release type.",
   )
 
   parser.add_argument(
@@ -338,12 +279,12 @@ def parse_args() -> argparse.Namespace:
 
   parser.add_argument(
     "--tag",
-    help="Override the release tag.",
+    help="Override the release tag. Default: v<version>.",
   )
 
   parser.add_argument(
     "--name",
-    help="Override the release name.",
+    help="Override the release name. Default: Varda <version>.",
   )
 
   parser.add_argument(
@@ -355,7 +296,7 @@ def parse_args() -> argparse.Namespace:
   parser.add_argument(
     "--prerelease",
     action="store_true",
-    help="Force the release to be marked as a prerelease.",
+    help="Mark the release as a prerelease.",
   )
 
   parser.add_argument(
@@ -367,7 +308,7 @@ def parse_args() -> argparse.Namespace:
   parser.add_argument(
     "--dry-run",
     action="store_true",
-    help="Print the planned GitHub release actions without making API calls.",
+    help="Print planned GitHub release actions without making API calls.",
   )
 
   return parser.parse_args()
@@ -383,14 +324,14 @@ def main() -> int:
     return 1
 
   repository = GITHUB_REPOSITORY
-  tag = args.tag or release_tag_for_version(version, args.release_type)
-  name = args.name or release_name_for_version(version, args.release_type)
-  prerelease = args.prerelease or args.release_type in {"alpha", "beta"}
-  asset_paths = resolve_server_installer_assets(version, args.release_type)
-  checksums_path = UPLOAD_DIR / "checksums.txt"
+  tag = args.tag or f"v{version}"
+  name = args.name or f"Varda {version}"
+  prerelease = args.prerelease
+  asset_path = server_config_asset_path(version)
 
-  if not args.dry_run:
-    write_checksums(asset_paths)
+  if not asset_path.is_file():
+    print(f"error: upload file not found: {asset_path}", file=sys.stderr)
+    return 1
 
   print_summary(
     repository=repository,
@@ -398,8 +339,7 @@ def main() -> int:
     name=name,
     draft=args.draft,
     prerelease=prerelease,
-    asset_paths=asset_paths,
-    checksums_path=checksums_path,
+    asset_paths=[asset_path],
   )
 
   if args.dry_run:
@@ -420,14 +360,14 @@ def main() -> int:
       )
 
     validated_assets = validate_release_assets(
-      [*asset_paths, checksums_path],
+      [asset_path],
       release,
       replace_assets=args.replace_assets,
       token=token,
     )
 
-    for asset_path in validated_assets:
-      upload_release_asset(token, release, asset_path)
+    for candidate in validated_assets:
+      upload_release_asset(token, release, candidate)
 
     html_url = release.get("html_url")
     if isinstance(html_url, str) and html_url:

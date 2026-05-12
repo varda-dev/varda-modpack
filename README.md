@@ -10,6 +10,8 @@ GITHUB_RELEASES_PAT=""
 - Instance directory example: `C:\Users\varda-dev\curseforge\minecraft\Instances\Varda`  
 - Curseforge API token can be found/generated at [https://legacy.curseforge.com/account/api-tokens](https://legacy.curseforge.com/account/api-tokens)  
 - `scripts/gh-upload.py` hardcodes the GitHub repository to `varda-dev/varda-modpack`.
+- GitHub Pages serves `docs/manifest.json` from `main` + `/docs`.
+- Installer default manifest URL: `https://varda-dev.github.io/varda-modpack/manifest.json`
 
 These don't actually get injected into the environment, just read by the scripts.  
 
@@ -27,12 +29,13 @@ Change to `/` slashes if on Linux.
   - `(none)` means that save has chunk data at those coordinates, but no structure IDs are recorded for that chunk.
 
 ### Release Publishing
-- Build release artifacts with `.\scripts\prep-files.py --b -v 0.1.2 -r beta`
+- Build release artifacts with `.\scripts\prep-files.py -v 0.1.2 -f`
   - Add `-q` / `--quiet` to suppress output.
 - Upload the CurseForge client zip with `.\scripts\cf-upload.py -v 0.1.2 -r beta -c "A meaningful comment."`
-- Upload the server installer binaries to GitHub Releases with `.\scripts\gh-upload.py -v 0.1.2 -r beta -c "A meaningful comment." --replace-assets`
-- Release artifacts land in `tmp/release/`. CurseForge gets the client zip only. GitHub Releases gets the server installer binaries and `checksums.txt`.
-- See [docs/release.md](docs/release.md) for the split release flow and token setup.
+- Upload the server config ZIP to GitHub Releases with `.\scripts\gh-upload.py -v 0.1.2 -c "A meaningful comment." --replace-assets`
+- Release artifacts land in `tmp/release/`. CurseForge gets the client zip. GitHub Releases gets `varda-server-config-<version>.zip`.
+- `prep-files.py` also writes `docs/manifest.json` for GitHub Pages.
+- GitHub Pages config stays branch-based: source `main`, folder `/docs`.
 
 ## Config Layout
 - `pack-configs/config` is the main Minecraft `config` directory.

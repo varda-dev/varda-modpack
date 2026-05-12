@@ -338,7 +338,7 @@ def upload_file(
 def parse_args() -> argparse.Namespace:
   parser = argparse.ArgumentParser(
     description="Upload the Varda CurseForge client zip only. "
-    "Server installers are published with scripts/gh-upload.py."
+    "Server config ZIPs are published with scripts/gh-upload.py."
   )
 
   parser.add_argument(

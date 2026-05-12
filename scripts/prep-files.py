@@ -4,15 +4,12 @@ from __future__ import annotations
 
 import argparse
 import fnmatch
-import os
-import re
-import shutil
-import subprocess
+import hashlib
 import tempfile
 import zipfile
 from pathlib import Path
 
-from lib.common import fail, log, verbose_log, is_blank, read_json, write_json, copy_path
+from lib.common import copy_path, fail, is_blank, log, read_json, slugify_version, write_json
 from lib.env import CURSEFORGE_INSTANCE_DIR, get_curseforge_instance_dir
 
 
@@ -38,9 +35,22 @@ CLIENT_ONLY_PATTERNS = [
 ]
 
 SERVER_ONLY_PATTERNS = []
+SERVER_CONFIG_EXCLUDE_PATTERNS = [
+  "kubejs/client_scripts/**",
+  "kubejs/config/defaultoptions.txt",
+  "config/simplemenu/**",
+  "config/iris.properties",
+  "config/simplemenu.json5",
+]
 IGNORED_PLACEHOLDER_FILES = {".gitignore"}
+
 TMP_DIR = Path(__file__).resolve().parents[1] / "tmp"
 RELEASE_DIR = TMP_DIR / "release"
+DOCS_DIR = Path(__file__).resolve().parents[1] / "docs"
+MANIFEST_PATH = DOCS_DIR / "manifest.json"
+PACK_SLUG = "varda"
+DEFAULT_RELEASE = "beta"
+GITHUB_REPOSITORY = "varda-dev/varda-modpack"
 
 
 class HelpFormatter(argparse.HelpFormatter):
@@ -50,6 +60,14 @@ class HelpFormatter(argparse.HelpFormatter):
 
 def matches_any_pattern(file_name: str, patterns: list[str]) -> bool:
   return any(fnmatch.fnmatchcase(file_name, pattern) for pattern in patterns)
+
+
+def is_server_config_excluded(relative_path: Path) -> bool:
+  value = relative_path.as_posix()
+  return any(
+    fnmatch.fnmatchcase(value, pattern)
+    for pattern in SERVER_CONFIG_EXCLUDE_PATTERNS
+  )
 
 
 def copy_optional_populated_path(source: Path, destination: Path) -> None:
@@ -159,10 +177,10 @@ def metadata_download_url(metadata: object) -> str | None:
   return None
 
 
-def current_server_mod_download_urls(
+def current_server_mod_entries(
   minecraft_instance_json: Path,
   exclude_patterns: list[str],
-) -> list[str]:
+) -> list[dict[str, str]]:
   instance = read_json(minecraft_instance_json)
   if not isinstance(instance, dict):
     fail("minecraftinstance.json must contain a JSON object.")
@@ -171,7 +189,7 @@ def current_server_mod_download_urls(
   if not isinstance(installed_addons, list):
     fail("minecraftinstance.json is missing installedAddons.")
 
-  entries: list[tuple[str, int, int, str]] = []
+  entries: list[tuple[str, int, int, dict[str, str]]] = []
   missing: list[str] = []
   seen_keys: set[tuple[int, int]] = set()
   seen_urls: set[str] = set()
@@ -224,13 +242,26 @@ def current_server_mod_download_urls(
       continue
 
     seen_urls.add(url)
-    entries.append((str(file_name).lower(), project_id, file_id, url))
+    entries.append(
+      (
+        str(file_name).lower(),
+        project_id,
+        file_id,
+        {
+          "filename": str(file_name),
+          "url": url,
+        },
+      )
+    )
 
   if missing:
     fail(
-      "Could not generate complete mods-list.txt; missing download metadata for:\n"
+      "Could not generate complete server mod manifest entries; missing download metadata for:\n"
       + "\n".join(f"- {entry}" for entry in missing)
     )
+
+  if not entries:
+    fail("No server mod download entries were generated.")
 
   entries.sort(key=lambda entry: (entry[0], entry[1], entry[2]))
   return [entry[3] for entry in entries]
@@ -261,23 +292,24 @@ def copy_client_manifest(
   write_json(package_dir / "manifest.json", manifest)
 
 
-def read_instance_versions(minecraft_instance_json: Path) -> tuple[str | None, str]:
+def read_instance_versions(minecraft_instance_json: Path) -> tuple[str, str]:
   instance = read_json(minecraft_instance_json)
   if not isinstance(instance, dict):
     fail("minecraftinstance.json must contain a JSON object.")
 
   minecraft_version = instance.get("gameVersion")
+  if not isinstance(minecraft_version, str) or is_blank(minecraft_version):
+    fail("Could not find gameVersion in minecraftinstance.json.")
 
   base_mod_loader = instance.get("baseModLoader")
   if not isinstance(base_mod_loader, dict):
     fail("Could not find baseModLoader in minecraftinstance.json.")
 
   neoforge_version = base_mod_loader.get("forgeVersion")
-
-  if is_blank(neoforge_version):
+  if not isinstance(neoforge_version, str) or is_blank(neoforge_version):
     fail("Could not find baseModLoader.forgeVersion in minecraftinstance.json.")
 
-  return minecraft_version, str(neoforge_version)
+  return minecraft_version, neoforge_version
 
 
 def neoforge_installer_url(neoforge_version: str) -> str:
@@ -288,271 +320,31 @@ def neoforge_installer_url(neoforge_version: str) -> str:
   )
 
 
-def write_lines(path: Path, lines: list[str]) -> None:
-  path.parent.mkdir(parents=True, exist_ok=True)
-  path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+def sha256_file(path: Path) -> str:
+  digest = hashlib.sha256()
+  with path.open("rb") as file:
+    while True:
+      chunk = file.read(1024 * 1024)
+      if not chunk:
+        break
+      digest.update(chunk)
+  return digest.hexdigest()
 
 
-def write_mods_list(
-  *,
-  minecraft_instance_json: Path,
-  package_dir: Path,
-  exclude_patterns: list[str],
-) -> None:
-  urls = current_server_mod_download_urls(
-    minecraft_instance_json,
-    exclude_patterns,
-  )
-  if not urls:
-    fail("No server mod download URLs were generated.")
-  write_lines(package_dir / "mods-list.txt", urls)
-
-
-def write_neoforge_files(
-  *,
-  package_dir: Path,
-  neoforge_version: str,
-) -> None:
-  write_lines(package_dir / "neoforge-url.txt", [neoforge_installer_url(neoforge_version)])
-
-
-def clean_directory_contents(directory: Path, *, keep_names: set[str] | None = None) -> None:
-  if not directory.exists():
-    directory.mkdir(parents=True, exist_ok=True)
-    return
-
-  keep = keep_names or set()
-  for entry in directory.iterdir():
-    if entry.name in keep:
-      continue
-    if entry.is_dir():
-      shutil.rmtree(entry)
-    else:
-      entry.unlink()
-
-
-def sync_directory_contents(source: Path, destination: Path) -> None:
-  clean_directory_contents(destination, keep_names={"README-SERVER.txt"})
-  for entry in sorted(source.iterdir(), key=lambda path: path.name):
-    copy_path(entry, destination / entry.name)
-
-
-def require_go() -> None:
-  try:
-    subprocess.run(
-      ["go", "version"],
-      check=True,
-      capture_output=True,
-      text=True,
-    )
-  except FileNotFoundError:
-    fail("go was not found on PATH.")
-  except subprocess.CalledProcessError as error:
-    fail(f"go version failed: {error.stderr or error.stdout or error}")
-
-
-def server_installer_output_path(
-  *,
-  version: str,
-  release: str,
-  goos: str,
-  goarch: str,
-  suffix: str,
-) -> Path:
-  return RELEASE_DIR / f"varda-server-installer-{version}-{release}-{goos}-{goarch}{suffix}"
-
-
-def server_installer_targets() -> list[tuple[str, str, str]]:
-  return [
-    ("windows", "amd64", ".exe"),
-    ("linux", "amd64", ""),
-    ("linux", "arm64", ""),
-    ("darwin", "amd64", ""),
-    ("darwin", "arm64", ""),
-  ]
-
-
-def build_server_installers(
-  *,
-  repo_root: Path,
-  version: str,
-  release: str,
-  force: bool,
-  verbose: bool,
-) -> list[Path]:
-  require_go()
-
-  installer_version = f"{version}-{release}"
-  outputs: list[Path] = []
-  for goos, goarch, suffix in server_installer_targets():
-    output = server_installer_output_path(
-      version=version,
-      release=release,
-      goos=goos,
-      goarch=goarch,
-      suffix=suffix,
-    )
-    output.parent.mkdir(parents=True, exist_ok=True)
-    if output.exists():
-      if not force:
-        fail(f"Output already exists: {output}. Pass -f/--force to overwrite it.")
-      output.unlink()
-
-    env = dict(os.environ)
-    env["CGO_ENABLED"] = "0"
-    env["GOOS"] = goos
-    env["GOARCH"] = goarch
-
-    ldflags = (
-      f"-s -w -X github.com/rannday/varda-modpack/internal/serverinstaller.Version="
-      f"{installer_version}"
-    )
-    cmd = [
-      "go",
-      "build",
-      "-trimpath",
-      "-buildvcs=false",
-      "-ldflags",
-      ldflags,
-      "-o",
-      str(output),
-      "./cmd/varda-server-installer",
-    ]
-    verbose_log(
-      f"Building {output.name} for {goos}/{goarch}...",
-      verbose=verbose,
-    )
-    try:
-      result = subprocess.run(
-        cmd,
-        cwd=repo_root,
-        env=env,
-        check=True,
-        capture_output=True,
-        text=True,
-      )
-    except FileNotFoundError:
-      fail("go was not found on PATH.")
-    except subprocess.CalledProcessError as error:
-      details = error.stderr or error.stdout or str(error)
-      fail(f"go build failed for {goos}/{goarch}: {details}")
-
-    if result.stdout and verbose:
-      print(result.stdout, end="")
-    if result.stderr and verbose:
-      print(result.stderr, end="")
-
-    outputs.append(output)
-
-  return outputs
-
-
-def zip_directory_contents(source_dir: Path, zip_file: Path) -> None:
-  with zipfile.ZipFile(zip_file, "w", compression=zipfile.ZIP_DEFLATED) as archive:
-    for path in sorted(source_dir.rglob("*")):
-      archive.write(path, path.relative_to(source_dir))
-
-
-def parse_args() -> argparse.Namespace:
-  parser = argparse.ArgumentParser(
-    description="Prepare client zip and server installer binaries.",
-    formatter_class=HelpFormatter,
+def server_config_release_url(version: str) -> str:
+  return (
+    "https://github.com/"
+    f"{GITHUB_REPOSITORY}/releases/download/v{version}/"
+    f"varda-server-config-{version}.zip"
   )
 
-  target_group = parser.add_mutually_exclusive_group(required=True)
-  target_group.add_argument(
-    "-c",
-    "--client",
-    action="store_true",
-    help="Prepare client files.",
-  )
-  target_group.add_argument(
-    "-s",
-    "--server",
-    action="store_true",
-    help="Prepare server files.",
-  )
-  target_group.add_argument(
-    "-b",
-    "--both",
-    action="store_true",
-    help="Prepare both client and server files.",
-  )
 
-  parser.add_argument(
-    "-v",
-    "--version",
-    required=True,
-    metavar="VERSION",
-    help="Version to include in the output file name, such as 0.1.1.",
-  )
-
-  parser.add_argument(
-    "-r",
-    "--release",
-    required=True,
-    choices=["alpha", "beta", "release"],
-    help="Release channel to include in the output file name.",
-  )
-
-  parser.add_argument(
-    "-f",
-    "--force",
-    action="store_true",
-    help="Overwrite existing output files with the same name.",
-  )
-
-  parser.add_argument(
-    "-q",
-    "--quiet",
-    action="store_true",
-    help="Only print errors and final output file path(s).",
-  )
-
-  parser.add_argument(
-    "--verbose",
-    action="store_true",
-    help="Print detailed progress and subprocess output.",
-  )
-
-  return parser.parse_args()
+def server_config_zip_path(version: str) -> Path:
+  return RELEASE_DIR / f"varda-server-config-{version}.zip"
 
 
-def validate_version(version: str) -> str:
-  if is_blank(version):
-    fail("VERSION cannot be empty.")
-
-  if not re.fullmatch(r"[0-9A-Za-z][0-9A-Za-z._-]*", version):
-    fail("VERSION can only contain letters, numbers, dots, underscores, and hyphens.")
-
-  return version
-
-
-def output_zip_path(
-  *,
-  package_type: str,
-  version: str,
-  release: str,
-) -> Path:
-  return RELEASE_DIR / f"varda-{package_type}-{version}-{release}.zip"
-
-
-def prepare_output_paths(zip_files: list[Path], force: bool) -> None:
-  for zip_file in zip_files:
-    zip_file.parent.mkdir(parents=True, exist_ok=True)
-    if zip_file.exists() and not force:
-      fail(f"Output already exists: {zip_file}. Pass -f/--force to overwrite it.")
-
-
-def copy_common_pack_files(
-  *,
-  pack_configs_dir: Path,
-  package_dir: Path,
-) -> None:
-  copy_path(pack_configs_dir / "config", package_dir / "config")
-  if (pack_configs_dir / "defaultconfigs").exists():
-    copy_path(pack_configs_dir / "defaultconfigs", package_dir / "defaultconfigs")
-  copy_path(pack_configs_dir / "kubejs", package_dir / "kubejs")
+def client_zip_path(version: str, release: str) -> Path:
+  return RELEASE_DIR / f"{PACK_SLUG}-client-{version}-{release}.zip"
 
 
 def prepare_client_files(
@@ -577,76 +369,153 @@ def prepare_client_files(
   copy_optional_populated_path(pack_configs_dir / "resourcepacks", overrides_dir / "resourcepacks")
 
 
-def prepare_server_files(
+def collect_server_config_files(pack_configs_dir: Path) -> list[Path]:
+  files: list[Path] = []
+
+  for relative_dir in ("config", "kubejs", "defaultconfigs", "datapacks"):
+    source = pack_configs_dir / relative_dir
+    if source.is_dir():
+      for path in source.rglob("*"):
+        if not path.is_file():
+          continue
+        relative_path = path.relative_to(pack_configs_dir)
+        if is_server_config_excluded(relative_path):
+          continue
+        files.append(path)
+
+  server_readme = pack_configs_dir / "README-SERVER.txt"
+  if server_readme.is_file():
+    files.append(server_readme)
+
+  files.sort(key=lambda path: path.relative_to(pack_configs_dir).as_posix())
+  return files
+
+
+def fixed_zip_info(arcname: str) -> zipfile.ZipInfo:
+  info = zipfile.ZipInfo(arcname)
+  info.date_time = (1980, 1, 1, 0, 0, 0)
+  info.compress_type = zipfile.ZIP_DEFLATED
+  info.external_attr = 0o100644 << 16
+  return info
+
+
+def write_server_config_zip(pack_configs_dir: Path, zip_path: Path) -> None:
+  files = collect_server_config_files(pack_configs_dir)
+  if not files:
+    fail("No server config files were found under pack-configs.")
+
+  zip_path.parent.mkdir(parents=True, exist_ok=True)
+  with zipfile.ZipFile(zip_path, "w") as archive:
+    for path in files:
+      arcname = path.relative_to(pack_configs_dir).as_posix()
+      archive.writestr(fixed_zip_info(arcname), path.read_bytes())
+
+
+def build_manifest(
   *,
-  instance_dir: Path,
-  pack_configs_dir: Path,
-  payload_dir: Path,
-  quiet: bool,
-  verbose: bool,
+  version: str,
+  minecraft_version: str,
+  neoforge_version: str,
+  server_config_hash: str,
+  mods: list[dict[str, str]],
+) -> dict[str, object]:
+  return {
+    "schema_version": 1,
+    "pack": PACK_SLUG,
+    "version": version,
+    "minecraft": minecraft_version,
+    "neoforge": {
+      "version": neoforge_version,
+      "installer_url": neoforge_installer_url(neoforge_version),
+    },
+    "server_config": {
+      "url": server_config_release_url(version),
+      "sha256": server_config_hash,
+    },
+    "mods": mods,
+  }
+
+
+def write_pages_files(
+  *,
+  docs_dir: Path,
+  manifest: dict[str, object],
 ) -> None:
-  minecraft_instance_json = instance_dir / "minecraftinstance.json"
+  docs_dir.mkdir(parents=True, exist_ok=True)
+  write_json(docs_dir / "manifest.json", manifest)
+  docs_dir.joinpath(".nojekyll").touch()
 
-  if not minecraft_instance_json.is_file():
-    fail(f"minecraftinstance.json not found: {minecraft_instance_json}")
 
-  copy_common_pack_files(
-    pack_configs_dir=pack_configs_dir,
-    package_dir=payload_dir,
+def prepare_output_paths(output_paths: list[Path], force: bool) -> None:
+  for output_path in output_paths:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    if output_path.exists() and not force:
+      fail(f"Output already exists: {output_path}. Pass -f/--force to overwrite it.")
+
+
+def parse_args() -> argparse.Namespace:
+  parser = argparse.ArgumentParser(
+    description="Prepare Varda client zip, server config ZIP, and Pages manifest.",
+    formatter_class=HelpFormatter,
   )
 
-  minecraft_version, neoforge_version = read_instance_versions(minecraft_instance_json)
-
-  log(f"Minecraft version: {minecraft_version}", quiet=quiet)
-  log(f"NeoForge version: {neoforge_version}", quiet=quiet)
-
-  write_mods_list(
-    minecraft_instance_json=minecraft_instance_json,
-    package_dir=payload_dir,
-    exclude_patterns=CLIENT_ONLY_PATTERNS,
+  parser.add_argument(
+    "-v",
+    "--version",
+    required=True,
+    metavar="VERSION",
+    help="Version to include in output file names, such as 0.1.1.",
   )
-  write_neoforge_files(package_dir=payload_dir, neoforge_version=neoforge_version)
 
-  log(f"Prepared server payload in {payload_dir}", quiet=quiet)
-  verbose_log(f"Server payload source: {payload_dir}", verbose=verbose, quiet=quiet)
+  parser.add_argument(
+    "-r",
+    "--release",
+    default=DEFAULT_RELEASE,
+    choices=["alpha", "beta", "release"],
+    help="Release channel for the client zip name. Default: beta.",
+  )
+
+  parser.add_argument(
+    "-f",
+    "--force",
+    action="store_true",
+    help="Overwrite existing output files with same name.",
+  )
+
+  parser.add_argument(
+    "-q",
+    "--quiet",
+    action="store_true",
+    help="Only print errors and final output file paths.",
+  )
+
+  parser.add_argument(
+    "--verbose",
+    action="store_true",
+    help="Print detailed progress.",
+  )
+
+  return parser.parse_args()
 
 
 def main() -> int:
   args = parse_args()
   if args.quiet and args.verbose:
     fail("--quiet and --verbose cannot be used together.")
-  version = validate_version(args.version)
 
-  if args.client:
-    package_types = ["client"]
-  elif args.server:
-    package_types = ["server"]
-  else:
-    package_types = ["client", "server"]
+  try:
+    version = slugify_version(args.version)
+  except (OSError, RuntimeError, ValueError) as error:
+    fail(str(error))
 
   script_dir = Path(__file__).resolve().parent
   repo_root = script_dir.parent
   pack_configs_dir = repo_root / "pack-configs"
-  client_zip = output_zip_path(
-    package_type="client",
-    version=version,
-    release=args.release,
-  )
-  server_outputs = [
-    server_installer_output_path(
-      version=version,
-      release=args.release,
-      goos=goos,
-      goarch=goarch,
-      suffix=suffix,
-    )
-    for goos, goarch, suffix in server_installer_targets()
-  ]
+  client_zip = client_zip_path(version, args.release)
+  server_zip = server_config_zip_path(version)
+  manifest_path = MANIFEST_PATH
 
-  if "client" in package_types:
-    prepare_output_paths([client_zip], args.force)
-  if "server" in package_types:
-    prepare_output_paths(server_outputs, args.force)
+  prepare_output_paths([client_zip, server_zip], args.force)
 
   try:
     instance_dir = get_curseforge_instance_dir()
@@ -655,55 +524,51 @@ def main() -> int:
 
   log(f"Using {instance_dir} from {CURSEFORGE_INSTANCE_DIR}", quiet=args.quiet)
 
-  if "client" in package_types:
-    log("Preparing client files...", quiet=args.quiet)
-    with tempfile.TemporaryDirectory(
-      prefix="varda-client-",
-      dir=TMP_DIR,
-    ) as temp_dir_raw:
-      package_dir = Path(temp_dir_raw)
-      prepare_client_files(
-        instance_dir=instance_dir,
-        pack_configs_dir=pack_configs_dir,
-        package_dir=package_dir,
-      )
-      zip_directory_contents(package_dir, client_zip)
+  if not (instance_dir / "minecraftinstance.json").is_file():
+    fail(f"minecraftinstance.json not found: {instance_dir / 'minecraftinstance.json'}")
 
-    if args.quiet:
-      print(client_zip, flush=True)
-    else:
-      log(f"Created {client_zip}", quiet=args.quiet)
-
-  if "server" in package_types:
-    log("Preparing server payload...", quiet=args.quiet)
-    payload_dir = repo_root / "cmd" / "varda-server-installer" / "payload"
-    with tempfile.TemporaryDirectory(
-      prefix="varda-server-payload-",
-      dir=TMP_DIR,
-    ) as temp_dir_raw:
-      temp_payload_dir = Path(temp_dir_raw)
-      prepare_server_files(
-        instance_dir=instance_dir,
-        pack_configs_dir=pack_configs_dir,
-        payload_dir=temp_payload_dir,
-        quiet=args.quiet,
-        verbose=args.verbose,
-      )
-      sync_directory_contents(temp_payload_dir, payload_dir)
-
-    outputs = build_server_installers(
-      repo_root=repo_root,
-      version=version,
-      release=args.release,
-      force=args.force,
-      verbose=args.verbose,
+  log("Preparing client files...", quiet=args.quiet)
+  with tempfile.TemporaryDirectory(prefix="varda-client-", dir=TMP_DIR) as temp_dir_raw:
+    package_dir = Path(temp_dir_raw)
+    prepare_client_files(
+      instance_dir=instance_dir,
+      pack_configs_dir=pack_configs_dir,
+      package_dir=package_dir,
     )
+    package_dir_zip = client_zip
+    with zipfile.ZipFile(package_dir_zip, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+      for path in sorted(package_dir.rglob("*")):
+        archive.write(path, path.relative_to(package_dir))
 
-    for output in outputs:
-      if args.quiet:
-        print(output, flush=True)
-      else:
-        log(f"Created {output}", quiet=args.quiet)
+  log(f"Created {client_zip}", quiet=args.quiet)
+
+  minecraft_instance_json = instance_dir / "minecraftinstance.json"
+  minecraft_version, neoforge_version = read_instance_versions(minecraft_instance_json)
+  log(f"Minecraft version: {minecraft_version}", quiet=args.quiet)
+  log(f"NeoForge version: {neoforge_version}", quiet=args.quiet)
+
+  log("Preparing server config ZIP...", quiet=args.quiet)
+  write_server_config_zip(pack_configs_dir, server_zip)
+  server_config_hash = sha256_file(server_zip)
+  log(f"Created {server_zip}", quiet=args.quiet)
+
+  mods = current_server_mod_entries(minecraft_instance_json, CLIENT_ONLY_PATTERNS)
+  manifest = build_manifest(
+    version=version,
+    minecraft_version=minecraft_version,
+    neoforge_version=neoforge_version,
+    server_config_hash=server_config_hash,
+    mods=mods,
+  )
+
+  write_pages_files(docs_dir=DOCS_DIR, manifest=manifest)
+
+  if args.quiet:
+    print(client_zip, flush=True)
+    print(server_zip, flush=True)
+    print(manifest_path, flush=True)
+  else:
+    log(f"Created {manifest_path}", quiet=args.quiet)
 
   return 0
 

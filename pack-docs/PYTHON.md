@@ -3,15 +3,22 @@
 ## Project Scripts
 
 ### `scripts/prep-files.py`
-Builds release artifacts in `tmp/release/`.
+Builds release artifacts in `tmp/release/` and refreshes GitHub Pages manifest files.
 
-- `--client` builds `tmp/release/varda-client-<version>-<release>.zip`
-- `--server` builds `tmp/release/varda-server-installer-<version>-<release>-<os>-<arch>` binaries
-- `--both` builds the client zip and all server installer binaries in one run
-- `--quiet` prints only errors and the final output path(s)
-- `--verbose` prints detailed progress and streams subprocess output
+- `-v` / `--version` sets the release version
+- `-r` / `--release` sets the client zip release channel name, default `beta`
+- `-f` / `--force` overwrites existing outputs
+- `-q` / `--quiet` prints only errors and final output path(s)
+- `--verbose` prints detailed progress
 
-The server build prepares `cmd/varda-server-installer/payload/`, embeds it into cross-compiled Go installer binaries, and keeps `README-SERVER.txt` in that payload directory.
+The script writes:
+
+- `tmp/release/varda-client-<version>-<release>.zip`
+- `tmp/release/varda-server-config-<version>.zip`
+- `docs/manifest.json`
+- `docs/index.html`
+
+The server ZIP contains pack files from `pack-configs/` only. No installer binaries or `.varda/*` runtime files are generated here.
 
 ### `scripts/cf-upload.py`
 Uploads the Varda CurseForge client zip.
@@ -19,7 +26,7 @@ Uploads the Varda CurseForge client zip.
 - `--dry-run` prints the planned upload metadata without making API calls
 
 ### `scripts/gh-upload.py`
-Uploads the server installer binaries and `checksums.txt` to GitHub Releases.
+Uploads the server config ZIP to GitHub Releases.
 
 - Hardcodes the repository to `varda-dev/varda-modpack`
 - `--replace-assets` deletes same-name release assets before reuploading them
