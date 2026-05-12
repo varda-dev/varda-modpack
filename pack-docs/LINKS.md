@@ -2,9 +2,13 @@
 ## Curseforge
 - API
   - https://support.curseforge.com/support/solutions/articles/9000197321-curseforge-api
+## Modrinth
+- API
+  - https://docs.modrinth.com/
 ## Github
 - API
   - https://docs.github.com/en
+
 ## Tools
 - Lettering
   - https://textcraft.net/
