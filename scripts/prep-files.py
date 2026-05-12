@@ -420,9 +420,9 @@ def build_manifest(
   mods: list[dict[str, str]],
 ) -> dict[str, object]:
   return {
-    "schema_version": 1,
-    "pack": PACK_SLUG,
     "version": version,
+    "pack": PACK_SLUG,
+    "schema_version": 1,
     "minecraft": minecraft_version,
     "neoforge": {
       "version": neoforge_version,
@@ -442,7 +442,7 @@ def write_pages_files(
   manifest: dict[str, object],
 ) -> None:
   docs_dir.mkdir(parents=True, exist_ok=True)
-  write_json(docs_dir / "manifest.json", manifest)
+  write_json(docs_dir / "manifest.json", manifest, sort_keys=False)
   docs_dir.joinpath(".nojekyll").touch()
 
 

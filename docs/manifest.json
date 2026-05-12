@@ -1,5 +1,16 @@
 {
+  "version": "0.1.9",
+  "pack": "varda",
+  "schema_version": 1,
   "minecraft": "1.21.1",
+  "neoforge": {
+    "version": "21.1.228",
+    "installer_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.228/neoforge-21.1.228-installer.jar"
+  },
+  "server_config": {
+    "url": "https://github.com/varda-dev/varda-modpack/releases/download/v0.1.9/varda-server-config-0.1.9.zip",
+    "sha256": "3bca42d6f63f4b6de27b3d4cf66c0e0e2591b9688a3f7db2e35c8c5e38f0d878"
+  },
   "mods": [
     {
       "filename": "almostunified-neoforge-1.21.1-1.4.1.jar",
@@ -477,16 +488,5 @@
       "filename": "YungsExtras-1.21.1-NeoForge-5.1.1.jar",
       "url": "https://edge.forgecdn.net/files/5812/546/YungsExtras-1.21.1-NeoForge-5.1.1.jar"
     }
-  ],
-  "neoforge": {
-    "installer_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.228/neoforge-21.1.228-installer.jar",
-    "version": "21.1.228"
-  },
-  "pack": "varda",
-  "schema_version": 1,
-  "server_config": {
-    "sha256": "a0bde457c6a64656e0d2c67e0845e7e17b33150669400ad53e53266b7ff3a132",
-    "url": "https://github.com/varda-dev/varda-modpack/releases/download/v0.1.9/varda-server-config-0.1.9.zip"
-  },
-  "version": "0.1.9"
+  ]
 }

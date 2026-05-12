@@ -36,11 +36,11 @@ def read_json(path: Path) -> Any:
         fail(f"Failed to read JSON from {path}: {error}")
 
 
-def write_json(path: Path, data: Any) -> None:
+def write_json(path: Path, data: Any, *, sort_keys: bool = True) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     try:
         path.write_text(
-            json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
+            json.dumps(data, indent=2, ensure_ascii=False, sort_keys=sort_keys) + "\n",
             encoding="utf-8",
         )
     except OSError as error:
