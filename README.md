@@ -13,7 +13,7 @@ These don't actually get injected into the environment, just read by the scripts
 - You'll need repo access to get a `GITHUB_RELEASES_PAT`.
 
 ## Scripts
-- Scripts require Python. See [docs/PYTHON.md](docs/PYTHON.md) for help.  
+- Scripts require Python. See [pack-docs/PYTHON.md](pack-docs/PYTHON.md) for help.  
 - All scripts come with `-h` / `--help`
 ### `.\scripts\locate.py`
 Locate the name of a structure from the X / Z coordinates of the chunk you're in.  
