@@ -1,5 +1,5 @@
 {
-  "version": "0.1.9",
+  "version": "0.1.10",
   "pack": "varda",
   "schema_version": 1,
   "minecraft": "1.21.1",
@@ -7,7 +7,7 @@
     "installer_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.228/neoforge-21.1.228-installer.jar"
   },
   "server_config": {
-    "url": "https://github.com/varda-dev/varda-modpack/releases/download/v0.1.9/varda-server-config-0.1.9.zip",
+    "url": "https://github.com/varda-dev/varda-modpack/releases/download/v0.1.10/varda-server-config-0.1.10.zip",
     "sha256": "6bdd3086ead278fe3482786f4f0a3812d4d1b52aa7c5abfa34d1e394814c024c"
   },
   "mods": [
@@ -123,7 +123,7 @@
       "url": "https://edge.forgecdn.net/files/6792/381/formationsoverworld-1.0.5-mc1.21%2b.jar"
     },
     {
-      "url": "https://edge.forgecdn.net/files/8053/183/ftb-backups-3-21.1.4.jar"
+      "url": "https://edge.forgecdn.net/files/8078/605/ftb-backups-3-21.1.5.jar"
     },
     {
       "url": "https://edge.forgecdn.net/files/6391/470/ftb-chunks-modded-1.20%2b1.1.9.jar"
@@ -267,7 +267,7 @@
       "url": "https://edge.forgecdn.net/files/6058/135/Philips-Ruins1.21.1-2.0-NeoForge.jar"
     },
     {
-      "url": "https://edge.forgecdn.net/files/8066/7/relics-1.21.1-0.12.3.jar"
+      "url": "https://edge.forgecdn.net/files/8077/792/relics-1.21.1-0.12.4.jar"
     },
     {
       "url": "https://edge.forgecdn.net/files/8066/54/reliquified_ars_nouveau-1.21.1-0.8.0.jar"
