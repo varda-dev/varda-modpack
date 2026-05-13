@@ -6,6 +6,7 @@ Create a .env file in the repo root with:
 CURSEFORGE_INSTANCE_DIR=""
 CURSEFORGE_API_TOKEN=""
 GITHUB_RELEASES_PAT=""
+MODRINTH_API_TOKEN=""
 ```
 These don't actually get injected into the environment, just read by the scripts.  
 - Instance directory example: `C:\Users\varda-dev\curseforge\minecraft\Instances\Varda`  
