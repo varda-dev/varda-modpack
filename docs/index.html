@@ -5,16 +5,47 @@
   <title>Varda Modpack</title>
   <style>
     body {
-      min-height: 100vh;
-      margin: 0;
-      display: grid;
-      place-content: center;
-      text-align: center;
+      font-family: system-ui, sans-serif;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.5;
+    }
+    pre {
+      background: #111;
+      color: #eee;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    a {
+      display: inline-block;
+      margin-bottom: 1rem;
     }
   </style>
 </head>
 <body>
   <h1>Varda Modpack</h1>
-  <a href="manifest.json">manifest.json</a>
+  <h2>Manifest</h2>
+  <p><a href="manifest.json">Manifest JSON</a></p>
+  <pre id="manifest">Loading manifest...</pre>
+  <script>
+    async function loadManifest() {
+      const output = document.getElementById("manifest");
+      try {
+        const response = await fetch("manifest.json");
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+        const manifest = await response.json();
+        output.textContent = JSON.stringify(manifest, null, 2);
+      } catch (error) {
+        output.textContent = `Failed to load manifest.json: ${error}`;
+      }
+    }
+    loadManifest();
+  </script>
 </body>
 </html>

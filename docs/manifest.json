@@ -1,5 +1,5 @@
 {
-  "version": "0.1.11",
+  "version": "0.1.12",
   "pack": "varda",
   "schema_version": 2,
   "minecraft": "1.21.1",
@@ -8,8 +8,8 @@
     "sha1_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.229/neoforge-21.1.229-installer.jar.sha1"
   },
   "server_config": {
-    "url": "https://github.com/varda-dev/varda-modpack/releases/download/v0.1.11/varda-server-config-0.1.11.zip",
-    "sha1": "b8edc055d9716e4356f466646e8e74ea8a2bb2c4"
+    "url": "https://github.com/varda-dev/varda-modpack/releases/download/v0.1.12/varda-server-config-0.1.12.zip",
+    "sha1": "09f9f4c284d25ac00a6f3f53bd8e5dc5a8c6f41f"
   },
   "mods": [
     {
