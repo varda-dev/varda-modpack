@@ -4,8 +4,9 @@
   "schema_version": 2,
   "minecraft": "1.21.1",
   "neoforge": {
+    "version": "21.1.229",
     "installer_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.229/neoforge-21.1.229-installer.jar",
-    "sha1_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.229/neoforge-21.1.229-installer.jar.sha1"
+    "sha1": "7b6f8512bb5f6a2c5d83e3385016da9813d3589b"
   },
   "server_config": {
     "url": "https://github.com/varda-dev/varda-modpack/releases/download/v0.1.12/varda-server-config-0.1.12.zip",
@@ -679,10 +680,10 @@
     },
     {
       "name": "Structurify – Structure Control",
-      "url": "https://edge.forgecdn.net/files/7895/93/structurify-neoforge-2.0.22%2bmc1.21.1.jar",
+      "url": "https://edge.forgecdn.net/files/8086/729/structurify-neoforge-2.0.23%2bmc1.21.1.jar",
       "website_url": "https://www.curseforge.com/minecraft/mc-mods/structurify",
-      "sha1": "6c6e5c2edc956b2e1fb6909599b862bc2fe68dc4",
-      "size": 372970
+      "sha1": "5517aaa82672c5edb180521d24adbbe872b98516",
+      "size": 435020
     },
     {
       "name": "TerraBlender (NeoForge)",

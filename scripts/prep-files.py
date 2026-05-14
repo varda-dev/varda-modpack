@@ -6,9 +6,12 @@ import argparse
 import fnmatch
 import hashlib
 import json
+import re
 import tempfile
 import zipfile
 from pathlib import Path
+import urllib.error
+import urllib.request
 
 from lib.common import copy_path, fail, is_blank, log, read_json, slugify_version, write_json
 from lib.env import CURSEFORGE_INSTANCE_DIR, get_curseforge_instance_dir
@@ -52,6 +55,7 @@ MANIFEST_PATH = DOCS_DIR / "manifest.json"
 PACK_SLUG = "varda"
 DEFAULT_RELEASE = "beta"
 GITHUB_REPOSITORY = "varda-dev/varda-modpack"
+SHA1_RE = re.compile(r"\b[0-9a-fA-F]{40}\b")
 
 
 class HelpFormatter(argparse.HelpFormatter):
@@ -229,12 +233,35 @@ def neoforge_installer_url(neoforge_version: str) -> str:
   )
 
 
+def neoforge_installer_sha1_url(neoforge_version: str) -> str:
+  return f"{neoforge_installer_url(neoforge_version)}.sha1"
+
+
+def fetch_text(url: str) -> str:
+  try:
+    with urllib.request.urlopen(url, timeout=30) as response:
+      return response.read().decode("utf-8", errors="replace")
+  except urllib.error.URLError as error:
+    fail(f"Could not fetch {url}: {error}")
+
+
+def parse_sha1_digest(data: str, label: str) -> str:
+  match = SHA1_RE.search(data)
+  if match is None:
+    fail(f"Could not find SHA-1 digest in {label}.")
+
+  return match.group(0).lower()
+
+
 def neoforge_metadata(
   neoforge_version: str,
 ) -> dict[str, object]:
+  sha1_url = neoforge_installer_sha1_url(neoforge_version)
+  sha1 = parse_sha1_digest(fetch_text(sha1_url), sha1_url)
   neoforge: dict[str, object] = {
+    "version": neoforge_version,
     "installer_url": neoforge_installer_url(neoforge_version),
-    "sha1_url": f"{neoforge_installer_url(neoforge_version)}.sha1",
+    "sha1": sha1,
   }
 
   return neoforge
