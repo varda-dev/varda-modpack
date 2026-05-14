@@ -15,6 +15,7 @@ These don't actually get injected into the environment, just read by the scripts
 
 ## Scripts
 - Scripts require Python. See [pack-docs/PYTHON.md](pack-docs/PYTHON.md) for help.  
+- Install script dependencies with `python -m pip install -r requirements.txt`.
 - All scripts come with `-h` / `--help`
 ### `.\scripts\locate.py`
 Locate the name of a structure from the X / Z coordinates of the chunk you're in.  

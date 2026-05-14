@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 from __future__ import annotations
 
@@ -15,6 +15,7 @@ import urllib.request
 
 from lib.common import copy_path, fail, is_blank, log, read_json, slugify_version, write_json
 from lib.env import CURSEFORGE_INSTANCE_DIR, get_curseforge_instance_dir
+from lib.manifest_schema import validate_manifest_against_schema
 
 
 CLIENT_ONLY_PATTERNS = [
@@ -663,6 +664,7 @@ def main() -> int:
     mods=mods,
   )
 
+  validate_manifest_against_schema(manifest)
   write_pages_files(docs_dir=DOCS_DIR, manifest=manifest)
 
   if args.quiet:
