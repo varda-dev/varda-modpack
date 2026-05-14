@@ -1,5 +1,5 @@
 {
-  "version": "0.1.14",
+  "version": "0.1.15",
   "pack": "varda",
   "schema_version": 2,
   "minecraft": "1.21.1",
@@ -9,8 +9,8 @@
     "sha1": "7b6f8512bb5f6a2c5d83e3385016da9813d3589b"
   },
   "server_config": {
-    "url": "https://github.com/varda-dev/varda-modpack/releases/download/v0.1.14/varda-server-config-0.1.14.zip",
-    "sha1": "5e5e0e33b4379ca4e22f4294892ba418686cde4a"
+    "url": "https://github.com/varda-dev/varda-modpack/releases/download/v0.1.15/varda-server-config-0.1.15.zip",
+    "sha1": "b8edc055d9716e4356f466646e8e74ea8a2bb2c4"
   },
   "mods": [
     {

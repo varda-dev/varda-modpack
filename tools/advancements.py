@@ -179,7 +179,7 @@ def parse_args() -> argparse.Namespace:
         type=parse_locale_arg,
         help=(
             "Locale to include in generated metadata. Can be passed multiple "
-            "times. Accepts locales from scripts/lib/locales.json. Defaults "
+            "times. Accepts locales from tools/lib/locales.json. Defaults "
             "to the pack-supported locales."
         ),
     )

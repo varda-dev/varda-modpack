@@ -1,0 +1,5 @@
+{
+	backup_timer: 60
+	backups_to_keep: 24
+	max_total_size: "50 GB"
+}

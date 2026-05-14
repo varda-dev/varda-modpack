@@ -1,6 +1,4 @@
 .env
 .codex-tmp/
-tmp
-__pycache__
-cmd/varda-server-installer/payload/*
-!cmd/varda-server-installer/payload/README-SERVER.txt
+tmp/
+__pycache__/

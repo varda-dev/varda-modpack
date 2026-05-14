@@ -385,6 +385,7 @@ def copy_client_manifest(
   instance_dir: Path,
   package_dir: Path,
   server_only_patterns: list[str],
+  version: str,
 ) -> None:
   source = instance_dir / "manifest.json"
   minecraft_instance_json = instance_dir / "minecraftinstance.json"
@@ -396,13 +397,83 @@ def copy_client_manifest(
   if not isinstance(manifest, dict):
     fail("manifest.json must contain a JSON object.")
 
+  minecraft_version, neoforge_version = read_instance_versions(minecraft_instance_json)
+
+  manifest["version"] = version
   manifest["overrides"] = "overrides"
   manifest["files"] = current_installed_manifest_files(
     minecraft_instance_json,
     server_only_patterns,
   )
 
-  write_json(package_dir / "manifest.json", manifest)
+  minecraft = manifest.get("minecraft")
+  if not isinstance(minecraft, dict):
+    minecraft = {}
+
+  minecraft["version"] = minecraft_version
+  minecraft["modLoaders"] = [
+    {
+      "id": f"neoforge-{neoforge_version}",
+      "primary": True,
+    }
+  ]
+
+  manifest["minecraft"] = minecraft
+
+  manifest_path = package_dir / "manifest.json"
+  write_json(manifest_path, manifest)
+  validate_client_manifest(
+    manifest_path,
+    expected_minecraft_version=minecraft_version,
+    expected_neoforge_version=neoforge_version,
+    expected_pack_version=version,
+  )
+
+
+def validate_client_manifest(
+  manifest_path: Path,
+  *,
+  expected_minecraft_version: str,
+  expected_neoforge_version: str,
+  expected_pack_version: str,
+) -> None:
+  manifest = read_json(manifest_path)
+
+  if not isinstance(manifest, dict):
+    fail("Generated client manifest must contain a JSON object.")
+
+  if manifest.get("version") != expected_pack_version:
+    fail(
+      "Generated client manifest has wrong pack version: "
+      f"{manifest.get('version')!r}; expected {expected_pack_version!r}."
+    )
+
+  minecraft = manifest.get("minecraft")
+  if not isinstance(minecraft, dict):
+    fail("Generated client manifest is missing minecraft object.")
+
+  if minecraft.get("version") != expected_minecraft_version:
+    fail(
+      "Generated client manifest has wrong Minecraft version: "
+      f"{minecraft.get('version')!r}; expected {expected_minecraft_version!r}."
+    )
+
+  expected_loader_id = f"neoforge-{expected_neoforge_version}"
+  mod_loaders = minecraft.get("modLoaders")
+
+  if not isinstance(mod_loaders, list):
+    fail("Generated client manifest is missing minecraft.modLoaders list.")
+
+  if not any(
+    isinstance(loader, dict)
+    and loader.get("id") == expected_loader_id
+    and loader.get("primary") is True
+    for loader in mod_loaders
+  ):
+    fail(
+      "Generated client manifest is missing expected primary NeoForge loader: "
+      f"{expected_loader_id}."
+    )
 
 
 def read_instance_versions(minecraft_instance_json: Path) -> tuple[str, str]:
@@ -457,6 +528,7 @@ def prepare_client_files(
   instance_dir: Path,
   pack_configs_dir: Path,
   package_dir: Path,
+  version: str,
 ) -> None:
   overrides_dir = package_dir / "overrides"
 
@@ -464,6 +536,7 @@ def prepare_client_files(
     instance_dir=instance_dir,
     package_dir=package_dir,
     server_only_patterns=SERVER_ONLY_PATTERNS,
+    version=version,
   )
   copy_path(instance_dir / "modlist.html", package_dir / "modlist.html")
 
@@ -636,6 +709,7 @@ def main() -> int:
       instance_dir=instance_dir,
       pack_configs_dir=pack_configs_dir,
       package_dir=package_dir,
+      version=version,
     )
     package_dir_zip = client_zip
     with zipfile.ZipFile(package_dir_zip, "w", compression=zipfile.ZIP_DEFLATED) as archive:

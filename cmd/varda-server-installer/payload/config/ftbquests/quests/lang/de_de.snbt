@@ -1,0 +1,495 @@
+{
+	chapter.00E5F595560D304D.title: "Der Verborgene Faden"
+	file.0000000000000001.title: "Der Kodex von Varda"
+	quest.7D555AC90E8BC38E.quest_desc: ["Stelle einen Werkbank-am-Stiel her"]
+	quest.7D555AC90E8BC38E.title: "Mobiles Handwerk"
+	chapter.01DE47A54FB130A3.title: "Der Vertrautenpfad"
+	chapter_group.73A29692284919C6.title: "Der Zerrissene Pfad"
+	chapter_group.4457B18977D5384C.title: "The Uncharted Veil"
+	quest.3E841EEC942599CB.quest_desc: ["Der Kern und die Geschichte des Spiels"]
+	quest.3E841EEC942599CB.title: "Minecraft"
+	quest.4F9EDFE7884FF6E1.quest_desc: ["Baue Stein mit deiner neuen Spitzhacke ab"]
+	quest.4F9EDFE7884FF6E1.title: "Steinzeit"
+	quest.11E00F66EB9B5DE6.quest_desc: ["Stelle eine bessere Spitzhacke her"]
+	quest.11E00F66EB9B5DE6.title: "Technischer Fortschritt"
+	quest.476D5F97DEFD5467.quest_desc: ["Verhütte Roheisen im Ofen zu einem Eisenbarren"]
+	quest.476D5F97DEFD5467.title: "Metallurgie"
+	quest.6B81F5A609C4CF92.quest_desc: ["Schütze dich mit einem Rüstungsteil aus Eisen"]
+	quest.6B81F5A609C4CF92.title: "Mach dich fein"
+	quest.7FEF06D3035F1215.quest_desc: ["Fülle einen Eimer mit Lava"]
+	quest.7FEF06D3035F1215.title: "Manche mögen’s heiß"
+	quest.5C6E2558594CE034.quest_desc: ["Verbessere deine Spitzhacke"]
+	quest.5C6E2558594CE034.title: "Zu viel Eisen im Blut"
+	quest.4D0462481B998BFD.quest_desc: ["Lenke ein Geschoss mit einem Schild ab"]
+	quest.4D0462481B998BFD.title: "Heute nicht, danke"
+	quest.2D2F937841BF4C81.quest_desc: ["Beschaffe einen Obsidianblock"]
+	quest.2D2F937841BF4C81.title: "Ice Bucket Challenge"
+	quest.13E9A9EEAEBCFB38.quest_desc: ["Beschaffe Diamanten"]
+	quest.13E9A9EEAEBCFB38.title: "Diamanten!"
+	quest.722438F93B19A764.quest_desc: ["Baue, entzünde und betritt ein Netherportal"]
+	quest.722438F93B19A764.title: "Wir müssen noch tiefer"
+	quest.66B9CBAE7DFD6FDF.quest_desc: ["Diamantrüstung rettet Leben"]
+	quest.66B9CBAE7DFD6FDF.title: "Bedeck mich mit Diamanten"
+	quest.109C1B0B216A269E.quest_desc: ["Verzaubere einen Gegenstand an einem Zaubertisch"]
+	quest.109C1B0B216A269E.title: "Verzauberer"
+	quest.6FF4EC25055ECE34.quest_desc: ["Schwäche einen Zombiedorfbe‐ wohner und heile ihn dann"]
+	quest.6FF4EC25055ECE34.title: "Zombiearzt"
+	quest.4A298B79BF4E11A4.quest_desc: ["Folge einem Enderauge"]
+	quest.4A298B79BF4E11A4.title: "Das fliegende Auge"
+	quest.3B18F062DACC8164.quest_desc: ["Betritt das Endportal"]
+	quest.3B18F062DACC8164.title: "Das Ende?"
+	quest.554A3721C9B9631F.quest_desc: ["Schlage einen Ghast mit seinen eigenen Waffen"]
+	quest.554A3721C9B9631F.title: "Zurück zum Absender"
+	quest.3FF3C6D986908D43.quest_desc: ["Betritt eine Bastionsruine"]
+	quest.3FF3C6D986908D43.title: "Das waren noch Zeiten …"
+	quest.364D791A338C0EBA.quest_desc: ["Beschaffe antiken Schrott"]
+	quest.364D791A338C0EBA.title: "Verborgen in den Tiefen"
+	quest.775C6BF51D212F9A.quest_desc: ["Nutze den Nether, um 7 km in der Oberwelt zu reisen"]
+	quest.775C6BF51D212F9A.title: "Subraumtransport"
+	quest.15A452CD917DDE1F.quest_desc: ["Brich in eine Netherfestung ein"]
+	quest.15A452CD917DDE1F.title: "Eine schreckliche Festung"
+	quest.6DF9369CEAF435B8.quest_desc: ["Beschaffe weinenden Obsidian"]
+	quest.6DF9369CEAF435B8.title: "Wer schneidet hier Zwiebeln?"
+	quest.3F370B1B31A90B1E.quest_desc: ["Lenke Piglins mit Gold ab"]
+	quest.3F370B1B31A90B1E.title: "Oh, wie glänzend!"
+	quest.750CB4301E16A6CB.quest_desc: ["Reite einen Schreiter mit einer Wirrpilzrute"]
+	quest.750CB4301E16A6CB.title: "Mach diesem „Boot“ Beine"
+	quest.259D33F90B3E101E.quest_desc: ["Befreie einen Ghast aus dem Nether, bring ihn sicher in die Oberwelt … und erlege ihn dann"]
+	quest.259D33F90B3E101E.title: "Unheilvolle Allianz"
+	quest.7A599556CF231D61.quest_desc: ["Plündere eine Truhe in einer Bastionsruine"]
+	quest.7A599556CF231D61.title: "Kampfschweine"
+	quest.2FD30747D1655F2C.quest_desc: ["Benutze einen Kompass an einem Leitstein"]
+	quest.2FD30747D1655F2C.title: "Weißt du, wo die Leitstein’ stehen?"
+	quest.3DEE5EA031204570.quest_desc: ["Besorge dir eine komplette Netheritrüstung"]
+	quest.3DEE5EA031204570.title: "Bedeck mich mit Schrott"
+	quest.6C5D2AE13AE04884.quest_desc: ["Erbeute einen Wither‐Skelettschädel"]
+	quest.6C5D2AE13AE04884.title: "Nicht den Kopf verlieren"
+	quest.530E43D192AF985E.quest_desc: ["Erleichtere eine Lohe um ihre Rute"]
+	quest.530E43D192AF985E.title: "Spiel mit dem Feuer"
+	quest.6016C02B230B6533.quest_desc: ["Lade einen Seelenanker auf die höchste Stufe auf"]
+	quest.6016C02B230B6533.title: "Nicht ganz „sieben“ Leben"
+	quest.78B5BCE9683215DD.quest_desc: ["Unternimm mit einem Schreiter einen laaaangen Ritt auf einem Lavasee in der Oberwelt"]
+	quest.78B5BCE9683215DD.title: "Ganz wie zu Hause"
+	quest.2615B1810C4F9AF6.quest_desc: ["Entdecke alle Netherbiome"]
+	quest.2615B1810C4F9AF6.title: "Heißbegehrte Reiseziele"
+	quest.61DD2B8185C96580.quest_desc: ["Erschaffe den Wither"]
+	quest.61DD2B8185C96580.title: "Umwitherte Höhen"
+	quest.6DF3D5FEB4C5F905.quest_desc: ["Braue einen Trank"]
+	quest.6DF3D5FEB4C5F905.title: "Alchemie"
+	quest.4A12F09B96D0A937.quest_desc: ["Baue und aktiviere ein Leuchtfeuer"]
+	quest.4A12F09B96D0A937.title: "Den Nachbarn heimleuchten"
+	quest.1C020B77236EE079.quest_desc: ["Habe jeden Trankeffekt gleichzeitig"]
+	quest.1C020B77236EE079.title: "Eine gefährliche Mischung"
+	quest.4CDE77681B9AC9A8.quest_desc: ["Bring ein Leuchtfeuer auf volle Stärke"]
+	quest.4CDE77681B9AC9A8.title: "Leuchtturmwärter"
+	quest.5A741CB770974803.quest_desc: ["Habe jeden Statuseffekt gleichzeitig"]
+	quest.5A741CB770974803.title: "Wie haben wir das geschafft?"
+	quest.6925C5A695902E24.quest_desc: ["… oder der Anfang?"]
+	quest.6925C5A695902E24.title: "Das Ende"
+	quest.34771E43722DF562.quest_desc: ["Viel Glück"]
+	quest.34771E43722DF562.title: "Befreie das Ende"
+	quest.52E1019C2E43C8FA.quest_desc: ["Halte das Drachenei"]
+	quest.52E1019C2E43C8FA.title: "Die nächste Generation"
+	quest.3DBAAE073A592802.quest_desc: ["Entkomme der Insel"]
+	quest.3DBAAE073A592802.title: "Im Transit"
+	quest.7804611D64F164DF.quest_desc: ["Rufe den Enderdrachen ins Leben zurück"]
+	quest.7804611D64F164DF.title: "Das Ende … Schon wieder …"
+	quest.2522354359476544.quest_desc: ["Sammle Drachenatem in einer Glasflasche"]
+	quest.2522354359476544.title: "Du brauchst ein Pfefferminz"
+	quest.5038D921238C0A4F.quest_desc: ["Geh doch rein, was kann schon passieren?"]
+	quest.5038D921238C0A4F.title: "Die Stadt am Ende des Spiels"
+	quest.69514AEFE2171498.quest_desc: ["Finde Elytren"]
+	quest.69514AEFE2171498.title: "Hinterm Horizont geht’s weiter"
+	quest.565F234F7D717E4C.quest_desc: ["Schwebe durch Shulker‐Geschosse 50 Blöcke aufwärts"]
+	quest.565F234F7D717E4C.title: "Schöne Aussicht von hier oben"
+	chapter.FF55743774F036A4.title: "Das Gesäte Mahl"
+	quest.43EED84AD9B1FF97.quest_desc: ["Beginne den Farmer's-Delight-Pfad."]
+	quest.43EED84AD9B1FF97.title: "Das Gesäte Mahl"
+	quest.B03730C6D592CC2D.quest_desc: ["Stelle ein Messer her um mehr Material von Pflanzen und Tieren zu sammeln"]
+	quest.B03730C6D592CC2D.title: "Jagen und sammeln"
+	quest.3C754E5F2196E7A8.quest_desc: ["Vier neue Pflanzen können in verschiedenen Klimas gefunden werden... oder vielleicht in einer Kiste irgendwo."]
+	quest.3C754E5F2196E7A8.title: "Crops of the Wild"
+	quest.D1809B943A512A8E.quest_desc: ["Platziere ein Lagerfeuer, um dich für die Nacht warmzuhalten"]
+	quest.D1809B943A512A8E.title: "Leuchtfeuer entzündet"
+	quest.278F8EFEBFE7E144.quest_desc: ["Ernte krautige Pflanzen und Feldfrüchte mit einem Küchenmesser, um Stroh zu bekommen."]
+	quest.278F8EFEBFE7E144.title: "Nach Strohhalmen greifen"
+	quest.EFB5100A570B6285.quest_desc: ["Benutze ein Schneidebrett um mit deinem Werkzeug ein paar Gegenstände zu zerteilen"]
+	quest.EFB5100A570B6285.title: "Pass auf deine Finger auf"
+	quest.A729117CF501AB2F.quest_desc: ["Benutze ein Küchenmesser, um Schinken von Schweinen zu bekommen."]
+	quest.A729117CF501AB2F.title: "Schinkenschlächter"
+	quest.F9D91BDB2CD7A600.quest_desc: ["Platziere ein wenig organischen Kompost. Es kompostiert besser wenn es mit Sonne, Wasser oder Pilzen in Kontakt ist"]
+	quest.F9D91BDB2CD7A600.title: "Fortgeschrittene Kompostierung"
+	quest.88EE54C1DBDE99D6.quest_desc: ["Lass organischen Kompost zersetzen bis er zu reichhaltiger Erde wird."]
+	quest.88EE54C1DBDE99D6.title: "Pflanzenfutter"
+	quest.5F81EC14E645EEB0.quest_desc: ["Benutze ein Netheritbarren, um ein Küchenmesser zu machen."]
+	quest.5F81EC14E645EEB0.title: "Brennend Heiß"
+	quest.2221742E8E61D9D4.quest_desc: ["Pflanze Reis in seichtes Wasser"]
+	quest.2221742E8E61D9D4.title: "Wurzeln eintauchen"
+	quest.69C5338C1A92E16B.quest_desc: ["Hänge etwas Strohseil über eine Tomatenrebe damit sie höher wächst"]
+	quest.69C5338C1A92E16B.title: "To(ll)mate"
+	quest.408EB2DF0A2F43BE.quest_desc: ["Pflanze Pilze in Dunkelheit auf reichhaltiger Erde, damit sie eine Pilzkolonie formen. Nutze eine Schere, um sie zu ernten"]
+	quest.408EB2DF0A2F43BE.title: "Pilz-Königreich"
+	quest.CA9E3C125FFC4CFA.quest_desc: ["Werfe eine Verdorbene Tomate auf einen dieser nervigen Plünderer"]
+	quest.CA9E3C125FFC4CFA.title: "Boo! Hiss!"
+	quest.22D7847C3DF91978.quest_desc: ["Baue alle Obst-, Gemüse-, Pilz- und Wurzelarten an, die du finden kannst!"]
+	quest.22D7847C3DF91978.title: "Fruchtfolge"
+	quest.2F404FE4036D4CC2.quest_desc: ["Bratpfannen erlauben es dir unterwegs zu Kochen. Stelle dich in die nähe von Hitze, und halte das Essen in deiner anderen Hand."]
+	quest.2F404FE4036D4CC2.title: "Mobiles Kochen"
+	quest.C382389E2F2206BA.quest_desc: ["Platziere deine Bratpfanne während du schleichst"]
+	quest.C382389E2F2206BA.title: "Brutzelnd heiß"
+	quest.CDCCE3097A2DC469.quest_desc: ["Platziere einen Kochtopf und fang an zu kochen!"]
+	quest.CDCCE3097A2DC469.title: "Essen fertig!"
+	quest.586095F515D40DD5.quest_desc: ["Ein herzhafter Teller Essen wird dich für eine gute Weile sättigen!"]
+	quest.586095F515D40DD5.title: "Mahlzeit"
+	quest.A794B64467806D1B.quest_desc: ["Deck den Tisch für ein Festessen!"]
+	quest.A794B64467806D1B.title: "Eines König würdig"
+	quest.A98FE412AB8A966B.quest_desc: ["Esse eine Portion von jedem verfügbaren Mahl!"]
+	quest.A98FE412AB8A966B.title: "Chefkoch"
+	quest.2BE0D746E253D7EA.quest_desc: ["Entdecke alle Biome"]
+	quest.2BE0D746E253D7EA.title: "Abenteuerzeit"
+	quest.034C1EE1891C690A.quest_desc: ["Erlege fünf unterschiedliche Kreaturen mit einem Armbrustschuss"]
+	quest.034C1EE1891C690A.title: "Armbrustschütze"
+	quest.7C171281BBB3535D.quest_desc: ["Schleiche in der Nähe eines Sculk‐Sensors oder Wärters, um zu verhindern, dass du bemerkt wirst"]
+	quest.7C171281BBB3535D.title: "Schleichen 100"
+	quest.56A430E7BF7DE924.quest_desc: ["Erlege eine Böe mit einer abgewehrten Böen‐Windkugel"]
+	quest.56A430E7BF7DE924.title: "Gegenwind"
+	quest.241A09758C97C226.quest_desc: ["Nutze einen Pinsel, um ein Hornschild vom Panzer eines Gürteltiers zu lösen"]
+	quest.241A09758C97C226.title: "Ist das nicht putzig?"
+	quest.BAC1EFF593E177E5.quest_desc: ["Triff die Mitte eines Zielblocks aus mindestens 30 Blöcken Entfernung"]
+	quest.BAC1EFF593E177E5.title: "Volltreffer!"
+	quest.6DB46A36B0496E7F.quest_desc: ["Stelle aus vier Töpferscherben einen verzierten Krug her"]
+	quest.6DB46A36B0496E7F.title: "Behutsame Restaurierung"
+	quest.0EA3AE1358051008.quest_desc: ["Befinde dich in der Nähe eines Werkers, wenn dieser einen Werker herstellt"]
+	quest.0EA3AE1358051008.title: "Werker werkeln Werker"
+	quest.CEC711BD61DA8897.quest_desc: ["Stürze im freien Fall von der Weltobergrenze (die maximale Bauhöhe) bis zur Weltuntergrenze und überlebe"]
+	quest.CEC711BD61DA8897.title: "Höhlen & Klippen"
+	quest.F33B7FB829194BB2.quest_desc: ["Verteidige ein Dorf erfolgreich vor einem Überfall"]
+	quest.F33B7FB829194BB2.title: "Dorfheld"
+	quest.E3A29F2FB374756D.quest_desc: ["Springe an einen Honigblock, um deinen Sturz abzufangen"]
+	quest.E3A29F2FB374756D.title: "Eine klebrige Angelegenheit"
+	quest.85618AA88DA7F842.quest_desc: ["Erlege ein Monster"]
+	quest.85618AA88DA7F842.title: "Monsterjäger"
+	quest.B7F983BA0FDA080D.quest_desc: ["Erlege jedes Monster mindestens ein Mal"]
+	quest.B7F983BA0FDA080D.title: "Meisterjäger"
+	quest.14CF89540585F3F9.quest_desc: ["Erlege eine Kreatur in der Nähe eines Sculk‐Katalysators"]
+	quest.14CF89540585F3F9.title: "Es verbreitet sich"
+	quest.E375321DA2A95962.quest_desc: ["Schabe eine Kupferleuchte mit einer Axt, um ihre Leuchtkraft zu verbessern"]
+	quest.E375321DA2A95962.title: "Aufhellen"
+	quest.882A2E57920937F5.quest_desc: ["Schütze einen Dorfbewohner vor einem unerwünschten Schock, ohne dabei einen Brand auszulösen"]
+	quest.882A2E57920937F5.title: "Überspannungsschutz"
+	quest.BE91EC9F0E1A1C06.quest_desc: ["Wage dich in eine Prüfungskammer"]
+	quest.BE91EC9F0E1A1C06.title: "Minecraft: Prüfungs‐Edition"
+	quest.A4D34C1913E6E484.quest_desc: ["Feuere eine Armbrust ab"]
+	quest.A4D34C1913E6E484.title: "Ich habe die Knarre gesichert"
+	quest.D1C9B58B9450CABA.quest_desc: ["Verursache mit dem Streitkolben 50 Herzen Schaden in einem einzigen Hieb"]
+	quest.D1C9B58B9450CABA.title: "Großmeister des Kampfes"
+	quest.E0262B7A3B3BA609.quest_desc: ["Belebe die Alm mit dem Klang der Musik aus einem Plattenspieler"]
+	quest.E0262B7A3B3BA609.title: "Deine Welt sind die Berge"
+	quest.F9C16ED1CC4987F3.quest_desc: ["Lies mit einem Komparator die Signalstärke eines gearbeiteten Bücherregals aus"]
+	quest.F9C16ED1CC4987F3.title: "Spannung in jedem Band"
+	quest.2FAC98EA33A76F01.quest_desc: ["Schließe einen unheilvollen Tresor mit einem unheilvollen Prüfungsschlüssel auf"]
+	quest.2FAC98EA33A76F01.title: "Panzerknacker"
+	quest.BFDF7C94CAAA1E88.quest_desc: ["Abenteuer, Entdeckung und Kampf"]
+	quest.BFDF7C94CAAA1E88.title: "Abenteuer"
+	quest.D1AC9E8599530820.quest_desc: ["Pinsel einen seltsamen Block ab, um eine Töpferscherbe zu finden"]
+	quest.D1AC9E8599530820.title: "Achtung vor dem Alten"
+	quest.5E274D840F73672C.quest_desc: ["Triff ein Wesen mit einem Pfeil"]
+	quest.5E274D840F73672C.title: "Zielübungen"
+	quest.A926B7486FA82FB8.quest_desc: ["Schlafe in einem Bett, um deinen Wiedereinstiegspunkt zu ändern"]
+	quest.A926B7486FA82FB8.title: "Träum was Schönes"
+	quest.56C6C7FAE44AD414.quest_desc: ["Erlege ein Skelett aus mindestens 50 Blöcken Entfernung"]
+	quest.56C6C7FAE44AD414.title: "Scharfschützenduell"
+	quest.08855814942F18F9.quest_desc: ["Betrachte den Enderdrachen durch ein Fernrohr"]
+	quest.08855814942F18F9.title: "Ist es ein Flugzeug?"
+	quest.234E9DD74F43563B.quest_desc: ["Betrachte einen Ghast durch ein Fernrohr"]
+	quest.234E9DD74F43563B.title: "Ist es ein Ballon?"
+	quest.23B429223765D64C.quest_desc: ["Betrachte einen Papagei durch ein Fernrohr"]
+	quest.23B429223765D64C.title: "Ist es ein Vogel?"
+	quest.C6AFCE4CBCA3853B.quest_desc: ["Baue einen Eisengolem, um bei der Verteidigung eines Dorfes mitzuhelfen"]
+	quest.C6AFCE4CBCA3853B.title: "Das 1. Gesetz der Robotik"
+	quest.AF5402C6C04CDB24.quest_desc: ["Wirf deinen Dreizack auf irgendetwas.\nHinweis: Es ist keine gute Idee, deine einzige Waffe wegzuwerfen."]
+	quest.AF5402C6C04CDB24.title: "Ein Witz zum Wegwerfen"
+	quest.F8545DC1295B5BD2.quest_desc: ["Benutze ein Totem der Unsterblichkeit, um dem Tod von der Schippe zu springen"]
+	quest.F8545DC1295B5BD2.title: "Post mortem"
+	quest.3F50B39A8AC79809.quest_desc: ["Schließe einen Handel mit einem Dorfbewohner ab"]
+	quest.3F50B39A8AC79809.title: "Was für ein Geschäft!"
+	quest.A06AE1C6DF4AC4B1.quest_desc: ["Handle mit einem Dorfbewohner auf der maximalen Bauhöhe"]
+	quest.A06AE1C6DF4AC4B1.title: "Sternenhändler"
+	quest.80B789FC266C3951.quest_desc: ["Wende jede dieser Schmiedevorlagen mindestens einmal an: Turmspitze, Schnauze, Rippe, Warthof, Stille, Plagegeist, Gezeiten und Wegfinder"]
+	quest.80B789FC266C3951.title: "Schmieden mit Stil"
+	quest.525A691252A4559B.quest_desc: ["Versieh ein Rüstungsteil an einem Schmiedetisch mit einem Rüstungsbesatz"]
+	quest.525A691252A4559B.title: "Ein neues Aussehen"
+	quest.893BEB5AAE5C3C98.quest_desc: ["Erlege zwei Phantome mit einem Durchschuss"]
+	quest.893BEB5AAE5C3C98.title: "Zwei auf einen Streich"
+	quest.39E88F016DB8EFD9.quest_desc: ["Entriegle einen Tresor mit einem Prüfungsschlüssel"]
+	quest.39E88F016DB8EFD9.title: "Hinter Schloss und Riegel"
+	quest.7F182292F5444FA5.quest_desc: ["Triff einen Dorfbewohner mit einem Blitz"]
+	quest.7F182292F5444FA5.title: "Blitzezucken, Donnerkrach"
+	quest.28319C24A61D7DC4.quest_desc: ["Besiege einen Räuberhauptmann.\nZiehe möglicherweise in Betracht, dich vorerst von Dörfern fernzuhalten …"]
+	quest.28319C24A61D7DC4.title: "Freiwilliges Exil"
+	quest.A6FFAA93C95C7F2C.quest_desc: ["Gehe auf Pulverschnee … ohne darin zu versinken"]
+	quest.A6FFAA93C95C7F2C.title: "Leicht wie ein Kaninchen"
+	quest.D9966BE9CBB16704.quest_desc: ["Benutze eine Windkugel, um dich 8 Blöcke in die Höhe zu schleudern"]
+	quest.D9966BE9CBB16704.title: "Wer braucht schon Raketen?"
+	quest.C6E44B6049CE27FC.quest_desc: ["Gib einem Plünderer eine Kostprobe seiner eigenen Medizin"]
+	quest.C6E44B6049CE27FC.title: "Wer ist jetzt der Plünderer?"
+	quest.CB5BCCB429CF9266.quest_desc: ["Lass einen Hilfsgeist einen Kuchen bei einem Notenblock ablegen"]
+	quest.CB5BCCB429CF9266.title: "Geburtstagslied"
+	quest.77D1251217904862.quest_desc: ["Lass dir einen Gegenstand von einem Hilfsgeist liefern"]
+	quest.77D1251217904862.title: "Du hast ’n Freund in mir"
+	quest.512F3C730F451A77.quest_desc: ["Fang einen Axolotl mit einem Eimer"]
+	quest.512F3C730F451A77.title: "Das niedlichste Raubtier"
+	quest.CFEB25B369D18EC2.quest_desc: ["Iss alles Essbare, selbst wenn es nicht gut für dich ist"]
+	quest.CFEB25B369D18EC2.title: "Ausgewogene Ernährung"
+	quest.361BD3F9CEDCD516.quest_desc: ["Vermehre alle Tierarten!"]
+	quest.361BD3F9CEDCD516.title: "Paarweise"
+	quest.15F2541356012790.quest_desc: ["Vermehre zwei Tiere"]
+	quest.15F2541356012790.title: "Die Hühnchen und die Blümchen"
+	quest.707FC63D52ECA571.quest_desc: ["Zähme alle Katzenarten!"]
+	quest.707FC63D52ECA571.title: "Ein kompletter Katerlog"
+	quest.EF4E7B2A0F8C5474.quest_desc: ["Füttere ein Schnüfflerjunges"]
+	quest.EF4E7B2A0F8C5474.title: "Schnupperkurs"
+	quest.E86AC1C5DAC1B2CF.quest_desc: ["Fang einen Fisch"]
+	quest.E86AC1C5DAC1B2CF.title: "Anglerglück"
+	quest.56A082C08A684B02.quest_desc: ["Habe alle Froschlichter im Inventar"]
+	quest.56A082C08A684B02.title: "Mit vereinten Kräften!"
+	quest.BB17EEF9A88664CB.quest_desc: ["Verbünde dich mit einem Axolotl und gewinne einen Kampf"]
+	quest.BB17EEF9A88664CB.title: "Die heilende Kraft der Freundschaft!"
+	quest.DF150356FA8C1889.quest_desc: ["Habe jede Froschart an einer Leine"]
+	quest.DF150356FA8C1889.title: "Wenn die Kerle um die Häuser ziehen"
+	quest.F3EC649372CC9EA9.quest_desc: ["Lass den Text einer beliebigen Art von Schild leuchten"]
+	quest.F3EC649372CC9EA9.title: "Leuchte und staune!"
+	quest.33F9319384CE3114.quest_desc: ["Benutze einen Netheritbarren, um eine Hacke aufzuwerten, und denke dann über deine Lebensentscheidungen nach"]
+	quest.33F9319384CE3114.title: "Landwirt aus Leidenschaft"
+	quest.1096ED01786CB4AB.quest_desc: ["Beschaffe ein Schnüffler‐Ei"]
+	quest.1096ED01786CB4AB.title: "Ein ungewöhnlicher Geruch"
+	quest.4EDA388C67A31AA7.quest_desc: ["Säe von einem Schnüffler ausgegrabene Samen"]
+	quest.4EDA388C67A31AA7.title: "Wir säen Geschichte"
+	quest.BF381BFA32B5E9F6.quest_desc: ["Säe Samen und sieh ihnen beim Wachsen zu"]
+	quest.BF381BFA32B5E9F6.title: "Hobbygärtner"
+	quest.1F87838AA700F9EC.quest_desc: ["Löse mit einer Schere den Wolfspanzer von einem Wolf"]
+	quest.1F87838AA700F9EC.title: "Schnipp‐schnapp!"
+	quest.128B72240DB3E820.quest_desc: ["Repariere einen beschädigten Wolfspanzer mit Gürteltier‐Hornschilden vollständig"]
+	quest.128B72240DB3E820.title: "So gut wie neu"
+	quest.C0D39F29B848F96A.quest_desc: ["Steige in ein Boot und mach mit einer Ziege die Fliege"]
+	quest.C0D39F29B848F96A.title: "Ohne Geiß kein Preis!"
+	quest.F52A8CF59A6E7D91.quest_desc: ["Die Welt ist voller Freunde und Essen"]
+	quest.F52A8CF59A6E7D91.title: "Landwirtschaft"
+	quest.B622A948AA25AFE2.quest_desc: ["Benutze ein Lagerfeuer, um mit einer Glasflasche Honig aus einem Bienenstock zu sammeln, ohne die Bienen zu reizen"]
+	quest.B622A948AA25AFE2.title: "Sssei unser Gast"
+	quest.A8638745D69952A9.quest_desc: ["Ziehe ein Bienennest oder einen Bienenstock, in dem drei Bienen sind, mit Behutsamkeit um"]
+	quest.A8638745D69952A9.title: "Bienenwanderung"
+	quest.0D97219A3836CA5B.quest_desc: ["Fang einen Fisch … ohne Angel!"]
+	quest.0D97219A3836CA5B.title: "Taktisches Fischen"
+	quest.BAA6B46D18A5A02C.quest_desc: ["Fang eine Kaulquappe in einem Eimer"]
+	quest.BAA6B46D18A5A02C.title: "Im Eimer"
+	quest.1D3C000470E328C0.quest_desc: ["Zähme ein Tier"]
+	quest.1D3C000470E328C0.title: "Allerbeste Freunde"
+	quest.A4A7944AC0FBD7B4.quest_desc: ["Schabe Wachs von einem Kupferblock ab!"]
+	quest.A4A7944AC0FBD7B4.title: "Polieren"
+	quest.8BBBE43AFF17FC84.quest_desc: ["Wachse einen Kupferblock mit einer Honigwabe!"]
+	quest.8BBBE43AFF17FC84.title: "Auftragen"
+	quest.D8AF1CCC379F3B52.quest_desc: ["Zähme alle Wolfsarten"]
+	quest.D8AF1CCC379F3B52.title: "Das ganze Rudel"
+	quest.262398D405EC06FA.quest_desc: ["Zieh dir was Kurzes an"]
+	quest.262398D405EC06FA.title: "Nether"
+	chapter.3CFE283B0F800A6F.title: "The Woven Spell"
+	quest.D059C74E9F4C4043.quest_desc: ["Erwerben Sie ein abgenutztes Notebook"]
+	quest.D059C74E9F4C4043.title: "Ars Nouveau"
+	quest.B80F93246F395769.quest_desc: ["Erwerben Sie eine Imbuement-Kammer"]
+	quest.B80F93246F395769.title: "Durchdrungen"
+	quest.DD631368730E2692.quest_desc: ["Erwerben Sie ein Zauberbuch für Anfänger"]
+	quest.DD631368730E2692.title: "Unbreaking X"
+	quest.F25C0AAAB5CA8852.quest_desc: ["Erwerben Sie ein Ritual-Kohlenbecken"]
+	quest.F25C0AAAB5CA8852.title: "Dreist"
+	quest.7DFE9996A0FD5ABB.quest_desc: ["Machen Sie einen „Handel“ mit einer magischen Kreatur"]
+	quest.7DFE9996A0FD5ABB.title: "Wo ist es hin?"
+	quest.B0F8207F518C20CF.quest_desc: ["Iss einen Bombegranate"]
+	quest.B0F8207F518C20CF.title: "Zum Sterben"
+	quest.DA04F01298225940.quest_desc: ["Erwerben Sie ein Quellglas"]
+	quest.DA04F01298225940.title: "Keine Flüssigkeit!"
+	quest.5E837BFF4F49E741.quest_desc: ["Erwerben Sie einen Zauberapparat"]
+	quest.5E837BFF4F49E741.title: "Magic Mod-Mechaniker"
+	quest.08E36ED3364862CA.quest_desc: ["Acquire a Mage's Spell Book"]
+	quest.08E36ED3364862CA.title: "Mage's Spell Book"
+	quest.AFA59D1F30D075A4.quest_desc: ["Erwerben Sie den Fokus eines Schöpfers"]
+	quest.AFA59D1F30D075A4.title: "Wirf noch einen Stein!"
+	quest.0522D1DEA3627116.quest_desc: ["Erwerben Sie einen Amethyst-Golem-Amulett"]
+	quest.0522D1DEA3627116.title: "Lila Amethystfresser"
+	quest.8651B48FA247C699.quest_desc: ["Binde eine magische Kreatur an einen Vertrauten"]
+	quest.8651B48FA247C699.title: "Das kommt mir bekannt vor..."
+	quest.925F1B0929405320.quest_desc: ["Erwerben Sie ein Eindämmungsglas"]
+	quest.925F1B0929405320.title: "Winziges Zuhause"
+	quest.A1C43145B61F4C6D.quest_desc: ["Erwerben Sie einen Drygmäen-Amulett"]
+	quest.A1C43145B61F4C6D.title: "Elchtanz"
+	quest.F3FF1B835F0E8D3A.quest_desc: ["Be affected by a Ritual of Gravity"]
+	quest.F3FF1B835F0E8D3A.title: "You're Grounded"
+	quest.E401D1A213D5D951.quest_desc: ["Erwerben Sie einen Sternbunkel-Amulett"]
+	quest.E401D1A213D5D951.title: "Der süßeste Hopper"
+	quest.47451C0A6FEB4668.quest_desc: ["Erwerben Sie einen Wirbelzweig-Amulett"]
+	quest.47451C0A6FEB4668.title: "Whirli"
+	quest.38AF0A7BF5FD545C.quest_desc: ["Erwerben Sie einen Wixie-Amulett"]
+	quest.38AF0A7BF5FD545C.title: "Befreie das innere Kind"
+	quest.39567ACC2F9CB92E.quest_desc: ["Erwerben Sie einen Mageblütensamen"]
+	quest.39567ACC2F9CB92E.title: "Magebloom"
+	quest.CF229492AE47B1B5.quest_desc: ["Besorge dir ein Trankglas"]
+	quest.CF229492AE47B1B5.title: "Aufbewahrung von Trank"
+	quest.B70717E3264912BC.quest_desc: ["Erwerben Sie ein Seher-Oculus"]
+	quest.B70717E3264912BC.title: "Augen Spion"
+	quest.E854F5997C688CA7.quest_desc: ["Erwerben Sie einen einfachen Zauberturm"]
+	quest.E854F5997C688CA7.title: "Es ist ein Magic Mod, ich schwöre!"
+	quest.DE6CE4C3CFABCAB8.quest_desc: ["Erhalte einen Wilden-Tribut"]
+	quest.DE6CE4C3CFABCAB8.title: "Wilden-Tribut"
+	quest.C9EC6605C044487F.quest_desc: ["Fange einen Blitz in einem Sicherheitsgefäß ein."]
+	quest.C9EC6605C044487F.title: "Blitz in einer Flasche"
+	quest.08BBFBD75D52B06A.quest_desc: ["Legen Sie einen Sternbunkel in ein Eindämmungsglas"]
+	quest.08BBFBD75D52B06A.title: "Schatz, ich habe den Starbuncle geschrumpft"
+	quest.868A21E11CDDC556.quest_desc: ["Legen Sie eine Uhr in ein Sicherheitsgefäß"]
+	quest.868A21E11CDDC556.title: "Zeit in einer Flasche"
+	quest.029E8FF39C90A465.quest_desc: ["Erwerben Sie Starbuncle Shades"]
+	quest.029E8FF39C90A465.title: "Ein cooler Starbuncle"
+	quest.C4179DFF80CB93D9.quest_desc: ["Erwerben Sie einen Wixie-Hut"]
+	quest.C4179DFF80CB93D9.title: "Tranktransport"
+	quest.28A3A204317160C7.quest_desc: ["Erwerben Sie eine Änderungstabelle"]
+	quest.28A3A204317160C7.title: "Rüstungsänderung"
+	quest.FAE567598BF770AB.quest_desc: ["Erwerben Sie eine Warp-Schriftrolle"]
+	quest.FAE567598BF770AB.title: "Verzogen"
+	quest.1F521E8B1CB516FE.quest_desc: ["Erwerben Sie einen Trankdiffusor"]
+	quest.1F521E8B1CB516FE.title: "Riechst du das?"
+	quest.83D4F607B98BD493.quest_desc: ["Besorge dir ein Trankfläschchen"]
+	quest.83D4F607B98BD493.title: "Stapelbare Tränke"
+	quest.9F30B77ECAABA3A8.quest_desc: ["Erwerben Sie einen Trankmelder"]
+	quest.9F30B77ECAABA3A8.title: "Meld'em, Mash'em, Stick'em in a Cauldron"
+	quest.8C7D2C65CE60678B.quest_desc: ["Erwerben Sie ein Zauberprisma"]
+	quest.8C7D2C65CE60678B.title: "Prismatische Umleitung"
+	quest.D4F7D0ECAA7E507B.quest_desc: ["Werden Sie Zeuge einer explosiven Tauchbombe"]
+	quest.D4F7D0ECAA7E507B.title: "Moment, es kann fliegen?"
+	quest.27FEB877C3AE2B0F.quest_desc: ["Erwerben Sie ein Erzmagier-Zauberbuch"]
+	quest.27FEB877C3AE2B0F.title: "Erzmagier-Zauberbuch"
+	quest.A61C39B138931B23.quest_desc: ["Erwerben Sie einen Beschwörungsfokus"]
+	quest.A61C39B138931B23.title: "Beschwörungsfokus"
+	quest.EB114D21FCFAD63E.quest_desc: ["Erstelle ein Warp-Portal"]
+	quest.EB114D21FCFAD63E.title: "Denken mit ... falschem Spiel"
+	quest.ADAA83B7A9BBB55A.quest_desc: ["Leite einen Zauber mit einem Prisma viermal oder öfter um"]
+	quest.ADAA83B7A9BBB55A.title: "Denken mit Prismen"
+	chapter.483CCD9C163DDD24.title: "The Shattered Omen"
+	quest.1F1B05C05FB24BAB.quest_desc: ["Cataclysm!"]
+	quest.1F1B05C05FB24BAB.title: "Cataclysm"
+	quest.3AFA381EB3F3E936.quest_desc: ["Find the Acropolis"]
+	quest.3AFA381EB3F3E936.title: "Why in the Sky?"
+	quest.68C8E78DB8A3A702.quest_desc: ["Find the Ruined Citadel"]
+	quest.68C8E78DB8A3A702.title: "Another Stronghold?!"
+	quest.15D09189F508E66F.quest_desc: ["Find the Ancient Factory"]
+	quest.15D09189F508E66F.title: "Out-of-Place"
+	quest.4DD680B79F1CC461.quest_desc: ["Find the Burning Arena"]
+	quest.4DD680B79F1CC461.title: "A Massive Arena"
+	quest.43C2D9211D848256.quest_desc: ["Find the Sunken City"]
+	quest.43C2D9211D848256.title: "Sunken in the Sea"
+	quest.03ED444AD596CD63.quest_desc: ["You have reached the summit of Cataclysm!"]
+	quest.03ED444AD596CD63.title: "The Cataclysmfarer"
+	quest.5A0A841A865AED76.quest_desc: ["Find the Frosted Prison"]
+	quest.5A0A841A865AED76.title: "Jail of Cold"
+	quest.E9641E2CB1B7EEBC.quest_desc: ["Find the Cursed Pyramid"]
+	quest.E9641E2CB1B7EEBC.title: "Desert Pyramid Revamped"
+	quest.1E5ECD1A20B62776.quest_desc: ["Find the Soul Forge"]
+	quest.1E5ECD1A20B62776.title: "Where the Monstrous be Forged"
+	quest.AAD0D64BA8020C78.quest_desc: ["Kill an Clawdian"]
+	quest.AAD0D64BA8020C78.title: "Not so Shrimple Now"
+	quest.37F42181CC4BC900.quest_desc: ["Kill an Ender Golem"]
+	quest.37F42181CC4BC900.title: "Palette Swap"
+	quest.718A1B7EEC676154.quest_desc: ["Wake and Defeat the Harbinger"]
+	quest.718A1B7EEC676154.title: "The Thing of Ancient Civilization"
+	quest.2BBBCEA81BEC54C9.quest_desc: ["Kill an Ignited Revenant"]
+	quest.2BBBCEA81BEC54C9.title: "Imperfect thing"
+	quest.D6A2F68392603F28.quest_desc: ["Summon and Defeat the Leviathan"]
+	quest.D6A2F68392603F28.title: "A Multidimensional Predator"
+	quest.93CE9B003A3C2D6C.quest_desc: ["Summon and Defeat Maledictus"]
+	quest.93CE9B003A3C2D6C.title: "Crusade Against Curse"
+	quest.73F3503D58997FC9.quest_desc: ["Excavate from the suspicious sand within the cursed pyramid to wake up and knock down the Ancient Remnant"]
+	quest.73F3503D58997FC9.title: "Death Finds a Way"
+	quest.E51FC8674F6F3596.quest_desc: ["Kill the Netherite Monstrosity"]
+	quest.E51FC8674F6F3596.title: "The Broken Nether's Warmachine"
+	quest.DCFF5F92BA587DCA.quest_desc: ["Defeat the Storm Empress, Scylla"]
+	quest.DCFF5F92BA587DCA.title: "The Calm after the Storm"
+	quest.855BDDF50A910D95.quest_desc: ["Defeat the Ender Guardian"]
+	quest.855BDDF50A910D95.title: "Wasn't that a Shulker?"
+	quest.6D38CFBDA9CDED9E.quest_desc: ["Summon and Defeat the Ignis"]
+	quest.6D38CFBDA9CDED9E.title: "The Extinguished Fire"
+	chapter.3F2AC06DA2106A5E.title: "The Hunter's Folly"
+	quest.F8E1CA96448EA72E.quest_desc: ["Willkommen Mowzie's Mobs!"]
+	quest.F8E1CA96448EA72E.title: "Mowzie's Mobs"
+	quest.48C01CD2A7C14A0C.quest_desc: ["Kill a Bluff"]
+	quest.48C01CD2A7C14A0C.title: "Called Your Bluff"
+	quest.A2B8989E7B4FD435.quest_desc: ["Kill an Elokosa Howler"]
+	quest.A2B8989E7B4FD435.title: "Gibbous Gibbons"
+	quest.C9B385008D8ED0E0.quest_desc: ["Töte einen Foliaath"]
+	quest.C9B385008D8ED0E0.title: "Jennifer hat mich abgelehnt"
+	quest.E5060DA22D3A2BBE.quest_desc: ["Töte einen Grottol"]
+	quest.E5060DA22D3A2BBE.title: "Du Monster..."
+	quest.4D4E825B52EA0C0C.quest_desc: ["Töte eine Naga"]
+	quest.4D4E825B52EA0C0C.title: "Wingin' It"
+	quest.70F891A93801EF58.quest_desc: ["Töte einen Eisernen Wroughtnaut"]
+	quest.70F891A93801EF58.title: "Je größer sie sind..."
+	quest.1D974321CDB0C051.quest_desc: ["Töte einen Frostmaw"]
+	quest.1D974321CDB0C051.title: "Unfreundliches Erwachen"
+	quest.45E5928C1F206205.quest_desc: ["Complete the Sculptor's challenge"]
+	quest.45E5928C1F206205.title: "You Must Believe"
+	quest.609350065CA647B3.quest_desc: ["Kill an Umvuthana Raptor"]
+	quest.609350065CA647B3.title: "Masquerade"
+	quest.2F41188549891F33.quest_desc: ["Kill Umvuthi, the Sunbird"]
+	quest.2F41188549891F33.title: "Praise the Sun"
+	quest.B34AB4B811ECA344.quest_desc: ["Töte einen Grottol mit einer Glücksspitzhacke"]
+	quest.B34AB4B811ECA344.title: "Doppelt oder Nichts!"
+	quest.249C4E7BF625C14C.quest_desc: ["Töte einen Grottol mit einer Behutsamkeitsspitzhacke"]
+	quest.249C4E7BF625C14C.title: "Du kommst mit mir"
+	quest.A3D242C07A401053.quest_desc: ["Stehle einem Frostmaw seinen Eis Kristall"]
+	quest.A3D242C07A401053.title: "Big Brain™ Zeit"
+	quest.9EEE5CAC7CF3DC16.quest_desc: ["Fall to your death during the Sculptor's challenge"]
+	quest.9EEE5CAC7CF3DC16.title: "No One Jumps for the Beef"
+	quest.AE514006A7E4DC21.quest_desc: ["Sneak into an Umvuthana grove in disguise"]
+	quest.AE514006A7E4DC21.title: "Birds of a Feather"
+	quest.28B12A233F7DC250.quest_desc: ["Erhalte den Segen der Sonne"]
+	quest.28B12A233F7DC250.title: "Heliomancer"
+	chapter.8ECBDEC471A06B84.title: "The Sunken Shrine"
+	quest.02850C540837ACA2.quest_desc: ["Somewhere deep in the desert..."]
+	quest.02850C540837ACA2.title: "YUNG's Better Desert Temples"
+	quest.939E4BDABA897320.quest_desc: ["Discover a Better Desert Temple"]
+	quest.939E4BDABA897320.title: "An Ancient Tomb"
+	quest.AC17F5EA7D7C5E0C.quest_desc: ["Slay the Pharaoh and free the Temple from his curse"]
+	quest.AC17F5EA7D7C5E0C.title: "Eternal Slumber"
+	chapter.1052898EFFDA2A2E.title: "The Eyes Unbound"
+	quest.20AB4A787D9DB1D5.quest_desc: ["Finde dein erstes Auge"]
+	quest.20AB4A787D9DB1D5.title: "Der Beginn eines Abenteuers"
+	quest.157105543D4A21DC.quest_desc: ["Finde ein Altes Auge"]
+	quest.157105543D4A21DC.title: "Glückssucher"
+	quest.AC6EA3C80C6B91A8.quest_desc: ["Finde ein Wächter Auge"]
+	quest.AC6EA3C80C6B91A8.title: "Wer bewacht den Tempel jetzt?"
+	quest.95ABDA9E564E901A.quest_desc: ["Get Your First Cryptic Eye"]
+	quest.95ABDA9E564E901A.title: "Patience Is The Road To Wisdom"
+	quest.9A123CEABB5B33A9.quest_desc: ["Finde ein Nether Auge"]
+	quest.9A123CEABB5B33A9.title: "Starre in die Verzweiflung"
+	quest.095C4F29C89CD3C1.quest_desc: ["Finde ein Magisches Auge"]
+	quest.095C4F29C89CD3C1.title: "Gefallener Zauberer"
+	quest.96573A7A1F72A8C9.quest_desc: ["Finde ein Verlorenes Auge"]
+	quest.96573A7A1F72A8C9.title: "Brauchste ne Karte?"
+	quest.A1CA51D28C05FD8B.quest_desc: ["Get Your First Evil Eye"]
+	quest.A1CA51D28C05FD8B.title: "A Real Blessing"
+	quest.76514E4BA3E61B8F.quest_desc: ["Finde ein Hexen Auge"]
+	quest.76514E4BA3E61B8F.title: "Süßes oder Saures?"
+	quest.224694734E414CA2.quest_desc: ["Finde ein Abtrünniges Auge"]
+	quest.224694734E414CA2.title: "Willkommen im Dschungel"
+	quest.0CE3F6D22915F9BB.quest_desc: ["Finde ein Wither Auge"]
+	quest.0CE3F6D22915F9BB.title: "Untoter Schatz"
+	quest.4C95C1011362C066.quest_desc: ["Get Your First Undead Eye"]
+	quest.4C95C1011362C066.title: "The Mirror Of The Soul"
+	quest.5CC92E676880A8FE.quest_desc: ["Finde ein Verdorbenes Auge"]
+	quest.5CC92E676880A8FE.title: "Bedeck mich mit Schätzen!"
+	quest.18DEA3BBCB7F184B.quest_desc: ["Finde ein Schwarzes Auge"]
+	quest.18DEA3BBCB7F184B.title: "Arghh, Wo ist mein Schiff?"
+	quest.F07898D9A74988AF.quest_desc: ["Get Your First Cursed Eye"]
+	quest.F07898D9A74988AF.title: "A New Protector..."
+	quest.DCEF93F0782F89EE.quest_desc: ["Finde ein Eiskaltes Auge"]
+	quest.DCEF93F0782F89EE.title: "Ein N-eis-er Anblick"
+	quest.892442E648550CFC.quest_desc: ["Get Your First Exotic Eye"]
+	quest.892442E648550CFC.title: "Where's Atlantis?"
+}

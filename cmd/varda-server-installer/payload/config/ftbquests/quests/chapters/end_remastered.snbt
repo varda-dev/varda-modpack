@@ -1,0 +1,474 @@
+{
+	autofocus_id: "20AB4A787D9DB1D5"
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "end_remastered"
+	group: "4457B18977D5384C"
+	icon: {
+		id: "endrem:ancient_portal_frame"
+	}
+	id: "1052898EFFDA2A2E"
+	order_index: 2
+	quest_links: [ ]
+	title: "The Eyes Unbound"
+	quests: [
+	{
+		icon: {
+			id: "endrem:ancient_portal_frame"
+		}
+		disable_toast: true
+		id: "20AB4A787D9DB1D5"
+		description: ["Get Your First Eye"]
+		rewards: [{
+			count: 1
+			id: "17CA671A409604DE"
+			item: {
+				count: 1
+				id: "endrem:undead_soul"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "endrem:main/root"
+			criterion: ""
+			id: "1C7C60C98E949A2E"
+			type: "advancement"
+		}]
+		x: 0.0d
+		y: 0.0d
+	},
+	{
+		dependencies: ["20AB4A787D9DB1D5"]
+		icon: {
+			id: "endrem:old_eye"
+		}
+		disable_toast: true
+		id: "157105543D4A21DC"
+		description: ["Get Your First Old Eye"]
+		rewards: [{
+			count: 1
+			id: "A49D454705A10EE1"
+			item: {
+				count: 1
+				id: "endrem:undead_soul"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "endrem:main/old_eye"
+			criterion: ""
+			id: "43E92D9B77622EA6"
+			type: "advancement"
+		}]
+		x: -4.0d
+		y: 2.0d
+	},
+	{
+		dependencies: ["20AB4A787D9DB1D5"]
+		icon: {
+			id: "endrem:guardian_eye"
+		}
+		disable_toast: true
+		id: "AC6EA3C80C6B91A8"
+		description: ["Get Your First Guardian Eye"]
+		rewards: [{
+			count: 1
+			id: "55BE1FD6E777BB10"
+			item: {
+				count: 1
+				id: "endrem:undead_soul"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "endrem:main/guardian_eye"
+			criterion: ""
+			id: "C03F4C27292708B9"
+			type: "advancement"
+		}]
+		x: 2.0d
+		y: 2.0d
+	},
+	{
+		dependencies: ["20AB4A787D9DB1D5"]
+		icon: {
+			id: "endrem:cryptic_eye"
+		}
+		disable_toast: true
+		id: "95ABDA9E564E901A"
+		description: ["Get Your First Cryptic Eye"]
+		rewards: [{
+			count: 1
+			id: "2F0DF592DC7C9D70"
+			item: {
+				count: 1
+				id: "endrem:witch_pupil"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "endrem:main/cryptic_eye"
+			criterion: ""
+			id: "81E777A490B3C368"
+			type: "advancement"
+		}]
+		x: 4.0d
+		y: 2.0d
+	},
+	{
+		dependencies: ["157105543D4A21DC"]
+		icon: {
+			id: "endrem:nether_eye"
+		}
+		disable_toast: true
+		id: "9A123CEABB5B33A9"
+		description: ["Get Your First Nether Eye"]
+		rewards: [{
+			count: 1
+			id: "3E73D38D85B6389D"
+			item: {
+				count: 1
+				id: "endrem:undead_soul"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "endrem:main/nether_eye"
+			criterion: ""
+			id: "C165A69929092A64"
+			type: "advancement"
+		}]
+		x: -4.0d
+		y: 4.0d
+	},
+	{
+		dependencies: ["AC6EA3C80C6B91A8"]
+		icon: {
+			id: "endrem:magical_eye"
+		}
+		disable_toast: true
+		id: "095C4F29C89CD3C1"
+		description: ["Get Your First Magical Eye"]
+		rewards: [{
+			count: 1
+			id: "1AC643B4957DB301"
+			item: {
+				count: 1
+				id: "endrem:witch_pupil"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "endrem:main/magical_eye"
+			criterion: ""
+			id: "7A58FC81CAF6764A"
+			type: "advancement"
+		}]
+		x: 2.0d
+		y: 4.0d
+	},
+	{
+		dependencies: ["9A123CEABB5B33A9"]
+		icon: {
+			id: "endrem:lost_eye"
+		}
+		disable_toast: true
+		id: "96573A7A1F72A8C9"
+		description: ["Get Your First Lost Eye"]
+		rewards: [{
+			count: 1
+			id: "D12259DC56F73B5C"
+			item: {
+				count: 1
+				id: "endrem:undead_soul"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "endrem:main/lost_eye"
+			criterion: ""
+			id: "5AB9D842428FBE0E"
+			type: "advancement"
+		}]
+		x: -4.0d
+		y: 6.0d
+	},
+	{
+		dependencies: ["095C4F29C89CD3C1"]
+		icon: {
+			id: "endrem:evil_eye"
+		}
+		disable_toast: true
+		id: "A1CA51D28C05FD8B"
+		description: ["Get Your First Evil Eye"]
+		rewards: [{
+			count: 1
+			id: "2FE3A40B789AE6EF"
+			item: {
+				count: 1
+				id: "endrem:witch_pupil"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "endrem:main/evil_eye"
+			criterion: ""
+			id: "67B739F09296AB62"
+			type: "advancement"
+		}]
+		x: 1.0d
+		y: 6.0d
+	},
+	{
+		dependencies: ["095C4F29C89CD3C1"]
+		icon: {
+			id: "endrem:witch_eye"
+		}
+		disable_toast: true
+		id: "76514E4BA3E61B8F"
+		description: ["Get Your First Witch Eye"]
+		rewards: [{
+			count: 1
+			id: "AB3BA41695B988C5"
+			item: {
+				count: 1
+				id: "endrem:witch_pupil"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "endrem:main/witch_eye"
+			criterion: ""
+			id: "A881463B32634146"
+			type: "advancement"
+		}]
+		x: 3.0d
+		y: 6.0d
+	},
+	{
+		dependencies: ["96573A7A1F72A8C9"]
+		icon: {
+			id: "endrem:rogue_eye"
+		}
+		disable_toast: true
+		id: "224694734E414CA2"
+		description: ["Get Your First Rogue Eye"]
+		rewards: [{
+			count: 1
+			id: "D5DCD637BD8ED6DD"
+			item: {
+				count: 1
+				id: "endrem:undead_soul"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "endrem:main/rogue_eye"
+			criterion: ""
+			id: "9AC1B1C2198262CE"
+			type: "advancement"
+		}]
+		x: -4.0d
+		y: 8.0d
+	},
+	{
+		dependencies: ["76514E4BA3E61B8F"]
+		icon: {
+			id: "endrem:wither_eye"
+		}
+		disable_toast: true
+		id: "0CE3F6D22915F9BB"
+		description: ["Get Your First Wither Eye"]
+		rewards: [{
+			count: 1
+			id: "F392BC10151E2AD9"
+			item: {
+				count: 1
+				id: "endrem:undead_soul"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "endrem:main/wither_eye"
+			criterion: ""
+			id: "1FD58CF5A239F383"
+			type: "advancement"
+		}]
+		x: 3.0d
+		y: 8.0d
+	},
+	{
+		dependencies: ["76514E4BA3E61B8F"]
+		icon: {
+			id: "endrem:undead_eye"
+		}
+		disable_toast: true
+		id: "4C95C1011362C066"
+		description: ["Get Your First Undead Eye"]
+		rewards: [{
+			count: 1
+			id: "115EF6FFE2A0762A"
+			item: {
+				count: 1
+				id: "endrem:undead_soul"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "endrem:main/undead_eye"
+			criterion: ""
+			id: "231391E72A10BE4C"
+			type: "advancement"
+		}]
+		x: 5.0d
+		y: 8.0d
+	},
+	{
+		dependencies: ["224694734E414CA2"]
+		icon: {
+			id: "endrem:corrupted_eye"
+		}
+		disable_toast: true
+		id: "5CC92E676880A8FE"
+		description: ["Get Your First Corrupted Eye"]
+		rewards: [{
+			count: 1
+			id: "E9693F21F3188128"
+			item: {
+				count: 1
+				id: "endrem:undead_soul"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "endrem:main/corrupted_eye"
+			criterion: ""
+			id: "ECC6E371A828E33D"
+			type: "advancement"
+		}]
+		x: -2.0d
+		y: 10.0d
+	},
+	{
+		dependencies: ["5CC92E676880A8FE"]
+		icon: {
+			id: "endrem:black_eye"
+		}
+		disable_toast: true
+		id: "18DEA3BBCB7F184B"
+		description: ["Get Your First Black Eye"]
+		rewards: [{
+			count: 1
+			id: "43BDF59F029C64A2"
+			item: {
+				count: 1
+				id: "endrem:undead_soul"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "endrem:main/black_eye"
+			criterion: ""
+			id: "137EDEC3EE3A2F3D"
+			type: "advancement"
+		}]
+		x: -2.0d
+		y: 12.0d
+	},
+	{
+		dependencies: ["5CC92E676880A8FE"]
+		icon: {
+			id: "endrem:cursed_eye"
+		}
+		disable_toast: true
+		id: "F07898D9A74988AF"
+		description: ["Get Your First Cursed Eye"]
+		rewards: [{
+			count: 1
+			id: "E7B68112FEB34622"
+			item: {
+				count: 1
+				id: "endrem:undead_soul"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "endrem:main/cursed_eye"
+			criterion: ""
+			id: "12507486E86C60B9"
+			type: "advancement"
+		}]
+		x: 0.0d
+		y: 12.0d
+	},
+	{
+		dependencies: ["18DEA3BBCB7F184B"]
+		icon: {
+			id: "endrem:cold_eye"
+		}
+		disable_toast: true
+		id: "DCEF93F0782F89EE"
+		description: ["Get Your First Cold Eye"]
+		rewards: [{
+			count: 1
+			id: "7755B850B01DBE47"
+			item: {
+				count: 1
+				id: "endrem:undead_soul"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "endrem:main/cold_eye"
+			criterion: ""
+			id: "D375675AE72CAB4C"
+			type: "advancement"
+		}]
+		x: -3.0d
+		y: 14.0d
+	},
+	{
+		dependencies: ["18DEA3BBCB7F184B"]
+		icon: {
+			id: "endrem:exotic_eye"
+		}
+		disable_toast: true
+		id: "892442E648550CFC"
+		description: ["Get Your First Exotic Eye"]
+		rewards: [{
+			count: 1
+			id: "6B327754296BDC52"
+			item: {
+				count: 1
+				id: "endrem:undead_soul"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			advancement: "endrem:main/exotic_eye"
+			criterion: ""
+			id: "6672FB8C99F077F2"
+			type: "advancement"
+		}]
+		x: -1.0d
+		y: 14.0d
+	}
+	]
+}

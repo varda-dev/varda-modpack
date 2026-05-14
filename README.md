@@ -1,46 +1,82 @@
 # Varda Modpack
 
+Tools and content for building and publishing the Varda CurseForge client pack, server config ZIP, and GitHub Pages manifest.
+
 ## Environment Setup
-Create a .env file in the repo root with:  
-```
+Create a `.env` file in the repo root:
+
+```ini
 CURSEFORGE_INSTANCE_DIR=""
 CURSEFORGE_API_TOKEN=""
 GITHUB_RELEASES_PAT=""
 MODRINTH_API_TOKEN=""
 ```
-These don't actually get injected into the environment, just read by the scripts.  
-- Instance directory example: `C:\Users\varda-dev\curseforge\minecraft\Instances\Varda`  
-- Curseforge API token can be found/generated at [https://legacy.curseforge.com/account/api-tokens](https://legacy.curseforge.com/account/api-tokens)  
-- You'll need repo access to get a `GITHUB_RELEASES_PAT`.
 
-## Scripts
-- Scripts require Python. See [pack-docs/PYTHON.md](pack-docs/PYTHON.md) for help.  
-- Install script dependencies with `python -m pip install -r requirements.txt`.
-- All scripts come with `-h` / `--help`
-### `.\scripts\locate.py`
-Locate the name of a structure from the X / Z coordinates of the chunk you're in.  
-### `.\scripts\advancements.py`
-Extract *displayed* advancements for Minecraft and mods.
-### `.\scripts\copy-confs.py`
-Copies FTB Quests and Structurify configuration files from instance directory into this repo, overwriting what's here.
-### `.\scripts\reset-sync.py`
-Resets the instance directory's configuration and files and syncs configuration files from this repo.
-### `.\scripts\prep-files.py`
-Prepares CurseForge client ZIP and server configuration files for GitHub Releases upload.
-### `.\scripts\cf-upload.py`
-Uploads CurseForge client ZIP.
-### `.\scripts\gh-upload.py`
-Uploads server configuration files to GitHub releases for the [varda-server-installer](https://github.com/varda-dev/varda-server-installer).
+These values are read by the tools when needed. They are not injected into your shell environment.
 
-### Release Publishing
-- Build release artifacts with `.\scripts\prep-files.py -v 0.1.2 -r beta -q`.
-- Upload the CurseForge client zip with `.\scripts\cf-upload.py -v 0.1.2 -r beta -c "A meaningful comment."`.
-- Upload the server config ZIP to GitHub Releases with `.\scripts\gh-upload.py -v 0.1.2 -c "A meaningful comment."`.
-- Push this repo to update GitHub Pages with what gets generated into `docs\`.
+- `CURSEFORGE_INSTANCE_DIR` should point at the local CurseForge instance directory for the pack.
+- `CURSEFORGE_API_TOKEN` is used for CurseForge uploads.
+- `GITHUB_RELEASES_PAT` is used for GitHub Releases uploads.
+- `MODRINTH_API_TOKEN` is used by Modrinth-related tooling.
 
-## Config Layout
+## Tooling
+The automation lives in [`tools/`](tools/). It requires Python. See [pack-docs/PYTHON.md](pack-docs/PYTHON.md) for setup help.
+
+Some tools also depend on [`jsonschema`](https://github.com/python-jsonschema/jsonschema):
+
+```bash
+python -m pip install jsonschema
+```
+
+Or on Arch Linux:
+
+```bash
+sudo pacman -S python-jsonschema
+```
+
+All tools support `-h` / `--help`.
+
+### Common Tools
+- [`tools/locate.py`](tools/locate.py) locates a structure from chunk coordinates.
+- [`tools/advancements.py`](tools/advancements.py) extracts displayed Minecraft and mod advancements.
+- [`tools/copy-confs.py`](tools/copy-confs.py) copies FTB Quests and Structurify configuration from the instance into this repo.
+- [`tools/reset-sync.py`](tools/reset-sync.py) resets the instance configuration and syncs repository files back into it.
+- [`tools/prep-files.py`](tools/prep-files.py) prepares release artifacts.
+- [`tools/cf-upload.py`](tools/cf-upload.py) uploads the CurseForge client ZIP.
+- [`tools/gh-upload.py`](tools/gh-upload.py) uploads the server config ZIP to GitHub Releases.
+
+## Release Workflow
+Typical release flow:
+
+1. Build the release artifacts:
+
+   ```bash
+   .\tools\prep-files.py -v 0.1.2 -r beta -q
+   ```
+
+2. Upload the CurseForge client ZIP:
+
+   ```bash
+   .\tools\cf-upload.py -v 0.1.2 -r beta -c "A meaningful comment."
+   ```
+
+3. Upload the server config ZIP to GitHub Releases:
+
+   ```bash
+   .\tools\gh-upload.py -v 0.1.2 -c "A meaningful comment."
+   ```
+
+4. Push the repo so GitHub Pages picks up the generated [`docs/manifest.json`](docs/manifest.json).
+
+## Repository Layout
 - `pack-configs/config` is the main Minecraft `config` directory.
-- `pack-configs/defaultconfigs` is copied to the instance/server `defaultconfigs` directory. Keep only files that truly need to load as default configs there.
-  - Currently nothing uses this directory
-- `pack-configs/kubejs` contains the KubeJS config, client scripts, and server scripts.
-- `pack-configs/profileImage`, `pack-configs/shaderpacks`, and `pack-configs/optionsshaders.txt` are synced directly into the instance when present.
+- `pack-configs/defaultconfigs` is copied to the instance/server `defaultconfigs` directory.
+- `pack-configs/kubejs` contains KubeJS config plus client and server scripts.
+- `pack-configs/profileImage`, `pack-configs/shaderpacks`, and `pack-configs/optionsshaders.txt` are synced into the instance when present.
+- `tools/tests/` contains unit tests for the release tooling.
+- `docs/` contains the published Pages manifest and related output.
+
+## Notes
+- Keep `pack-configs` authoritative for content that should ship in the pack.
+- Keep generated release artifacts out of version control.
+- If a release looks wrong, check the current CurseForge instance state first; the tooling reads from the live instance data when preparing client manifests.

@@ -1,0 +1,37 @@
+{
+	autofocus_id: "7D555AC90E8BC38E"
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "the_hidden_thread"
+	group: "73A29692284919C6"
+	icon: {
+		id: "ars_nouveau:worn_notebook"
+	}
+	id: "00E5F595560D304D"
+	order_index: 2
+	quest_links: [ ]
+	quests: [{
+		icon: {
+			id: "crafting_on_a_stick:crafting_table"
+		}
+		id: "7D555AC90E8BC38E"
+		description: ["Crafting a Crafting Table on a Stick"]
+		rewards: [{
+			count: 4
+			id: "00BFD2C232B73F36"
+			item: {
+				count: 1
+				id: "minecraft:bread"
+			}
+			type: "item"
+		}]
+		shape: "rsquare"
+		tasks: [{
+			id: "4A6958D67136446B"
+			item: { count: 1, id: "crafting_on_a_stick:crafting_table" }
+			type: "item"
+		}]
+		x: 0.0d
+		y: 2.5d
+	}]
+}
