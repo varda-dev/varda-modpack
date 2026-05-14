@@ -1,372 +1,849 @@
 {
-  "version": "0.1.10",
+  "version": "0.1.11",
   "pack": "varda",
-  "schema_version": 1,
+  "schema_version": 2,
   "minecraft": "1.21.1",
   "neoforge": {
-    "installer_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.228/neoforge-21.1.228-installer.jar"
+    "installer_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.229/neoforge-21.1.229-installer.jar",
+    "sha1_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.229/neoforge-21.1.229-installer.jar.sha1"
   },
   "server_config": {
-    "url": "https://github.com/varda-dev/varda-modpack/releases/download/v0.1.10/varda-server-config-0.1.10.zip",
-    "sha256": "6bdd3086ead278fe3482786f4f0a3812d4d1b52aa7c5abfa34d1e394814c024c"
+    "url": "https://github.com/varda-dev/varda-modpack/releases/download/v0.1.11/varda-server-config-0.1.11.zip",
+    "sha1": "b8edc055d9716e4356f466646e8e74ea8a2bb2c4"
   },
   "mods": [
     {
-      "url": "https://edge.forgecdn.net/files/7873/439/almostunified-neoforge-1.21.1-1.4.1.jar"
+      "name": "Almost Unified",
+      "url": "https://edge.forgecdn.net/files/7873/439/almostunified-neoforge-1.21.1-1.4.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/almostunified",
+      "sha1": "69913ae6d63f2e10603b272bb8a957c7d0f3f0e4",
+      "size": 295072
     },
     {
-      "url": "https://edge.forgecdn.net/files/7461/27/amendments-1.21-2.0.15-neoforge.jar"
+      "name": "Amendments",
+      "url": "https://edge.forgecdn.net/files/7461/27/amendments-1.21-2.0.15-neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/amendments",
+      "sha1": "00056f29646f3bf86116b281c2362c0dabdb4533",
+      "size": 1143659
     },
     {
-      "url": "https://edge.forgecdn.net/files/7901/588/Aquaculture-1.21.1-2.7.21.jar"
+      "name": "Aquaculture 2",
+      "url": "https://edge.forgecdn.net/files/7901/588/Aquaculture-1.21.1-2.7.21.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/aquaculture",
+      "sha1": "93c2043c6a5cfbfbfba93321d044bc61d8a6547b",
+      "size": 605949
     },
     {
-      "url": "https://edge.forgecdn.net/files/6179/576/aquaculturedelight-1.2.0-neoforge-1.21.1.jar"
+      "name": "Aquaculture Delight (A Farmer's Delight Add-on)",
+      "url": "https://edge.forgecdn.net/files/6179/576/aquaculturedelight-1.2.0-neoforge-1.21.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/aquaculture-delight",
+      "sha1": "111393c07a98f29cab1de0d91965cc1bc6d9d73f",
+      "size": 213607
     },
     {
-      "url": "https://edge.forgecdn.net/files/5786/327/architectury-13.0.8-neoforge.jar"
+      "name": "Architectury API",
+      "url": "https://edge.forgecdn.net/files/5786/327/architectury-13.0.8-neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/architectury-api",
+      "sha1": "6ca11d3cc136bf69bb8f4d56982481eb85b5100b",
+      "size": 584004
     },
     {
-      "url": "https://edge.forgecdn.net/files/6140/482/Ars%20Artillery%201.21.1-1.1.jar"
+      "name": "Ars Artillery",
+      "url": "https://edge.forgecdn.net/files/6140/482/Ars%20Artillery%201.21.1-1.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ars-artillery",
+      "sha1": "51133e2bee87586a1d78f7bab514ba93d02ffbf9",
+      "size": 509937
     },
     {
-      "url": "https://edge.forgecdn.net/files/6857/658/Ars%20Fauna-1.4.1.jar"
+      "name": "Ars Fauna",
+      "url": "https://edge.forgecdn.net/files/6857/658/Ars%20Fauna-1.4.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ars-fauna",
+      "sha1": "1e152efcae3ea38f494287bcfa993c5f9256a540",
+      "size": 532591
     },
     {
-      "url": "https://edge.forgecdn.net/files/7646/325/ars_additions-1.21.1-21.3.0.jar"
+      "name": "Ars Additions",
+      "url": "https://edge.forgecdn.net/files/7646/325/ars_additions-1.21.1-21.3.0.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ars-additions",
+      "sha1": "ce2440b606acb20b79a42bf7c6c24d163c93241f",
+      "size": 1458261
     },
     {
-      "url": "https://edge.forgecdn.net/files/7416/588/ars_affinity-1.21.1-1.1.1.jar"
+      "name": "Ars Affinity",
+      "url": "https://edge.forgecdn.net/files/7416/588/ars_affinity-1.21.1-1.1.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ars-affinity",
+      "sha1": "ecb08d69e18e07c8cdf9f2806c05cb814a406e86",
+      "size": 1746538
     },
     {
-      "url": "https://edge.forgecdn.net/files/7534/518/ars_controle-1.21.1-1.6.15.jar"
+      "name": "Ars Controle",
+      "url": "https://edge.forgecdn.net/files/7534/518/ars_controle-1.21.1-1.6.15.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ars-controle",
+      "sha1": "fdf381d5733698abe336354c7541299ab495ecae",
+      "size": 316368
     },
     {
-      "url": "https://edge.forgecdn.net/files/7956/82/ars_elemancy-1.21.1-1.17.jar"
+      "name": "Ars Elemancy",
+      "url": "https://edge.forgecdn.net/files/7956/82/ars_elemancy-1.21.1-1.17.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ars-elemancy",
+      "sha1": "58d23540e87bf147047b6596c9768e7b88bbb290",
+      "size": 762355
     },
     {
-      "url": "https://edge.forgecdn.net/files/8005/65/ars_elemental-1.21.1-0.7.9.3.jar"
+      "name": "Ars Elemental",
+      "url": "https://edge.forgecdn.net/files/8005/65/ars_elemental-1.21.1-0.7.9.3.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ars-elemental",
+      "sha1": "a5fd95e27f4ab150e2c5fa445ffc4b7076493298",
+      "size": 2298192
     },
     {
-      "url": "https://edge.forgecdn.net/files/8060/418/ars_nouveau-1.21.1-5.11.4.jar"
+      "name": "Ars Nouveau",
+      "url": "https://edge.forgecdn.net/files/8081/100/ars_nouveau-1.21.1-5.11.5.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ars-nouveau",
+      "sha1": "202512e3a48c169ea4c68c85c2208f1813a92f26",
+      "size": 20693739
     },
     {
-      "url": "https://edge.forgecdn.net/files/8006/990/ars_ocultas-1.21.1-2.4.1.jar"
+      "name": "Ars Ocultas",
+      "url": "https://edge.forgecdn.net/files/8006/990/ars_ocultas-1.21.1-2.4.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ars-ocultas",
+      "sha1": "b1ce2428d28713e50da6e93a421d8b97cc448f6f",
+      "size": 78526
     },
     {
-      "url": "https://edge.forgecdn.net/files/7433/366/ars_unification-1.2.18.jar"
+      "name": "Ars Unification",
+      "url": "https://edge.forgecdn.net/files/7433/366/ars_unification-1.2.18.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ars-unification",
+      "sha1": "7e1ed50f6f29dcbf04c08363c5b2174adcb205e4",
+      "size": 105429
     },
     {
-      "url": "https://edge.forgecdn.net/files/8026/837/ars_zero-1.21.1-2.0.0-beta3.jar"
+      "name": "Ars Zero",
+      "url": "https://edge.forgecdn.net/files/8026/837/ars_zero-1.21.1-2.0.0-beta3.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ars-zero",
+      "sha1": "69900a560c176289744ad35f2f8a90f740be65a0",
+      "size": 6734107
     },
     {
-      "url": "https://edge.forgecdn.net/files/8046/852/arsdelight-2.2.1.jar"
+      "name": "Ars Nouveau's Flavors & Delight",
+      "url": "https://edge.forgecdn.net/files/8046/852/arsdelight-2.2.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ars-nouveaus-flavors-delight",
+      "sha1": "59dfe463a6bd78c04bd01559f462e724bd4e6eed",
+      "size": 1044055
     },
     {
-      "url": "https://edge.forgecdn.net/files/8061/947/athena-neoforge-1.21.1-4.0.6.jar"
+      "name": "Athena",
+      "url": "https://edge.forgecdn.net/files/8061/947/athena-neoforge-1.21.1-4.0.6.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/athena",
+      "sha1": "4bcbdf388bd5e387beca7c627224aac33584b55b",
+      "size": 99944
     },
     {
-      "url": "https://edge.forgecdn.net/files/7880/467/baguettelib-1.21.1-NeoForge-2.0.3.jar"
+      "name": "BaguetteLib",
+      "url": "https://edge.forgecdn.net/files/7880/467/baguettelib-1.21.1-NeoForge-2.0.3.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/baguettelib",
+      "sha1": "e01709c880b0602b7a306201a25866e76c44f5c0",
+      "size": 74380
     },
     {
-      "url": "https://edge.forgecdn.net/files/7314/829/chefsdelight-1.0.5-neoforge-1.21.1.jar"
+      "name": "Chef's Delight [Forge] - Farmer's Delight Villagers",
+      "url": "https://edge.forgecdn.net/files/7314/829/chefsdelight-1.0.5-neoforge-1.21.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/chefs-delight-forge",
+      "sha1": "2ee0923d811a15e1d9dab536a940e4ac0143a4fa",
+      "size": 95250
     },
     {
-      "url": "https://edge.forgecdn.net/files/5813/117/chipped-neoforge-1.21.1-4.0.2.jar"
+      "name": "Chipped",
+      "url": "https://edge.forgecdn.net/files/5813/117/chipped-neoforge-1.21.1-4.0.2.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/chipped",
+      "sha1": "6f5395f58139802edfde7cb9170279f92f291971",
+      "size": 15020578
     },
     {
-      "url": "https://edge.forgecdn.net/files/5729/127/cloth-config-15.0.140-neoforge.jar"
+      "name": "Cloth Config API (Fabric/Forge/NeoForge)",
+      "url": "https://edge.forgecdn.net/files/5729/127/cloth-config-15.0.140-neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/cloth-config",
+      "sha1": "c3e5733ba4503b102589a026000fd5ce0212f6f2",
+      "size": 1163890
     },
     {
-      "url": "https://edge.forgecdn.net/files/7515/858/comforts-neoforge-9.0.5%2b1.21.1.jar"
+      "name": "Comforts",
+      "url": "https://edge.forgecdn.net/files/7515/858/comforts-neoforge-9.0.5%2b1.21.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/comforts",
+      "sha1": "21d6bee3821d62fe3356c51fb1d697871a3087ff",
+      "size": 422658
     },
     {
-      "url": "https://edge.forgecdn.net/files/7018/307/corpse-neoforge-1.21.1-1.1.13.jar"
+      "name": "Corpse",
+      "url": "https://edge.forgecdn.net/files/7018/307/corpse-neoforge-1.21.1-1.1.13.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/corpse",
+      "sha1": "4f42091ef36e98e99c2f28a273ded960c0ac08bd",
+      "size": 253695
     },
     {
-      "url": "https://edge.forgecdn.net/files/7891/800/corpsecurioscompat-1.21.1-NeoForge-4.0.1.jar"
+      "name": "Corpse x Curios API Compat",
+      "url": "https://edge.forgecdn.net/files/7891/800/corpsecurioscompat-1.21.1-NeoForge-4.0.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/corpse-x-curios-api-compat",
+      "sha1": "821d83bb4414e93721563e9ed7670976bc2afab1",
+      "size": 23659
     },
     {
-      "url": "https://edge.forgecdn.net/files/7394/335/crafting_on_a_stick-1.21.0.4.jar"
+      "name": "Crafting on a stick",
+      "url": "https://edge.forgecdn.net/files/7394/335/crafting_on_a_stick-1.21.0.4.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/crafting-on-a-stick",
+      "sha1": "9ea4bcce2d468b13e20871789dde525d49454076",
+      "size": 78661
     },
     {
-      "url": "https://edge.forgecdn.net/files/6529/130/curios-neoforge-9.5.1%2b1.21.1.jar"
+      "name": "Curios API (Forge/NeoForge)",
+      "url": "https://edge.forgecdn.net/files/6529/130/curios-neoforge-9.5.1%2b1.21.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/curios",
+      "sha1": "418fcd42e3a7844c9bdc71c9b6401fdb3894e0c4",
+      "size": 410690
     },
     {
-      "url": "https://edge.forgecdn.net/files/6581/607/disenchanting_table-merged-1.21.1-5.0.2.jar"
+      "name": "Dis-Enchanting Table",
+      "url": "https://edge.forgecdn.net/files/6581/607/disenchanting_table-merged-1.21.1-5.0.2.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/dis-enchanting-table",
+      "sha1": "c054a8bef63addff4d4a9520ec4c7a915c3fc1d1",
+      "size": 306197
     },
     {
-      "url": "https://edge.forgecdn.net/files/8037/557/endersdelight-1.3.0.jar"
+      "name": "Ender's Delight",
+      "url": "https://edge.forgecdn.net/files/8037/557/endersdelight-1.3.0.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/enders-delight",
+      "sha1": "5a1920506ae61cf66a30457faaca8482ea94ff1e",
+      "size": 152449
     },
     {
-      "url": "https://edge.forgecdn.net/files/5625/392/endrem-neoforge-1.21.X-6.0.2.jar"
+      "name": "End Remastered [NeoForge/Fabric]",
+      "url": "https://edge.forgecdn.net/files/5625/392/endrem-neoforge-1.21.X-6.0.2.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/endremastered",
+      "sha1": "bfba2c654f3df8cc7d6006056eefbf2b9070dcd4",
+      "size": 942510
     },
     {
-      "url": "https://edge.forgecdn.net/files/7892/943/ExplorersCompass-1.21.1-3.4.0-neoforge.jar"
+      "name": "Explorer's Compass",
+      "url": "https://edge.forgecdn.net/files/7892/943/ExplorersCompass-1.21.1-3.4.0-neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/explorers-compass",
+      "sha1": "9f62af344988a6e2d855b113e61cf0e1611c7e0f",
+      "size": 174668
     },
     {
-      "url": "https://edge.forgecdn.net/files/8007/613/FarmersDelight-1.21.1-1.3.1.jar"
+      "name": "Farmer's Delight",
+      "url": "https://edge.forgecdn.net/files/8083/481/FarmersDelight-1.21.1-1.3.2.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/farmers-delight",
+      "sha1": "bf7e7dede99e832de20e191b1f6c11f7a9b9a622",
+      "size": 3163042
     },
     {
-      "url": "https://edge.forgecdn.net/files/7280/584/FarmersStructures-1.0.2-1.21.1_neoforge.jar"
+      "name": "Farmers Structures",
+      "url": "https://edge.forgecdn.net/files/7280/584/FarmersStructures-1.0.2-1.21.1_neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/farmers-structures",
+      "sha1": "72c8a17af70dd78a045b4b2678b8ac2d1a2b7d39",
+      "size": 497259
     },
     {
-      "url": "https://edge.forgecdn.net/files/5849/90/fastleafdecay-35.jar"
+      "name": "Fast Leaf Decay",
+      "url": "https://edge.forgecdn.net/files/5849/90/fastleafdecay-35.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/fast-leaf-decay",
+      "sha1": "589f05dcd58d3708cee9046b23fe11fb81a25d2e",
+      "size": 9511
     },
     {
-      "url": "https://edge.forgecdn.net/files/6789/388/formations-1.0.4-neoforge-mc1.21.jar"
+      "name": "Formations (Structure Library)",
+      "url": "https://edge.forgecdn.net/files/6789/388/formations-1.0.4-neoforge-mc1.21.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/formations",
+      "sha1": "3845f96c9304f6956688f7a35205e9354bf411b0",
+      "size": 287525
     },
     {
-      "url": "https://edge.forgecdn.net/files/5627/771/formationsnether-1.0.5-mc1.21%2b.jar"
+      "name": "Formations Nether",
+      "url": "https://edge.forgecdn.net/files/5627/771/formationsnether-1.0.5-mc1.21%2b.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/formations-nether",
+      "sha1": "12b69c1cd22bbbe8c5888a030bef791b992b0d39",
+      "size": 942046
     },
     {
-      "url": "https://edge.forgecdn.net/files/6792/381/formationsoverworld-1.0.5-mc1.21%2b.jar"
+      "name": "Formations Overworld",
+      "url": "https://edge.forgecdn.net/files/6792/381/formationsoverworld-1.0.5-mc1.21%2b.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/formations-overworld",
+      "sha1": "edbc169c78f9f1cdf5233e996f12b21e7e1cdf18",
+      "size": 873370
     },
     {
-      "url": "https://edge.forgecdn.net/files/8078/605/ftb-backups-3-21.1.5.jar"
+      "name": "FTB Backups 3",
+      "url": "https://edge.forgecdn.net/files/8078/605/ftb-backups-3-21.1.5.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ftb-backups-3",
+      "sha1": "c375dd0e4c673b39297c09211f4bf225bf1141ba",
+      "size": 91354
     },
     {
-      "url": "https://edge.forgecdn.net/files/6391/470/ftb-chunks-modded-1.20%2b1.1.9.jar"
+      "name": "FTB Chunks - Modded Support",
+      "url": "https://edge.forgecdn.net/files/6391/470/ftb-chunks-modded-1.20%2b1.1.9.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ftb-chunks-recoloured",
+      "sha1": "1bc2a017122a70b043e22b5f709c9de500262542",
+      "size": 432206
     },
     {
-      "url": "https://edge.forgecdn.net/files/7608/681/ftb-chunks-neoforge-2101.1.14.jar"
+      "name": "FTB Chunks (NeoForge)",
+      "url": "https://edge.forgecdn.net/files/7608/681/ftb-chunks-neoforge-2101.1.14.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ftb-chunks-forge",
+      "sha1": "908b63b11d0e00ae6c9557d3fe6440bdbcf21bb7",
+      "size": 642340
     },
     {
-      "url": "https://edge.forgecdn.net/files/7746/959/ftb-library-neoforge-2101.1.31.jar"
+      "name": "FTB Library (NeoForge)",
+      "url": "https://edge.forgecdn.net/files/7746/959/ftb-library-neoforge-2101.1.31.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ftb-library-forge",
+      "sha1": "686d4e784c28c14f7760cc22b2de6a8573b56b74",
+      "size": 1411181
     },
     {
-      "url": "https://edge.forgecdn.net/files/7878/289/ftb-quests-neoforge-2101.1.24.jar"
+      "name": "FTB Quests (NeoForge)",
+      "url": "https://edge.forgecdn.net/files/7878/289/ftb-quests-neoforge-2101.1.24.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ftb-quests-forge",
+      "sha1": "abe5eeccbddf10ae4e40c350cdb6e95ee9e4cde1",
+      "size": 1466155
     },
     {
-      "url": "https://edge.forgecdn.net/files/7878/281/ftb-teams-neoforge-2101.1.10.jar"
+      "name": "FTB Teams (NeoForge)",
+      "url": "https://edge.forgecdn.net/files/7878/281/ftb-teams-neoforge-2101.1.10.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ftb-teams-forge",
+      "sha1": "363376ae0fb22cb0527170fdf6a066d1da9b0225",
+      "size": 302712
     },
     {
-      "url": "https://edge.forgecdn.net/files/7715/134/ftb-xmod-compat-neoforge-21.1.8.jar"
+      "name": "FTB XMod Compat",
+      "url": "https://edge.forgecdn.net/files/7715/134/ftb-xmod-compat-neoforge-21.1.8.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ftb-xmod-compat",
+      "sha1": "0c25fc1a43c99eaa68c883dc77e3ebf4539629e6",
+      "size": 141328
     },
     {
-      "url": "https://edge.forgecdn.net/files/7707/149/geckolib-neoforge-1.21.1-4.8.4.jar"
+      "name": "GeckoLib",
+      "url": "https://edge.forgecdn.net/files/7707/149/geckolib-neoforge-1.21.1-4.8.4.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/geckolib",
+      "sha1": "eb854c8ec53ef922a5f3877a1aa4c1ce1352e0ce",
+      "size": 622582
     },
     {
-      "url": "https://edge.forgecdn.net/files/6330/30/handcrafted-neoforge-1.21.1-4.0.3.jar"
+      "name": "Handcrafted",
+      "url": "https://edge.forgecdn.net/files/6330/30/handcrafted-neoforge-1.21.1-4.0.3.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/handcrafted",
+      "sha1": "8ecd27f1d66f9b742cfae3c8ffa773765f574b52",
+      "size": 7132842
     },
     {
-      "url": "https://edge.forgecdn.net/files/6420/137/HopoBetterRuinedPortals-%5b1.21.1-1.21.3%5d-1.4.4b.jar"
+      "name": "Hopo Better Ruined Portals",
+      "url": "https://edge.forgecdn.net/files/6420/137/HopoBetterRuinedPortals-%5b1.21.1-1.21.3%5d-1.4.4b.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/hopo-better-ruined-portals",
+      "sha1": "52875dc5fd560c99721565bfced9c47dbff9acfa",
+      "size": 460577
     },
     {
-      "url": "https://edge.forgecdn.net/files/6420/141/HopoBetterUnderwaterRuins-%5b1.21.1-1.21.3%5d-1.2.1b.jar"
+      "name": "Hopo Better Underwater Ruins",
+      "url": "https://edge.forgecdn.net/files/6420/141/HopoBetterUnderwaterRuins-%5b1.21.1-1.21.3%5d-1.2.1b.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/hopo-better-underwater-ruins",
+      "sha1": "1e033af9a73d11f68af304d1a46821c0118a70ca",
+      "size": 686447
     },
     {
-      "url": "https://edge.forgecdn.net/files/8012/65/kubejs-neoforge-2101.7.2-build.363.jar"
+      "name": "KubeJS",
+      "url": "https://edge.forgecdn.net/files/8083/208/kubejs-neoforge-2101.7.2-build.368.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/kubejs",
+      "sha1": "cd8e1e392d642e4d0f1fbc099d93da105c263d0d",
+      "size": 2281720
     },
     {
-      "url": "https://edge.forgecdn.net/files/7908/490/L_Ender%27s%20Cataclysm%201.21.1-3.27.jar"
+      "name": "L_Ender 's Cataclysm",
+      "url": "https://edge.forgecdn.net/files/7908/490/L_Ender%27s%20Cataclysm%201.21.1-3.27.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/lendercataclysm",
+      "sha1": "f34a5e3994fff1953c631b87b3dfa89ed62c26dc",
+      "size": 73346519
     },
     {
-      "url": "https://edge.forgecdn.net/files/6901/287/lendersdelight-1.21.1-1.0.10.jar"
+      "name": "L_Ender 's Cataclysm Delight",
+      "url": "https://edge.forgecdn.net/files/6901/287/lendersdelight-1.21.1-1.0.10.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/lenderscataclysm-delight",
+      "sha1": "5a3e06654045a43e76585b743fdb0b1ac966ec36",
+      "size": 187358
     },
     {
-      "url": "https://edge.forgecdn.net/files/7941/57/lionfishapi-2.7-fix-fix.jar"
+      "name": "Lionfish API",
+      "url": "https://edge.forgecdn.net/files/7941/57/lionfishapi-2.7-fix-fix.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/lionfish-api",
+      "sha1": "af90b807eed100e899b9afa13bb75e7d45294ba3",
+      "size": 141535
     },
     {
-      "url": "https://edge.forgecdn.net/files/7627/896/mcw-bridges-3.1.2-mc1.21.1neoforge.jar"
+      "name": "Macaw's Bridges",
+      "url": "https://edge.forgecdn.net/files/7627/896/mcw-bridges-3.1.2-mc1.21.1neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/macaws-bridges",
+      "sha1": "71ece28129789a2123cf07e79938f488d8675bb2",
+      "size": 661387
     },
     {
-      "url": "https://edge.forgecdn.net/files/7618/651/mcw-doors-1.1.5-mc1.21.1neoforge.jar"
+      "name": "Macaw's Doors",
+      "url": "https://edge.forgecdn.net/files/7618/651/mcw-doors-1.1.5-mc1.21.1neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/macaws-doors",
+      "sha1": "c127904f23db1a641dd9e065ec51c5c177cb4cd7",
+      "size": 1190404
     },
     {
-      "url": "https://edge.forgecdn.net/files/7255/584/mcw-furniture-3.4.1-mc1.21.1neoforge.jar"
+      "name": "Macaw's Furniture",
+      "url": "https://edge.forgecdn.net/files/7255/584/mcw-furniture-3.4.1-mc1.21.1neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/macaws-furniture",
+      "sha1": "3dccc819f14bcc60b3683edd82ca8c5e64964229",
+      "size": 2080436
     },
     {
-      "url": "https://edge.forgecdn.net/files/7304/75/mcw-lights-1.1.5-mc1.21.1neoforge.jar"
+      "name": "Macaw's Lights and Lamps",
+      "url": "https://edge.forgecdn.net/files/7304/75/mcw-lights-1.1.5-mc1.21.1neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/macaws-lights-and-lamps",
+      "sha1": "13c1107caf26b2c60d8626b3658b26cc7f634b38",
+      "size": 525744
     },
     {
-      "url": "https://edge.forgecdn.net/files/7308/338/mcw-mcwfences-1.2.1-mc1.21.1neoforge.jar"
+      "name": "Macaw's Fences and Walls",
+      "url": "https://edge.forgecdn.net/files/7308/338/mcw-mcwfences-1.2.1-mc1.21.1neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/macaws-fences-and-walls",
+      "sha1": "b5580c3fc521ed8bf4db3e407bd590efc317f74d",
+      "size": 673871
     },
     {
-      "url": "https://edge.forgecdn.net/files/7029/451/mcw-mcwpaths-1.1.1-mc1.21.1neoforge.jar"
+      "name": "Macaw's Paths and Pavings",
+      "url": "https://edge.forgecdn.net/files/7029/451/mcw-mcwpaths-1.1.1-mc1.21.1neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/macaws-paths-and-pavings",
+      "sha1": "4bb7e1d28eef19f87438881b0f582a15297b95ae",
+      "size": 777742
     },
     {
-      "url": "https://edge.forgecdn.net/files/7317/479/mcw-mcwstairs-1.0.2-mc1.21.1neoforge.jar"
+      "name": "Macaw's Stairs",
+      "url": "https://edge.forgecdn.net/files/7317/479/mcw-mcwstairs-1.0.2-mc1.21.1neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/macaws-stairs",
+      "sha1": "1ee43d693c821efc955a74e551f94372af90a140",
+      "size": 529082
     },
     {
-      "url": "https://edge.forgecdn.net/files/7317/672/mcw-mcwwindows-2.4.2-mc1.21.1neoforge.jar"
+      "name": "Macaw's Windows",
+      "url": "https://edge.forgecdn.net/files/7317/672/mcw-mcwwindows-2.4.2-mc1.21.1neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/macaws-windows",
+      "sha1": "eb1d3c118acb450cc2fe14c2ce7ce247a1bca60c",
+      "size": 1261268
     },
     {
-      "url": "https://edge.forgecdn.net/files/7845/33/mcw-paintings-1.1.0-mc1.21.1neoforge.jar"
+      "name": "Macaw's Paintings",
+      "url": "https://edge.forgecdn.net/files/7845/33/mcw-paintings-1.1.0-mc1.21.1neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/macaws-paintings",
+      "sha1": "7e637b44624da6a3b7cd6cfd26324c3f116d4da6",
+      "size": 179058
     },
     {
-      "url": "https://edge.forgecdn.net/files/6494/399/mcw-roofs-2.3.2-mc1.21.1neoforge.jar"
+      "name": "Macaw's Roofs",
+      "url": "https://edge.forgecdn.net/files/6494/399/mcw-roofs-2.3.2-mc1.21.1neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/macaws-roofs",
+      "sha1": "05806ff152fab56f7c1b4b215d772ea73611283d",
+      "size": 1784829
     },
     {
-      "url": "https://edge.forgecdn.net/files/7256/148/mcw-trapdoors-1.1.5-mc1.21.1neoforge.jar"
+      "name": "Macaw's Trapdoors",
+      "url": "https://edge.forgecdn.net/files/7256/148/mcw-trapdoors-1.1.5-mc1.21.1neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/macaws-trapdoors",
+      "sha1": "1f8b59e31f889f53b6296b42ee09d447e7e56620",
+      "size": 572870
     },
     {
-      "url": "https://edge.forgecdn.net/files/6956/811/Measurements-neoforge-1.21.1-3.0.3.jar"
+      "name": "Measurements",
+      "url": "https://edge.forgecdn.net/files/6956/811/Measurements-neoforge-1.21.1-3.0.3.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/measurements",
+      "sha1": "4c415df21ffe02b6619c204b84d20dbe94b5f3b1",
+      "size": 47632
     },
     {
-      "url": "https://edge.forgecdn.net/files/8072/297/mechtrowel-1.3.2.jar"
+      "name": "Mech Trowel",
+      "url": "https://edge.forgecdn.net/files/8072/297/mechtrowel-1.3.2.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/mech-trowel",
+      "sha1": "2eae39b5028f253f8d2afdf658d33dc6e2f41d53",
+      "size": 503741
     },
     {
-      "url": "https://edge.forgecdn.net/files/7771/524/modonomicon-1.21.1-neoforge-1.120.1.jar"
+      "name": "Modonomicon",
+      "url": "https://edge.forgecdn.net/files/7771/524/modonomicon-1.21.1-neoforge-1.120.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/modonomicon",
+      "sha1": "e127c8ba3d194678e11a00af6422394a7ed476b1",
+      "size": 2403998
     },
     {
-      "url": "https://edge.forgecdn.net/files/7974/611/monolib-neoforge-1.21.1-4.0.2.jar"
+      "name": "MonoLib",
+      "url": "https://edge.forgecdn.net/files/7974/611/monolib-neoforge-1.21.1-4.0.2.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/monolib",
+      "sha1": "63b094775c12e15cfd2822ee135035d3e0303d9c",
+      "size": 167568
     },
     {
-      "url": "https://edge.forgecdn.net/files/7925/970/moogs_structures-neoforge-1.21.1-2.0.2.jar"
+      "name": "Moog's Structure Lib (moogs_structures)",
+      "url": "https://edge.forgecdn.net/files/7925/970/moogs_structures-neoforge-1.21.1-2.0.2.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/moogs-structure-lib",
+      "sha1": "02b67121196776b2dc1ce69a057e19bf59d19f4d",
+      "size": 251391
     },
     {
-      "url": "https://edge.forgecdn.net/files/8038/16/MoogsEndStructures-1.21-2.0.2.jar"
+      "name": "MES - Moog's End Structures",
+      "url": "https://edge.forgecdn.net/files/8038/16/MoogsEndStructures-1.21-2.0.2.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/moogs-end-structures",
+      "sha1": "746eea80e0df09b873f3e9b3883d8cbf889b0912",
+      "size": 1210262
     },
     {
-      "url": "https://edge.forgecdn.net/files/7967/449/MoogsMissingVillages-1.21-2.1.0.jar"
+      "name": "MMV - Moog's Missing Villages",
+      "url": "https://edge.forgecdn.net/files/7967/449/MoogsMissingVillages-1.21-2.1.0.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/mmv-moogs-missing-villages",
+      "sha1": "f73be8fe1a4855d1bf6a3c4ad48c3f2bc6239bf9",
+      "size": 5624036
     },
     {
-      "url": "https://edge.forgecdn.net/files/8049/507/MoogsNetherStructures-1.21-2.0.4.jar"
+      "name": "MNS - Moog's Nether Structures",
+      "url": "https://edge.forgecdn.net/files/8049/507/MoogsNetherStructures-1.21-2.0.4.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/mns-moogs-nether-structures",
+      "sha1": "96f691cd5cd6d4051766b874650a627166844699",
+      "size": 443156
     },
     {
-      "url": "https://edge.forgecdn.net/files/8043/935/MoogsSoaringStructures-1.21-2.1.0.jar"
+      "name": "MSS - Moog's Soaring Structures",
+      "url": "https://edge.forgecdn.net/files/8043/935/MoogsSoaringStructures-1.21-2.1.0.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/mss-moogs-soaring-structures",
+      "sha1": "392e471a4cec7aa2cb2e0e5f2e51335b2d2cd30d",
+      "size": 3621545
     },
     {
-      "url": "https://edge.forgecdn.net/files/8052/830/MoogsTemplesReimagined-1.21-1.1.1.jar"
+      "name": "MTR - Moog's Temples Reimagined",
+      "url": "https://edge.forgecdn.net/files/8052/830/MoogsTemplesReimagined-1.21-1.1.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/mtr-moogs-temples-reimagined",
+      "sha1": "a74a1d61f466a2519348b8af692250db81a804c3",
+      "size": 1431936
     },
     {
-      "url": "https://edge.forgecdn.net/files/8075/163/MoogsVoyagerStructures-1.21-5.0.10.jar"
+      "name": "MVS - Moog's Voyager Structures",
+      "url": "https://edge.forgecdn.net/files/8075/163/MoogsVoyagerStructures-1.21-5.0.10.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/moogs-voyager-structures",
+      "sha1": "fb3c54a8d5b5f0b16fb151b8b1005f2740a434a9",
+      "size": 1919042
     },
     {
-      "url": "https://edge.forgecdn.net/files/8065/893/moonlight-neoforge-1.21.1-3.0.7.jar"
+      "name": "Moonlight Lib",
+      "url": "https://edge.forgecdn.net/files/8065/893/moonlight-neoforge-1.21.1-3.0.7.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/selene",
+      "sha1": "d2a8f9b2a7ddd7dc72cc880a4b2aaaacda72c42c",
+      "size": 1573221
     },
     {
-      "url": "https://edge.forgecdn.net/files/5746/86/moredragoneggs-5.0.jar"
+      "name": "More Dragon Eggs",
+      "url": "https://edge.forgecdn.net/files/5746/86/moredragoneggs-5.0.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/more-dragon-eggs",
+      "sha1": "c9b26ad977aaa6c2d1bd1ad681edd77cf466537d",
+      "size": 6389
     },
     {
-      "url": "https://edge.forgecdn.net/files/7760/267/mowziesmobs-1.21.1-1.8.2.jar"
+      "name": "Mowzie's Mobs",
+      "url": "https://edge.forgecdn.net/files/7760/267/mowziesmobs-1.21.1-1.8.2.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/mowzies-mobs",
+      "sha1": "d64475cd77444b056ece6472c79d40293dc63c6c",
+      "size": 36042925
     },
     {
-      "url": "https://edge.forgecdn.net/files/8029/219/MyNethersDelight-1.21.1-1.10.2.jar"
+      "name": "My Nether's Delight",
+      "url": "https://edge.forgecdn.net/files/8029/219/MyNethersDelight-1.21.1-1.10.2.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/my-nethers-delight",
+      "sha1": "d2fb0de59b66a017a1a25f23acdbe6e241b08541",
+      "size": 825875
     },
     {
-      "url": "https://edge.forgecdn.net/files/7892/954/NaturesCompass-1.21.1-3.4.0-neoforge.jar"
+      "name": "Nature's Compass",
+      "url": "https://edge.forgecdn.net/files/7892/954/NaturesCompass-1.21.1-3.4.0-neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/natures-compass",
+      "sha1": "e19721873bebc4dbc1674bb101af39d0ea406b95",
+      "size": 224657
     },
     {
-      "url": "https://edge.forgecdn.net/files/8064/668/not_enough_glyphs-1.21.1-4.4.0.jar"
+      "name": "Not Enough Glyphs",
+      "url": "https://edge.forgecdn.net/files/8064/668/not_enough_glyphs-1.21.1-4.4.0.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/not-enough-glyphs",
+      "sha1": "ab184795e98b8d2eb35d0135d87ce44bd2000111",
+      "size": 604813
     },
     {
-      "url": "https://edge.forgecdn.net/files/8037/152/occultism-1.21.1-neoforge-1.215.0.jar"
+      "name": "Occultism",
+      "url": "https://edge.forgecdn.net/files/8037/152/occultism-1.21.1-neoforge-1.215.0.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/occultism",
+      "sha1": "63b4b96a0ca9079dbcc4b4c02dbf055254999881",
+      "size": 6944433
     },
     {
-      "url": "https://edge.forgecdn.net/files/7939/973/oceansdelight-neoforge-1.0.4-1.21.1.jar"
+      "name": "Ocean's Delight",
+      "url": "https://edge.forgecdn.net/files/7939/973/oceansdelight-neoforge-1.0.4-1.21.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/oceans-delight",
+      "sha1": "2246edd8fc1bbf60422f5099854c1de0b2a439c9",
+      "size": 117108
     },
     {
-      "url": "https://edge.forgecdn.net/files/8040/848/OctoLib-NEOFORGE-0.6.2%2b1.21.jar"
+      "name": "ShatterLib | OctoLib",
+      "url": "https://edge.forgecdn.net/files/8040/848/OctoLib-NEOFORGE-0.6.2%2b1.21.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/byte",
+      "sha1": "f4f66d677b104c6af7f5c0f7e3c08d8e4370ecad",
+      "size": 544378
     },
     {
-      "url": "https://edge.forgecdn.net/files/7730/942/Patchouli-1.21.1-93-NEOFORGE.jar"
+      "name": "Patchouli",
+      "url": "https://edge.forgecdn.net/files/7730/942/Patchouli-1.21.1-93-NEOFORGE.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/patchouli",
+      "sha1": "5413bb9b8fc35ebe46b06b48bf9afafbd8471140",
+      "size": 646777
     },
     {
-      "url": "https://edge.forgecdn.net/files/6058/135/Philips-Ruins1.21.1-2.0-NeoForge.jar"
+      "name": "Philip's Ruins",
+      "url": "https://edge.forgecdn.net/files/6058/135/Philips-Ruins1.21.1-2.0-NeoForge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/ruins",
+      "sha1": "9f7d66f2cd75bef6692f5a433e7606d0d77251fc",
+      "size": 1365582
     },
     {
-      "url": "https://edge.forgecdn.net/files/8077/792/relics-1.21.1-0.12.4.jar"
+      "name": "Relics",
+      "url": "https://edge.forgecdn.net/files/8077/792/relics-1.21.1-0.12.4.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/relics-mod",
+      "sha1": "3e6595a230f1d7a14b676ae05555fbff3f4d9f45",
+      "size": 4251421
     },
     {
-      "url": "https://edge.forgecdn.net/files/8066/54/reliquified_ars_nouveau-1.21.1-0.8.0.jar"
+      "name": "Reliquified Ars Nouveau",
+      "url": "https://edge.forgecdn.net/files/8066/54/reliquified_ars_nouveau-1.21.1-0.8.0.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/reliquified-ars-nouveau",
+      "sha1": "ba389b577ef08776ae8a3db229969aab7aeb2ea1",
+      "size": 1183798
     },
     {
-      "url": "https://edge.forgecdn.net/files/5973/188/resourcefullib-neoforge-1.21-3.0.12.jar"
+      "name": "Resourceful Lib",
+      "url": "https://edge.forgecdn.net/files/5973/188/resourcefullib-neoforge-1.21-3.0.12.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/resourceful-lib",
+      "sha1": "24389c8e48ff0e8594e4686b750c494c66a5f8df",
+      "size": 484332
     },
     {
-      "url": "https://edge.forgecdn.net/files/7104/526/rhino-2101.2.7-build.81.jar"
+      "name": "Rhino",
+      "url": "https://edge.forgecdn.net/files/7104/526/rhino-2101.2.7-build.81.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/rhino",
+      "sha1": "5dcc80079095706645d567353095297948a41eea",
+      "size": 882032
     },
     {
-      "url": "https://edge.forgecdn.net/files/7055/149/SmartBrainLib-neoforge-1.21.1-1.16.11.jar"
+      "name": "SmartBrainLib (Forge/Fabric/Quilt)",
+      "url": "https://edge.forgecdn.net/files/7055/149/SmartBrainLib-neoforge-1.21.1-1.16.11.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/smartbrainlib",
+      "sha1": "0310135a01eeceefbc7f1ab017498a65f3ad6836",
+      "size": 391053
     },
     {
-      "url": "https://edge.forgecdn.net/files/7374/98/solcarrot-1.21.1-1.16.6.jar"
+      "name": "Spice of Life: Carrot Edition",
+      "url": "https://edge.forgecdn.net/files/7374/98/solcarrot-1.21.1-1.16.6.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/spice-of-life-carrot-edition",
+      "sha1": "32e9bbe18ae1f2f7f672ce08af51ec1928599182",
+      "size": 105355
     },
     {
-      "url": "https://edge.forgecdn.net/files/7638/376/starbunclemania-1.21.1-1.5.6.jar"
+      "name": "StarbuncleMania",
+      "url": "https://edge.forgecdn.net/files/7638/376/starbunclemania-1.21.1-1.5.6.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/starbunclemania",
+      "sha1": "9e1c635c3d2ea1fd014368adc704f49a3f004e3f",
+      "size": 690200
     },
     {
-      "url": "https://edge.forgecdn.net/files/7947/658/storagedelight-26.04.18a%2b1.21-neoforge.jar"
+      "name": "Storage Delight (Forge & Neoforge)",
+      "url": "https://edge.forgecdn.net/files/7947/658/storagedelight-26.04.18a%2b1.21-neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/storage-delight-forge",
+      "sha1": "90e93bec0d9bcee0ba745c51acc47cd152fdb9ef",
+      "size": 658895
     },
     {
-      "url": "https://edge.forgecdn.net/files/7850/172/Structory_26.1_v1.3.16.jar"
+      "name": "Structory",
+      "url": "https://edge.forgecdn.net/files/7850/172/Structory_26.1_v1.3.16.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/structory",
+      "sha1": "ee48f145a3a09fdb3f492576cbc21ed26abc74bb",
+      "size": 1261336
     },
     {
-      "url": "https://edge.forgecdn.net/files/7842/394/Structory_Towers_26.1_v1.0.16.jar"
+      "name": "Structory: Towers",
+      "url": "https://edge.forgecdn.net/files/7842/394/Structory_Towers_26.1_v1.0.16.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/structory-towers",
+      "sha1": "ed22fe659cb3020f2e86b7619ce721714b9546be",
+      "size": 491545
     },
     {
-      "url": "https://edge.forgecdn.net/files/7895/93/structurify-neoforge-2.0.22%2bmc1.21.1.jar"
+      "name": "Structurify – Structure Control",
+      "url": "https://edge.forgecdn.net/files/7895/93/structurify-neoforge-2.0.22%2bmc1.21.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/structurify",
+      "sha1": "6c6e5c2edc956b2e1fb6909599b862bc2fe68dc4",
+      "size": 372970
     },
     {
-      "url": "https://edge.forgecdn.net/files/6054/947/TerraBlender-neoforge-1.21.1-4.1.0.8.jar"
+      "name": "TerraBlender (NeoForge)",
+      "url": "https://edge.forgecdn.net/files/6054/947/TerraBlender-neoforge-1.21.1-4.1.0.8.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/terrablender-neoforge",
+      "sha1": "2016eed89eac0eb0510d2190c3b0b80bf4346191",
+      "size": 120364
     },
     {
-      "url": "https://edge.forgecdn.net/files/7555/622/tiab-neoforge-6.5.4.jar"
+      "name": "Time in a Bottle",
+      "url": "https://edge.forgecdn.net/files/7555/622/tiab-neoforge-6.5.4.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/time-in-a-bottle",
+      "sha1": "3e6beaac5dbc48627263fee0a864db16eda53529",
+      "size": 77755
     },
     {
-      "url": "https://edge.forgecdn.net/files/6109/580/tiabcurio-neoforge-1.21.1-3.0.1.jar"
+      "name": "Time in a bottle Curio Support",
+      "url": "https://edge.forgecdn.net/files/6109/580/tiabcurio-neoforge-1.21.1-3.0.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/time-in-a-bottle-curio-support",
+      "sha1": "9cf9dcc79ac84d3175c1f3bb5c4aa510fff02ae9",
+      "size": 22126
     },
     {
-      "url": "https://edge.forgecdn.net/files/6726/370/tidal-towns-1.3.4.jar"
+      "name": "Tidal Towns",
+      "url": "https://edge.forgecdn.net/files/6726/370/tidal-towns-1.3.4.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/tidal-towns",
+      "sha1": "ef3e419d3ef610cae6117b396e0a74b9a40be635",
+      "size": 110050
     },
     {
-      "url": "https://edge.forgecdn.net/files/7266/606/timm-1.1-neoforge-1.21.jar"
+      "name": "The Immersive Music Mod",
+      "url": "https://edge.forgecdn.net/files/7266/606/timm-1.1-neoforge-1.21.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/the-immersive-music-mod",
+      "sha1": "85f907fcbebc25bba32e0af4abcdc55205c45146",
+      "size": 155331913
     },
     {
-      "url": "https://edge.forgecdn.net/files/6444/221/wizard_tower-1.0.2-neoforge-1.21.1.jar"
+      "name": "Wizard Tower",
+      "url": "https://edge.forgecdn.net/files/6444/221/wizard_tower-1.0.2-neoforge-1.21.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/wizard-tower",
+      "sha1": "d3f8de4b089662d29bc612ca34d35944b40424b7",
+      "size": 53514
     },
     {
-      "url": "https://edge.forgecdn.net/files/6872/525/xycraft_core-0.7.53-all.jar"
+      "name": "XyCraft",
+      "url": "https://edge.forgecdn.net/files/6872/525/xycraft_core-0.7.53-all.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/xycraft",
+      "sha1": "c734345c9c5eff8f50551a344fff6b5f1c14c6e7",
+      "size": 2327963
     },
     {
-      "url": "https://edge.forgecdn.net/files/6872/531/xycraft_override-0.7.53.jar"
+      "name": "XyCraft: Override",
+      "url": "https://edge.forgecdn.net/files/6872/531/xycraft_override-0.7.53.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/xycraft-override",
+      "sha1": "0fe04397966d3a6a04fd65b6d55a8e6b5623b7be",
+      "size": 905075
     },
     {
-      "url": "https://edge.forgecdn.net/files/6872/532/xycraft_world-0.7.53.jar"
+      "name": "XyCraft: World",
+      "url": "https://edge.forgecdn.net/files/6872/532/xycraft_world-0.7.53.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/xycraft-world",
+      "sha1": "100aed4d7cc9f10aa21f3571d9c367a4bd44cf6f",
+      "size": 1224337
     },
     {
-      "url": "https://edge.forgecdn.net/files/7437/845/yet_another_config_lib_v3-3.8.2%2b1.21.1-neoforge.jar"
+      "name": "YetAnotherConfigLib",
+      "url": "https://edge.forgecdn.net/files/7437/845/yet_another_config_lib_v3-3.8.2%2b1.21.1-neoforge.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/yacl",
+      "sha1": "fe270c9f6e0a8142cf316944087f5109cef08bbb",
+      "size": 1118651
     },
     {
-      "url": "https://edge.forgecdn.net/files/6715/463/YungsApi-1.21.1-NeoForge-5.1.6.jar"
+      "name": "YUNG's API (NeoForge)",
+      "url": "https://edge.forgecdn.net/files/6715/463/YungsApi-1.21.1-NeoForge-5.1.6.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/yungs-api-neoforge",
+      "sha1": "e1c394779fb9e038e4f7a1b4558d0432607d263b",
+      "size": 388678
     },
     {
-      "url": "https://edge.forgecdn.net/files/6939/522/YungsBetterCaves-1.21.1-NeoForge-3.1.4.jar"
+      "name": "YUNG's Better Caves (Forge/NeoForge)",
+      "url": "https://edge.forgecdn.net/files/6939/522/YungsBetterCaves-1.21.1-NeoForge-3.1.4.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/yungs-better-caves",
+      "sha1": "c7eaa25a8734525d7085e730728344242a177990",
+      "size": 392794
     },
     {
-      "url": "https://edge.forgecdn.net/files/6276/955/YungsBetterDesertTemples-1.21.1-NeoForge-4.1.5.jar"
+      "name": "YUNG's Better Desert Temples (NeoForge)",
+      "url": "https://edge.forgecdn.net/files/6276/955/YungsBetterDesertTemples-1.21.1-NeoForge-4.1.5.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/yungs-better-desert-temples-neoforge",
+      "sha1": "90529257dbd92558998c65178294bc7b2fd16a64",
+      "size": 905839
     },
     {
-      "url": "https://edge.forgecdn.net/files/5954/804/YungsBetterDungeons-1.21.1-NeoForge-5.1.4.jar"
+      "name": "YUNG's Better Dungeons (NeoForge)",
+      "url": "https://edge.forgecdn.net/files/5954/804/YungsBetterDungeons-1.21.1-NeoForge-5.1.4.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/yungs-better-dungeons-neoforge",
+      "sha1": "73a660c13063450e555e5e2c015ae24d606b32b4",
+      "size": 782160
     },
     {
-      "url": "https://edge.forgecdn.net/files/6300/968/YungsBetterEndIsland-1.21.1-NeoForge-3.1.2.jar"
+      "name": "YUNG's Better End Island (NeoForge)",
+      "url": "https://edge.forgecdn.net/files/6300/968/YungsBetterEndIsland-1.21.1-NeoForge-3.1.2.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/yungs-better-end-island-neoforge",
+      "sha1": "832f2c17425debe74a9f267f4136f1a0f0221d19",
+      "size": 398130
     },
     {
-      "url": "https://edge.forgecdn.net/files/5924/482/YungsBetterJungleTemples-1.21.1-NeoForge-3.1.2.jar"
+      "name": "YUNG's Better Jungle Temples (NeoForge)",
+      "url": "https://edge.forgecdn.net/files/5924/482/YungsBetterJungleTemples-1.21.1-NeoForge-3.1.2.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/yungs-better-jungle-temples-neoforge",
+      "sha1": "d6b7ce6cf351b09cbd23147ff166c35cfdc572e8",
+      "size": 795839
     },
     {
-      "url": "https://edge.forgecdn.net/files/5812/193/YungsBetterMineshafts-1.21.1-NeoForge-5.1.1.jar"
+      "name": "YUNG's Better Mineshafts (NeoForge)",
+      "url": "https://edge.forgecdn.net/files/5812/193/YungsBetterMineshafts-1.21.1-NeoForge-5.1.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/yungs-better-mineshafts-neoforge",
+      "sha1": "6a14e1d8201f068ca87ef8333e471c5378955906",
+      "size": 493967
     },
     {
-      "url": "https://edge.forgecdn.net/files/6606/621/YungsBetterNetherFortresses-1.21.1-NeoForge-3.1.5.jar"
+      "name": "YUNG's Better Nether Fortresses (NeoForge)",
+      "url": "https://edge.forgecdn.net/files/6606/621/YungsBetterNetherFortresses-1.21.1-NeoForge-3.1.5.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/yungs-better-nether-fortresses-neoforge",
+      "sha1": "4061ece2141475227646649046fc14c2da505922",
+      "size": 609639
     },
     {
-      "url": "https://edge.forgecdn.net/files/5924/487/YungsBetterOceanMonuments-1.21.1-NeoForge-4.1.2.jar"
+      "name": "YUNG's Better Ocean Monuments (NeoForge)",
+      "url": "https://edge.forgecdn.net/files/5924/487/YungsBetterOceanMonuments-1.21.1-NeoForge-4.1.2.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/yungs-better-ocean-monuments-neoforge",
+      "sha1": "fba629defdb92ad99ec4f411895afb6e19555a18",
+      "size": 1025571
     },
     {
-      "url": "https://edge.forgecdn.net/files/6272/264/YungsBetterStrongholds-1.21.1-NeoForge-5.1.3.jar"
+      "name": "YUNG's Better Strongholds (NeoForge)",
+      "url": "https://edge.forgecdn.net/files/6272/264/YungsBetterStrongholds-1.21.1-NeoForge-5.1.3.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/yungs-better-strongholds-neoforge",
+      "sha1": "5d06a5850af7c577612d4592706a8e156bbe1cbf",
+      "size": 461244
     },
     {
-      "url": "https://edge.forgecdn.net/files/5812/532/YungsBetterWitchHuts-1.21.1-NeoForge-4.1.1.jar"
+      "name": "YUNG's Better Witch Huts (NeoForge)",
+      "url": "https://edge.forgecdn.net/files/5812/532/YungsBetterWitchHuts-1.21.1-NeoForge-4.1.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/yungs-better-witch-huts-neoforge",
+      "sha1": "bbf6c91f4a2829c58bc024eaaab821986bc93de6",
+      "size": 174789
     },
     {
-      "url": "https://edge.forgecdn.net/files/5812/553/YungsBridges-1.21.1-NeoForge-5.1.1.jar"
+      "name": "YUNG's Bridges (NeoForge)",
+      "url": "https://edge.forgecdn.net/files/5812/553/YungsBridges-1.21.1-NeoForge-5.1.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/yungs-bridges-neoforge",
+      "sha1": "18099c2d54acd16bb8ab90a66f40fa16496d065e",
+      "size": 136820
     },
     {
-      "url": "https://edge.forgecdn.net/files/5812/546/YungsExtras-1.21.1-NeoForge-5.1.1.jar"
+      "name": "YUNG's Extras (NeoForge)",
+      "url": "https://edge.forgecdn.net/files/5812/546/YungsExtras-1.21.1-NeoForge-5.1.1.jar",
+      "website_url": "https://www.curseforge.com/minecraft/mc-mods/yungs-extras-neoforge",
+      "sha1": "62833733aaf407f36bdacf648ed4b2ef9940662b",
+      "size": 198183
     }
   ]
 }

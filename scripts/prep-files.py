@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import fnmatch
 import hashlib
+import json
 import tempfile
 import zipfile
 from pathlib import Path
@@ -156,40 +157,99 @@ def addon_file_name(addon: dict[str, object], installed_file: dict[str, object])
   return None
 
 
-def metadata_download_url(metadata: object) -> str | None:
+def optional_http_url(value: object) -> str | None:
+  if isinstance(value, str):
+    value = value.strip()
+    if value.startswith(("http://", "https://")):
+      return value
+
+  return None
+
+
+def metadata_http_url(metadata: object) -> str | None:
   if isinstance(metadata, dict):
     for key in ("downloadUrl", "downloadURL", "download_url", "url"):
-      value = metadata.get(key)
-      if isinstance(value, str) and value.startswith(("http://", "https://")):
+      value = optional_http_url(metadata.get(key))
+      if value is not None:
         return value
 
     for value in metadata.values():
-      nested_url = metadata_download_url(value)
+      nested_url = metadata_http_url(value)
       if nested_url is not None:
         return nested_url
 
   if isinstance(metadata, list):
     for value in metadata:
-      nested_url = metadata_download_url(value)
+      nested_url = metadata_http_url(value)
       if nested_url is not None:
         return nested_url
 
   return None
 
 
-def current_server_mod_entries(
-  minecraft_instance_json: Path,
-  exclude_patterns: list[str],
-) -> list[dict[str, str]]:
+def curseforge_hashes(installed_file: dict[str, object]) -> dict[str, str]:
+  hashes = installed_file.get("hashes")
+  if not isinstance(hashes, list):
+    return {}
+
+  result: dict[str, str] = {}
+  for hash_entry in hashes:
+    if not isinstance(hash_entry, dict):
+      continue
+
+    value = hash_entry.get("value")
+    if isinstance(value, str):
+      hash_value = value.strip()
+    else:
+      hash_value = None
+
+    if not hash_value:
+      continue
+
+    hash_type = hash_entry.get("type")
+    if hash_type == 1:
+      result["sha1"] = hash_value
+
+  return result
+
+
+def read_instance_json(minecraft_instance_json: Path) -> dict[str, object]:
   instance = read_json(minecraft_instance_json)
   if not isinstance(instance, dict):
     fail("minecraftinstance.json must contain a JSON object.")
 
+  return instance
+
+
+def neoforge_installer_url(neoforge_version: str) -> str:
+  installer_name = f"neoforge-{neoforge_version}-installer.jar"
+  return (
+    "https://maven.neoforged.net/releases/net/neoforged/neoforge/"
+    f"{neoforge_version}/{installer_name}"
+  )
+
+
+def neoforge_metadata(
+  neoforge_version: str,
+) -> dict[str, object]:
+  neoforge: dict[str, object] = {
+    "installer_url": neoforge_installer_url(neoforge_version),
+    "sha1_url": f"{neoforge_installer_url(neoforge_version)}.sha1",
+  }
+
+  return neoforge
+
+
+def current_server_mod_entries(
+  minecraft_instance_json: Path,
+  exclude_patterns: list[str],
+) -> list[dict[str, object]]:
+  instance = read_instance_json(minecraft_instance_json)
   installed_addons = instance.get("installedAddons")
   if not isinstance(installed_addons, list):
     fail("minecraftinstance.json is missing installedAddons.")
 
-  entries: list[tuple[str, int, int, dict[str, str]]] = []
+  entries: list[tuple[str, int, int, dict[str, object]]] = []
   missing: list[str] = []
   seen_keys: set[tuple[int, int]] = set()
   seen_urls: set[str] = set()
@@ -229,12 +289,17 @@ def current_server_mod_entries(
     if key in seen_keys:
       continue
 
-    url = metadata_download_url(installed_file)
+    url = metadata_http_url(installed_file)
     if url is None:
-      url = metadata_download_url(addon.get("latestFile"))
+      url = metadata_http_url(addon.get("latestFile"))
 
     if url is None:
       missing.append(f"{display_name} ({project_id}/{file_id}): missing download URL")
+      continue
+
+    hashes = curseforge_hashes(installed_file)
+    if "sha1" not in hashes:
+      missing.append(f"{display_name} ({project_id}/{file_id}): missing sha1 hash")
       continue
 
     seen_keys.add(key)
@@ -242,14 +307,35 @@ def current_server_mod_entries(
       continue
 
     seen_urls.add(url)
+    addon_name = addon.get("name")
+    if isinstance(addon_name, str) and addon_name.strip():
+      entry_name = addon_name.strip()
+    else:
+      entry_name = display_name
+
+    entry: dict[str, object] = {
+      "name": entry_name,
+      "url": url,
+    }
+
+    website_url = optional_http_url(addon.get("webSiteURL"))
+    if website_url is not None:
+      entry["website_url"] = website_url
+
+    sha1 = hashes.get("sha1")
+    if sha1:
+      entry["sha1"] = sha1
+
+    size = installed_file.get("fileLength")
+    if isinstance(size, int):
+      entry["size"] = size
+
     entries.append(
       (
         str(file_name).lower(),
         project_id,
         file_id,
-        {
-          "url": url,
-        },
+        entry,
       )
     )
 
@@ -311,16 +397,8 @@ def read_instance_versions(minecraft_instance_json: Path) -> tuple[str, str]:
   return minecraft_version, neoforge_version
 
 
-def neoforge_installer_url(neoforge_version: str) -> str:
-  installer_name = f"neoforge-{neoforge_version}-installer.jar"
-  return (
-    "https://maven.neoforged.net/releases/net/neoforged/neoforge/"
-    f"{neoforge_version}/{installer_name}"
-  )
-
-
-def sha256_file(path: Path) -> str:
-  digest = hashlib.sha256()
+def sha1_file(path: Path) -> str:
+  digest = hashlib.sha1()
   with path.open("rb") as file:
     while True:
       chunk = file.read(1024 * 1024)
@@ -414,21 +492,19 @@ def build_manifest(
   *,
   version: str,
   minecraft_version: str,
-  neoforge_version: str,
-  server_config_hash: str,
-  mods: list[dict[str, str]],
+  neoforge: dict[str, object],
+  server_config_sha1: str,
+  mods: list[dict[str, object]],
 ) -> dict[str, object]:
   return {
     "version": version,
     "pack": PACK_SLUG,
-    "schema_version": 1,
+    "schema_version": 2,
     "minecraft": minecraft_version,
-    "neoforge": {
-      "installer_url": neoforge_installer_url(neoforge_version),
-    },
+    "neoforge": neoforge,
     "server_config": {
       "url": server_config_release_url(version),
-      "sha256": server_config_hash,
+      "sha1": server_config_sha1,
     },
     "mods": mods,
   }
@@ -547,15 +623,16 @@ def main() -> int:
 
   log("Preparing server config ZIP...", quiet=args.quiet)
   write_server_config_zip(pack_configs_dir, server_zip)
-  server_config_hash = sha256_file(server_zip)
+  server_config_sha1 = sha1_file(server_zip)
   log(f"Created {server_zip}", quiet=args.quiet)
 
   mods = current_server_mod_entries(minecraft_instance_json, CLIENT_ONLY_PATTERNS)
+  neoforge = neoforge_metadata(neoforge_version)
   manifest = build_manifest(
     version=version,
     minecraft_version=minecraft_version,
-    neoforge_version=neoforge_version,
-    server_config_hash=server_config_hash,
+    neoforge=neoforge,
+    server_config_sha1=server_config_sha1,
     mods=mods,
   )
 
