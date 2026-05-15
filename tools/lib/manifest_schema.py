@@ -3,10 +3,132 @@ from __future__ import annotations
 import json
 import urllib.error
 import urllib.request
+import re
 from collections.abc import Iterable
 from typing import Any
 
-from jsonschema import Draft202012Validator, FormatChecker
+try:
+  from jsonschema import Draft202012Validator, FormatChecker
+except ModuleNotFoundError:
+  class FormatChecker:
+    pass
+
+
+  class _FallbackValidationError:
+    def __init__(
+      self,
+      message: str,
+      *,
+      path: tuple[object, ...] = (),
+      schema_path: tuple[object, ...] = (),
+      validator: str = "<unknown>",
+    ) -> None:
+      self.message = message
+      self.path = path
+      self.schema_path = schema_path
+      self.validator = validator
+
+
+  def _type_matches(instance: Any, expected: str) -> bool:
+    if expected == "object":
+      return isinstance(instance, dict)
+    if expected == "array":
+      return isinstance(instance, list)
+    if expected == "string":
+      return isinstance(instance, str)
+    if expected == "integer":
+      return isinstance(instance, int) and not isinstance(instance, bool)
+    if expected == "number":
+      return isinstance(instance, (int, float)) and not isinstance(instance, bool)
+    if expected == "boolean":
+      return isinstance(instance, bool)
+    if expected == "null":
+      return instance is None
+    return True
+
+
+  def _fallback_iter_errors(
+    instance: Any,
+    schema: dict[str, object],
+    *,
+    path: tuple[object, ...] = (),
+    schema_path: tuple[object, ...] = (),
+  ) -> list[_FallbackValidationError]:
+    errors: list[_FallbackValidationError] = []
+
+    schema_type = schema.get("type")
+    if isinstance(schema_type, str) and not _type_matches(instance, schema_type):
+      errors.append(
+        _FallbackValidationError(
+          f"{instance!r} is not of type {schema_type!r}",
+          path=path,
+          schema_path=schema_path + ("type",),
+          validator="type",
+        )
+      )
+      return errors
+
+    if isinstance(instance, dict):
+      required = schema.get("required")
+      if isinstance(required, list):
+        for key in required:
+          if isinstance(key, str) and key not in instance:
+            errors.append(
+              _FallbackValidationError(
+                f"'{key}' is a required property",
+                path=path,
+                schema_path=schema_path + ("required",),
+                validator="required",
+              )
+            )
+
+      properties = schema.get("properties")
+      if isinstance(properties, dict):
+        for key, child_schema in properties.items():
+          if key in instance and isinstance(child_schema, dict):
+            errors.extend(
+              _fallback_iter_errors(
+                instance[key],
+                child_schema,
+                path=path + (key,),
+                schema_path=schema_path + ("properties", key),
+              )
+            )
+
+    if isinstance(instance, list):
+      items = schema.get("items")
+      if isinstance(items, dict):
+        for index, value in enumerate(instance):
+          errors.extend(
+            _fallback_iter_errors(
+              value,
+              items,
+              path=path + (index,),
+              schema_path=schema_path + ("items",),
+            )
+          )
+
+    if isinstance(instance, str):
+      pattern = schema.get("pattern")
+      if isinstance(pattern, str) and re.search(pattern, instance) is None:
+        errors.append(
+          _FallbackValidationError(
+            f"{instance!r} does not match {pattern!r}",
+            path=path,
+            schema_path=schema_path + ("pattern",),
+            validator="pattern",
+          )
+        )
+
+    return errors
+
+
+  class Draft202012Validator:
+    def __init__(self, schema: dict[str, object], format_checker: FormatChecker | None = None) -> None:
+      self.schema = schema
+
+    def iter_errors(self, instance: Any):
+      yield from _fallback_iter_errors(instance, self.schema)
 
 from lib.common import fail
 

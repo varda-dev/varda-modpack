@@ -4,7 +4,6 @@ import json
 import io
 import sys
 import unittest
-import types
 from pathlib import Path
 from contextlib import redirect_stderr
 from unittest.mock import patch
@@ -13,26 +12,6 @@ ROOT_DIR = Path(__file__).resolve().parents[2]
 TOOLS_DIR = ROOT_DIR / "tools"
 if str(TOOLS_DIR) not in sys.path:
   sys.path.insert(0, str(TOOLS_DIR))
-
-if "jsonschema" not in sys.modules:
-  try:
-    import jsonschema  # type: ignore  # noqa: F401
-  except ModuleNotFoundError:
-    jsonschema_stub = types.ModuleType("jsonschema")
-
-    class _Draft202012Validator:
-      def __init__(self, *args, **kwargs) -> None:
-        pass
-
-      def iter_errors(self, instance):
-        return []
-
-    class _FormatChecker:
-      pass
-
-    jsonschema_stub.Draft202012Validator = _Draft202012Validator
-    jsonschema_stub.FormatChecker = _FormatChecker
-    sys.modules["jsonschema"] = jsonschema_stub
 
 from lib import manifest_schema
 

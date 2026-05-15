@@ -39,11 +39,7 @@ All tools support `-h` / `--help`.
 ### Common Tools
 - [`tools/locate.py`](tools/locate.py) locates a structure from chunk coordinates.
 - [`tools/advancements.py`](tools/advancements.py) extracts displayed Minecraft and mod advancements.
-- [`tools/copy-confs.py`](tools/copy-confs.py) copies FTB Quests and Structurify configuration from the instance into this repo.
-- [`tools/reset-sync.py`](tools/reset-sync.py) resets the instance configuration and syncs repository files back into it.
-- [`tools/prep-files.py`](tools/prep-files.py) prepares release artifacts.
-- [`tools/cf-upload.py`](tools/cf-upload.py) uploads the CurseForge client ZIP.
-- [`tools/gh-upload.py`](tools/gh-upload.py) uploads the server config ZIP to GitHub Releases.
+- [`tools/varda.py`](tools/varda.py) is the master CLI for reset, prep, copy, `curseforge`, and GitHub release commands.
 
 ## Release Workflow
 Typical release flow:
@@ -51,19 +47,19 @@ Typical release flow:
 1. Build the release artifacts:
 
    ```bash
-   .\tools\prep-files.py -v 0.1.2 -r beta -q
+   .\tools\varda.py prep -v 0.1.2 -r beta -q
    ```
 
 2. Upload the CurseForge client ZIP:
 
    ```bash
-   .\tools\cf-upload.py -v 0.1.2 -r beta -c "A meaningful comment."
+   .\tools\varda.py curseforge push -v 0.1.2 -r beta -c "A meaningful comment."
    ```
 
 3. Upload the server config ZIP to GitHub Releases:
 
    ```bash
-   .\tools\gh-upload.py -v 0.1.2 -c "A meaningful comment."
+   .\tools\varda.py github push -v 0.1.2 -c "A meaningful comment."
    ```
 
 4. Push the repo so GitHub Pages picks up the generated [`docs/manifest.json`](docs/manifest.json).
