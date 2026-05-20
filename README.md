@@ -1,6 +1,6 @@
 # Varda Modpack
 
-Tools and content for building and publishing the Varda CurseForge client pack, server config ZIP, and GitHub Pages manifest.
+Tools and content for building and publishing the Varda CurseForge client pack, server config ZIP, and Blockforge server manifest.
 
 ## Environment Setup
 Create a `.env` file in the repo root:
@@ -8,7 +8,6 @@ Create a `.env` file in the repo root:
 ```ini
 CURSEFORGE_INSTANCE_DIR=""
 CURSEFORGE_API_TOKEN=""
-GITHUB_RELEASES_PAT=""
 MODRINTH_API_TOKEN=""
 ```
 
@@ -16,7 +15,6 @@ These values are read by the tools when needed. They are not injected into your 
 
 - `CURSEFORGE_INSTANCE_DIR` should point at the local CurseForge instance directory for the pack.
 - `CURSEFORGE_API_TOKEN` is used for CurseForge uploads.
-- `GITHUB_RELEASES_PAT` is used for GitHub Releases uploads.
 - `MODRINTH_API_TOKEN` is used by Modrinth-related tooling.
 
 ## Tooling
@@ -39,7 +37,7 @@ All tools support `-h` / `--help`.
 ### Common Tools
 - [`tools/locate.py`](tools/locate.py) locates a structure from chunk coordinates.
 - [`tools/advancements.py`](tools/advancements.py) extracts displayed Minecraft and mod advancements.
-- [`tools/varda.py`](tools/varda.py) is the master CLI for reset, prep, copy, `curseforge`, and GitHub release commands.
+- [`tools/varda.py`](tools/varda.py) is the master CLI for reset, prep, copy, and `curseforge` commands.
 
 ## Release Workflow
 Typical release flow:
@@ -59,10 +57,16 @@ Typical release flow:
 3. Upload the server config ZIP to GitHub Releases:
 
    ```bash
-   .\tools\varda.py github push -v 0.1.2 -c "A meaningful comment."
+   gh release create v0.1.2 .\tmp\release\varda-server-config-0.1.2.zip --title "Varda 0.1.2" --notes "A meaningful comment."
    ```
 
-4. Push the repo so GitHub Pages picks up the generated [`docs/manifest.json`](docs/manifest.json).
+   To replace the ZIP on an existing release:
+
+   ```bash
+   gh release upload v0.1.2 .\tmp\release\varda-server-config-0.1.2.zip --clobber
+   ```
+
+4. Push the repo so GitHub Pages picks up the generated Blockforge [`docs/manifest.json`](docs/manifest.json).
 
 ## Repository Layout
 - `pack-configs/config` is the main Minecraft `config` directory.
@@ -70,7 +74,7 @@ Typical release flow:
 - `pack-configs/kubejs` contains KubeJS config plus client and server scripts.
 - `pack-configs/profileImage`, `pack-configs/shaderpacks`, and `pack-configs/optionsshaders.txt` are synced into the instance when present.
 - `tools/tests/` contains unit tests for the release tooling.
-- `docs/` contains the published Pages manifest and related output.
+- `docs/` contains the published Blockforge manifest and related Pages output.
 
 ## Notes
 - Keep `pack-configs` authoritative for content that should ship in the pack.

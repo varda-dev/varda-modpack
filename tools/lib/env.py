@@ -9,7 +9,6 @@ REPO_ROOT = SCRIPT_DIR.parent
 DEFAULT_ENV_PATH = REPO_ROOT / ".env"
 CURSEFORGE_INSTANCE_DIR = "CURSEFORGE_INSTANCE_DIR"
 CURSEFORGE_API_TOKEN = "CURSEFORGE_API_TOKEN"
-GITHUB_RELEASES_PAT = "GITHUB_RELEASES_PAT"
 
 
 def load_dotenv(path: Path = DEFAULT_ENV_PATH) -> dict[str, str]:
@@ -93,11 +92,3 @@ def get_curseforge_api_token() -> str:
     return raw_value
 
   return env_required(load_dotenv(), CURSEFORGE_API_TOKEN)
-
-
-def get_github_releases_pat() -> str:
-  raw_value = os.environ.get(GITHUB_RELEASES_PAT, "").strip()
-  if raw_value:
-    return raw_value
-
-  return env_required(load_dotenv(), GITHUB_RELEASES_PAT)

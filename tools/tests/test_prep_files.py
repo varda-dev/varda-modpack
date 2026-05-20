@@ -22,6 +22,8 @@ prep_files = importlib.util.module_from_spec(spec)
 sys.modules[spec.name] = prep_files
 spec.loader.exec_module(prep_files)
 
+from lib import varda_commands
+
 
 class PrepFilesTests(unittest.TestCase):
   def test_copy_client_manifest_refreshes_loader_and_version(self) -> None:
@@ -109,6 +111,40 @@ class PrepFilesTests(unittest.TestCase):
         ],
       )
       self.assertNotIn("neoforge-21.1.228", json.dumps(manifest))
+
+  def test_build_manifest_uses_blockforge_schema_shape(self) -> None:
+    manifest = varda_commands.build_manifest(
+      version="0.1.14",
+      minecraft_version="1.21.1",
+      loader={
+        "type": "neoforge",
+        "version": "21.1.229",
+        "installer_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.229/neoforge-21.1.229-installer.jar",
+        "sha1": "7b6f8512bb5f6a2c5d83e3385016da9813d3589b",
+      },
+      server_config_sha1="0123456789abcdef0123456789abcdef01234567",
+      mods=[
+        {
+          "name": "Example Mod",
+          "url": "https://example.com/example.jar",
+          "website_url": "https://example.com/mods/example",
+          "sha1": "76543210fedcba9876543210fedcba9876543210",
+          "size": 123,
+        }
+      ],
+    )
+
+    self.assertEqual(manifest["schema_version"], 1)
+    self.assertEqual(
+      manifest["loader"],
+      {
+        "type": "neoforge",
+        "version": "21.1.229",
+        "installer_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.229/neoforge-21.1.229-installer.jar",
+        "sha1": "7b6f8512bb5f6a2c5d83e3385016da9813d3589b",
+      },
+    )
+    self.assertNotIn("neoforge", manifest)
 
 
 if __name__ == "__main__":

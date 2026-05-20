@@ -20,8 +20,8 @@ These notes apply to the whole repository. Varda is a Minecraft modpack centered
 - `pack-configs/profileImage/` contains pack branding assets.
 - `pack-configs/shaderpacks/` and `pack-configs/optionsshaders.txt` are synced when present.
 - `configureddefaults` is not used.
-- `docs/manifest.json` is the GitHub Pages manifest for the separate server installer repo.
-- `docs/index.html` is a manually maintained static landing page. `scripts/prep-files.py` must not generate it.
+- `docs/manifest.json` is the Blockforge server manifest for the separate server installer repo.
+- `docs/index.html` is a manually maintained static landing page. `tools/varda.py prep` must not generate it.
 - `docs/MODS.md` tracks important mod dependency notes.
 - `scripts/` contains PowerShell and shell helper scripts for local development.
 - `.codex/skills/ftb-quests/SKILL.md` is the repo-local reusable skill template for Varda quest work.
@@ -29,16 +29,16 @@ These notes apply to the whole repository. Varda is a Minecraft modpack centered
 - `tmp/release/` is generated release output. It may contain the CurseForge client zip, `varda-server-config-<version>.zip`, and related build artifacts.
 - `pack-docs/` is human-facing markdown only. Do not treat it as agent source of truth for workflow or policy.
 
-## Python Script Reference
+## Python Tool Reference
 
-- `scripts/prep-files.py` builds the CurseForge client zip, `tmp/release/varda-server-config-<version>.zip`, and `docs/manifest.json`.
-- `scripts/prep-files.py` always overwrites `docs/manifest.json`, but only overwrites release artifacts in `tmp/release/` when `-f/--force` is given.
-- `scripts/cf-upload.py` uploads to CurseForge. Default behavior uploads the client zip. `--client-only`, `--server-only`, `--parent-file-id`, and `--dry-run` are supported.
-- `scripts/gh-upload.py` uploads the server config ZIP to GitHub Releases.
-- `scripts/reset-sync.py` resets a local CurseForge instance and copies the repo's synced files into it.
-- `scripts/copy-confs.py` pulls FTB Quests and Structurify config files back from the configured instance into the repo.
-- `scripts/advancements.py` extracts displayed advancement metadata from the vanilla jar and mod jars. `--discover` scans instance mods for jars with displayed advancements that are not already in `DEFAULT_MOD_PATTERNS`.
-- `scripts/locate.py` reports structure IDs recorded in the chunk containing the requested block coordinates across all saves in the configured instance.
+- `tools/varda.py prep` builds the CurseForge client zip, `tmp/release/varda-server-config-<version>.zip`, and Blockforge `docs/manifest.json`.
+- `tools/varda.py prep` always overwrites `docs/manifest.json`, but only overwrites release artifacts in `tmp/release/` when `-f/--force` is given.
+- `tools/varda.py curseforge push` uploads the client zip to CurseForge. `--parent-file-id` and `--dry-run` are supported.
+- Use the GitHub CLI to upload `tmp/release/varda-server-config-<version>.zip` to GitHub Releases.
+- `tools/varda.py reset` resets a local CurseForge instance and copies the repo's synced files into it.
+- `tools/varda.py copy` pulls FTB Quests and Structurify config files back from the configured instance into the repo.
+- `tools/advancements.py` extracts displayed advancement metadata from the vanilla jar and mod jars. `--discover` scans instance mods for jars with displayed advancements that are not already in `DEFAULT_MOD_PATTERNS`.
+- `tools/locate.py` reports structure IDs recorded in the chunk containing the requested block coordinates across all saves in the configured instance.
 
 ## Quest Authoring
 
@@ -124,7 +124,7 @@ Quest guidance and FTB Quests workflow live here, not in `pack-docs/`. Use `.cod
 Be careful with sync scripts. They delete files in the configured instance directory. Do not run full wipes unless that is part of the task.
 `reset-sync.ps1 -FullWipe` should not delete `resourcepacks` or `shaderpacks`; CurseForge may not restore those automatically. It may delete generated cache folders such as `dynamic-data-pack-cache`, `dynamic-resource-pack-cache`, and `moonlight-global-datapacks`.
 Reset sync copies `pack-configs/config`, `pack-configs/defaultconfigs`, `pack-configs/kubejs`, `pack-configs/profileImage`, `pack-configs/shaderpacks`, and `pack-configs/optionsshaders.txt` when present. Files matching the hardcoded `*.disabled` exclude pattern are skipped during directory syncs.
-`scripts/prep-files.py` is the main local release prep command. It reads `CURSEFORGE_INSTANCE_DIR`, generates the client zip, generates the server config ZIP, and writes `docs/manifest.json` for Pages.
+`tools/varda.py prep` is the main local release prep command. It reads `CURSEFORGE_INSTANCE_DIR`, generates the client zip, generates the server config ZIP, and writes Blockforge `docs/manifest.json` for Pages.
 
 ## Mod And Config Policy
 
@@ -170,4 +170,4 @@ There is no conventional unit test suite for this repo. Verify changes with the 
 - Keep PowerShell scripts (`*.ps1`) CRLF-only with a final newline. After editing a PowerShell script with automation, verify `git ls-files --eol -- scripts/*.ps1` reports `w/crlf`.
 - Prefer ASCII in text files unless editing existing non-ASCII content.
 - When uncertain about current mod versions, CurseForge metadata, NeoForge behavior, or KubeJS syntax for the active Minecraft version, verify against current primary sources before changing configs.
-- Do not make `scripts/prep-files.py` generate or overwrite `docs/index.html`; keep that file static unless a human-authored update is intended.
+- Do not make `tools/varda.py prep` generate or overwrite `docs/index.html`; keep that file static unless a human-authored update is intended.

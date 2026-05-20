@@ -22,6 +22,8 @@ varda_cli = importlib.util.module_from_spec(spec)
 sys.modules[spec.name] = varda_cli
 spec.loader.exec_module(varda_cli)
 
+from lib import varda_commands
+
 
 class VardaCliTests(unittest.TestCase):
   def assert_help(self, parser, args: list[str], needles: list[str]) -> None:
@@ -49,7 +51,7 @@ class VardaCliTests(unittest.TestCase):
     self.assert_help(
       varda_cli.build_parser(),
       ["-h"],
-      needles=["reset", "prep", "copy", "curseforge", "github"],
+      needles=["reset", "prep", "copy", "curseforge"],
     )
 
   def test_master_reset_help(self) -> None:
@@ -87,20 +89,17 @@ class VardaCliTests(unittest.TestCase):
       needles=["--release-type", "--changelog"],
     )
 
-  def test_master_github_help(self) -> None:
-    self.assert_help(
-      varda_cli.build_parser(),
-      ["github", "-h"],
-      needles=["push"],
+  def test_generated_paths_are_repo_rooted(self) -> None:
+    self.assertEqual(varda_commands.TMP_DIR, ROOT_DIR / "tmp")
+    self.assertEqual(varda_commands.DOCS_DIR, ROOT_DIR / "docs")
+    self.assertEqual(
+      varda_commands.client_zip_path("0.1.16", "beta"),
+      ROOT_DIR / "tmp" / "release" / "varda-client-0.1.16-beta.zip",
     )
-
-  def test_master_github_push_help(self) -> None:
-    self.assert_help(
-      varda_cli.build_parser(),
-      ["github", "push", "-h"],
-      needles=["--replace-assets", "--tag"],
+    self.assertEqual(
+      varda_commands.server_config_zip_path("0.1.16"),
+      ROOT_DIR / "tmp" / "release" / "varda-server-config-0.1.16.zip",
     )
-
 
 if __name__ == "__main__":
   unittest.main()

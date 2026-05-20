@@ -133,7 +133,7 @@ except ModuleNotFoundError:
 from lib.common import fail
 
 
-MANIFEST_SCHEMA_URL = "https://varda-dev.github.io/varda-manifest/manifest.schema.json"
+MANIFEST_SCHEMA_URL = "https://rannday.github.io/blockforge-manifest/manifest.schema.json"
 _SCHEMA_CACHE: dict[str, object] | None = None
 
 

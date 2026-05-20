@@ -41,13 +41,16 @@ class ManifestSchemaTests(unittest.TestCase):
     schema = {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
-      "required": ["version", "neoforge", "server_config", "mods"],
+      "required": ["version", "schema_version", "minecraft", "loader", "server_config", "mods"],
       "properties": {
         "version": {"type": "string"},
-        "neoforge": {
+        "schema_version": {"type": "integer"},
+        "minecraft": {"type": "string"},
+        "loader": {
           "type": "object",
-          "required": ["version", "installer_url", "sha1"],
+          "required": ["type", "version", "installer_url", "sha1"],
           "properties": {
+            "type": {"type": "string"},
             "version": {"type": "string"},
             "installer_url": {
               "type": "string",
@@ -84,7 +87,10 @@ class ManifestSchemaTests(unittest.TestCase):
 
     manifest = {
       "version": "0.1.12",
-      "neoforge": {
+      "schema_version": 1,
+      "minecraft": "1.21.1",
+      "loader": {
+        "type": "neoforge",
         "version": "21.1.229",
         "installer_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.229/neoforge-21.1.229-installer.jar",
         "sha1": "7b6f8512bb5f6a2c5d83e3385016da9813d3589b",

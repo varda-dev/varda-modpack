@@ -10,7 +10,6 @@ from lib.varda_commands import (
 )
 from lib.curseforge import add_arguments as add_curseforge_arguments, run as run_curseforge
 from lib.copy import add_arguments as add_copy_arguments, run as run_copy
-from lib.github import add_arguments as add_github_push_arguments, run as run_github_push
 from lib.prep import add_arguments as add_prep_arguments, run as run_prep
 from lib.reset import add_arguments as add_reset_arguments, run as run_reset
 
@@ -62,28 +61,12 @@ def build_parser() -> argparse.ArgumentParser:
     help="Upload the CurseForge client ZIP.",
     description=(
       "Upload the Varda CurseForge client zip only. "
-      "Server config ZIPs are published with github push."
+      "Server config ZIPs are published to GitHub Releases with the GitHub CLI."
     ),
     formatter_class=HelpFormatter,
   )
   add_curseforge_arguments(cf_push_parser)
   cf_push_parser.set_defaults(func=run_curseforge)
-
-  github_parser = subparsers.add_parser(
-    "github",
-    help="GitHub release upload commands.",
-    description="GitHub release upload commands.",
-    formatter_class=HelpFormatter,
-  )
-  github_subparsers = github_parser.add_subparsers(dest="github_command", required=True)
-  github_push_parser = github_subparsers.add_parser(
-    "push",
-    help="Upload the server config ZIP to GitHub Releases.",
-    description="Upload Varda server config ZIP to GitHub Releases.",
-    formatter_class=HelpFormatter,
-  )
-  add_github_push_arguments(github_push_parser)
-  github_push_parser.set_defaults(func=run_github_push)
 
   return parser
 
